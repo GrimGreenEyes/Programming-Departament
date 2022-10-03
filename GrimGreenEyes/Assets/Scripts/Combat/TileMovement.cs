@@ -6,7 +6,7 @@ public class TileMovement : MonoBehaviour
 {
 
     [SerializeField] private float MovementSpeed;
-    [SerializeField] private Vector2 MovementPoint;
+    [SerializeField] private Vector3 MovementPoint;
     [SerializeField] private Vector2 offsetMovePoint;
     [SerializeField] private LayerMask obstacles;
     [SerializeField] private float radious;
@@ -24,7 +24,7 @@ public class TileMovement : MonoBehaviour
 
         if (moveing)
         {
-            transform.position = Vector2.MoveTowards(transform.position, MovementPoint, MovementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, MovementPoint, MovementSpeed * Time.deltaTime);
             
             if(Vector2.Distance(transform.position, MovementPoint) == 0)
             {
@@ -34,12 +34,12 @@ public class TileMovement : MonoBehaviour
 
         if ((input.x != 0 ^ input.y != 0) && !moveing)
         {
-            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint+ input;
+            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(0, 0, 45)* input).x, (Quaternion.Euler(0, 0, 45) * input).y);
 
             if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
             {
                 moveing = true;
-                MovementPoint += input;
+                MovementPoint += new Vector3((Quaternion.Euler(0, 0, 45) * input).x, (Quaternion.Euler(0, 0, 45) * input).y, 0);
             }
         }
     }

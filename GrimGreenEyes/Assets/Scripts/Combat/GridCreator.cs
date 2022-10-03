@@ -7,9 +7,7 @@ public class GridCreator : MonoBehaviour
 
     [SerializeField] private GameObject TilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
-    [SerializeField] private GameObject controller;
     [SerializeField] private GameObject[] players;
-    [SerializeField] private Camera MainCamera;
     public int width;
     public int height;
     private GameObject player;
@@ -17,14 +15,14 @@ public class GridCreator : MonoBehaviour
 
     private void Start()
     {
-        /*if (width < 16)
+        if (width < 20)
         {
-            width = 16;
+            width = 20;
         }
-        if (height < 9)
+        if (height < 19)
         {
-            height = 9;
-        }*/
+            height = 19;
+        }
         width = width + 2;
         height = height + 2;
         Create();
@@ -37,7 +35,8 @@ public class GridCreator : MonoBehaviour
         {
             for(float j = 0; j < height; j++)
             {
-                GameObject tile = Instantiate(TilePrefab, new Vector3(i + 0.5f, j + 0.5f, 0f), new Quaternion(0, 0, 0, 0), transform);
+                GameObject tile = Instantiate(TilePrefab, transform, false);
+                tile.transform.localPosition = new Vector3(i + 0.5f, j + 0.5f, 0);
                 tile.GetComponent<Tile>().Init((arrayPos++) % 2);
                 if (i == 0 || j == 0 || i == (width-1) || j == (height - 1))
                 {
@@ -82,17 +81,15 @@ public class GridCreator : MonoBehaviour
                 }
                 else if(Random.Range(0, 50) < 1)
                 {
-                    Instantiate(ObstaclePrefab, tile.transform.position , transform.rotation, tile.transform);
+                    Instantiate(ObstaclePrefab, tile.transform.position , Quaternion.Euler(0, 0, 0), tile.transform);
                 }
                 else if (j > 4 && playerArrayPos < players.Length)
                 {
-                    player = Instantiate(players[playerArrayPos], tile.transform.position + new Vector3(0, 0.5f, 0), tile.transform.rotation);
-                    controller.GetComponent<GameController>().Init(player, playerArrayPos);
+                    player = Instantiate(players[playerArrayPos], tile.transform.position + new Vector3(0, 0.5f, 0), new Quaternion(0, 0, 0, 0));
+                    GameController.instance.Init(player, playerArrayPos);
                     playerArrayPos++;
                 }
             }
         }
-        MainCamera.transform.position = new Vector3((float)width / 2, (float)height / 2, -7.7777f);
-        MainCamera.enabled = true;
     }
 }
