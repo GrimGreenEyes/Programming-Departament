@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
-        Debug.Log("Controlador activo");
     }
     private void OnDestroy()
     {

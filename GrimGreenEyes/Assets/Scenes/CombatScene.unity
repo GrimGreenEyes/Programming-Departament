@@ -154,13 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 6162045490399595235, guid: 5d9e086e829bba64ca673c3a2f6f7dea, type: 3}
   ObstaclePrefab: {fileID: 5419867194575542065, guid: 97fda6422c6666942a0cf0d0f05837ad, type: 3}
-  controller: {fileID: 1241752635}
   players:
   - {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
   - {fileID: 8404517906553258289, guid: eeda478b20745184892f29bfa2bb9ea7, type: 3}
-  MainCamera: {fileID: 1656361817}
-  width: 16
-  height: 9
+  width: 20
+  height: 19
 --- !u!4 &580428638
 Transform:
   m_ObjectHideFlags: 0
@@ -168,14 +166,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580428636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &1241752635
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,9 +261,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 43.5
-  orthographic: 0
-  orthographic size: 5
+  field of view: 100
+  orthographic: 1
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -297,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656361816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7330472, y: 0.39031425, z: 2.77777}
+  m_LocalPosition: {x: 0, y: 6.39, z: 2.77777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
