@@ -5,11 +5,14 @@ using UnityEngine;
 public class GridCreator : MonoBehaviour
 {
 
-    [SerializeField] private GameObject TilePrefab;
+    [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
     [SerializeField] private GameObject[] players;
-    public int width;
-    public int height;
+    public float width;
+    public float height;
+    private float i = 0;
+    private float j = 0;
+
     private GameObject player;
 
 
@@ -23,22 +26,22 @@ public class GridCreator : MonoBehaviour
         {
             height = 19;
         }
-        width = width + 2;
-        height = height + 2;
+        width = (width + 2) * tilePrefab.transform.localScale.x;
+        height = (height + 2) * tilePrefab.transform.localScale.y;
         Create();
     }
     private void Create()
     {
         int playerArrayPos = 0;
         int arrayPos = 0;
-        for( float i = 0; i < width; i++)
+        for(  i = 0; i < width;)
         {
-            for(float j = 0; j < height; j++)
+            for(j = 0; j < height; )
             {
-                GameObject tile = Instantiate(TilePrefab, transform, false);
+                GameObject tile = Instantiate(tilePrefab, transform, false);
                 tile.transform.localPosition = new Vector3(i + 0.5f, j + 0.5f, 0);
                 tile.GetComponent<Tile>().Init((arrayPos++) % 2);
-                if (i == 0 || j == 0 || i == (width-1) || j == (height - 1))
+                if (i == 0 || j == 0 || i == (width - tile.transform.localScale.x) || j == (height - tile.transform.localScale.y))
                 {
                     int border = 0;
                     
@@ -46,7 +49,7 @@ public class GridCreator : MonoBehaviour
                     {
                         border = 3;
                     }
-                    else if (i == 0 && j == height - 1)
+                    else if (i == 0 && j == height - tilePrefab.transform.localScale.y)
                     {
                         border = 1;
                     }
@@ -54,19 +57,19 @@ public class GridCreator : MonoBehaviour
                     {
                         border = 8;
                     }
-                    else if (i == width - 1 && j == height - 1)
+                    else if (i == width - tile.transform.localScale.x && j == height - tile.transform.localScale.y)
                     {
                         border = 2;
                     }
-                    else if (j == height - 1)
+                    else if (j == height - tile.transform.localScale.y)
                     {
                         border = 5;
                     }
-                    else if (i == width - 1 && j == 0)
+                    else if (i == width - tile.transform.localScale.x && j == 0)
                     {
                         border = 4;
                     }
-                    else if (i == width - 1)
+                    else if (i == width - tile.transform.localScale.x)
                     {
                         border = 6;
                     }
@@ -89,7 +92,9 @@ public class GridCreator : MonoBehaviour
                     GameController.instance.Init(player, playerArrayPos);
                     playerArrayPos++;
                 }
+                j = j + tilePrefab.transform.localScale.y;
             }
+            i = i + tilePrefab.transform.localScale.x;
         }
     }
 }
