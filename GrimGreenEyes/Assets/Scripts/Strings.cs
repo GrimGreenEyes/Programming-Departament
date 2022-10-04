@@ -6,4 +6,6 @@ public static class Strings
 {
     public const string PLANT = "PLANTAR";
     public const string ADD_TO_BLENDER = "AÑADIR AL MORTERO";
+    public const string LEVEL = "NIVEL: ";
+    public const string SKILLS = "HABILIDADES: ";
 }

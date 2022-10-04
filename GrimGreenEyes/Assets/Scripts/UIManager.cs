@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public List<Button> sceneElements = new List<Button>();
+    public PlantDetailsDisplay plantDetailsDisplay;
 
     private void Start()
     {
@@ -25,5 +26,10 @@ public class UIManager : MonoBehaviour
         {
             button.interactable = true;
         }
+    }
+
+    public void AddButton(Button button)
+    {
+        sceneElements.Add(button);
     }
 }
