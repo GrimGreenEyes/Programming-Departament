@@ -10,7 +10,16 @@ public class PathOptions : MonoBehaviour
   //  public Dictionary<GameObject,bool> opt = new Dictionary<GameObject, bool>();
 
 	[SerializeField] public SubClass[] myArray;
-	public void SetValue(int index, SubClass subClass)
+
+    private void OnDrawGizmos()
+    {
+		foreach(var x in myArray)
+        {
+			Gizmos.color = Color.blue;
+			Gizmos.DrawLine(this.transform.position, x.node.transform.position);
+		}
+	}
+    public void SetValue(int index, SubClass subClass)
 	{
 
 		// Perform any validation checks here.

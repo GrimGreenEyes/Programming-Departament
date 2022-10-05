@@ -11,7 +11,9 @@ public class Navigation : MonoBehaviour
     public GameObject camera;
     public float camSpeed;
 
-    private Vector3 camFuturePos;
+    public Vector3 camFuturePos;
+
+    //public Vector3 pathPos;
 
     void Start()
     {
@@ -40,9 +42,11 @@ public class Navigation : MonoBehaviour
                        //
             if(actualNode.GetComponent<PathOptions>().getGameobjects(node))
             {
+                Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
+            player.transform.position = mediumPos;
                 actualNode = node;
                 Debug.Log("cambia correcto");
-                player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
+                //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 
                 camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
                 //StartCoroutine(cameraMovement());
