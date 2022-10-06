@@ -13,11 +13,45 @@ public class Navigation : MonoBehaviour
 
     public Vector3 camFuturePos;
 
+    public GameObject globalVar;
+
     //public Vector3 pathPos;
+
+    public GameObject[] mapPrefabs;
+    //public Vector3[] mapPos;
+
+    public Vector3 mapPos = new Vector3(0,0,0);
+
+    private int level;
 
     void Start()
     {
-        
+        level = globalVar.GetComponent<globalVar>().level;
+        switch (level)
+        {
+            case 0:
+                Instantiate(mapPrefabs[0], mapPos, Quaternion.identity);
+                break;
+
+            case 1:
+                Instantiate(mapPrefabs[1], mapPos, Quaternion.identity);
+                //Instantiate(mapPrefabs[2], mapPos[2], Quaternion.identity);
+                break;
+
+            case 3:
+                /*Instantiate(mapPrefabs[3], mapPos[3], Quaternion.identity);
+                Instantiate(mapPrefabs[4], mapPos[4], Quaternion.identity);
+                Instantiate(mapPrefabs[5], mapPos[5], Quaternion.identity);
+                Instantiate(mapPrefabs[6], mapPos[6], Quaternion.identity);
+                */
+                Instantiate(mapPrefabs[2], mapPos, Quaternion.identity);
+
+                break;
+
+
+
+        }
+
     }
 
     // Update is called once per frame
@@ -43,22 +77,28 @@ public class Navigation : MonoBehaviour
             if(actualNode.GetComponent<PathOptions>().getGameobjects(node))
             {
                 Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
-            player.transform.position = mediumPos;
+                player.transform.position = mediumPos;
                 actualNode = node;
                 Debug.Log("cambia correcto");
                 //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 
                 camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
-                //StartCoroutine(cameraMovement());
+                
+                StartCoroutine(cameraMovement(node));
+
             }
             else
                 Debug.Log("not in list");
     }
 
-    IEnumerator cameraMovement(){
+    IEnumerator cameraMovement(GameObject node){
+        //Suponiendo que gana la partida
 
-            yield return new WaitForSeconds(5);
-            Debug.Log("Finished Coroutine ");
+            yield return new WaitForSeconds(1);
+            Debug.Log("Finished Coroutine::: PLAYER WON ");
+        player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
+        camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
+
 
 
     }

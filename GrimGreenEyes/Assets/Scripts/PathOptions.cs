@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,27 @@ public class PathOptions : MonoBehaviour
 
 	[SerializeField] public SubClass[] myArray;
 
-    private void OnDrawGizmos()
+	public GameObject navigationController;
+	public bool firstItem;
+	//public bool isLast;
+
+
+	private void Start()
+	{
+		navigationController = GameObject.Find("NavigationController");
+		if (firstItem)
+		{
+			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
+		}
+        /*if (isLast)
+		{
+			Array.Resize(ref myArray, myArray.Length + 1);
+			SubClass testt = new SubClass();
+			myArray[1] = testt;
+		}*/
+    }
+
+	private void OnDrawGizmos()
     {
 		foreach(var x in myArray)
         {
@@ -42,6 +63,11 @@ public class PathOptions : MonoBehaviour
         }
 		return false;
     }
+
+	public void navigate(GameObject thisNode)
+	{
+		navigationController.GetComponent<Navigation>().moveToNode(thisNode);
+	}
 }
 [System.Serializable]
 public class SubClass
