@@ -276,11 +276,8 @@ MonoBehaviour:
   mapPrefabs:
   - {fileID: 8694746253191296201, guid: 5f57d3b075479834c8930f3ab2cf29c5, type: 3}
   - {fileID: 845233171403189912, guid: 92e850670c0df0141ba0e293c72483da, type: 3}
+  - {fileID: 845233171403189912, guid: 5c15861331218dc4185c884ecb73bf7b, type: 3}
   - {fileID: 3579049386689704778, guid: 8b49e11af4a8c4840aa732147c9f26ec, type: 3}
-  - {fileID: 5195255063490507831, guid: af8540f56b5e06646ba47b75f55f299c, type: 3}
-  - {fileID: 1531978760969548243, guid: 00526fab6ece6ec42b30ffde8d323d0e, type: 3}
-  - {fileID: 6944416029111706692, guid: 31dbd5637522ce54a9fc1b72b5e3d746, type: 3}
-  - {fileID: 874959544864977303, guid: bb6871731c1503945a768bfe44c1a937, type: 3}
   mapPos: {x: 0, y: 0, z: 0}
 --- !u!4 &794946634
 Transform:
@@ -326,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c271a655aa7544ab4aaf4ce1cede35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
+  level: 2
 --- !u!4 &915653066
 Transform:
   m_ObjectHideFlags: 0

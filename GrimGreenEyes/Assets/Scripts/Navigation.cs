@@ -38,13 +38,18 @@ public class Navigation : MonoBehaviour
                 //Instantiate(mapPrefabs[2], mapPos[2], Quaternion.identity);
                 break;
 
+            case 2:
+                Instantiate(mapPrefabs[2], mapPos, Quaternion.identity);
+                break;
+
+
             case 3:
                 /*Instantiate(mapPrefabs[3], mapPos[3], Quaternion.identity);
                 Instantiate(mapPrefabs[4], mapPos[4], Quaternion.identity);
                 Instantiate(mapPrefabs[5], mapPos[5], Quaternion.identity);
                 Instantiate(mapPrefabs[6], mapPos[6], Quaternion.identity);
                 */
-                Instantiate(mapPrefabs[2], mapPos, Quaternion.identity);
+                Instantiate(mapPrefabs[3], mapPos, Quaternion.identity);
 
                 break;
 

@@ -226,9 +226,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: moveToNode
+      - m_Target: {fileID: 5044652296132924778}
+        m_TargetAssemblyTypeName: PathOptions, Assembly-CSharp
+        m_MethodName: navigate
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5044652296132924780}
@@ -253,8 +253,8 @@ MonoBehaviour:
   myArray:
   - node: {fileID: 5044652296381638386}
     isUp: 1
-  isLast: 0
-  test: {fileID: 0}
+  navigationController: {fileID: 0}
+  firstItem: 0
 --- !u!1 &5044652296381638386
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,9 +377,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: moveToNode
+      - m_Target: {fileID: 5044652296381637901}
+        m_TargetAssemblyTypeName: PathOptions, Assembly-CSharp
+        m_MethodName: navigate
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5044652296381638386}
@@ -404,8 +404,8 @@ MonoBehaviour:
   myArray:
   - node: {fileID: 5044652296508600170}
     isUp: 1
-  isLast: 0
-  test: {fileID: 0}
+  navigationController: {fileID: 0}
+  firstItem: 0
 --- !u!1 &5044652296460436761
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,9 +528,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: moveToNode
+      - m_Target: {fileID: 5044652296460436759}
+        m_TargetAssemblyTypeName: PathOptions, Assembly-CSharp
+        m_MethodName: navigate
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5044652296460436761}
@@ -557,8 +557,8 @@ MonoBehaviour:
     isUp: 1
   - node: {fileID: 5044652296132924780}
     isUp: 1
-  isLast: 0
-  test: {fileID: 0}
+  navigationController: {fileID: 0}
+  firstItem: 0
 --- !u!1 &5044652296508600170
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: moveToNode
+      - m_Target: {fileID: 5044652296508600169}
+        m_TargetAssemblyTypeName: PathOptions, Assembly-CSharp
+        m_MethodName: navigate
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5044652296508600170}
@@ -710,5 +710,5 @@ MonoBehaviour:
     isUp: 1
   - node: {fileID: 5044652296460436761}
     isUp: 1
-  isLast: 0
-  test: {fileID: 0}
+  navigationController: {fileID: 0}
+  firstItem: 0
