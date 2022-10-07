@@ -14,6 +14,10 @@ public class PathOptions : MonoBehaviour
 
 	public GameObject navigationController;
 	public bool firstItem;
+	public GameObject path;
+	public LineRenderer line;
+
+	public List<LineRenderer> lines;
 	//public bool isLast;
 
 
@@ -24,13 +28,48 @@ public class PathOptions : MonoBehaviour
 		{
 			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
 		}
-        /*if (isLast)
+
+		if (firstItem)
 		{
-			Array.Resize(ref myArray, myArray.Length + 1);
-			SubClass testt = new SubClass();
-			myArray[1] = testt;
-		}*/
-    }
+			Vector3 thisPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1);
+			GameObject.Find("PLAYER").transform.position = thisPos;
+			bool cont = true;
+			var copy = myArray;
+			var itNode = gameObject;
+			line.SetPosition(0, gameObject.transform.position);
+			line.SetPosition(1, gameObject.transform.position);
+
+			while (cont)
+			{
+				if (copy.Length > 0)
+				{
+					//lines.Add(line);
+					//Instantiate(path, itNode.transform.position, copy[0].node.transform.position)
+					Vector3 itNodePos = new Vector3(itNode.transform.position.x, itNode.transform.position.y, -0f);
+					Vector3 copyNodePos = new Vector3(copy[0].node.transform.position.x, copy[0].node.transform.position.y, -0f);
+					//lines[lines.Count-1].SetPosition(0, itNodePos);
+					//lines[lines.Count-1].SetPosition(1, copyNodePos);
+					copy[0].node.GetComponent<PathOptions>().line.SetPosition(0, itNodePos);
+					copy[0].node.GetComponent<PathOptions>().line.SetPosition(1, copyNodePos);
+
+					Debug.Log(copy[0].node.name);
+					itNode = copy[0].node;
+					copy = copy[0].node.GetComponent<PathOptions>().myArray;
+					Debug.Log("line added");
+					//Debug.Log(lines.Count);
+				}
+				else
+					cont = false;
+			}
+			//}
+			/*if (isLast)
+			{
+				Array.Resize(ref myArray, myArray.Length + 1);
+				SubClass testt = new SubClass();
+				myArray[1] = testt;
+			}*/
+		}
+	}
 
 	private void OnDrawGizmos()
     {

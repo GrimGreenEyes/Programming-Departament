@@ -52,9 +52,6 @@ public class Navigation : MonoBehaviour
                 Instantiate(mapPrefabs[3], mapPos, Quaternion.identity);
 
                 break;
-
-
-
         }
 
     }
@@ -93,7 +90,7 @@ public class Navigation : MonoBehaviour
 
             }
             else
-                Debug.Log("not in list");
+                Debug.Log(node.name + "not in list");
     }
 
     IEnumerator cameraMovement(GameObject node){
