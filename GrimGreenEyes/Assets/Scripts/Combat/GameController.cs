@@ -86,5 +86,8 @@ public class GameController : MonoBehaviour
         input = (maxPlayer > number) ? number : input;
         characterSelected = input;
     }
-
+    public GameObject SelectedPlayer()
+    {
+        return characters[characterSelected];
+    }
 }

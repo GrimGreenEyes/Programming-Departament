@@ -4,43 +4,62 @@ using UnityEngine;
 
 public class GridCreator : MonoBehaviour
 {
+    public static GridCreator instance;
 
+    private GameObject[,] tileMap;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
     [SerializeField] private GameObject[] players;
-    public float width;
-    public float height;
-    private float i = 0;
-    private float j = 0;
+    private float width, height;
+    public int x, y;
 
     private GameObject player;
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+    private void OnDestroy()
+    {
+        if(instance == this)
+        {
+            instance = null;
+        }
+    }
 
     private void Start()
     {
-        if (width < 20)
+        if (x < 20)
         {
-            width = 20;
+            x = 20;
         }
-        if (height < 19)
+        if (y < 19)
         {
-            height = 19;
+            y = 19;
         }
-        width = (width + 2) * tilePrefab.transform.localScale.x;
-        height = (height + 2) * tilePrefab.transform.localScale.y;
+        width = (x + 2) * tilePrefab.transform.localScale.x;
+        height = (y + 2) * tilePrefab.transform.localScale.y;
+        tileMap = new GameObject[x + 2, y + 2];
         Create();
     }
     private void Create()
     {
         int playerArrayPos = 0;
         int arrayPos = 0;
-        for(  i = 0; i < width;)
+        x = 0;
+        y = 0;
+        for(float i = 0; i < width; x++)
         {
-            for(j = 0; j < height; )
+            y = 0;
+            for(float j = 0; j < height; y++)
             {
                 GameObject tile = Instantiate(tilePrefab, transform, false);
+                tileMap[x, y] = tile;
                 tile.transform.localPosition = new Vector3(i + 0.5f, j + 0.5f, 0);
-                tile.GetComponent<Tile>().Init((arrayPos++) % 2);
+                tile.GetComponent<Tile>().Init((arrayPos++) % 2, x, y);
                 if (i == 0 || j == 0 || i == (width - tile.transform.localScale.x) || j == (height - tile.transform.localScale.y))
                 {
                     int border = 0;
@@ -95,6 +114,70 @@ public class GridCreator : MonoBehaviour
                 j = j + tilePrefab.transform.localScale.y;
             }
             i = i + tilePrefab.transform.localScale.x;
+        }
+    }
+    private void Update()
+    {
+        for (int i = 0; i < tileMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < tileMap.GetLength(1); j++)
+            {
+                tileMap[i, j].GetComponent<Tile>().StopShine();
+            }
+        }
+    }
+    public void ShineTiles(int x, int y, int distance)
+    {
+        int auxY = y;
+        for(int i = x; i >= -distance + x; i--)
+        {
+            for(int j = y; j + i >= -distance + x + y; j--)
+            {
+                tileMap[i, j].GetComponent<Tile>().ShineTile();
+                if(j == 1)
+                {
+                    j = -6;
+                }
+            }
+            for (int j = y; j + i <= distance + x + auxY; j++)
+            {
+                tileMap[i, j].GetComponent<Tile>().ShineTile();
+                if (j == tileMap.GetLength(1) - 2)
+                {
+                    j = tileMap.GetLength(1) + 6;
+                }
+            }
+            if (i == 1)
+            {
+                i = -6;
+            }
+
+            auxY -= 2;
+        }
+        auxY = y;
+        for(int i = x; i <= distance + x; i++)
+        {
+            for(int j = y; j + i <= distance + x + y; j++)
+            {
+                tileMap[i, j].GetComponent<Tile>().ShineTile();
+                if(j == tileMap.GetLength(1) - 2)
+                {
+                    j = tileMap.GetLength(1) + 6;
+                }
+            }
+            for (int j = y; j + i >= -distance + x + auxY; j--)
+            {
+                tileMap[i, j].GetComponent<Tile>().ShineTile();
+                if (j == 1)
+                {
+                    j = -6;
+                }
+            }
+            if (i == tileMap.GetLength(0) - 2)
+            {
+                i = tileMap.GetLength(0) + 6;
+            }
+            auxY += 2;
         }
     }
 }
