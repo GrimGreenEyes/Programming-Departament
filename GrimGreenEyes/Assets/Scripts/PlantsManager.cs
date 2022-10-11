@@ -33,6 +33,7 @@ public class PlantsManager : MonoBehaviour
             pot.Planting(item.seedType);
         }
 
+        Debug.Log("E");
         msgWindow.ShowPlantingMsg(item.seedType);
     }
 
@@ -66,7 +67,7 @@ public class PlantsManager : MonoBehaviour
 
     public void WaterPlant(int plantIndex)
     {
-        if (plantsList[plantIndex] == null || waterTank.waterAmount <= 0)
+        if (plantsList[plantIndex] == null || waterTank.waterAmount <= 0 || (plantsList[plantIndex].plantState >= 2 && plantsList[plantIndex].healthPoints >= plantsList[plantIndex].maxHP))
         {
             return;
         }

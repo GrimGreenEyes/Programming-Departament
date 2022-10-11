@@ -67,6 +67,7 @@ public class Plant : MonoBehaviour
         else
         {
             healthPoints += 10;
+            if (healthPoints >= maxHP) healthPoints = maxHP;
         }
 
         UpdatePlantVisuals();
