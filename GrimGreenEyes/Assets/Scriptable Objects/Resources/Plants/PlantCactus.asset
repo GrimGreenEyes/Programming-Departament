@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: PlantCactus
   m_EditorClassIdentifier: 
   name: Cactus
-  sprite: {fileID: 0}
-  color: {r: 0.086275734, g: 0.49056602, b: 0.0485938, a: 1}
+  baseHP: 50
+  spriteSheet:
+  - {fileID: -1003929132, guid: ed65f5478b05b724c86cc1371c5432a0, type: 3}
+  - {fileID: -1902665578, guid: ed65f5478b05b724c86cc1371c5432a0, type: 3}
+  - {fileID: -650033695, guid: ed65f5478b05b724c86cc1371c5432a0, type: 3}
+  baseDamage: 20
+  baseMovement: 4
+  baseAgility: 15
+  baseInitiative: 4

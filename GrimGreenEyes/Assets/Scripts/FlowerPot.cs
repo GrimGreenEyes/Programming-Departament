@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FlowerPot : MonoBehaviour
 {
+    public int index;
     [SerializeField] private PlantsManager plantsManager;
     [SerializeField] private GameObject choosingBorder;
     private PlantType choosingPlant;
