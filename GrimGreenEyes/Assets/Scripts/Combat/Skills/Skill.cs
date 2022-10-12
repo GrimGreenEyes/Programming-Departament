@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isActiveSkill;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public virtual void Effect() { }
 }

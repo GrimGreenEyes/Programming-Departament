@@ -32,7 +32,6 @@ public class GameController : MonoBehaviour
     {
         characters[playerPos] = player;
         maxPlayer++;
-        
     }
     private void Update()
     {
@@ -85,6 +84,7 @@ public class GameController : MonoBehaviour
     {
         input = (maxPlayer > number) ? number : input;
         characterSelected = input;
+        PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
     }
     public GameObject SelectedPlayer()
     {

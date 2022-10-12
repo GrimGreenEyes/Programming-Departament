@@ -5,13 +5,16 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [Header("creation")]
-    [SerializeField] Color baseColor1, baseColor2, borderColor;
+    [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor;
 
     [SerializeField] private Sprite[] tileSprites;
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private GameObject onHover;
     [SerializeField] private GameObject shineLayer;
     [SerializeField] private BoxCollider2D collider;
+
+    [Header("InGame")]
+    public string description;
 
     private int positionX, positionY;
     private bool clickable = false;
@@ -44,12 +47,12 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        shineLayer.SetActive(true);
+        renderer.color = shineColor;
         clickable = true;
     }
     public void StopShine()
     {
-        shineLayer.SetActive(false);
+        renderer.color = (((positionX + positionY) % 2) == 0)? baseColor1 : baseColor2;
         clickable = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,18 +75,17 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (!clickable)
+        if (this.transform.childCount != 3)
         {
             return;
         }
-        if (this.transform.childCount != 2)
-        {
-            return;
-        }
+        TilePanel.instance.Hide();
+        TilePanel.instance.Change(gameObject);
         onHover.SetActive(true);
     }
     private void OnMouseExit()
     {
+        TilePanel.instance.Hide();
         onHover.SetActive(false);
     }
     private void OnMouseDown()
@@ -100,7 +102,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        GameController.instance.SelectedPlayer().transform.position = this.transform.position + new Vector3(0, 0.5f, 0);
+        GameController.instance.SelectedPlayer().GetComponent<TileMovement>().SetPosition(this);
     }
 
 }

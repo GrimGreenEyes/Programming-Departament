@@ -8,5 +8,21 @@ public class Attack : MonoBehaviour
     public int power;
     public int accuraty;
 
-    public void Effect() { }
+
+    public float freezeDamage = 0.7f;
+    public float heatDamage = 0.3f;
+
+    public int DamageCalculator(Plants enemy, Plants player)
+    {
+
+        float totalDefense = enemy.defense +
+            (
+            enemy.heatResistance * heatDamage
+            ) + (
+            enemy.freezeResistance * freezeDamage
+            );
+        float damage =  (player.attack + power) /totalDefense;
+        return (int)damage;
+    }
+    public virtual void Effect(GameObject ally, GameObject player) { }
 }

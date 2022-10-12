@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TileMovement : MonoBehaviour
 {
-
     [SerializeField] private float MovementSpeed;
     [SerializeField] private Vector3 MovementPoint;
+    [SerializeField] private Vector2 tileScale;
+    [SerializeField] private Vector3 angle;
     [SerializeField] private Vector2 offsetMovePoint;
     [SerializeField] private LayerMask obstacles;
     [SerializeField] private float radious;
     public bool moveing = false;
     private Vector2 input;
+    private int gridX, gridY;
 
     private void Start()
     {
@@ -34,13 +36,20 @@ public class TileMovement : MonoBehaviour
 
         if ((input.x != 0 ^ input.y != 0) && !moveing)
         {
-            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(0, 0, 45)* input).x, (Quaternion.Euler(0, 0, 45) * input).y);
+            angle = (input.y == 0)? new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg): new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg);
+            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle)* input).x, (Quaternion.Euler(angle) * input).y);
 
             if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
             {
                 moveing = true;
-                MovementPoint += new Vector3((Quaternion.Euler(0, 0, 45) * input).x, (Quaternion.Euler(0, 0, 45) * input).y, 0);
+                MovementPoint += new Vector3((Quaternion.Euler(angle) * input).x, (Quaternion.Euler(angle) * input).y, 0);
             }
         }
+    }
+    public void SetPosition(Tile tile)
+    {
+        gameObject.transform.position = tile.transform.position + new Vector3(0, 0.25f, 0);
+        MovementPoint = gameObject.transform.position;
+        
     }
 }
