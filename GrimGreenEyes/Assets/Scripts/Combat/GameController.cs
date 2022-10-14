@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour
 {
@@ -36,13 +37,7 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         
-        characters[characterSelected].GetComponent<TileMovement>().Move();
-
-        if (characters[characterSelected].GetComponent<TileMovement>().moveing)
-        {
-            return;
-        }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangePlayer(0);
@@ -78,16 +73,38 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             ChangePlayer(8);
-        }
+        }*/
     }
-    private void ChangePlayer(int number)
+    /*private void ChangePlayer(int number)
     {
         input = (maxPlayer > number) ? number : input;
         characterSelected = input;
+        PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
+    }*/
+    public void NextPlayer()
+    {
+        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState != Plants.PlantState.IDLE)
+        {
+            return;
+        }
+        Debug.Log(characterSelected);
+        characterSelected = (characterSelected + 1) % (characters.Length - 1);
         PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
     }
     public GameObject SelectedPlayer()
     {
         return characters[characterSelected];
     }
+    /*
+    public bool IsPointerOverUIObject(Touch touch)
+    {
+
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(touch.position.x, touch.position.y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
+    */
 }

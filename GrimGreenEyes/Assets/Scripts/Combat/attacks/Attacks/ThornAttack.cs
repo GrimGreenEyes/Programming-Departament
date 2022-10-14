@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ThornAttack : Attack
 {
-    private void Awake()
+    
+    public override void Effect(GameObject enemy, GameObject player)
     {
-        name = "Thorn Attack";
-        power = 50;
-        accuraty = 100;
-    }
-    public override void Effect(GameObject ally, GameObject player)
-    {
-        ally.GetComponent<Plants>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(ally.GetComponent<Plants>(), player.GetComponent<Plants>());
+        Debug.Log("Ataque cactus");
+        enemy.GetComponent<Plants>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Plants>(), player.GetComponent<Plants>());
 
     }
 }

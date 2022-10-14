@@ -8,9 +8,11 @@ public class PlayerPanel : MonoBehaviour
     public static PlayerPanel instance;
 
     [SerializeField] private Sprite[] plants;
+    [SerializeField] private GameObject buttonPref;
     [SerializeField] private Image image;
     [SerializeField] private TMP_Text livePointsText;
     [SerializeField] private TMP_Text nameText;
+    [SerializeField] private Transform[] butonPositions = new Transform[3];
 
 
     private void Awake()
@@ -29,9 +31,29 @@ public class PlayerPanel : MonoBehaviour
     }
     public void ChangePlayer(GameObject newPlant)
     {
-        image.sprite = newPlant.GetComponent<Plants>().HUDSprite;
-        nameText.SetText(newPlant.GetComponent<Plants>().name);
-        livePointsText.SetText(newPlant.GetComponent<Plants>().livePoints.ToString() + " / " + newPlant.GetComponent<Plants>().maxLivePoints.ToString());
+        Plants plant = newPlant.GetComponent<Plants>();
+        image.sprite = plant.HUDSprite;
+        nameText.SetText(plant.name);
+        livePointsText.SetText(plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString());
+        int x = 0;
+        for (int i = 0; i < plant.skills.Length; i++)
+        {
+            if(plant.skills[i] == null)
+            {
+                return;
+            }
+            if (butonPositions[i].childCount > 0)
+            {
+                Destroy(butonPositions[i].GetChild(0).gameObject);
+            }
+            if (plant.skills[i].isActiveSkill)
+            {
+                GameObject button = Instantiate(buttonPref, butonPositions[x], false);
+                button.GetComponent<ButtonManager>().Init(i);
+                button.transform.GetChild(0).GetComponent<TMP_Text>().text = plant.skills[i].name;
+                x++;
+            }
+        }
     }
-
+    
 }

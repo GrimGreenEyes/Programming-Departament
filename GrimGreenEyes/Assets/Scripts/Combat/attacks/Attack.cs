@@ -5,8 +5,8 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public new string name;
-    public int power;
-    public int accuraty;
+    public int range;
+    public int radious;
 
 
     public float freezeDamage = 0.7f;
@@ -21,8 +21,10 @@ public class Attack : MonoBehaviour
             ) + (
             enemy.freezeResistance * freezeDamage
             );
-        float damage =  (player.attack + power) /totalDefense;
+        float damage =  (player.attack) * totalDefense / 100f;
         return (int)damage;
     }
-    public virtual void Effect(GameObject ally, GameObject player) { }
+    public virtual void Effect(GameObject objective, GameObject player) {
+        Debug.Log("ataque base");
+    }
 }

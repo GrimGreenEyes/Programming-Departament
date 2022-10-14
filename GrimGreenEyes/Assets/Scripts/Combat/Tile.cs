@@ -5,13 +5,12 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [Header("creation")]
-    [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor;
+    [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor, enemyColor;
 
     [SerializeField] private Sprite[] tileSprites;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private GameObject onHover;
-    [SerializeField] private GameObject shineLayer;
-    [SerializeField] private BoxCollider2D collider;
+    [SerializeField] private new BoxCollider2D collider;
 
     [Header("InGame")]
     public string description;
@@ -33,14 +32,6 @@ public class Tile : MonoBehaviour
         renderer.sprite = tileSprites[border];
         collider.enabled = false;
     }
-    private void Update()
-    {
-        if(entity == GameController.instance.SelectedPlayer())
-        {
-            GridCreator.instance.ShineTiles(positionX, positionY, 5);
-        }
-    }
-
     public void ShineTile()
     {
         if (this.transform.childCount != 2)
@@ -48,7 +39,10 @@ public class Tile : MonoBehaviour
             return;
         }
         renderer.color = shineColor;
-        clickable = true;
+    }
+    public void SetClickable(bool isCliclabke)
+    {
+        clickable = isCliclabke;
     }
     public void StopShine()
     {
@@ -102,7 +96,18 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        GameController.instance.SelectedPlayer().GetComponent<TileMovement>().SetPosition(this);
+        /*if (!GameController.instance.IsPointerOverUIObject(Input.GetTouch(0)))
+        {
+        }*/
+        GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(this);
     }
-
+    
+    public int GetX()
+    {
+        return positionX;
+    }
+    public int GetY()
+    {
+        return positionY;
+    }
 }

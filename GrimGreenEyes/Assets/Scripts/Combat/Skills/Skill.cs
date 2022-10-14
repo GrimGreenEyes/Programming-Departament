@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    public new string name;
+    public string description;
     public bool isActiveSkill;
+    public int radious;
 
     public virtual void Effect() { }
 }
