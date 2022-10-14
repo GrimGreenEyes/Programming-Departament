@@ -8,6 +8,7 @@ public class nodesPicker : MonoBehaviour
 
     public GameObject[] nodesToPick;
     public Sprite[] mapsToPick;
+    public Sprite[] mapsElements;
 
     private int rand;
     //public GameObject firstChild;
@@ -21,6 +22,11 @@ public class nodesPicker : MonoBehaviour
 
         var randMaps = Random.Range(0, mapsToPick.Length);
         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick[randMaps];
+
+        if (mapsToPick[randMaps].name == "Desierto")
+        {
+
+        }
       /*  if (isFirstBiom)
         {
             foreach (Transform eachChild in transform)
