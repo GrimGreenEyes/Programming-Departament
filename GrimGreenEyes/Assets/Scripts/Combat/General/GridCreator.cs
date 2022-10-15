@@ -140,7 +140,7 @@ public class GridCreator : MonoBehaviour
     {
         int xEntity = row;
         int yEntity = 1;
-        for (int playerArrayPos = 0; playerArrayPos < players.Length; playerArrayPos++)
+        for (int playerArrayPos = 0; playerArrayPos < entitys.Length; playerArrayPos++)
         {
             yEntity = (tileMap[xEntity, yEntity].transform.childCount > 2) ? yEntity += 1 : yEntity;
             player = Instantiate(entitys[playerArrayPos], tileMap[xEntity, yEntity].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
@@ -151,6 +151,14 @@ public class GridCreator : MonoBehaviour
             yEntity += 2;
         }
 
+    }
+    public GameObject GetTile(int x, int y)
+    {
+        if(x < 0 || y < 0)
+        {
+            return null;
+        }
+        return tileMap[x, y];
     }
     private void createObstacles()
     {

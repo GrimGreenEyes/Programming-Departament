@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     private const float speed = 2f;
     private const float maxSize = 4;
     private const float minSize = 2f;
-    private Camera camera;
+    private new Camera camera;
     private float input;
     private bool moveingCamera = false;
     private Vector3 mouseStartPosition;

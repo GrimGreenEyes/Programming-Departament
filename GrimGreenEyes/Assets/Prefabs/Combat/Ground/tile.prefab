@@ -51,13 +51,15 @@ MonoBehaviour:
   baseColor2: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   borderColor: {r: 1, g: 1, b: 1, a: 0}
   shineColor: {r: 0, g: 0, b: 0, a: 1}
+  enemyColor: {r: 0, g: 0, b: 0, a: 0}
   tileSprites:
   - {fileID: 21300000, guid: b0cad27c55daa9c409f5fd0390777467, type: 3}
   renderer: {fileID: 4368756040188701946}
   onHover: {fileID: 4368756041002471843}
-  shineLayer: {fileID: 0}
   collider: {fileID: 4368756040188701949}
   description: groundTile
+  isWalkable: 1
+  weight: 1
 --- !u!50 &7840423886552744799
 Rigidbody2D:
   serializedVersion: 4

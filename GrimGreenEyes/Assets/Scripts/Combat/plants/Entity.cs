@@ -15,7 +15,8 @@ public class Entity : MonoBehaviour
     public int heatResistance;
     public int freezeResistance;
     public int agility;
-    public const int movement = 6;
+    public int movement;
+    public const int MAX_MOVEMENT = 6;
 
 
     public int attackMultiplayer;

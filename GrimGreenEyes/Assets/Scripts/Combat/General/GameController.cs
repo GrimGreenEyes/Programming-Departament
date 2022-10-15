@@ -36,59 +36,15 @@ public class GameController : MonoBehaviour
     }
     private void Update()
     {
-        
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChangePlayer(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChangePlayer(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ChangePlayer(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            ChangePlayer(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            ChangePlayer(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            ChangePlayer(5);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            ChangePlayer(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            ChangePlayer(7);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            ChangePlayer(8);
-        }*/
     }
-    /*private void ChangePlayer(int number)
-    {
-        input = (maxPlayer > number) ? number : input;
-        characterSelected = input;
-        PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
-    }*/
     public void NextPlayer()
     {
-        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState != Plants.PlantState.IDLE)
+        if (characters[characterSelected].GetComponent<Plants>().actualState != Plants.PlantState.IDLE)
         {
             return;
         }
-        Debug.Log(characterSelected);
         characterSelected = (characterSelected + 1) % (characters.Length - 1);
+        characters[characterSelected].GetComponent<Plants>().actualState = Plants.PlantState.START;
         PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
     }
     public GameObject SelectedPlayer()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -8,7 +9,7 @@ public class Plants : Entity
 
     public Sprite HUDSprite;
 
-    public enum PlantState { IDLE, MOVEING, ATTACKING, STUNED, USINGSKILL, FINISHED}
+    public enum PlantState {START, IDLE, MOVEING, ATTACKING, STUNED, USINGSKILL}
     public PlantState actualState = PlantState.IDLE;
 
     [Header("Combat")]
@@ -32,9 +33,11 @@ public class Plants : Entity
     private Vector2 direction;
     public int gridX, gridY;
 
+    private GameObject thisTile;
     private GameObject destination;
 
-
+    private List<GameObject> path;
+    private int pathPosition = 0;
 
 
     public void SetAttack(Attack newAttack)
@@ -47,14 +50,13 @@ public class Plants : Entity
     }
     private void OnMouseDown()
     {
-        if (GameController.instance.SelectedPlayer() == this.gameObject)
+        if(actualState == PlantState.USINGSKILL)
         {
-            Debug.Log("Same Player");
-            return;
+            if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[skillSelected].isbuffing)
+            {
+                GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[skillSelected].Effect();
+            }
         }
-        GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState = PlantState.ATTACKING;
-        GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.Effect(this.gameObject, GameController.instance.SelectedPlayer());
-
     }
     public void selectSkill(int position)
     {
@@ -75,13 +77,24 @@ public class Plants : Entity
     {
         switch (actualState)
         {
+            case PlantState.START:
+                movement = MAX_MOVEMENT;
+                actualState = PlantState.IDLE;
+                break;
             case PlantState.IDLE:
                 if (gameObject == GameController.instance.SelectedPlayer())
                 {
                     GridCreator.instance.ShineTiles(gridX, gridY, movement, true);
                 }
+                path = null;
                 break;
             case PlantState.MOVEING:
+                if (path == null)
+                {
+                    path = PathFinding.instance.AStar(thisTile, destination);
+                    Debug.Log(path);
+                    pathPosition = path.Count() - 1;
+                }
                 Move();
                 break;
             case PlantState.ATTACKING:
@@ -89,9 +102,6 @@ public class Plants : Entity
                 break;
             case PlantState.STUNED:
                 
-                break;
-            case PlantState.FINISHED:
-
                 break;
             case PlantState.USINGSKILL:
                 GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
@@ -109,31 +119,33 @@ public class Plants : Entity
     }
     public void Move()
     {
-        input.x = gridX - destination.GetComponent<Tile>().GetX();
-        input.y = destination.GetComponent<Tile>().GetY() - gridY;
-        direction = new Vector2(0, 0);
+        //input.x = gridX - destination.GetComponent<Tile>().GetX();
+        //input.y = destination.GetComponent<Tile>().GetY() - gridY;
+        //direction = new Vector2(0, 0);
         if (moveing)
         {
             transform.position = Vector3.MoveTowards(transform.position, MovementPoint, MovementSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, MovementPoint) == 0)
             {
+                movement--;
                 moveing = false;
+                pathPosition = (pathPosition <= 0)? 0 : pathPosition - 1;
                 
             }
         }
-        if (input.x != 0)
-        {
-            direction = new Vector2(0, input.x);
-        }
-        else if (input.y != 0)
-        {
-            direction = new Vector2(input.y, 0);
-        }
+        direction = new Vector2(path[pathPosition].GetComponent<Tile>().GetY() - gridY, gridX - path[pathPosition].GetComponent<Tile>().GetX());
+        //if (input.x != 0)
+        //{
+        //    direction = new Vector2(0, (input.x < 0) ? -1 : 1);
+        //}
+        //else if (input.y != 0)
+        //{
+        //    direction = new Vector2((input.y < 0) ? -1 : 1, 0);
+        //}
 
         if ((direction.x != 0 ^ direction.y != 0) && !moveing)
         {
-
 
             angle = (direction.y == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg);
             Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
@@ -143,11 +155,11 @@ public class Plants : Entity
                 moveing = true;
                 MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
             }
+            
         }
         if (transform.position == destination.GetComponent<Tile>().transform.position + new Vector3(0, 0.25f, 0))
         {
             GetComponent<Plants>().actualState = Plants.PlantState.IDLE;
-
         }
     }
     public void SetDestination(Tile tile)
@@ -162,7 +174,14 @@ public class Plants : Entity
             case "tile":
                 gridX = collision.gameObject.transform.parent.GetComponent<Tile>().GetX();
                 gridY = collision.gameObject.transform.parent.GetComponent<Tile>().GetY();
+                thisTile = collision.gameObject.transform.parent.gameObject;
                 break;
         }
+    }
+    int hPathFinding;
+    private void CalculateRoute(GameObject Destination)
+    {
+       
+
     }
 }

@@ -17,7 +17,9 @@ public class Tile : MonoBehaviour
 
     private int positionX, positionY;
     private bool clickable = false;
+    public bool isWalkable;
     private GameObject entity;
+    public int weight;
 
     public void Init(int color, int x, int y)
     {
