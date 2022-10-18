@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantsManager: {fileID: 0}
   choosingBorder: {fileID: 6857512670945586919}
+  plantHpText: {fileID: 0}
 --- !u!1 &6857512670945586919
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: PlantCorn
   m_EditorClassIdentifier: 
   name: "Ma\xEDz"
-  sprite: {fileID: 0}
-  color: {r: 0.6792453, g: 0.56962395, b: 0.06087574, a: 1}
+  baseHP: 30
+  spriteSheet:
+  - {fileID: 2048710018, guid: 912b5ca2f0f5bb84aa8554579d28e64d, type: 3}
+  - {fileID: -1718280814, guid: 912b5ca2f0f5bb84aa8554579d28e64d, type: 3}
+  - {fileID: 300581840, guid: 912b5ca2f0f5bb84aa8554579d28e64d, type: 3}
+  baseDamage: 10
+  baseMovement: 10
+  baseAgility: 2
+  baseInitiative: 1

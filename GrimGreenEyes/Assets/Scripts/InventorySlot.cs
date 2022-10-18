@@ -45,6 +45,12 @@ public class InventorySlot : MonoBehaviour
         SetAmount(amount);
     }
 
+    public void SetFertilizerAndAmount(Fertilizer fertilizer, int amount) //Pone ambos tipo de item y cantidad.
+    {
+        itemImage.sprite = fertilizer.sprite;
+        SetAmount(amount);
+    }
+
     public void ResetSlot()
     {
         SetItemAndAmount(voidItem, 0);
