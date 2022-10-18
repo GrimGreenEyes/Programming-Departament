@@ -11,7 +11,9 @@ public class MagicSap : Attack
     }
     public override void Effect(GameObject ally, GameObject player)
     {
-        Debug.Log("Curación a " + ally.name);
+        //Debug.Log("Curación a " + ally.name);
+        Debug.Log(ally);
+        Debug.Log(player);
         ally.GetComponent<Plants>().livePoints += player.GetComponent<Plants>().attack;
          
     }

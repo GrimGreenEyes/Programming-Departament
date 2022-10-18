@@ -12,7 +12,7 @@ public class GridCreator : MonoBehaviour
     [SerializeField] private GameObject rail;
     [SerializeField] private GameObject[] players;
     [SerializeField] private GameObject[] enemys;
-    private float width, height;
+    public float width, height;
     public int x, y;
 
     public GameObject player;
@@ -117,7 +117,7 @@ public class GridCreator : MonoBehaviour
                 }*/
             }
         }
-        GenerateRoad();
+        //GenerateRoad();
         GenerateEntitys(players, 1);
         //PlayerPanel.instance.ChangePlayer(players[0]);
         GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
@@ -193,7 +193,7 @@ public class GridCreator : MonoBehaviour
             {
                 tileMap[i, j].GetComponent<Tile>().ShineTile();
                 tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-                
+              
                 if (j == tileMap.GetLength(1) - 2)
                 {
                     j = tileMap.GetLength(1) + 100;
