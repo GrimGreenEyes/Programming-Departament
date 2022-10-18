@@ -255,6 +255,9 @@ MonoBehaviour:
     isUp: 1
   navigationController: {fileID: 0}
   firstItem: 0
+  path: {fileID: 0}
+  line: {fileID: 0}
+  lines: []
 --- !u!1 &5044652296381638386
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +409,9 @@ MonoBehaviour:
     isUp: 1
   navigationController: {fileID: 0}
   firstItem: 0
+  path: {fileID: 0}
+  line: {fileID: 0}
+  lines: []
 --- !u!1 &5044652296460436761
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +565,9 @@ MonoBehaviour:
     isUp: 1
   navigationController: {fileID: 0}
   firstItem: 0
+  path: {fileID: 0}
+  line: {fileID: 0}
+  lines: []
 --- !u!1 &5044652296508600170
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,3 +721,6 @@ MonoBehaviour:
     isUp: 1
   navigationController: {fileID: 0}
   firstItem: 0
+  path: {fileID: 0}
+  line: {fileID: 0}
+  lines: []
