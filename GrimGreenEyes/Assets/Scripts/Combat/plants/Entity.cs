@@ -15,7 +15,8 @@ public class Entity : MonoBehaviour
     public int heatResistance;
     public int freezeResistance;
     public int agility;
-    public const int movement = 6;
+    public int movement;
+    public const int MAX_MOVEMENT = 6;
 
 
     public int attackMultiplayer;
@@ -26,5 +27,35 @@ public class Entity : MonoBehaviour
     public bool bleeding = false;
 
 
-    public Attack mainAttack;
+    
+
+    public Sprite timeLineSprite;
+
+
+
+    ///
+    ///Movement
+    ///
+
+    [Header("Movement")]
+    [SerializeField] public float MovementSpeed;
+    [SerializeField] public Vector3 MovementPoint;
+    [SerializeField] public Vector2 tileScale;
+    [SerializeField] public Vector3 angle;
+    [SerializeField] public Vector2 offsetMovePoint;
+    [SerializeField] public LayerMask obstacles;
+    [SerializeField] public float radious;
+    public bool moveing = false;
+    public Vector2 input;
+    public Vector2 direction;
+    public int gridX, gridY;
+
+    public GameObject thisTile;
+    public GameObject destination;
+
+    public List<GameObject> path = new List<GameObject>();
+    public int pathPosition = 0;
+
+    public float directionX;
+    public float directionY;
 }

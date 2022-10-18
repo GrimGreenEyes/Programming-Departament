@@ -17,7 +17,10 @@ public class Tile : MonoBehaviour
 
     private int positionX, positionY;
     private bool clickable = false;
+    public bool isInRange = false;
+    public bool isWalkable;
     private GameObject entity;
+    public int weight;
 
     public void Init(int color, int x, int y)
     {
@@ -26,6 +29,19 @@ public class Tile : MonoBehaviour
         positionX = x;
         positionY = y;
     }
+
+    private void Update()
+    {
+        StopShine();
+        SetClickable(false);
+        if (isInRange && isWalkable && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Plants.PlantState.IDLE)
+        {
+            ShineTile();
+            SetClickable(true);
+            isInRange = false;
+        }
+    }
+
     public void SetBorder(int border)
     {
         renderer.color = borderColor;
@@ -51,16 +67,18 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" || collision.tag == "Enemy")
         {
             entity = collision.gameObject;
+            isWalkable = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" || collision.tag == "Enemy")
         {
             entity = null;
+            isWalkable = true;
         }
     }
     private void OnMouseEnter()

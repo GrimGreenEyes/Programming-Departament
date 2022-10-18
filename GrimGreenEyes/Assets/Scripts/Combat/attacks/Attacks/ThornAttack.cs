@@ -8,7 +8,7 @@ public class ThornAttack : Attack
     public override void Effect(GameObject enemy, GameObject player)
     {
         Debug.Log("Ataque cactus");
-        enemy.GetComponent<Plants>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Plants>(), player.GetComponent<Plants>());
+        enemy.GetComponent<Mosquitoes>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
 
     }
 }

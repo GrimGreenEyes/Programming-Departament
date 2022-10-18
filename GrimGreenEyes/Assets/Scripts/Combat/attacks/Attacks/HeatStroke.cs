@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeatStroke : Attack
 {
-    public override void Effect(GameObject ally, GameObject player)
+    public override void Effect(GameObject enemy, GameObject player)
     {
 
     }

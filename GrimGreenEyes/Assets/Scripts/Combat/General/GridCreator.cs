@@ -12,7 +12,7 @@ public class GridCreator : MonoBehaviour
     [SerializeField] private GameObject rail;
     [SerializeField] private GameObject[] players;
     [SerializeField] private GameObject[] enemys;
-    private float width, height;
+    public float width, height;
     public int x, y;
 
     public GameObject player;
@@ -117,7 +117,7 @@ public class GridCreator : MonoBehaviour
                 }*/
             }
         }
-        GenerateRoad();
+        //GenerateRoad();
         GenerateEntitys(players, 1);
         //PlayerPanel.instance.ChangePlayer(players[0]);
         GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
@@ -140,7 +140,7 @@ public class GridCreator : MonoBehaviour
     {
         int xEntity = row;
         int yEntity = 1;
-        for (int playerArrayPos = 0; playerArrayPos < players.Length; playerArrayPos++)
+        for (int playerArrayPos = 0; playerArrayPos < entitys.Length; playerArrayPos++)
         {
             yEntity = (tileMap[xEntity, yEntity].transform.childCount > 2) ? yEntity += 1 : yEntity;
             player = Instantiate(entitys[playerArrayPos], tileMap[xEntity, yEntity].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
@@ -151,6 +151,14 @@ public class GridCreator : MonoBehaviour
             yEntity += 2;
         }
 
+    }
+    public GameObject GetTile(int x, int y)
+    {
+        if(x < 0 || y < 0)
+        {
+            return null;
+        }
+        return tileMap[x, y];
     }
     private void createObstacles()
     {
@@ -185,7 +193,7 @@ public class GridCreator : MonoBehaviour
             {
                 tileMap[i, j].GetComponent<Tile>().ShineTile();
                 tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-                
+              
                 if (j == tileMap.GetLength(1) - 2)
                 {
                     j = tileMap.GetLength(1) + 100;
