@@ -11,7 +11,7 @@ public class Fertilizer : ScriptableObject
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Skill", order = 3)]
-public class Skill : ScriptableObject
+public class SkillRes : ScriptableObject
 {
     //Almacena las propiedades del objeto
     public string name;
