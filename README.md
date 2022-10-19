@@ -1,7 +1,36 @@
  # LAST GROOVE
 ### A game by Grim Green Eyes
 <br><br><br>
+## Índice
 
+- 1. Introducción
+    - 1.1. Génetro del juego
+    - 1.2. Descripción general del juego
+    - 1.3. Objetivo
+    - 1.4. Narrativa
+    - 1.5. Plataformas
+- 2. Mecánicas y elementos del juego
+    - 2.1 Mecánicas de inicio de partida
+        - 2.1.1 Objetivo de cada partida
+    - 2.2 Movimiento por el mapa
+        - 2.2.1 Caminos y nodos
+        - 2.2.2 Nodos de insectos dominantes
+        - 2.2.3 Listado de biomas
+    - 2.3. Gestión del equipo en el carro invernadero
+        - 2.3.1 Recursos obtenidos durante los combates
+        - 2.3.2 Combinaciones de _crafteo_
+    - 2.4 Mecánicas de combate
+        - 2.4.1 Mecánicas de las losetas de cada bioma
+        - 2.4.2 Lluvia
+        - 2.4.3 Eventos de terreno
+        - 2.4.4 Habilidades de las unidades en combate
+    - 2.5 Cotroles
+- 3. Arte
+- 4. Interfaz
+- 5. Monetización
+
+
+<br><br><br>
 ## 1. Introducción
 ### 1.1 Género del juego
 Rol/Estrategia 
@@ -46,6 +75,18 @@ Al completar un mapa pasaremos al siguiente mapa que contendrá los biomas anter
 
 <a name="2.2"></a>
 ### 2.2 Movimiento por el mapa
+El mapamundi está dividido en una red de nodos(emplazamientos). Las conexiones entre nodos son los caminos que comunican los comunican, los cuales están custodiados por insectos enemigos. 
+
+#### 2.2.1 Caminos y nodos
+Los caminos son las intersecciones entre nodos, al desplazarnos un nuevo nodo comenzará una batalla contra los insectos de la zona. 
+
+Cada nivel tiene un tipo diferente de bioma. El bioma de cada nivel depende de dónde se encuentre el nodo en el mapa (El bioma será de nieve si se ha seleccionado un nodo en una zona nevada del mapa). 
+#### 2.2.2 Nodos de insectos dominantes
+Estos nodos son el final de cada mapa, el combate para acceder a ellos será contra insectos dominantes, que son versiones más poderosas de los insectos del propio bioma. 
+
+Estos nodos están representados por un doble circulo. 
+#### 2.2.3 Listado de Biomas
+Cada bioma tendrá su propia variante de insectos, además de los insectos dominantes:
 ### 2.3 Gestión del equipo en el carro-invernadero
 ##### 2.3.1 Recursos obtenidos durante los combates
 ##### 2.3.2 Combinaciones de "crafteo"
