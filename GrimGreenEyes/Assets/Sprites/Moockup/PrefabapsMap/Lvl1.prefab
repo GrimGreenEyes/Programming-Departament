@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: ea21804a0b9e34d4e818bb9d83ad33f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,8 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodesToPick:
   - {fileID: 2378849298979113410, guid: 9f057860388bf4d4a93852efb18efdfd, type: 3}
-  - {fileID: 2378849298979113410, guid: 5d607c00449b7af47bb3b17acedb91e8, type: 3}
-  - {fileID: 6302048378123332878, guid: de21292366e76cc41a3f81885ea1e351, type: 3}
   mapsToPick1:
   - {fileID: 21300000, guid: 46c8e5e562864d64387559213e1956db, type: 3}
   - {fileID: 21300000, guid: 4a6c8c80f722d464c8bf5764d3fc0928, type: 3}
