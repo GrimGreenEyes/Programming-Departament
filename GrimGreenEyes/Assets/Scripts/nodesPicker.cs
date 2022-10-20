@@ -25,6 +25,11 @@ public class nodesPicker : MonoBehaviour
 
     public int mapArrays;
 
+    private void Awake()
+    {
+        Object.DontDestroyOnLoad(this);
+    }
+
     void Start()
     {
         rand = Random.Range(0, nodesToPick.Length);

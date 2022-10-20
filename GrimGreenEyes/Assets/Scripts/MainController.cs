@@ -20,10 +20,37 @@ public class MainController : MonoBehaviour
     public void loadScreen(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        if (string.Equals(sceneName, "MapScene"))
+        {
+            Debug.Log("IGUAL SCENEMAE");
+            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().MapSceneUp();
+            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().mapGenerated.SetActive(true);
+
+        }
+        else if(GameObject.Find("GlobalAttributes").GetComponent<globalVar>().isMapUp == true)
+        {
+            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().mapGenerated.SetActive(false);
+        }
+
+
+
     }
 
     public void exitGame()
     {
         Application.Quit();
     }
+
+    /*
+     * 
+     *   private static IEnumerator LoadLevel (string sceneName){
+         var asyncLoadLevel = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+         while (!asyncLoadLevel.isDone){
+             Debug.Log("Loading the Scene"); 
+             yield return null;
+         }
+
+         LoadScene?.Invoke(newSceneName);
+     }
+     * */
 }

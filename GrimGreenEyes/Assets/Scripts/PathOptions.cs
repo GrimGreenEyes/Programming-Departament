@@ -18,15 +18,23 @@ public class PathOptions : MonoBehaviour
 	public LineRenderer line;
 
 	public List<LineRenderer> lines;
-	//public bool isLast;
+
+    //Saving Game
+    public GameObject glovalVar;
 
 
-	private void Start()
+    //public bool isLast;
+
+
+    private void Start()
 	{
 		navigationController = GameObject.Find("NavigationController");
-		if (firstItem)
+        glovalVar = GameObject.Find("GlobalAttributes");
+
+        if (firstItem)
 		{
 			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
+			glovalVar.GetComponent<globalVar>().actualNode = this.gameObject;
 		}
 
 		if (firstItem)
@@ -105,7 +113,11 @@ public class PathOptions : MonoBehaviour
 
 	public void navigate(GameObject thisNode)
 	{
-		navigationController.GetComponent<Navigation>().moveToNode(thisNode);
+		if(navigationController == null)
+		{
+            navigationController = GameObject.Find("NavigationController");
+        }
+        navigationController.GetComponent<Navigation>().moveToNode(thisNode);
 	}
 }
 [System.Serializable]
