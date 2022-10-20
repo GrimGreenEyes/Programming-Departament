@@ -1,10 +1,10 @@
  # LAST GROOVE
-### A game by Grim Green Eyes
+### Un juego de Grim Green Eyes
 <br><br><br>
 ## Índice
 
 - 1. Introducción
-    - 1.1. Génetro del juego
+    - 1.1. Género del juego
     - 1.2. Descripción general del juego
     - 1.3. Objetivo
     - 1.4. Narrativa
@@ -87,7 +87,43 @@ Estos nodos son el final de cada mapa, el combate para acceder a ellos será con
 Estos nodos están representados por un doble circulo. 
 #### 2.2.3 Listado de Biomas
 Cada bioma tendrá su propia variante de insectos, además de los insectos dominantes:
+- Desierto 
+
+El sprite de los insectos llevará un filtro marrón claro. 
+Sus estadísticas serán diferentes a las del resto de zonas (más resistencia al calor …). 
+Insectos dominantes: filtro rojo 
+
+- Nevado 
+
+Filtro de los insectos blanco. 
+Insectos dominantes: azul claro 
+
+- Selva 
+
+Filtro de los insectos verde oscuro. 
+Insectos dominantes: gris 
+
+- Llanura 
+
+Filtro de los insectos verde claro 
+Insectos dominantes: amarillo 
+
+<br>
+
 ### 2.3 Gestión del equipo en el carro-invernadero
+En el escenario del carro-invernadero el jugador puede: 
+
+- __Regar las metaplantas__: apertura de la válvula para curar las metaplantas, todas las plantas recuperan la misma cantidad de vida que agua usada. 
+
+- __Abonar__ sus metaplantas, acceder a su ficha de atributos al clicar en la planta y ahí seleccionar abonos para mejorarla. 
+
+- Craftear abonos y abonos especiales usando las semillas y los bichos recogidos: para mejorar las metaplantas dotándolas de muevas habilidades o incrementar sus atributos. 
+
+- Consultar el mapa: cambiará la vista entre el mapamundi, para desplazarse, y el carro invernadero, para gestionar las metaplantas. 
+
+- Consultar el __Libro de instrucciones__ con los controles del juego y guía de uso del carro invernadero 
+<br>
+
 ##### 2.3.1 Recursos obtenidos durante los combates
 ##### 2.3.2 Combinaciones de "crafteo"
 ### 2.4 Mecánicas de combate
