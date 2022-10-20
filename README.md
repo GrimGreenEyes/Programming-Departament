@@ -133,20 +133,87 @@ Semillas:
 
 
 Restos de insecto:
-|Cuerno|Caparazón| Ala|Tórax|Abdomen|
-| :-----:|:------:|:-----:|:--------------:| :----:|
-||||||
+|Cuerno|Caparazón| Ala|Tórax|Abdomen|Pata|
+| :-----:|:------:|:-----:|:--------------:| :----:|:----:|
+|<img src="https://user-images.githubusercontent.com/92206944/196972664-64972f6e-2157-40d0-ba1b-a4fbaa069325.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196972767-276abe76-2cc3-4f4e-a890-008a5ed2d132.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196972940-3a9067b7-5cf0-42f5-9b50-3cd1075fa74d.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973024-93faebff-c21a-4745-ae90-42a49a4fadbb.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973175-d2deccbe-158a-48c3-a692-a0c0dbc491d0.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973264-4dc0b4a3-dc2e-4ef2-afcb-15ef4a0f609b.png" width = 90%>|
 
 
 Abonos:
 
 ##### 2.3.2 Combinaciones de "crafteo"
+
+__8 abonos de habilidad__ :
+- Semilla de xx + abdomen = abono de habilidad de planta xx 
+
+__7 abonos de atributo__ :
+
+- Tórax + abdomen = abono aumento de vida 
+
+- Cuerno + abdomen = abono aumento de ataque 
+
+- Caparazón + abdomen = abono aumento de defensa 
+
+- Caparazón + Cuerno = abono aumento de res.calor 
+
+- Caparazón + Tórax = abono aumento de res.frio 
+
+- Ala + abdomen = abono aumento de movimiento 
+
+- Ala + Ala = abono aumento de agilidad 
+
+
 ### 2.4 Mecánicas de combate
+
+Cada mapa contiene varios niveles.
+
+El escenario de combate es un tablero dividido en casillas con vista isométrica. 
+<img src="https://user-images.githubusercontent.com/92206944/196974404-b2a6d85f-7a1d-4bc0-96f4-65d6dc8799ef.png" width = 100%>
+Cada nivel de combate se creará de forma procedural en función de su bioma y el clima. 
+
+Una vez superado el nivel, el jugador no podrá volver a repetirlo. 
+
+Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tiene un alcance de movimiento distinto.  
+
+Al comenzar un combate se inicia un efecto climatológico aleatorio según el bioma y se indicará si es de día o de noche.
+
+__Objetivo del nivel__:
+
+El __objetivo__ de cada combate será desplazar el carro-invernadero hasta el final del mapa desplazándolo por los distintos caminos propuestos. Los distintos enemigos aparecerán por el mapa a medida que el carro se desplaza y tratarán de destruir el carro. 
+El jugador moverá las metaplantas por el mapa __escoltando al carro, combatiendo con los insectos y obteniendo recursos__. 
+
+Estos recursos se obtienen de tres formas: 
+
+- recolectando agua de las orillas de lagos y ríos. 
+- semillas del suelo y vegetación del mapa. 
+- restos de insectos al derrotarlos
+
+ Todos estos recursos podrán ser utilizados más tarde en las distintas opciones ofrecidas en el carro invernadero.
+ 
+ Durante el combate el jugador podrá:
+ 
+ - Usar los insectos cuando sea su turno,
+ - Atacar,
+ - Moverse,
+ - Usar su habilidad.
+ 
+ __Condiciones de derrota__ :
+ 
+Si el carro resulta destruido el jugador habrá perdido la partida. 
+
+Perder la partida implica que, al volver a jugar, el jugador volverá a empezar por el mapa de un solo bioma.
+
+Cada metaplanta que sea derrotada durante un combate será derrotada definitivamente. El jugador no volverá a disponer de ella en el carro-invernadero. 
+
+
 ##### 2.4.1 Mecánicas de las losetas de cada bioma
 ##### 2.4.2 LLuvia
 ##### 2.4.3 Eventos de terreno
 ##### 2.4.4 Habilidades de las unidades en combate
 ### 2.5 Controles
+- Selección de botones y menús por clics. 
+
+- En el mapamundi y el mapa de combate se podrá desplazar la vista manteniendo el clic y arrastrando. 
+
 ## 3. Arte
 ## 4. Interfaz
 ## 5. Monetización
