@@ -125,6 +125,11 @@ En el escenario del carro-invernadero el jugador puede:
 <br>
 
 ##### 2.3.1 Recursos obtenidos durante los combates
+Semillas:
+|Aloe Vera|Cactus| Girasol|Hongo Carnívoro|Mazorca| Nenúfar| Rosa| Planta Rodadora|
+| :-----:|:------:|:-----:|:--------------:| :----:|:-----:|:---:|:-------------:|
+|||||||||
+
 ##### 2.3.2 Combinaciones de "crafteo"
 ### 2.4 Mecánicas de combate
 ##### 2.4.1 Mecánicas de las losetas de cada bioma
