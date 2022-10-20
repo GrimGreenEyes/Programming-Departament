@@ -128,7 +128,17 @@ En el escenario del carro-invernadero el jugador puede:
 Semillas:
 |Aloe Vera|Cactus| Girasol|Hongo Carnívoro|Mazorca| Nenúfar| Rosa| Planta Rodadora|
 | :-----:|:------:|:-----:|:--------------:| :----:|:-----:|:---:|:-------------:|
-|||||||||
+|<img src="https://user-images.githubusercontent.com/92206944/196968210-933a5f61-59d9-4be3-a231-e017795499d1.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196969141-0e02ef16-8a4a-4368-989e-e8ebf992432b.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196969378-b4943c07-8149-42fb-bbd5-41af498cc259.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196971161-1b87a179-21b4-40f4-bea0-1865b4ac33d9.png" width = 70%>|<img src="https://user-images.githubusercontent.com/92206944/196971276-dae5c300-54ce-4e8e-bc3a-1dd5a32969e5.png" width = 80%>|<img src="https://user-images.githubusercontent.com/92206944/196971376-fd0ee879-cab0-4e7e-9b5a-fcfbc35150ac.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196971500-b8ba10ac-1912-436b-b6ed-f9005ba54fb4.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196971628-52056bf4-81b1-47f4-b4e8-3ad9bf0e99b7.png" width = 80%>|
+
+
+
+Restos de insecto:
+|Cuerno|Caparazón| Ala|Tórax|Abdomen|
+| :-----:|:------:|:-----:|:--------------:| :----:|
+||||||
+
+
+Abonos:
 
 ##### 2.3.2 Combinaciones de "crafteo"
 ### 2.4 Mecánicas de combate
