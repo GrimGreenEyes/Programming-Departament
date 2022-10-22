@@ -2,13 +2,13 @@
 ### Un juego de Grim Green Eyes
 <br><br><br>
 ## El equipo
-__Baldo__ :
+__Baldo__ : baldoarbol
 
 __Adrián__ :
 
-__Diego Nicolás__ :
+__Diego Nicolás__ : dieguoin
 
-__Álvaro Sierra López__ :
+__Álvaro Sierra López__ : AlvaroS11
 
 __Lucía Tallero Fernández__ : tallerofdez
 
@@ -239,10 +239,90 @@ Cada metaplanta que sea derrotada durante un combate será derrotada definitivam
 
 <a name="2.4.1"></a>
 ##### 2.4.1 Mecánicas de las losetas de cada bioma
+
+A continuación una lista de las losetas de cada bioma y sus siguientes características:
+
+- Permite el desplazamiento de: todos, solo metaplantas e insectos, ninguno 
+
+- Efectos de terreno (si la metaplanta o insecto termina o pasa por dicha casilla ocurrirán efectos adicionales que modifiquen los atributos de la metaplanta o insecto de forma temporal durante dicha batalla): pierde x puntos de vida, gana x puntos de vida o ataque, etc...
+
+- Frecuencias de aparición
+
+**Losetas del desierto**
+
+|Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
+|:----:|:--------------------------:|:----------------:|:---------------------:|
+|Camino de arena| Todos| Ninguno|Camino|
+|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 10pt de agua|baja|
+|Arena| Plantas e Insectos|Ninguno| Alta|
+|Arena con plameras|Plantas e Insectos|Recupera 5pt de vida|baja|
+|Arenas movedizas| Plantas e Insectos|Pierde 5pt de vida|baja|
+|Tormenta de arena| Plantas e Insectos| Pierde 1pt de vida|Alta|
+|Floar laurel| Plantass e insectos| Gana 2pt de vida|Baja|
+
+
+**Losetas del bioma nevado**
+
+
+|Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
+|:----:|:--------------------------:|:----------------:|:---------------------:|
+|Camino de nieve|Todos|Ninguno|Camino|
+|Montaña|Ninguno|Ninguno|Baja|
+|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 5pt de agua|Media|
+|Nieve|Plantas e Insectos|Ninguno|Alta|
+|Flor Invernal| Plantas e Insectos| Recupera 5pt de vida| Baja|
+|Estalagmita de hielo| Plantas e Insectos| Pierde 1pt de vida| Baja|
+|Tormenta de nieve| Plantas e insectos| Pierde 1pt de vida| Alta|
+|Flor Blanca| Plantas e Insectos| Gana 2pt de ataque| Baja|
+
+
+**Losetas de la selva**
+
+|Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
+|:----:|:--------------------------:|:----------------:|:---------------------:|
+|Camino de hierba alta| Todods| Ninguno| Camino|
+|Montaña| Ninguno| Ninguno| Baja|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 20pt de agua| Media|
+|Hierba alta| Plantas e Insectos| Recupera 5pt de vida| Baja|
+|Charco| Plantas e insectos| Ninguno| Alta|
+|Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque| Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida| Baja|
+|Flor azul| Plantas e Insectos| Gana 2pt de ataque| Baja|
+
+
+**Losetas de la llanura**
+
+|Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
+|:----:|:--------------------------:|:----------------:|:---------------------:|
+|Camino de hierba| Todos| Ninguno| Camino|
+|Montaña| Ninguno| NInguno| Baja|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 30pt de agua|Baja|
+|Hierba| Plantas e Insectos| Ninguno| Alta|
+|Charco| Planntas e Insectos| Recupera 5pt de vida| Baja|
+|Mala-hierba| Plantas e Insectos| Las plantas pierden 5pt de vida. Gana 2pt de ataque| Baja|
+|Tierra seca| Plantas e Insectos| Las plantas pierden 2pt de vida| Alta|
+|Flor Roja| Plantas e Insectos| Gana 2pt de ataque| Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida| Baja|
+
+
 <a name="2.4.2"></a>
 ##### 2.4.2 LLuvia
+Al comenzar una partida en función del bioma cabe la posibilidad de que llueva durante el combate.
+Esto se representa con una animación de lluvia durante la batalla. Además, si llueve tras la batalla, el tanque de agua del invernadero se rellenará a causa de la lluvia. 
+
+|Bioma|Probabilidad de lluvia|Agua añadida al tanque|
+|:---:|:--------------------:|:--------------------:|
+|Desierto|5%||entre 10-50|
+|Nevado| 40%| entre 60-120|
+|Selva| 60%| entre 80-150|
+|Llanura| 50%| entre 60-100|
+
+
 <a name="2.4.3"></a>
 ##### 2.4.3 Eventos de terreno
+
+Desbloquean distintas losetas para la generación procedural de mapa de combate. 
+
 <a name="2.4.4"></a>
 ##### 2.4.4 Habilidades de las unidades en combate
 <a name="2.5"></a>
