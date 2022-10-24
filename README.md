@@ -12,9 +12,9 @@ __Álvaro Sierra López__ : AlvaroS11
 
 __Lucía Tallero Fernández__ : tallerofdez
 
-__Javier Villa Blanco__ :
+__Javier Villa Blanco__ : JavierVillaBlanco
 
-__Carlos Villa Blanco__ :
+__Carlos Villa Blanco__ : CarlosVillaBlanco
 
 
 <br><br><br>
