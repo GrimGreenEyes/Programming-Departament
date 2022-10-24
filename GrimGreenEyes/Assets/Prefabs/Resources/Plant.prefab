@@ -93,13 +93,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantType: {fileID: 0}
   plantState: 0
+  statMaxHealth: {fileID: 11400000, guid: e3c4874a6e2c0144ca66015312320b8c, type: 2}
+  statAttack: {fileID: 11400000, guid: 933bc0a28b3725248b25eeb5cc6eecaf, type: 2}
+  statAgility: {fileID: 11400000, guid: c1d8874e7ebbf0b44859fe80419de3ea, type: 2}
+  statMovement: {fileID: 11400000, guid: 1aeecf18bb0c90c4e91abbdabbbcd0b6, type: 2}
+  statDeffense: {fileID: 11400000, guid: 73ff1b2de16904142aeb8a3529d8ce05, type: 2}
+  statHeatRes: {fileID: 11400000, guid: f0a4a021679a1454fa1f4632689314d4, type: 2}
+  statColdRes: {fileID: 11400000, guid: 2312812d0bb87e64883353a050d58748, type: 2}
   healthPoints: 0
-  maxHP: 0
-  plantLevel: 1
-  damage: 0
-  movement: 0
-  agility: 0
-  initiative: 0
+  skillsList: []
   plantStatusText: {fileID: 549259121877140633}
 --- !u!114 &3678843565445529314
 MonoBehaviour:

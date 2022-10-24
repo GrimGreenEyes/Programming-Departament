@@ -13,6 +13,8 @@ public class Blender : MonoBehaviour
     [SerializeField] private Inventory inventoryManager;
     [SerializeField] private GameObject blendButton;
     [SerializeField] private Sprite nullRecipeSprite;
+    [SerializeField] private FertilizerManager fertilizerManager;
+    private Fertilizer currentOutput = null;
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class Blender : MonoBehaviour
         inputSlots[1].transform.GetChild(0).GetComponent<Image>().sprite = blenderStorage[1].sprite;
         outputSlot.transform.GetChild(0).GetComponent<Image>().sprite = voidItem.sprite;
         blendButton.SetActive(false);
+        currentOutput = null;
         CheckRecipe();
     }
 
@@ -73,6 +76,7 @@ public class Blender : MonoBehaviour
             {
                 outputSlot.transform.GetChild(0).GetComponent<Image>().sprite = recipe.output.sprite;
                 blendButton.SetActive(true);
+                currentOutput = recipe.output;
                 recipeFound = true;
                 break;
             }
@@ -86,6 +90,7 @@ public class Blender : MonoBehaviour
 
     public void ClickBlend()
     {
+        fertilizerManager.AddFertilizer(currentOutput);
         UseItemInSlot(0);
         UseItemInSlot(1);
     }
@@ -94,5 +99,6 @@ public class Blender : MonoBehaviour
 [System.Serializable]
 public class Recipe
 {
-    public Item input0, input1, output;
+    public Item input0, input1;
+    public Fertilizer output;
 }

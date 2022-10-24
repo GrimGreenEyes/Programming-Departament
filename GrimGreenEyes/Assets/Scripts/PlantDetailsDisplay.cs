@@ -26,7 +26,7 @@ public class PlantDetailsDisplay : MonoBehaviour
 
     public void UpdateDetailsDisplay()
     {
-        plantName.text = currentPlant.plantType.name;
+        /*plantName.text = currentPlant.plantType.name;
         plantLevel.text = Strings.LEVEL + currentPlant.plantLevel.ToString();
         plantSkills.text = Strings.SKILLS;
 
@@ -37,7 +37,7 @@ public class PlantDetailsDisplay : MonoBehaviour
         plantAgility.text = currentPlant.agility.ToString();
         plantInitiative.text = currentPlant.initiative.ToString();
 
-        plantImage.sprite = currentPlant.plantType.spriteSheet[currentPlant.plantState];
+        plantImage.sprite = currentPlant.plantType.spriteSheet[currentPlant.plantState];*/
     }
 
     public void OpenPlantDetailsDisplay()
