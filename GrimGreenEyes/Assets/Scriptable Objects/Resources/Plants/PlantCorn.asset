@@ -22,3 +22,4 @@ MonoBehaviour:
   baseMovement: 10
   baseAgility: 2
   baseInitiative: 1
+  baseSkill: {fileID: 11400000, guid: 919bb071bbcc33c43a67c75dcc18c300, type: 2}

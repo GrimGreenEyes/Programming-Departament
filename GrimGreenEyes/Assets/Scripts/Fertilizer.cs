@@ -6,15 +6,7 @@ public class Fertilizer : ScriptableObject
     //Almacena las propiedades del objeto
     public string name;
     public Sprite sprite;
-    public int type = 1; //0 for LVLUP fertilizer; 1 for SPECIAL fertilizer
-    public Skill skill;
-}
-
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Skill", order = 3)]
-public class SkillRes : ScriptableObject
-{
-    //Almacena las propiedades del objeto
-    public string name;
-    public string description;
-    public Color color;
+    public int type = 1; //0 for STAT fertilizer; 1 for SKILL fertilizer
+    public SkillRes skill;
+    public StatRes stat;
 }

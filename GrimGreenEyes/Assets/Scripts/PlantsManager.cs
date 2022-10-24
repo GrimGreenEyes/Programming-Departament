@@ -10,6 +10,7 @@ public class PlantsManager : MonoBehaviour
     public Plant[] plantsList = new Plant[5];
     [SerializeField] Inventory inventoryManager;
     private Item plantingSeedItem;
+    private Fertilizer usingFertilizer;
     [SerializeField] private GameObject plantPrefab;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private MsgWindow msgWindow;
@@ -32,8 +33,6 @@ public class PlantsManager : MonoBehaviour
         {
             pot.Planting(item.seedType);
         }
-
-        Debug.Log("E");
         msgWindow.ShowPlantingMsg(item.seedType);
     }
 
@@ -51,9 +50,21 @@ public class PlantsManager : MonoBehaviour
         newPlant.transform.localScale = new Vector3(1f, 1f, 1f);
         newPlant.transform.localPosition = new Vector3(0f, 225f, 0f);
         newPlant.GetComponent<Plant>().SetPlantType(plantType);
+        chosenPot.SetPlant(newPlant.GetComponent<Plant>());
         plantsList[chosenPot.index] = newPlant.GetComponent<Plant>();
+
         msgWindow.gameObject.SetActive(false);
         
+    }
+
+    public void FertilizePlant()
+    {
+        uiManager.ActivateAllElements();
+        foreach (FlowerPot pot in potsList)
+        {
+            pot.StopFertilizing();
+        }
+        msgWindow.gameObject.SetActive(false);
     }
 
     public void CancelPlanting()
@@ -65,9 +76,30 @@ public class PlantsManager : MonoBehaviour
         }
     }
 
+    public void UseFertilizer(Fertilizer fertilizer)
+    {
+        uiManager.DesactivateAllElements();
+        usingFertilizer = fertilizer;
+        foreach (FlowerPot pot in potsList)
+        {
+            pot.Fertilizing(fertilizer);
+        }
+        msgWindow.ShowFertilizingMsg(fertilizer);
+
+    }
+
+    public void CancelFertilizing()
+    {
+        uiManager.ActivateAllElements();
+        foreach (FlowerPot pot in potsList)
+        {
+            pot.StopFertilizing();
+        }
+    }
+
     public void WaterPlant(int plantIndex)
     {
-        if (plantsList[plantIndex] == null || waterTank.waterAmount <= 0 || (plantsList[plantIndex].plantState >= 2 && plantsList[plantIndex].healthPoints >= plantsList[plantIndex].maxHP))
+        if (plantsList[plantIndex] == null || waterTank.waterAmount <= 0 || (plantsList[plantIndex].plantState >= 2 && plantsList[plantIndex].healthPoints >= plantsList[plantIndex].GetMaxHealth()))
         {
             return;
         }
