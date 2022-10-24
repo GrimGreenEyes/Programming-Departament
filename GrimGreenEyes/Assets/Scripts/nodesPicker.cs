@@ -25,6 +25,8 @@ public class nodesPicker : MonoBehaviour
 
     public int mapArrays;
 
+    public int[] mapBioms;  //0 = desierto, 1 = llanura, 2 = nieve, 3 = selva
+
     private void Awake()
     {
         Object.DontDestroyOnLoad(this);
@@ -37,12 +39,14 @@ public class nodesPicker : MonoBehaviour
         nuevosNodos.transform.parent = gameObject.transform;
         //randTypes = Random.Range(0, mapsTypes);
         //randTypes = Random.Range(0, );
+        mapBioms = new int[mapArrays];
 
 
         if (mapArrays == 1)
         {
             randTypes = Random.Range(0, mapsToPick1.Length);
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[randTypes];
+            mapBioms[0] = randTypes % 4;
         }
         else if(mapArrays == 2)
         {
@@ -50,9 +54,11 @@ public class nodesPicker : MonoBehaviour
             int rand2 = Random.Range(0, mapsToPick2.Length);
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[rand1];
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = mapsToPick2[rand2];
-
-
+            mapBioms[0] = rand1 % 4;
+            mapBioms[1] = rand2 % 4;
         }
+
+        GameObject.Find("GlobalAttributes").GetComponent<globalVar>().biomas = mapBioms;
 
 
         /*if (randTypes == 0)

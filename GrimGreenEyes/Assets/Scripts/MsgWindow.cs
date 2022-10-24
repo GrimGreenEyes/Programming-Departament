@@ -22,12 +22,27 @@ public class MsgWindow : MonoBehaviour
         ResetWindow();
         ShowMsg("¿Dónde quieres plantar " + plant.name + "?");
         cancelButton.gameObject.SetActive(true);
-        cancelButton.onClick.AddListener(ClicCancelPlanting);
+        cancelButton.onClick.AddListener(ClickCancelPlanting);
     }
 
-    public void ClicCancelPlanting()
+    public void ShowFertilizingMsg(Fertilizer fertilizer)
+    {
+        gameObject.SetActive(true);
+        ResetWindow();
+        ShowMsg("¿Dónde quieres utilizar " + fertilizer.name + "?");
+        cancelButton.gameObject.SetActive(true);
+        cancelButton.onClick.AddListener(ClickCancelFertilizing);
+    }
+
+    public void ClickCancelPlanting()
     {
         plantsManager.CancelPlanting();
+        gameObject.SetActive(false);
+    }
+
+    public void ClickCancelFertilizing()
+    {
+        plantsManager.CancelFertilizing();
         gameObject.SetActive(false);
     }
 

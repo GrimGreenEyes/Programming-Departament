@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FertilizerManager : MonoBehaviour
 {
     private Dictionary<Fertilizer, int> storedFertilizers = new Dictionary<Fertilizer, int>(); //Almacena los fertilizantes y su cantidad
-    [SerializeField] private List<InventorySlot> slotsList = new List<InventorySlot>(); //Almacena los SLOTS (objetos con botones) del inventario
-    [SerializeField] private GameObject fertilizersPanel;
+    private List<FertilizerButton> buttonsList = new List<FertilizerButton>(); //Almacena los SLOTS (objetos con botones) del inventario
+    [SerializeField] private GameObject fertilizersPanel, fertilizerButtonPrefab, contentGameObject;
+    [SerializeField] private TextMeshProUGUI fertilizerName, fertilizerDescription, powerupName, powerupDescription;
+    [SerializeField] private GameObject powerupPanel, useButton;
+    private Fertilizer selectedFertilizer;
+    [SerializeField] private PlantsManager plantsManager;
 
     private void Start()
     {
-        foreach (Transform child in fertilizersPanel.transform)
-        {
-            slotsList.Add(child.GetComponent<InventorySlot>());
-        }
         UpdateFertilizers();
+    }
+
+    public void OpenFertilizersList()
+    {
+        fertilizersPanel.SetActive(true);
+        UpdateFertilizers();
+    }
+
+    public void CloseFertilizersList()
+    {
+        fertilizersPanel.SetActive(false);
     }
 
     public void AddFertilizer(Fertilizer fertilizer) //Añade un fertilizante al diccionario (inventario). Si ese fertilizante ya existía, aumenta su cantidad en 1 unidad.
@@ -27,7 +39,6 @@ public class FertilizerManager : MonoBehaviour
         {
             storedFertilizers.Add(fertilizer, 1);
         }
-        UpdateFertilizers();
     }
 
     public void RemoveFertilizer(Fertilizer fertilizer) //Reduce en 1 unidad la cantidad del fertilizante indicado. Si la cantidad llega a 0, el fertilizante es borrado de la lista.
@@ -43,21 +54,73 @@ public class FertilizerManager : MonoBehaviour
         {
             storedFertilizers.Remove(fertilizer);
         }
-        UpdateFertilizers();
     }
 
     public void UpdateFertilizers()
     {
-        foreach (InventorySlot slot in slotsList)
+        foreach (FertilizerButton button in buttonsList)
         {
-            slot.ResetSlot();
+            Destroy(button.gameObject);
         }
+        buttonsList.Clear();
 
-        int i = 0;
         foreach (KeyValuePair<Fertilizer, int> entry in storedFertilizers)
         {
-            slotsList[i].SetFertilizerAndAmount(entry.Key, entry.Value);
-            i++;
+            GameObject buttonAux = Instantiate(fertilizerButtonPrefab);
+            buttonAux.transform.SetParent(contentGameObject.transform);
+            buttonAux.transform.localScale = new Vector3(1, 1, 1);
+            buttonAux.GetComponent<FertilizerButton>().Initialize(entry.Key, entry.Value);
+            buttonsList.Add(buttonAux.GetComponent<FertilizerButton>());
+        }
+        ResetDescription();
+    }
+
+    public void ResetDescription()
+    {
+        powerupPanel.SetActive(false);
+        useButton.SetActive(false);
+        fertilizerName.text = Strings.FERTILIZERS_TITLE;
+        fertilizerDescription.text = Strings.FERTILIZERS_INTRO;
+    }
+
+    public void UpdateDescription(Fertilizer fertilizer)
+    {
+        powerupPanel.SetActive(true);
+        useButton.SetActive(true);
+        fertilizerName.text = fertilizer.name;
+        selectedFertilizer = fertilizer;
+
+        switch (fertilizer.type)
+        {
+            case 0: //STAT fertilizer
+                fertilizerDescription.text = Strings.STAT_FERT_DESC + fertilizer.stat.name + ".";
+                powerupName.text = fertilizer.stat.name;
+                powerupDescription.text = fertilizer.stat.description;
+                break;
+            case 1: //SKILL fertilizer
+                fertilizerDescription.text = Strings.SKILL_FERT_DESC + fertilizer.skill.name + ".";
+                powerupName.text = fertilizer.skill.name;
+                powerupDescription.text = fertilizer.skill.description;
+                break;
         }
     }
+
+    public void ClickUseFertilizer()
+    {
+        CloseFertilizersList();
+        plantsManager.UseFertilizer(selectedFertilizer);
+    }
+
+    #region DEBUG
+
+    public Fertilizer fert1, fert2, fert3;
+
+    public void AddFertilizers()
+    {
+        AddFertilizer(fert1);
+        AddFertilizer(fert2);
+        AddFertilizer(fert3);
+    }
+
+    #endregion
 }

@@ -11,9 +11,14 @@ public class Plant : MonoBehaviour
     //STATS
     public PlantType plantType;
     public int plantState = 0; //0 = baby; 1 = middle; 3 = adult
-    public int healthPoints, maxHP;
-    public int plantLevel = 1;
-    public int damage, movement, agility, initiative;
+
+    private Dictionary<StatRes, int> statsDictionary = new Dictionary<StatRes, int>();
+    [SerializeField] private StatRes statMaxHealth, statAttack, statAgility, statMovement, statDeffense, statHeatRes, statColdRes;
+
+    public int healthPoints;
+
+    //SKILLS
+    public List<SkillRes> skillsList = new List<SkillRes>();
     //
 
     [SerializeField] private TextMeshProUGUI plantStatusText;
@@ -34,7 +39,7 @@ public class Plant : MonoBehaviour
         GetComponent<Image>().sprite = plantType.spriteSheet[plantState];
         if(plantState >= 2)
         {
-            plantStatusText.text = healthPoints.ToString() + " / " + maxHP.ToString();
+            plantStatusText.text = healthPoints.ToString() + " / " + statsDictionary[statMaxHealth].ToString();
         }
         else
         {
@@ -50,12 +55,15 @@ public class Plant : MonoBehaviour
     private void InitializeStats()
     {
         healthPoints = plantType.baseHP;
-        maxHP = plantType.baseHP;
-        damage = plantType.baseDamage;
-        movement = plantType.baseMovement;
-        agility = plantType.baseAgility;
-        initiative = plantType.baseInitiative;
-        //GetComponent<Image>().color = plantType.color;
+
+        statsDictionary[statMaxHealth] = plantType.baseHP;
+        statsDictionary[statAttack] = plantType.baseAttack;
+        statsDictionary[statMovement] = plantType.baseMovement;
+        statsDictionary[statAgility] = plantType.baseAgility;
+        statsDictionary[statDeffense] = plantType.baseDeffense;
+        statsDictionary[statHeatRes] = plantType.baseHeatDef;
+        statsDictionary[statColdRes] = plantType.baseColdDef;
+        skillsList.Add(plantType.baseSkill);
     }
 
     public void ReceiveWater()
@@ -67,7 +75,7 @@ public class Plant : MonoBehaviour
         else
         {
             healthPoints += 10;
-            if (healthPoints >= maxHP) healthPoints = maxHP;
+            if (healthPoints >= GetMaxHealth()) healthPoints = GetMaxHealth();
         }
 
         UpdatePlantVisuals();
@@ -77,5 +85,23 @@ public class Plant : MonoBehaviour
     {
         plantType = type;
         InitializeStats();
+    }
+
+    public int GetMaxHealth()
+    {
+        return statsDictionary[statMaxHealth];
+    }
+
+    public void ApplyFertilizer(Fertilizer fertilizer)
+    {
+        switch (fertilizer.type)
+        {
+            case 0: //STAT fertilizer
+                //Pendiente aplicar algoritmos de subida de nivel
+                statsDictionary[fertilizer.stat] ++;
+                break;
+            case 1: //SKILL fertilizer
+                break;
+        }
     }
 }

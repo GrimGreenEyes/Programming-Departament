@@ -15,6 +15,9 @@ public class globalVar : MonoBehaviour
 
     public bool isMapUp;
 
+    public int [] biomas;
+
+    public int biomaActual;
 
 
     private static globalVar VarInstance;
@@ -43,7 +46,7 @@ public class globalVar : MonoBehaviour
     }*/
     void Start()
     {
-        
+        biomaActual = biomas[0];   
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class globalVar : MonoBehaviour
 
     IEnumerator waitForMapSceneLoad()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         GameObject player = GameObject.Find("PLAYER");
         Debug.Log("SCNE UP");
         isMapUp = true;
