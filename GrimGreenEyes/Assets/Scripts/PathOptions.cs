@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class PathOptions : MonoBehaviour
 {
@@ -22,6 +25,8 @@ public class PathOptions : MonoBehaviour
     //Saving Game
     public GameObject glovalVar;
 
+	public bool isLast;
+
 
     //public bool isLast;
 
@@ -30,6 +35,11 @@ public class PathOptions : MonoBehaviour
 	{
 		navigationController = GameObject.Find("NavigationController");
         glovalVar = GameObject.Find("GlobalAttributes");
+
+		if (isLast)
+		{
+			gameObject.GetComponent<Image>().color = Color.red;
+		}
 
         if (firstItem)
 		{

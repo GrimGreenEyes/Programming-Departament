@@ -110,6 +110,11 @@ public class Navigation : MonoBehaviour
                 Debug.Log(node.name + "not in list");
     }
 
+    public void moveToNodeEmpty()
+    {
+        moveToNode(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().myArray[0].node);
+    }
+
     IEnumerator cameraMovement(GameObject node){
         //Suponiendo que gana la partida
 

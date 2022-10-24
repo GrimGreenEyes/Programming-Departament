@@ -187,6 +187,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 1209569245542487691}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!120 &1209569245542487691
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -441,6 +443,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 117118639636580654}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!120 &117118639636580654
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -695,6 +699,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 8307063471415016062}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!120 &8307063471415016062
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -947,6 +953,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 8457700363202975130}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 1
 --- !u!120 &8457700363202975130
 LineRenderer:
   m_ObjectHideFlags: 0

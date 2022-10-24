@@ -86,7 +86,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5044652296084932300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +258,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 0}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!1 &5044652296381638386
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +414,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 0}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!1 &5044652296460436761
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +572,8 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 0}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
 --- !u!1 &5044652296508600170
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,3 +730,5 @@ MonoBehaviour:
   path: {fileID: 0}
   line: {fileID: 0}
   lines: []
+  glovalVar: {fileID: 0}
+  isLast: 0
