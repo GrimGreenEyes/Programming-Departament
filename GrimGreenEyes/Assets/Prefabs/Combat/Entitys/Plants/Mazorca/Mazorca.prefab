@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Mazorca
-  HUDSprite: {fileID: 21300000, guid: c52e891659b8060468fe64ef11531d2a, type: 3}
   livePoints: 100
   maxLivePoints: 100
   attack: 20
@@ -155,11 +154,16 @@ MonoBehaviour:
   heatResistance: 70
   freezeResistance: 10
   agility: 100
+  movement: 0
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  hidden: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
   actualState: 0
   mainAttack: {fileID: 422761750842604121, guid: 34f95fb8aa4dca145b14c5a3135cd659, type: 3}
   skills:
@@ -167,6 +171,7 @@ MonoBehaviour:
   - {fileID: 3702969669262309367, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
   - {fileID: 6847735648172363030, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
   skillSelected: 3
+  mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
   tileScale: {x: 0.7, y: 0.35}
@@ -177,5 +182,15 @@ MonoBehaviour:
     m_Bits: 0
   radious: 0.15
   moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
   gridX: 0
   gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0
+  HUDSprite: {fileID: 21300000, guid: c52e891659b8060468fe64ef11531d2a, type: 3}
+  HUDSpriteSize: 0

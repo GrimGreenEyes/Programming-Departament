@@ -36,7 +36,7 @@ public class TileMovement : MonoBehaviour
             if(Vector2.Distance(transform.position, MovementPoint) == 0)
             {
                 moveing = false;
-                GetComponent<Plants>().actualState = Plants.PlantState.IDLE;
+                GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
             }
         }
         if (input.x != 0)
@@ -58,7 +58,7 @@ public class TileMovement : MonoBehaviour
             if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
             {
                 moveing = true;
-                GetComponent<Plants>().actualState = Plants.PlantState.MOVEING;
+                GetComponent<Plants>().actualState = Entity.EntityState.MOVEING;
                 MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
             }
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,12 +9,13 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
-    private int characterSelected = 0;
-    private int maxPlayer = 0;
-    private GameObject[] characters = new GameObject[9];
-    private int input;
+    private int characterSelected = -1;
+    private List<GameObject> characters = new List<GameObject>();
+    private List<GameObject> players = new List<GameObject>();
+    private List<GameObject> enemys = new List<GameObject>();
 
-
+    public GameObject winScreen;
+    public GameObject looseScreen;
 
     private void Awake()
     {
@@ -29,38 +31,113 @@ public class GameController : MonoBehaviour
             instance = null;
         }
     }
-    public void Init(GameObject player, int playerPos)
+    
+    public void Init(GameObject entity)
     {
-        characters[playerPos] = player;
-        maxPlayer++;
+        characters.Add(entity);
+        if(entity.tag == "Player")
+        {
+            players.Add(entity);
+        }
+        else if(entity.tag == "Enemy")
+        {
+            enemys.Add(entity);
+        }
     }
-    private void Update()
+    public void OrderCharacters()
     {
+        characters = characters.OrderByDescending(x => x.GetComponent<Entity>().agility).ToList();
+        characterSelected = characters.Count - 1;
+        NextPlayer();
+        //characters.Sort(Entity.agility);
     }
     public void NextPlayer()
     {
-        if (characters[characterSelected].GetComponent<Plants>().actualState != Plants.PlantState.IDLE)
+        switch (characters[characterSelected].tag)
         {
-            return;
+            case "Player":
+                switch (characters[(characterSelected + 1) % characters.Count].tag)
+                {
+                    case "Player":
+                        if (characters[characterSelected].GetComponent<Plants>().actualState != Entity.EntityState.IDLE)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Plants>().actualState = Entity.EntityState.START;
+                        break;
+                    case "Enemy":
+                        if (characters[characterSelected].GetComponent<Plants>().actualState != Entity.EntityState.IDLE)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Mosquitoes>().actualState = Entity.EntityState.START;
+                        PlayerPanel.instance.gameObject.SetActive(false);
+                        break;
+                }
+                break;
+            case "Enemy":
+                switch (characters[(characterSelected + 1) % characters.Count].tag)
+                {
+                    case "Player":
+                        if (characters[characterSelected].GetComponent<Mosquitoes>().actualState != Entity.EntityState.IDLE)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Plants>().actualState = Entity.EntityState.START;
+                        PlayerPanel.instance.gameObject.SetActive(true);
+                        //PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
+                        break;
+                    case "Enemy":
+                        if (characters[characterSelected].GetComponent<Mosquitoes>().actualState != Entity.EntityState.IDLE)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Mosquitoes>().actualState = Entity.EntityState.START;
+                        break;
+                }
+                break;
         }
-        characterSelected = (characterSelected + 1) % (characters.Length - 1);
-        characters[characterSelected].GetComponent<Plants>().actualState = Plants.PlantState.START;
-        PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
     }
     public GameObject SelectedPlayer()
     {
         return characters[characterSelected];
     }
-    /*
-    public bool IsPointerOverUIObject(Touch touch)
+    public void Died(GameObject entity)
     {
-
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(touch.position.x, touch.position.y);
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;
+        Destroy(entity);
+        if (entity.tag == "Enemy")
+        {
+            enemys.Remove(entity);
+            
+            if (enemys.Count == 0)
+            {
+                Finish();
+            }
+        }
+        else if(entity.tag == "Player")
+        {
+            players.Remove(entity);
+            if (players.Count == 0)
+            {
+                Finish();
+            }
+        }
+        characters.Remove(entity);
     }
-    */
+    public void Finish()
+    {
+        Time.timeScale = 0;
+        if (enemys.Count == 0)
+        {
+            winScreen.SetActive(true);
+        }
+        else if(players.Count == 0)
+        {
+            looseScreen.SetActive(true);
+        }
+    }
 }

@@ -13,11 +13,14 @@ public class CameraController : MonoBehaviour
     private bool moveingCamera = false;
     private Vector3 mouseStartPosition;
 
+    [SerializeField] private float zoomModifierSpeed;
+    private float touchesPrevPosDifference, touchesCurPosDifference, zoomModifier;
+    private Vector2 firstTouchPrevPos, secondTouchPrevPos;
     private void Awake()
     {
         camera = GetComponent<Camera>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 direction;
         if (Input.GetMouseButtonDown(mouseButton))
@@ -39,7 +42,27 @@ public class CameraController : MonoBehaviour
         {
             camera.orthographicSize = ((camera.orthographicSize > minSize && input > 0) || (camera.orthographicSize < maxSize && input < 0)) ? camera.orthographicSize - (speed * input) : camera.orthographicSize;
         }
-        
+        if(Input.touchCount == 2)
+        {
+            Touch firstTouch = Input.GetTouch(0);
+            Touch secondTouch = Input.GetTouch(1);
 
+            firstTouchPrevPos = firstTouch.position - firstTouch.deltaPosition;
+            secondTouchPrevPos = secondTouch.position - secondTouch.deltaPosition;
+
+            touchesPrevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
+            touchesCurPosDifference = (firstTouch.position - secondTouch.position).magnitude;
+
+            zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomModifierSpeed;
+
+            if(touchesPrevPosDifference > touchesCurPosDifference)
+            {
+                camera.orthographicSize += zoomModifier;
+            }
+            if(touchesPrevPosDifference < touchesCurPosDifference)
+            {
+                camera.orthographicSize -= zoomModifier;
+            }
+        }
     }
 }

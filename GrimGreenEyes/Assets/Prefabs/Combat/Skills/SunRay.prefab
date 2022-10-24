@@ -47,4 +47,10 @@ MonoBehaviour:
   name: Rayo solar
   description: "Apunta un rayo de sol hacia un aliado, mejorando sus estad\xEDsticas."
   isActiveSkill: 1
+  isbuffing: 1
+  isReflexive: 0
+  actilveOnClick: 0
   radious: 5
+  areaOfEffect: 0
+  alreadyUsed: 0
+  coolDown: 3

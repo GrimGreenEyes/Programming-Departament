@@ -6,7 +6,8 @@ public class Bite : Attack
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        Debug.Log("Mordisco");
-        enemy.GetComponent<Mosquitoes>().livePoints -= DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>()); 
+        enemy.GetComponent<Mosquitoes>().livePoints -= DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
+        CheckDead(enemy.GetComponent<Mosquitoes>());
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }

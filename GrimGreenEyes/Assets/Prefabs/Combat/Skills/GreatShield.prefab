@@ -47,4 +47,10 @@ MonoBehaviour:
   name: Gran escudo
   description: La planta levanta su escudo y protege a las que haya a su alrededor.
   isActiveSkill: 1
-  radious: 1
+  isbuffing: 1
+  isReflexive: 0
+  actilveOnClick: 1
+  radious: 0
+  areaOfEffect: 1
+  alreadyUsed: 0
+  coolDown: 3

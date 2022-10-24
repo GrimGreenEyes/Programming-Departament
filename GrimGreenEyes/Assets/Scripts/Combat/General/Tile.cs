@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [Header("creation")]
-    [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor, enemyColor;
+    [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor, enemyColor, allyColor;
 
     [SerializeField] private Sprite[] tileSprites;
     [SerializeField] private new SpriteRenderer renderer;
@@ -19,7 +19,7 @@ public class Tile : MonoBehaviour
     private bool clickable = false;
     public bool isInRange = false;
     public bool isWalkable;
-    private GameObject entity;
+    public GameObject entity;
     public int weight;
 
     public void Init(int color, int x, int y)
@@ -34,7 +34,15 @@ public class Tile : MonoBehaviour
     {
         StopShine();
         SetClickable(false);
-        if (isInRange && isWalkable && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Plants.PlantState.IDLE)
+        if(GameController.instance.SelectedPlayer().tag != "Player")
+        {
+            return;
+        }
+        if(entity != null && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE && Mathf.Abs(positionX  - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(positionY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) <= GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.range)
+        {
+            ShineEntity();
+        }
+        if (isInRange && isWalkable && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
         {
             ShineTile();
             SetClickable(true);
@@ -42,19 +50,27 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void SetBorder(int border)
-    {
-        renderer.color = borderColor;
-        renderer.sprite = tileSprites[border];
-        collider.enabled = false;
-    }
+    
     public void ShineTile()
     {
         if (this.transform.childCount != 2)
         {
             return;
         }
-        renderer.color = shineColor;
+        {
+            renderer.color = shineColor;
+        }        
+    }
+    public void ShineEntity()
+    {
+        if (entity.tag == "Enemy" && !GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
+        {
+            renderer.color = enemyColor;
+        }
+        else if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
+        {
+            renderer.color = allyColor;
+        }
     }
     public void SetClickable(bool isCliclabke)
     {
@@ -102,6 +118,10 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (UIHoverListener.instance.isUIOverride)
+        {
+            return;
+        }
         if (entity != null)
         {
             return;

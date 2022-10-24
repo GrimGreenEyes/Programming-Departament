@@ -147,26 +147,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Cactus
-  HUDSprite: {fileID: 21300000, guid: 9f66e3d8acad22043a9ff001ff7875c0, type: 3}
-  livePoints: 100
-  maxLivePoints: 100
+  livePoints: 120
+  maxLivePoints: 120
   attack: 20
-  defense: 80
-  heatResistance: 70
+  defense: 50
+  heatResistance: 20
   freezeResistance: 10
-  agility: 100
+  agility: 4
+  movement: 0
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  hidden: 0
+  attacked: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
   actualState: 0
   mainAttack: {fileID: 1085834782170022000, guid: bc09c06347bf941429c000cec8a9c95e, type: 3}
+  skillPrefabs:
+  - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
+  - {fileID: 6796131682827152524, guid: ee9627ef907a376428ce51e6faca0834, type: 3}
+  - {fileID: 1276064010140777734, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
+  skillObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skills:
-  - {fileID: 669799070109827721, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 6413465660566873705, guid: ee9627ef907a376428ce51e6faca0834, type: 3}
-  - {fileID: 8753920312683335616, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillSelected: 3
+  mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
   tileScale: {x: 0.7, y: 0.35}
@@ -177,5 +191,15 @@ MonoBehaviour:
     m_Bits: 0
   radious: 0.15
   moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
   gridX: 0
   gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0
+  HUDSprite: {fileID: 21300000, guid: 9f66e3d8acad22043a9ff001ff7875c0, type: 3}
+  HUDSpriteSize: 0

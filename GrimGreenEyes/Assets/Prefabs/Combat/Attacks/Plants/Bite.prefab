@@ -47,5 +47,6 @@ MonoBehaviour:
   name: Bite
   range: 1
   radious: 1
+  directedToAlly: 0
   freezeDamage: 0.7
   heatDamage: 0.3

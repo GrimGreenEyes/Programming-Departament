@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Magic Sap
-  range: 0
-  radious: 4
+  range: 5
+  radious: 0
+  directedToAlly: 1
   freezeDamage: 0.7
   heatDamage: 0.3

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9144611413271231580
+--- !u!1 &192312548320703699
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9144611413271231587}
-  - component: {fileID: 9144611413271231591}
-  - component: {fileID: 9144611413271231585}
-  - component: {fileID: 9144611413271231586}
-  - component: {fileID: 7455414059148080505}
+  - component: {fileID: 192312548320703697}
+  - component: {fileID: 192312548320703696}
+  - component: {fileID: 192312548320703660}
+  - component: {fileID: 192312548320703663}
+  - component: {fileID: 4004619573126807341}
   m_Layer: 0
-  m_Name: Nenufar
-  m_TagString: Player
+  m_Name: Worm
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9144611413271231587
+--- !u!4 &192312548320703697
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144611413271231580}
+  m_GameObject: {fileID: 192312548320703699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4252455, y: 0, z: 8.141333}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9144611413271231591
+--- !u!212 &192312548320703696
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144611413271231580}
+  m_GameObject: {fileID: 192312548320703699}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 0.2947836, b: 1, a: 1}
+  m_Color: {r: 0.3962264, g: 0, b: 0.23152058, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &9144611413271231585
+--- !u!50 &192312548320703660
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144611413271231580}
+  m_GameObject: {fileID: 192312548320703699}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -108,13 +108,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &9144611413271231586
+--- !u!61 &192312548320703663
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144611413271231580}
+  m_GameObject: {fileID: 192312548320703699}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -134,62 +134,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.545887, y: 0.33475956}
   m_EdgeRadius: 0
---- !u!114 &7455414059148080505
+--- !u!114 &4004619573126807341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144611413271231580}
+  m_GameObject: {fileID: 192312548320703699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e457593057d4e479c1010f6520fd7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 08bbf6c675c237d49b8ff66fed04b340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Nenufar
+  name: Gusano
   livePoints: 100
   maxLivePoints: 100
-  attack: 20
-  defense: 80
-  heatResistance: 70
-  freezeResistance: 10
-  agility: 100
+  attack: 100
+  defense: 100
+  heatResistance: 100
+  freezeResistance: 100
+  agility: 0
   movement: 0
-  maxMovement: 4
+  maxMovement: 0
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
   hidden: 0
-  attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
-  actualState: 0
-  mainAttack: {fileID: 8890309519532701782, guid: e3a04ef5d4b2a9f4084c23043eceec09, type: 3}
-  skillPrefabs:
-  - {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}
-  - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 3707064556478966940, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
-  skillObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 3707064556478966940, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
+  actualState: 1
+  mainAttack: {fileID: 0}
   skills:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   skillSelected: 3
   mainObjective: {fileID: 0}
-  MovementSpeed: 2
+  MovementSpeed: 0
   MovementPoint: {x: 0, y: 0, z: 0}
-  tileScale: {x: 0.7, y: 0.35}
+  tileScale: {x: 0, y: 0}
   angle: {x: 0, y: 0, z: 0}
-  offsetMovePoint: {x: 0.559017, y: 0.559017}
+  offsetMovePoint: {x: 0, y: 0}
   obstacles:
     serializedVersion: 2
     m_Bits: 0
-  radious: 0.15
+  radious: 0
   moveing: 0
   input: {x: 0, y: 0}
   direction: {x: 0, y: 0}
@@ -201,5 +192,3 @@ MonoBehaviour:
   pathPosition: 0
   directionX: 0
   directionY: 0
-  HUDSprite: {fileID: 21300000, guid: 84312f4a999b21044a50a3506c6c0f4b, type: 3}
-  HUDSpriteSize: 0

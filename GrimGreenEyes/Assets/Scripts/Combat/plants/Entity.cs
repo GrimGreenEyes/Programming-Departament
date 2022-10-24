@@ -16,22 +16,36 @@ public class Entity : MonoBehaviour
     public int freezeResistance;
     public int agility;
     public int movement;
-    public const int MAX_MOVEMENT = 6;
+    public int maxMovement;
 
 
-    public int attackMultiplayer;
-    public int defenseMultiplayer;
-    public int heatResistanceMultiplayer;
-    public int freezeResistanceMultiplayer;
+    public float attackMultiplayer;
+    public float defenseMultiplayer;
+    public float heatResistanceMultiplayer;
+    public float freezeResistanceMultiplayer;
 
     public bool bleeding = false;
-
+    public bool hidden = false;
+    public bool attacked = false;
 
     
 
     public Sprite timeLineSprite;
+    public SpriteRenderer renderer;
 
 
+    public enum EntityState { START, IDLE, MOVEING, ATTACKING, STUNED, USINGSKILL, FINISHED }
+    public EntityState actualState = EntityState.IDLE;
+
+
+    [Header("Combat")]
+    public Attack mainAttack;
+    [SerializeField] protected GameObject[] skillPrefabs = new GameObject[3];
+    [SerializeField] protected GameObject[] skillObjects = new GameObject[3];
+    public Skill[] skills = new Skill[3];
+    public int skillSelected = 3;
+
+    public GameObject mainObjective;
 
     ///
     ///Movement
@@ -58,4 +72,11 @@ public class Entity : MonoBehaviour
 
     public float directionX;
     public float directionY;
+
+    private void Awake()
+    {
+        
+        renderer = GetComponent<SpriteRenderer>();
+    }
+    public virtual void States() { }
 }

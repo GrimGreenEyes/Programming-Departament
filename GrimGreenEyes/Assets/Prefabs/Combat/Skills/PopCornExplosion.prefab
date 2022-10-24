@@ -48,4 +48,10 @@ MonoBehaviour:
   description: "La planta lanza palomitas a su alrededor generando un \xE1rea que
     aumenta las estad\xEDsticas de los aliados."
   isActiveSkill: 1
-  radious: 4
+  isbuffing: 0
+  isReflexive: 0
+  actilveOnClick: 0
+  radious: 0
+  areaOfEffect: 3
+  alreadyUsed: 0
+  coolDown: 3

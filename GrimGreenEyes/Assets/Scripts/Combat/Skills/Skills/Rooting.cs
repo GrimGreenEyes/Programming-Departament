@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Rooting : Skill
 {
-    private void Start()
+    public Color color;
+    public override void Effect(GameObject enemy, GameObject player)
     {
-        isActiveSkill = true;
+        if (alreadyUsed)
+        {
+            DeactivateSkill(player.GetComponent<Plants>());
+            return;
+        }
+
+        DeactivateSkill(player.GetComponent<Plants>());
+        player.GetComponent<Plants>().Hide(color);
     }
 }

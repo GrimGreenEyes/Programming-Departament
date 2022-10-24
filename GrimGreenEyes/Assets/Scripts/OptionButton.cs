@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OptionButton : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI name;
+    [SerializeField] private new TextMeshProUGUI name;
 
     public void SetName(string newName)
     {

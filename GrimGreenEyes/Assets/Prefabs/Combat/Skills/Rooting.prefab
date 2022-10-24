@@ -48,3 +48,11 @@ MonoBehaviour:
   description: La planta se mete bajo tierra escondiendo su cuerpo y aumentando su
     defensa.
   isActiveSkill: 1
+  isbuffing: 1
+  isReflexive: 1
+  actilveOnClick: 1
+  radious: 0
+  areaOfEffect: 0
+  alreadyUsed: 0
+  coolDown: 3
+  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.56078434}

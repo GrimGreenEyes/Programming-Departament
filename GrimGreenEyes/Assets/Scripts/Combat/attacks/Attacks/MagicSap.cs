@@ -11,10 +11,12 @@ public class MagicSap : Attack
     }
     public override void Effect(GameObject ally, GameObject player)
     {
-        //Debug.Log("Curación a " + ally.name);
-        Debug.Log(ally);
-        Debug.Log(player);
-        ally.GetComponent<Plants>().livePoints += player.GetComponent<Plants>().attack;
-         
+        if(ally.tag != "Player")
+        {
+            player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+            return;
+        }
+        ally.GetComponent<Plants>().livePoints = (ally.GetComponent<Plants>().livePoints + player.GetComponent<Plants>().attack < ally.GetComponent<Plants>().maxLivePoints) ? ally.GetComponent<Plants>().maxLivePoints + player.GetComponent<Plants>().attack : ally.GetComponent<Plants>().maxLivePoints;
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }

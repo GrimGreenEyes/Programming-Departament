@@ -9,6 +9,7 @@ public class ThornAttack : Attack
     {
         Debug.Log("Ataque cactus");
         enemy.GetComponent<Mosquitoes>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
-
+        CheckDead(enemy.GetComponent<Mosquitoes>());
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }
