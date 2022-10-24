@@ -58,7 +58,7 @@ public class nodesPicker : MonoBehaviour
             mapBioms[1] = rand2 % 4;
         }
 
-        GameObject.Find("GlobalAttributes").GetComponent<globalVar>().biomas = mapBioms;
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas = mapBioms;
 
 
         /*if (randTypes == 0)

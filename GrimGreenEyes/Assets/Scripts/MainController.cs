@@ -23,13 +23,13 @@ public class MainController : MonoBehaviour
         if (string.Equals(sceneName, "MapScene"))
         {
             Debug.Log("IGUAL SCENEMAE");
-            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().MapSceneUp();
-            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().mapGenerated.SetActive(true);
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp();
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
 
         }
-        else if(GameObject.Find("GlobalAttributes").GetComponent<globalVar>().isMapUp == true)
+        else if(GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
         {
-            GameObject.Find("GlobalAttributes").GetComponent<globalVar>().mapGenerated.SetActive(false);
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
         }
 
 

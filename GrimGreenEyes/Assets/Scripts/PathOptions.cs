@@ -34,7 +34,7 @@ public class PathOptions : MonoBehaviour
         if (firstItem)
 		{
 			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
-			glovalVar.GetComponent<globalVar>().actualNode = this.gameObject;
+			glovalVar.GetComponent<GlobalVar>().actualNode = this.gameObject;
 		}
 
 		if (firstItem)

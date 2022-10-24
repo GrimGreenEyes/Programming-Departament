@@ -13,7 +13,6 @@ public class Navigation : MonoBehaviour
 
     public Vector3 camFuturePos;
 
-    public GameObject globalVar;
 
     //public Vector3 pathPos;
 
@@ -29,22 +28,24 @@ public class Navigation : MonoBehaviour
     void Start()
     {
         glovalVar = GameObject.Find("GlobalAttributes");
-        level = globalVar.GetComponent<globalVar>().level;
-        if (glovalVar.GetComponent<globalVar>().created == 0)
+
+       // glovalVar = GlobalVar.VarInstance;
+        level = glovalVar.GetComponent<GlobalVar>().level;
+        if (glovalVar.GetComponent<GlobalVar>().created == 0)
         {
             switch (level)
             {
                 case 0:
-                    glovalVar.GetComponent<globalVar>().mapGenerated = Instantiate(mapPrefabs[0], mapPos, Quaternion.identity);
+                    glovalVar.GetComponent<GlobalVar>().mapGenerated = Instantiate(mapPrefabs[0], mapPos, Quaternion.identity);
                     break;
 
                 case 1:
-                    glovalVar.GetComponent<globalVar>().mapGenerated = Instantiate(mapPrefabs[1], mapPos, Quaternion.identity);
+                    glovalVar.GetComponent<GlobalVar>().mapGenerated = Instantiate(mapPrefabs[1], mapPos, Quaternion.identity);
                     //Instantiate(mapPrefabs[2], mapPos[2], Quaternion.identity);
                     break;
 
                 case 2:
-                    glovalVar.GetComponent<globalVar>().mapGenerated = Instantiate(mapPrefabs[2], mapPos, Quaternion.identity);
+                    glovalVar.GetComponent<GlobalVar>().mapGenerated = Instantiate(mapPrefabs[2], mapPos, Quaternion.identity);
                     break;
 
 
@@ -54,13 +55,13 @@ public class Navigation : MonoBehaviour
                     Instantiate(mapPrefabs[5], mapPos[5], Quaternion.identity);
                     Instantiate(mapPrefabs[6], mapPos[6], Quaternion.identity);
                     */
-                    glovalVar.GetComponent<globalVar>().mapGenerated = Instantiate(mapPrefabs[3], mapPos, Quaternion.identity);
+                    glovalVar.GetComponent<GlobalVar>().mapGenerated = Instantiate(mapPrefabs[3], mapPos, Quaternion.identity);
 
                     break;
             }
 
-            glovalVar.GetComponent<globalVar>().mapGenerated.transform.parent = glovalVar.transform;
-            glovalVar.GetComponent<globalVar>().created = 1;
+            glovalVar.GetComponent<GlobalVar>().mapGenerated.transform.parent = glovalVar.transform;
+            glovalVar.GetComponent<GlobalVar>().created = 1;
         }
         else
         {
@@ -90,13 +91,13 @@ public class Navigation : MonoBehaviour
         //Debug.Log("");
         //if(actualNode) // si el bot�n (nodo) est� en la lista del primero y est� activo, el nodo actual es el siguiente
         //
-        actualNode = glovalVar.GetComponent<globalVar>().actualNode;
+        actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
             if (actualNode.GetComponent<PathOptions>().getGameobjects(node))
             {
                 Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
                 player.transform.position = mediumPos;
                 actualNode = node;
-                glovalVar.GetComponent<globalVar>().actualNode = node;
+                glovalVar.GetComponent<GlobalVar>().actualNode = node;
             Debug.Log("cambia correcto");
                 //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 

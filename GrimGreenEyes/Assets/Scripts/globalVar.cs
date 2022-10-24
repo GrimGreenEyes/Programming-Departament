@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class globalVar : MonoBehaviour
+public class GlobalVar : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -20,7 +20,7 @@ public class globalVar : MonoBehaviour
     public int biomaActual;
 
 
-    private static globalVar VarInstance;
+    public static GlobalVar VarInstance;
     void Awake()
     {
         isMapUp = true;
