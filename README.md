@@ -37,10 +37,12 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
         - 2.3.1 [Recursos obtenidos durante los combates](#2.3.1)
         - 2.3.2 [Combinaciones de _crafteo_](#2.3.2)
     - 2.4 [Mecánicas de combate](#2.4)
-        - 2.4.1 [Mecánicas de las losetas de cada bioma](#2.4.1)
-        - 2.4.2 [Lluvia](#2.4.2)
-        - 2.4.3 [Eventos de terreno](#2.4.3)
-        - 2.4.4 [Habilidades de las unidades en combate](#2.4.4)
+        - 2.4.1 [Condiciones de Victoria](#2.4.1)
+        - 2.4.2 [Condiciones de Derrota](#2.4.2)
+        - 2.4.3 [Mecánicas de las losetas de cada bioma](#2.4.3)
+        - 2.4.4 [Lluvia](#2.4.4)
+        - 2.4.5 [Eventos de terreno](#2.4.5)
+        - 2.4.6 [Habilidades de las unidades en combate](#2.4.6)
     - 2.5 [Cotroles](#2.5)
 - 3. [Arte](#3)
 - 4. [Interfaz](#4)
@@ -85,7 +87,7 @@ Juego para navegadores web: Mozilla Firefox y Google Chrome.
 ### 2.1 Mecánicas de inicio de partida
 Cada partida consta de varios mapas y cada uno tendrá varios biomas, teniendo el primer mapa un solo bioma y del cuarto mapa en adelante los cuatro biomas. 
 
-Cada mapa está dividido en nodos, cada nodo implica un combate. El jugador podrá moverse entre nodos, para pasar a un nodo se debe haber superado el combate del anterior (ver [movimiento por el mapa](#2.2)). Por cada mapa, existe un nodo especial de insectos domminantes.
+Cada mapa está dividido en nodos, cada nodo implica un combate. El jugador podrá moverse entre nodos, para pasar a un nodo se debe haber superado el combate del anterior (ver [movimiento por el mapa](#2.2)). Por cada mapa, existe un nodo especial de insectos dominantes.
 - El primer mapa consta de 5 nodos y el nodo de insectos dominantes. 
 - El segundo mapa consta de 4 nodos por bioma y el nodo de insectos dominantes.
 - El tercer mapa consta de 3 nodos por bioma y el nodo de insectos dominantes.  
@@ -192,7 +194,7 @@ Abonos de atributo:
 ##### 2.3.2 Combinaciones de "crafteo"
 
 __8 abonos de habilidad__ :
-- Semilla de xx + abdomen = abono de habilidad de planta xx 
+- Semilla de planta X + abdomen = abono de habilidad de planta X 
 
 __7 abonos de atributo__ :
 
@@ -225,7 +227,8 @@ Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tien
 
 Al comenzar un combate se inicia un efecto climatológico aleatorio según el bioma y se indicará si es de día o de noche.
 
-__Objetivo del nivel__:
+<a name="2.4.1"></a>
+##### 2.4.1 Objetivo del nivel__:
 
 El __objetivo__ de cada combate será desplazar el carro-invernadero hasta el final del mapa desplazándolo por los distintos caminos propuestos. Los distintos enemigos aparecerán por el mapa a medida que el carro se desplaza y tratarán de destruir el carro. 
 El jugador moverá las metaplantas por el mapa __escoltando al carro, combatiendo con los insectos y obteniendo recursos__. 
@@ -244,8 +247,9 @@ Estos recursos se obtienen de tres formas:
  - Atacar,
  - Moverse,
  - Usar su habilidad.
- 
- __Condiciones de derrota__ :
+
+<a name="2.4.2"></a>
+##### 2.4.2 Condiciones de derrota 
  
 Si el carro resulta destruido el jugador habrá perdido la partida. 
 
@@ -253,8 +257,8 @@ Perder la partida implica que, al volver a jugar, el jugador volverá a empezar 
 
 Cada metaplanta que sea derrotada durante un combate será derrotada definitivamente. El jugador no volverá a disponer de ella en el carro-invernadero. 
 
-<a name="2.4.1"></a>
-##### 2.4.1 Mecánicas de las losetas de cada bioma
+<a name="2.4.3"></a>
+##### 2.4.3 Mecánicas de las losetas de cada bioma
 
 A continuación una lista de las losetas de cada bioma y sus siguientes características:
 
@@ -302,7 +306,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |Hierba alta| Plantas e Insectos| Recupera 5pt de vida| Baja|
 |Charco| Plantas e insectos| Ninguno| Alta|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque| Baja|
-|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida| Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas| Baja|
 |Flor azul| Plantas e Insectos| Gana 2pt de ataque| Baja|
 
 
@@ -318,29 +322,30 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 5pt de vida. Gana 2pt de ataque| Baja|
 |Tierra seca| Plantas e Insectos| Las plantas pierden 2pt de vida| Alta|
 |Flor Roja| Plantas e Insectos| Gana 2pt de ataque| Baja|
-|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida| Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas| Baja|
 
 
-<a name="2.4.2"></a>
-##### 2.4.2 LLuvia
+<a name="2.4.4"></a>
+##### 2.4.4 LLuvia
 Al comenzar una partida en función del bioma cabe la posibilidad de que llueva durante el combate.
 Esto se representa con una animación de lluvia durante la batalla. Además, si llueve tras la batalla, el tanque de agua del invernadero se rellenará a causa de la lluvia. 
 
 |Bioma|Probabilidad de lluvia|Agua añadida al tanque|
 |:---:|:--------------------:|:--------------------:|
-|Desierto|5%||entre 10-50|
+|Desierto|5%| entre 10-50|
 |Nevado| 40%| entre 60-120|
 |Selva| 60%| entre 80-150|
 |Llanura| 50%| entre 60-100|
 
+Ver cómo de mide el agua del tanque.
 
-<a name="2.4.3"></a>
-##### 2.4.3 Eventos de terreno
+<a name="2.4.5"></a>
+##### 2.4.5 Eventos de terreno
 
 Desbloquean distintas losetas para la generación procedural de mapa de combate. 
 
-<a name="2.4.4"></a>
-##### 2.4.4 Habilidades de las unidades en combate
+<a name="2.4.6"></a>
+##### 2.4.6 Habilidades de las unidades en combate
 <a name="2.5"></a>
 ### 2.5 Controles
 - Selección de botones y menús por clics. 
