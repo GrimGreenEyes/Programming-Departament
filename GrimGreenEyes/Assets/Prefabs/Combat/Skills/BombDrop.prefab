@@ -48,4 +48,10 @@ MonoBehaviour:
   description: "La planta atraviesa el campo en una direcci\xF3n t bombardea el campo
     de batalla."
   isActiveSkill: 1
+  isbuffing: 0
+  isReflexive: 0
+  actilveOnClick: 0
   radious: 0
+  areaOfEffect: 0
+  alreadyUsed: 0
+  coolDown: 3

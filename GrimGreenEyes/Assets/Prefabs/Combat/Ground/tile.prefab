@@ -52,6 +52,7 @@ MonoBehaviour:
   borderColor: {r: 1, g: 1, b: 1, a: 0}
   shineColor: {r: 0.03999996, g: 1, b: 0, a: 0.6509804}
   enemyColor: {r: 1, g: 0, b: 0, a: 0.31764707}
+  allyColor: {r: 0, g: 0.5200343, b: 1, a: 0.8}
   tileSprites:
   - {fileID: 21300000, guid: b0cad27c55daa9c409f5fd0390777467, type: 3}
   renderer: {fileID: 4368756040188701946}
@@ -60,6 +61,7 @@ MonoBehaviour:
   description: groundTile
   isInRange: 0
   isWalkable: 1
+  entity: {fileID: 0}
   weight: 1
 --- !u!50 &7840423886552744799
 Rigidbody2D:

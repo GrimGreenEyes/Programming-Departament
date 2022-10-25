@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6750024775088512484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -147,20 +148,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Aloe Vera
-  livePoints: 100
-  maxLivePoints: 100
-  attack: 100
-  defense: 100
-  heatResistance: 100
-  freezeResistance: 100
-  agility: 100
+  livePoints: 80
+  maxLivePoints: 80
+  attack: 25
+  defense: 30
+  heatResistance: 20
+  freezeResistance: 30
+  agility: 7
   movement: 0
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  hidden: 0
+  attacked: 0
   timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
+  actualState: 0
+  mainAttack: {fileID: 2091355357461808738, guid: cc13ee5a86587dd4fa3057a3ddf6a379, type: 3}
+  skillPrefabs:
+  - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
+  - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
+  - {fileID: 845286623794744505, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
+  skillObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillSelected: 3
+  mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
   tileScale: {x: 0.7, y: 0.35}
@@ -182,11 +203,74 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
-  actualState: 0
-  mainAttack: {fileID: 2091355357461808738, guid: cc13ee5a86587dd4fa3057a3ddf6a379, type: 3}
-  skills:
-  - {fileID: 5204054957660908025, guid: b33ec4f94897d61469addd61ac684172, type: 3}
-  - {fileID: 669799070109827721, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 6847735648172363030, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
-  skillSelected: 3
-  mainObjective: {fileID: 0}
+  HUDSpriteSize: 100
+--- !u!1 &8347891985767787525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6750024775088512484}
+  - component: {fileID: 6110840397607372298}
+  - component: {fileID: 2538263906727359623}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: PlayerClick
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6750024775088512484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347891985767787525}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.6666665, y: 2.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6076781830755781744}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &6110840397607372298
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347891985767787525}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.63, y: 0.82}
+  m_Direction: 0
+--- !u!50 &2538263906727359623
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347891985767787525}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

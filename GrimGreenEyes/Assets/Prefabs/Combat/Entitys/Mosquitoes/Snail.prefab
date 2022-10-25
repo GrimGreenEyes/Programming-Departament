@@ -153,10 +153,34 @@ MonoBehaviour:
   defense: 100
   heatResistance: 100
   freezeResistance: 100
-  agility: 100
+  agility: 0
+  movement: 0
+  maxMovement: 0
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
-  mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
+  hidden: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
+  MovementSpeed: 0
+  MovementPoint: {x: 0, y: 0, z: 0}
+  tileScale: {x: 0, y: 0}
+  angle: {x: 0, y: 0, z: 0}
+  offsetMovePoint: {x: 0, y: 0}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  radious: 0
+  moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  gridX: 0
+  gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0

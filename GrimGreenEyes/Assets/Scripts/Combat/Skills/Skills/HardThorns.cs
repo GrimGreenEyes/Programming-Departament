@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HardThorns : Skill
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Effect(GameObject enemy, GameObject player)
     {
-        isActiveSkill = false;
+        
+        DeactivateSkill(player.GetComponent<Plants>());
     }
 }

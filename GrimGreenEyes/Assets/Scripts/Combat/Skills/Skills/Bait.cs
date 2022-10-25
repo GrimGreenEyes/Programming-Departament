@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Bait : Skill
 {
-    private void Start()
+    public override void Effect(GameObject enemy, GameObject player)
     {
-        isActiveSkill = true;
-    }
-    public override void Effect()
-    {
-        
+
+        DeactivateSkill(player.GetComponent<Plants>());
     }
 }

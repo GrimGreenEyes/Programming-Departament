@@ -9,5 +9,7 @@ public class Thorns : Attack
         Debug.Log("Ataque rosa");
         enemy.GetComponent<Mosquitoes>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
         enemy.GetComponent<Mosquitoes>().bleeding = true;
+        CheckDead(enemy.GetComponent<Mosquitoes>());
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }

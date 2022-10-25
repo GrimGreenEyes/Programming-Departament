@@ -47,4 +47,10 @@ MonoBehaviour:
   name: Espinas robustas
   description: "Una parte del da\xF1o recibido se ve reflejada a su atacante."
   isActiveSkill: 0
-  radious: 1
+  isbuffing: 0
+  isReflexive: 0
+  actilveOnClick: 0
+  radious: 0
+  areaOfEffect: 1
+  alreadyUsed: 0
+  coolDown: 3

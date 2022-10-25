@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Girasol
-  HUDSprite: {fileID: 21300000, guid: 84312f4a999b21044a50a3506c6c0f4b, type: 3}
   livePoints: 100
   maxLivePoints: 100
   attack: 20
@@ -155,18 +154,33 @@ MonoBehaviour:
   heatResistance: 70
   freezeResistance: 10
   agility: 100
+  movement: 0
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  hidden: 0
+  attacked: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
   actualState: 0
   mainAttack: {fileID: 1900252701062114219, guid: a8e372550261c64438400c79d72e5f42, type: 3}
+  skillPrefabs:
+  - {fileID: 845286623794744505, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
+  - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
+  - {fileID: 1276064010140777734, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
+  skillObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skills:
-  - {fileID: 6847735648172363030, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
-  - {fileID: 5204054957660908025, guid: b33ec4f94897d61469addd61ac684172, type: 3}
-  - {fileID: 8753920312683335616, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillSelected: 3
+  mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
   tileScale: {x: 0.7, y: 0.35}
@@ -177,5 +191,15 @@ MonoBehaviour:
     m_Bits: 0
   radious: 0.15
   moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
   gridX: 0
   gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0
+  HUDSprite: {fileID: 21300000, guid: e78143b99c498c74d8fffd7bbec20baa, type: 3}
+  HUDSpriteSize: 20

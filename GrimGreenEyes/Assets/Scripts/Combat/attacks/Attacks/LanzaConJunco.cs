@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class LanzaConJunco : Attack
 {
-    public override void Effect(GameObject objective, GameObject player)
+    private float liveRegen = 0.5f;
+    public override void Effect(GameObject enemy, GameObject player)
     {
         Debug.Log("Lanza");
+        int damage = DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
+        enemy.GetComponent<Mosquitoes>().livePoints -= damage;
+        player.GetComponent<Plants>().livePoints += (int)(damage * liveRegen);
+        CheckDead(enemy.GetComponent<Mosquitoes>());
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }

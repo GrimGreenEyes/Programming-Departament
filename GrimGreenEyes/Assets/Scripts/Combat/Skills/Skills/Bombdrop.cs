@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bombdrop : Skill
 {
-    private void Start()
+    public override void Effect(GameObject enemy, GameObject player)
     {
-        isActiveSkill = true;
+
+         DeactivateSkill(player.GetComponent<Plants>());
     }
 }

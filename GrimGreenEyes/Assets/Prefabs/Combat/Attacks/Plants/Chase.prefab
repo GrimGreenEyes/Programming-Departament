@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Perseguir
-  range: 3
+  range: 7
   radious: 1
   freezeDamage: 0.7
   heatDamage: 0.3

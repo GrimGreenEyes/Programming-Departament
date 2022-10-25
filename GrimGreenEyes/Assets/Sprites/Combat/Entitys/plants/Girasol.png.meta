@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba1e39573cf5c684dbc8b6ae4f8c7afb
+guid: e78143b99c498c74d8fffd7bbec20baa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
-  spriteBorder: {x: 1241, y: 641, z: 1948, w: 113}
+  spriteBorder: {x: 619, y: 0, z: 526, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -105,7 +105,7 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0

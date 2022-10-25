@@ -7,25 +7,21 @@ public class Chase : Attack
     private GameObject tile;
     public override void Effect(GameObject enemy, GameObject player)
     {
-
-        Debug.Log(enemy);
         float speed = 8;
         int distanceX, distanceY;
         distanceX = player.GetComponent<Plants>().gridX - enemy.GetComponent<Mosquitoes>().gridX;
         distanceY = player.GetComponent<Plants>().gridY - enemy.GetComponent<Mosquitoes>().gridY;
-        Debug.LogWarning(distanceX);
-        Debug.LogWarning(distanceY);
         
         CalculatePosition(distanceX, distanceY, enemy, player);
-        Debug.Log(tile);
         player.transform.position = Vector3.MoveTowards(player.transform.position, tile.transform.position + new Vector3(0, 0.25f, 0), speed * Time.deltaTime);
 
     }
     private void DoDamage(GameObject enemy, GameObject player)
     {
         enemy.GetComponent<Mosquitoes>().livePoints -= DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
-        player.GetComponent<Plants>().actualState = Plants.PlantState.IDLE;
-        
+        CheckDead(enemy.GetComponent<Mosquitoes>());
+        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+
     }
     private void CalculatePosition(int distanceX, int distanceY, GameObject enemy, GameObject player)
     {

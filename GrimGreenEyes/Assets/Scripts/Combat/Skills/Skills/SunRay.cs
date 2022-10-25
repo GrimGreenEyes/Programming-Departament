@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class SunRay : Skill
 {
-    private void Start()
+    public override void Effect(GameObject ally, GameObject player)
     {
-        isActiveSkill = true;
+        Debug.Log("does this");
+        if (alreadyUsed)
+        {
+            DeactivateSkill(player.GetComponent<Plants>());
+            return;
+        }
+        ally.GetComponent<Plants>().defenseMultiplayer = ally.GetComponent<Plants>().defenseMultiplayer * 2f;
+        DeactivateSkill(player.GetComponent<Plants>());
     }
 }
