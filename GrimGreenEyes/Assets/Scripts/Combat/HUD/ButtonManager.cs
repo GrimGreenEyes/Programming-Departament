@@ -17,7 +17,7 @@ public class ButtonManager : MonoBehaviour
     public void Init(int pos)
     {
         skillPosition = pos;
-        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[pos].currentCoolDown > 0)
+        if (GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].currentCoolDown > 0)
         {
             SetColor(onButtonDownColor);
         }

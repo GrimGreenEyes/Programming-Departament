@@ -155,20 +155,37 @@ MonoBehaviour:
   freezeResistance: 100
   agility: 0
   movement: 0
-  maxMovement: 0
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
   hidden: 0
+  attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
-  MovementSpeed: 0
+  actualState: 1
+  mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
+  skillPrefabs:
+  - {fileID: 7789007643247914104, guid: 433b637c6ee392947ae17029f383ed8e, type: 3}
+  - {fileID: 1276064010140777734, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
+  - {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}
+  skillObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillSelected: 3
+  mainObjective: {fileID: 0}
+  MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
-  tileScale: {x: 0, y: 0}
+  tileScale: {x: 0.7, y: 0.35}
   angle: {x: 0, y: 0, z: 0}
-  offsetMovePoint: {x: 0, y: 0}
+  offsetMovePoint: {x: 0.559017, y: 0.559017}
   obstacles:
     serializedVersion: 2
     m_Bits: 0
@@ -184,3 +201,5 @@ MonoBehaviour:
   pathPosition: 0
   directionX: 0
   directionY: 0
+  HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
+  HUDSpriteSize: 100

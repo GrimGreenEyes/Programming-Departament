@@ -140,7 +140,7 @@ public class Tile : MonoBehaviour
         /*if (!GameController.instance.IsPointerOverUIObject(Input.GetTouch(0)))
         {
         }*/
-        GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(this);
+        GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(gameObject);
     }
     
     public int GetX()

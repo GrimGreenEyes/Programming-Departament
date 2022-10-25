@@ -36,13 +36,13 @@ public class GridCreator : MonoBehaviour
 
     private void Start()
     {
-        if (x < 20)
+        if (x < 10)
         {
-            x = 20;
+            x = 10;
         }
-        if (y < 19)
+        if (y < 9)
         {
-            y = 19;
+            y = 9;
         }
         width = (x);
         height = (y);
@@ -156,10 +156,11 @@ public class GridCreator : MonoBehaviour
     }
     public GameObject GetTile(int x, int y)
     {
-        if(x < 0 || y < 0)
+        if(x < 0 || y < 0 )
         {
             return null;
         }
+
         return tileMap[x, y];
     }
     private void createObstacles()

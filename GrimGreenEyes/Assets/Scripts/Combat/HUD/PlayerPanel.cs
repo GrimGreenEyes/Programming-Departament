@@ -32,7 +32,7 @@ public class PlayerPanel : MonoBehaviour
     }
     public void ChangePlayer(GameObject newPlant)
     {
-        Plants plant = newPlant.GetComponent<Plants>();
+        Entity plant = newPlant.GetComponent<Entity>();
         image.sprite = plant.HUDSprite;
         image.type = Image.Type.Sliced;
         image.pixelsPerUnitMultiplier = plant.HUDSpriteSize;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Mosquitoes : Entity
@@ -7,7 +8,6 @@ public class Mosquitoes : Entity
 
     private void Update()
     {
-
         States();
     }
     public override void States()
@@ -15,31 +15,57 @@ public class Mosquitoes : Entity
         switch (actualState)
         {
             case EntityState.START:
+
                 //if (hidden) { Show(); }
-                //movement = maxMovement;
-                //if (bleeding) livePoints -= (maxLivePoints * 5 / 100);
+                movement = maxMovement;
+                if (bleeding) livePoints -= (maxLivePoints * 5 / 100);
+                if (livePoints <= 0)
+                {
+                    actualState = EntityState.IDLE;
+                    GameController.instance.NextPlayer();
+                    GameController.instance.Died(gameObject);
+                }
+                for (int i = 0; i < skills.Length; i++)
+                {
+                    skills[i].ReduceCoolDown();
+                }
+                if (gameObject == GameController.instance.SelectedPlayer())
+                {
+
+                    PlayerPanel.instance.ChangePlayer(gameObject);
+                }
                 actualState = EntityState.IDLE;
                 break;
             case EntityState.IDLE:
-                //if (gameObject == GameController.instance.SelectedPlayer())
-                //{
-                //    PathFinding.instance.PathShine(thisTile);
-                //    //GridCreator.instance.ShineTiles(gridX, gridY, movement, true);
-                //}
-                //MovementPoint = transform.position;
-                //moveing = false;
-                //path = null;
+                if (gameObject != GameController.instance.SelectedPlayer())
+                {
+                    return;
+                    //GridCreator.instance.ShineTiles(gridX, gridY, movement, true);
+                }
+                int positionToMoveX = Random.Range(-movement, movement);
+                int positionToMoveY = Random.Range(-movement, movement);
+                Debug.Log(positionToMoveX);
+                Debug.Log(positionToMoveY);
+                if(Mathf.Abs(positionToMoveX) + Mathf.Abs(positionToMoveY) > movement || Mathf.Abs(positionToMoveX) + Mathf.Abs(positionToMoveY) <= 0)
+                {
+                    break;
+                }
+                SetDestination(GridCreator.instance.GetTile((gridX + positionToMoveX < 0 || gridX + positionToMoveX > GridCreator.instance.width) ? gridX - positionToMoveX : gridX + positionToMoveX, (gridY + positionToMoveY < 0 || gridY + positionToMoveY > GridCreator.instance.height) ? gridY - positionToMoveY : gridY + positionToMoveY));
+                MovementPoint = transform.position;
+                moveing = false;
+                path = null;
                 break;
             case EntityState.MOVEING:
-                //if (path == null)
-                //{
-                //    path = PathFinding.instance.PathFind(thisTile, destination);
-                //    pathPosition = path.Count() - 1;
-                //}
-                //Move();
+                if (path == null)
+                {
+                    path = PathFinding.instance.PathFind(thisTile, destination);
+                    pathPosition = path.Count() - 1;
+                }
+                Move();
                 break;
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
+                attacked = true;
                 mainAttack.Effect(mainObjective, gameObject);
                 break;
             case EntityState.STUNED:
@@ -47,15 +73,20 @@ public class Mosquitoes : Entity
                 break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
-                GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].radious, false);
-
+                if (skills[skillSelected].actilveOnClick)
+                {
+                    skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                }
+                else
+                {
+                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].radious, false);
+                }
                 break;
             case EntityState.FINISHED:
 
                 break;
         }
     }
-
 
     private void OnMouseDown()
     {

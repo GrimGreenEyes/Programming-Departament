@@ -69,7 +69,7 @@ public class PathFinding : MonoBehaviour
         openSet.Remove(thisTile);
         if(thisTile == finish)
         {
-            for (int i = 0; i < GameController.instance.SelectedPlayer().GetComponent<Plants>().movement; i++)
+            for (int i = 0; i < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement; i++)
             {
                 road.Add(thisTile);
                 thisTile = parents[thisTile];
@@ -110,7 +110,7 @@ public class PathFinding : MonoBehaviour
     private void ShinePath(GameObject thisTile, int position)
     {        
         thisTile.GetComponent<Tile>().isInRange = true;
-        if (openSetDictionary[thisTile] < GameController.instance.SelectedPlayer().GetComponent<Plants>().movement)
+        if (openSetDictionary[thisTile] < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement)
         {
             if (thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width - 1 && !closeSet.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && !openSetDictionary.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
             {

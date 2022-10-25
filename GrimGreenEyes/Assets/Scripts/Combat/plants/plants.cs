@@ -7,9 +7,6 @@ using UnityEngine;
 public class Plants : Entity
 {
 
-    public Sprite HUDSprite;
-    public float HUDSpriteSize;
-
 
     public void SetAttack(Attack newAttack)
     {
@@ -147,79 +144,8 @@ public class Plants : Entity
     ///MOVEMENT
     ///
 
-    private void Start()
-    {
-        MovementPoint = transform.position;
-        for (int i = 0; i < skillPrefabs.Length; i++)
-        {
-            skillObjects[i] = GameObject.Instantiate(skillPrefabs[i], gameObject.transform);
-            skills[i] = skillObjects[i].GetComponent<Skill>();
-        }
-    }
-    public void Move()
-    {
-        if(path.Count() == 0)
-        {
-            GetComponent<Plants>().actualState = Plants.EntityState.IDLE;
-            return;
-        }
-        //input.x = gridX - destination.GetComponent<Tile>().GetX();
-        //input.y = destination.GetComponent<Tile>().GetY() - gridY;
-        //direction = new Vector2(0, 0);
-        if (moveing)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, MovementPoint, MovementSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, MovementPoint) == 0)
-            {
-                movement--;
-                moveing = false;
-                pathPosition = (pathPosition <= 0)? 0 : pathPosition - 1;
-            }
-        }
-        directionX = path[pathPosition].GetComponent<Tile>().GetY() - gridY;
-        directionY = gridX - path[pathPosition].GetComponent<Tile>().GetX();
-        if (directionX != 0)
-        {
-            direction = new Vector2(directionX, 0);
-        }
-        else if(directionY != 0)
-        {
-            direction = new Vector2(0, directionY);
-        }
-        //if (input.x != 0)
-        //{
-        //    direction = new Vector2(0, (input.x < 0) ? -1 : 1);
-        //}
-        //else if (input.y != 0)
-        //{
-        //    direction = new Vector2((input.y < 0) ? -1 : 1, 0);
-        //}
-
-        if ((direction.x != 0 ^ direction.y != 0) && !moveing)
-        {
-
-            angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
-            //Debug.Log(angle);
-            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
-
-            if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
-            {
-                moveing = true;
-                MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
-            }
-        }
-        if (transform.position == destination.GetComponent<Tile>().transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
-        {
-            GetComponent<Plants>().actualState = Plants.EntityState.IDLE;
-            //path.Clear();
-        }
-    }
-    public void SetDestination(Tile tile)
-    {
-        GetComponent<Plants>().actualState = Plants.EntityState.MOVEING;
-        destination = tile.gameObject;
-    }
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
