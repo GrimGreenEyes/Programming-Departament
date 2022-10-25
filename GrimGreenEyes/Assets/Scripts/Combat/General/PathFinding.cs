@@ -43,7 +43,7 @@ public class PathFinding : MonoBehaviour
         parents.Add(start, null);
         openSet.Add(start);
         finish = destination;
-        H = Mathf.Abs(finish.GetComponent<Tile>().GetX() - start.GetComponent<Tile>().GetX()) + Mathf.Abs(finish.GetComponent<Tile>().GetY() - start.GetComponent<Tile>().GetY());
+        //H = Mathf.Abs(finish.GetComponent<Tile>().GetX() - start.GetComponent<Tile>().GetX()) + Mathf.Abs(finish.GetComponent<Tile>().GetY() - start.GetComponent<Tile>().GetY());
         FindPath(start);
         this.start = start;
         return road;

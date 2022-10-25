@@ -156,7 +156,7 @@ public class GridCreator : MonoBehaviour
     }
     public GameObject GetTile(int x, int y)
     {
-        if(x < 0 || y < 0 )
+        if(x < 0 || y < 0 || x >= width || y >= height)
         {
             return null;
         }

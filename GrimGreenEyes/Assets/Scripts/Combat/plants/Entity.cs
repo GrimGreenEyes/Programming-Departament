@@ -143,7 +143,6 @@ public class Entity : MonoBehaviour
         if ((direction.x != 0 ^ direction.y != 0) && !moveing)
         {
 
-            Debug.Log((direction.x == 0) ? Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg : Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
             angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
             Debug.Log(angle);
             Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);

@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
     public float freezeDamage = 0.7f;
     public float heatDamage = 0.3f;
 
-    public int DamageCalculator(Mosquitoes enemy, Plants player)
+    public int DamageCalculator(Entity enemy, Entity player)
     {
 
         float totalDefense = enemy.defense +

@@ -18,6 +18,7 @@ public class Mosquitoes : Entity
 
                 //if (hidden) { Show(); }
                 movement = maxMovement;
+                attacked = false;
                 if (bleeding) livePoints -= (maxLivePoints * 5 / 100);
                 if (livePoints <= 0)
                 {
@@ -41,6 +42,41 @@ public class Mosquitoes : Entity
                 {
                     return;
                     //GridCreator.instance.ShineTiles(gridX, gridY, movement, true);
+                }
+                if (!attacked)
+                {
+                    if(GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity != null) 
+                    {
+                        if (GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag != "Enemy")
+                        {
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        }
+                    }
+                    if (GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity != null)
+                    {
+                        if (GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity.tag != "Enemy")
+                        {
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        }
+                    }
+                    if (GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity != null)
+                    {
+                        if (GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity.tag != "Enemy")
+                        {
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        }
+                    }
+                    if (GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity != null)
+                    {
+                        if(GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity.tag != "Enemy")
+                        {
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        }
+                    }
                 }
                 int positionToMoveX = Random.Range(-movement, movement);
                 int positionToMoveY = Random.Range(-movement, movement);

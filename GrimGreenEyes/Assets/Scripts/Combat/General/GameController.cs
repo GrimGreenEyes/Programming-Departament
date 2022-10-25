@@ -126,6 +126,8 @@ public class GameController : MonoBehaviour
                 Finish();
             }
         }
+        //if(characterSelected == characters.Count) { characterSelected = characters.Count - 1; }
+        if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
     public void Finish()

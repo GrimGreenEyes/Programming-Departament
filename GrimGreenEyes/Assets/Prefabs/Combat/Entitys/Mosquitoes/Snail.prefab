@@ -149,10 +149,10 @@ MonoBehaviour:
   name: Caracol
   livePoints: 100
   maxLivePoints: 100
-  attack: 100
-  defense: 100
-  heatResistance: 100
-  freezeResistance: 100
+  attack: 30
+  defense: 30
+  heatResistance: 20
+  freezeResistance: 20
   agility: 0
   movement: 0
   maxMovement: 4
