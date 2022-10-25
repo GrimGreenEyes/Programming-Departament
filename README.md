@@ -439,7 +439,7 @@ Esta pantalla tiene las opciones de:
     - Opción de atacar/usar habilidad sobre otra unidad si esta se encuentra dentro de su rango.   
 - Información sobre la casilla a la que te quieres mover 
 
-<img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%>
+<kdb><img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%/></kdb>
 
 <a name="4.2"></a>
 ##### 4.2 Diagrama de flujo
