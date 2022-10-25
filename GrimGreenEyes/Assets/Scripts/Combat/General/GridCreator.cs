@@ -15,6 +15,9 @@ public class GridCreator : MonoBehaviour
     public float width, height;
     public int x, y;
 
+
+    //public 
+
     public GameObject player;
     private void Awake()
     {

@@ -21,11 +21,14 @@ public class Tile : MonoBehaviour
     public bool isWalkable;
     public GameObject entity;
     public int weight;
-
+    private void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+    }
     public void Init(int color, int x, int y)
     {
-        renderer.color = (color == 0) ? baseColor1 : baseColor2;
-        renderer.sprite = tileSprites[0];
+        //renderer.color = (color == 0) ? baseColor1 : baseColor2;
+        //renderer.sprite = tileSprites[0];
         positionX = x;
         positionY = y;
     }
@@ -53,7 +56,7 @@ public class Tile : MonoBehaviour
     
     public void ShineTile()
     {
-        if (this.transform.childCount != 2)
+        if (this.transform.childCount != 1)
         {
             return;
         }
@@ -103,7 +106,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (this.transform.childCount != 3)
+        if (this.transform.childCount != 2)
         {
             return;
         }
@@ -130,7 +133,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if(this.transform.childCount != 2)
+        if(this.transform.childCount != 1)
         {
             return;
         }

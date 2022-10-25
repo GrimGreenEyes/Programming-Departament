@@ -114,9 +114,9 @@ public class Mosquitoes : Entity
                 print(livePoints);
                 break;
             case "tile":
-                gridX = collision.gameObject.transform.parent.GetComponent<Tile>().GetX();
-                gridY = collision.gameObject.transform.parent.GetComponent<Tile>().GetY();
-                thisTile = collision.gameObject.transform.parent.gameObject;
+                gridX = collision.gameObject.GetComponent<Tile>().GetX();
+                gridY = collision.gameObject.GetComponent<Tile>().GetY();
+                thisTile = collision.gameObject.gameObject;
                 break;
         }
     }

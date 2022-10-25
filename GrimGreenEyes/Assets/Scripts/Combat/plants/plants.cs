@@ -225,9 +225,9 @@ public class Plants : Entity
         switch (collision.tag)
         {
             case "tile":
-                gridX = collision.gameObject.transform.parent.GetComponent<Tile>().GetX();
-                gridY = collision.gameObject.transform.parent.GetComponent<Tile>().GetY();
-                thisTile = collision.gameObject.transform.parent.gameObject;
+                gridX = collision.gameObject.GetComponent<Tile>().GetX();
+                gridY = collision.gameObject.GetComponent<Tile>().GetY();
+                thisTile = collision.gameObject.gameObject;
                 break;
         }
     }
