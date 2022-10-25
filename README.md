@@ -102,6 +102,8 @@ Al completar un mapa pasaremos al siguiente mapa que contendrá los biomas anter
 ### 2.2 Movimiento por el mapa
 El mapamundi está dividido en una red de nodos(emplazamientos). Las conexiones entre nodos son los caminos que comunican los comunican, los cuales están custodiados por insectos enemigos. 
 
+En esta pantalla la __cámara__ irá centrándose en el lugar del jugador pudiendo seleccionar un botón para comenzar el siguiente combate. 
+
 <a name="2.2.1"></a>
 #### 2.2.1 Caminos y nodos
 Los caminos son las intersecciones entre nodos, al desplazarnos un nuevo nodo comenzará una batalla contra los insectos de la zona. 
@@ -118,23 +120,26 @@ Cada bioma tendrá su propia variante de insectos, además de los insectos domin
 - Desierto 
 
 El sprite de los insectos llevará un filtro marrón claro. 
-Sus estadísticas serán diferentes a las del resto de zonas (más resistencia al calor …). 
-Insectos dominantes: filtro rojo 
+
+El sprite de los insectos dominantes llevará un filtro rojo 
 
 - Nevado 
 
-Filtro de los insectos blanco. 
-Insectos dominantes: azul claro 
+El sprite de los insectos llevará un filtro blanco. 
+
+El sprite de los insectos dominantes llevará un filtro azul claro 
 
 - Selva 
 
-Filtro de los insectos verde oscuro. 
-Insectos dominantes: gris 
+El sprite de los insectos llevará un filtro verde oscuro. 
+
+El sprite de los insectos dominantes llevará un filtro gris 
 
 - Llanura 
 
-Filtro de los insectos verde claro 
-Insectos dominantes: amarillo 
+El sprite de los insectos llevará un filtro verde claro. 
+
+El sprite de los insectos dominantes llevará un filtro amarillo 
 
 <br>
 
@@ -143,16 +148,19 @@ Insectos dominantes: amarillo
 
 En el escenario del carro-invernadero el jugador puede: 
 
-- __Regar las metaplantas__: apertura de la válvula para curar las metaplantas, todas las plantas recuperan la misma cantidad de vida que agua usada. 
+- __Regar las metaplantas__: apertura de la válvula para curar a cada metaplanta. Las plantas recuperan la misma cantidad de vida que agua usada, 1 punto de vida por 1 punto de agua. __El tanque de almacenaje de agua puede almacenar hasta un máximo de 200 de agua.__
 
-- __Abonar__ sus metaplantas, acceder a su ficha de atributos al clicar en la planta y ahí seleccionar abonos para mejorarla. 
+- __Abonar__ sus metaplantas, acceder a su ficha de atributos al clicar en la planta. Ahí se podrán seleccionar abonos para mejorarla. Seleccionando la zona de sacos de abono se podrá seleccionar el abono a aplicar y posteriormente aplicarlo a una de las plantas activas. 
 
-- Craftear abonos y abonos especiales usando las semillas y los bichos recogidos: para mejorar las metaplantas dotándolas de muevas habilidades o incrementar sus atributos. 
+- __Craftear abonos y abonos especiales__ usando las semillas y los bichos recogidos: para mejorar las metaplantas dotándolas de muevas habilidades o incrementar sus atributos.  Aparecerá una pantalla emergente donde se podrán combinar ítems para crear objetos en la zona de combinación.
 
-- Consultar el mapa: cambiará la vista entre el mapamundi, para desplazarse, y el carro invernadero, para gestionar las metaplantas. 
-
-- Consultar el __Libro de instrucciones__ con los controles del juego y guía de uso del carro invernadero 
+- Consultar el __mapa__: cambiará la vista entre el mapamundi, para desplazarse, y el carro invernadero, para gestionar las metaplantas.   
+- Consultar el __Libro de instrucciones__ con los controles del juego y guía de uso del carro invernadero. Aparecerá una pantalla emergente donde se muestre una descripción de la utilidad de cada botón. 
+- Ver el __estado de las metaplantas__:  al seleccionar una planta podremos acceder a una pantalla emergente donde se nos muestra los atributos de la planta seleccionada. 
 <br>
+
+La cámara es fija y con el ratón/tap se puede seleccionar las distintas opciones. 
+
 
 <a name="2.3.1"></a>
 ##### 2.3.1 Recursos obtenidos durante los combates
@@ -170,7 +178,15 @@ Restos de insecto:
 |<img src="https://user-images.githubusercontent.com/92206944/196972664-64972f6e-2157-40d0-ba1b-a4fbaa069325.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196972767-276abe76-2cc3-4f4e-a890-008a5ed2d132.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196972940-3a9067b7-5cf0-42f5-9b50-3cd1075fa74d.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973024-93faebff-c21a-4745-ae90-42a49a4fadbb.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973175-d2deccbe-158a-48c3-a692-a0c0dbc491d0.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/196973264-4dc0b4a3-dc2e-4ef2-afcb-15ef4a0f609b.png" width = 90%>|
 
 
-Abonos:
+Abonos de habilidades:
+|Abono de habilidad Aloe Vera|Abono de habilidad Cáctus| Abono de hablidad Girasol|Abono de habilidad Nenúfar|Abono de habilidad Mazorca|Abono de habilidad Rosa|Abono de habilidad Hongo Carnívoro| Abono de habilidad Planta Rodadora|
+| :-----:|:------:|:-----:|:--------------:| :----:|:----:|:-----:|:------:|
+|<img src="https://user-images.githubusercontent.com/92206944/197741948-62d5cae6-290f-43f8-9f3b-71b7f77c5faf.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742178-d0056286-a155-405f-8b94-7b0f07577a33.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742289-9a47ef24-6f4e-43be-9a0a-e6f7d52618ad.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742386-1bb5768b-7084-4f0a-8ebc-6474aa121884.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742470-b225550e-0196-42ee-9e26-a14ee5a6b6f2.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742550-30ca298a-576e-4ee4-bb39-b5b881943b8e.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742639-28488fe3-ac99-4251-840b-b71cf99a4222.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197742781-95935e16-24fc-4652-8c03-1943a7fae51c.png" width = 90%>|
+
+Abonos de atributo:
+|Abono de aumento de vida|Abono de aumento de res. calor| Abono de aumento de ataque|Abono de aumento de res. frío|Abono de aumento de defensa| Abono de aumento de agilidad| Abono de aumento de movimiento| 
+| :-----:|:------:|:-----:|:--------------:| :----:|:-----:|:---:|
+|<img src="https://user-images.githubusercontent.com/92206944/197744140-5e7c4219-c32b-4bcf-b3bb-80bbd846ff3a.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744230-4cd505a7-28d9-4739-8865-2dafb7dacf8c.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744988-5784c8f6-b69a-47db-813f-6e442235acf3.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744407-314ae715-593a-4fdf-83a3-97c296d75983.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744503-facf88fa-0b48-4019-901d-fe07dc2c0e9d.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744654-3d77af9d-ccaa-4480-a773-4b3f65a8174e.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744729-07709e56-e2fb-46ab-b43b-3bf80b7d068b.png" width = 90%>|
 
 <a name="2.3.2"></a>
 ##### 2.3.2 Combinaciones de "crafteo"
@@ -199,7 +215,7 @@ __7 abonos de atributo__ :
 
 Cada mapa contiene varios niveles.
 
-El escenario de combate es un tablero dividido en casillas con vista isométrica. 
+El escenario de combate es un tablero dividido en casillas con vista isométrica. Durante el combate se podrá desplazar la cámara, no se podrá rotar. 
 <img src="https://user-images.githubusercontent.com/92206944/196974404-b2a6d85f-7a1d-4bc0-96f4-65d6dc8799ef.png" width = 100%>
 Cada nivel de combate se creará de forma procedural en función de su bioma y el clima. 
 
@@ -224,7 +240,7 @@ Estos recursos se obtienen de tres formas:
  
  Durante el combate el jugador podrá:
  
- - Usar los insectos cuando sea su turno,
+ - Usar las metaplantas cuando sea su turno,
  - Atacar,
  - Moverse,
  - Usar su habilidad.
