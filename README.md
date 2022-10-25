@@ -2,13 +2,15 @@
 ### Un juego de Grim Green Eyes
 <br><br><br>
 ## El equipo
-__Baldo__ : baldoarbol
 
-__Adrián__ :
+
+__Adrián Cerdeño de la Cruz__ :
 
 __Diego Nicolás__ : dieguoin
 
 __Álvaro Sierra López__ : AlvaroS11
+
+__Baldomero Rodríguez Árbol__ : baldoarbol
 
 __Lucía Tallero Fernández__ : tallerofdez
 
@@ -37,7 +39,7 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
         - 2.3.1 [Recursos obtenidos durante los combates](#2.3.1)
         - 2.3.2 [Combinaciones de _crafteo_](#2.3.2)
     - 2.4 [Mecánicas de combate](#2.4)
-        - 2.4.1 [Condiciones de Victoria](#2.4.1)
+        - 2.4.1 [Objetivo de cada nivel](#2.4.1)
         - 2.4.2 [Condiciones de Derrota](#2.4.2)
         - 2.4.3 [Mecánicas de las losetas de cada bioma](#2.4.3)
         - 2.4.4 [Lluvia](#2.4.4)
@@ -45,8 +47,15 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
         - 2.4.6 [Habilidades de las unidades en combate](#2.4.6)
     - 2.5 [Cotroles](#2.5)
 - 3. [Arte](#3)
+    - 3.1 [Estética general](#3.1)
+    - 3.2 [Música](#3.2)
+    - 3.3 [Moodboard](#3.3) 
 - 4. [Interfaz](#4)
+    - 4.1 [Diseños básicos de las pantallas](#4.1)
+    - 4.2 [Diagrama de flujo](#4.2) 
 - 5. [Monetización](#5)
+    - 5.1 [Modelo de negocio](#5.1)
+    - 5.2 [Plan a dos años](#5.2) 
 
 
 <br><br><br>
@@ -165,7 +174,30 @@ La cámara es fija y con el ratón/tap se puede seleccionar las distintas opcion
 
 
 <a name="2.3.1"></a>
-##### 2.3.1 Recursos obtenidos durante los combates
+##### 2.3.1 Combinaciones de "crafteo"
+
+__8 abonos de habilidad__ :
+- Semilla de planta X + abdomen = abono de habilidad de planta X 
+
+__7 abonos de atributo__ :
+
+- Tórax + abdomen = abono aumento de vida 
+
+- Cuerno + abdomen = abono aumento de ataque 
+
+- Caparazón + abdomen = abono aumento de defensa 
+
+- Caparazón + Cuerno = abono aumento de res.calor 
+
+- Caparazón + Tórax = abono aumento de res.frio 
+
+- Ala + abdomen = abono aumento de movimiento 
+
+- Ala + Ala = abono aumento de agilidad 
+
+
+<a name="2.3.2"></a>
+##### 2.3.2 Recursos obtenidos durante los combates
 
 Semillas:
 |Aloe Vera|Cactus| Girasol|Hongo Carnívoro|Mazorca| Nenúfar| Rosa| Planta Rodadora|
@@ -190,27 +222,7 @@ Abonos de atributo:
 | :-----:|:------:|:-----:|:--------------:| :----:|:-----:|:---:|
 |<img src="https://user-images.githubusercontent.com/92206944/197744140-5e7c4219-c32b-4bcf-b3bb-80bbd846ff3a.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744230-4cd505a7-28d9-4739-8865-2dafb7dacf8c.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744988-5784c8f6-b69a-47db-813f-6e442235acf3.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744407-314ae715-593a-4fdf-83a3-97c296d75983.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744503-facf88fa-0b48-4019-901d-fe07dc2c0e9d.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744654-3d77af9d-ccaa-4480-a773-4b3f65a8174e.png" width = 90%>|<img src="https://user-images.githubusercontent.com/92206944/197744729-07709e56-e2fb-46ab-b43b-3bf80b7d068b.png" width = 90%>|
 
-<a name="2.3.2"></a>
-##### 2.3.2 Combinaciones de "crafteo"
 
-__8 abonos de habilidad__ :
-- Semilla de planta X + abdomen = abono de habilidad de planta X 
-
-__7 abonos de atributo__ :
-
-- Tórax + abdomen = abono aumento de vida 
-
-- Cuerno + abdomen = abono aumento de ataque 
-
-- Caparazón + abdomen = abono aumento de defensa 
-
-- Caparazón + Cuerno = abono aumento de res.calor 
-
-- Caparazón + Tórax = abono aumento de res.frio 
-
-- Ala + abdomen = abono aumento de movimiento 
-
-- Ala + Ala = abono aumento de agilidad 
 
 <a name="2.4"></a>
 ### 2.4 Mecánicas de combate
@@ -228,7 +240,7 @@ Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tien
 Al comenzar un combate se inicia un efecto climatológico aleatorio según el bioma y se indicará si es de día o de noche.
 
 <a name="2.4.1"></a>
-##### 2.4.1 Objetivo del nivel__:
+##### 2.4.1 Objetivo del nivel:
 
 El __objetivo__ de cada combate será desplazar el carro-invernadero hasta el final del mapa desplazándolo por los distintos caminos propuestos. Los distintos enemigos aparecerán por el mapa a medida que el carro se desplaza y tratarán de destruir el carro. 
 El jugador moverá las metaplantas por el mapa __escoltando al carro, combatiendo con los insectos y obteniendo recursos__. 
@@ -354,7 +366,90 @@ Desbloquean distintas losetas para la generación procedural de mapa de combate.
 
 <a name="3"></a>
 ## 3. Arte
+<a name="3.1"></a>
+##### 3.1 Estética general
+A la hora de diseñar las plantas se ha querido dotarlas de una personalidad agresiva, a pesar de que son los personajes aliados del jugador. Esto se debe a que se ha querido mostrar al jugador que a pesar de que son plantas en un mundo dominado por monstruos hambrientos, estas también son duras y peligrosas al igual que sus enemigos. Además, debido al mundo de juego diseñado, postapocalíptico y oscuro, se ha querido dotar de esta oscuridad a los personajes, plantas e insectos. 
+
+Los insectos, al igual que las plantas, comparten ese aspecto agresivo y peligroso, pero menos amigable y con una apariencia más esperpéntica que las plantas para que el jugador sea capaz de distinguir que, aunque sus plantas son oscuras y de aspecto lúgubre y aterrador, los insectos son los enemigos. 
+
+Las animaciones de cada personaje del juego serán realizadas frame a frame y serán distintas animaciones que se tendrán que repetir por cada dirección a la que miren el personaje dentro de la casilla cuadrada. Las animaciones serán: 
+- IDLE. 
+- Andar. 
+- Ataque básico. 
+- Habilidad. 
+- Recibir daño. 
+- Morir. 
+
+<a name="3.2"></a>
+##### 3.2 Música
+Diferentes canciones: 
+
+- Canción para inicio del juego. 
+- Canción para el menú. 
+- Canción para las arenas de combate: 
+    - Llanura. 
+    - Desierto. 
+    - Nieve. 
+    - Selva. 
+- Canción para el mapa 
+- Música de victoria. 
+- Música de derrota. 
+- Música cundo se está dentro del Invernadero-Carro 
+- … 
+
+
+<a name="3.3"></a>
+##### 3.3 Moodboard
+<img src="https://user-images.githubusercontent.com/92206944/197797750-9dcf3333-283c-46c6-88c9-db8f465953c2.png">
+<img src="https://user-images.githubusercontent.com/92206944/197797901-8d950b57-eb17-4fb3-8e88-e6fbf645485b.png">
+<img src="https://user-images.githubusercontent.com/92206944/197798048-26118c33-a8f1-420b-b80c-dfc9fe4673ef.png">
+<img src="https://user-images.githubusercontent.com/92206944/197798253-76bd9d34-960e-43fd-aab2-021bdf18e887.png">
+<img src="https://user-images.githubusercontent.com/92206944/197798355-d570f88b-d816-46b6-a16d-f9826809c016.png">
+
+
+<br><br><br>
 <a name="4"></a>
 ## 4. Interfaz
+
+<a name="4.1"></a>
+##### 4.1 Diseños básicos de las pantallas
+
+###### 4.1.1 Menú de inicio
+Esta pantalla tiene las opciones de: 
+
+- Botón Empezar 
+- Botón Configuración (para cambiar el volumen de la música y de los efectos de sonido) 
+- Botón Salir del juego 
+- Botón Créditos 
+
+###### 4.1.2 Pantalla de combate
+Esta pantalla tiene las opciones de: 
+
+- Botón de opciones: Abre el menú de pausa. 
+    - Opción de volver al menú principal 
+    - Opciones de sonido 
+    - Opción de volver al juego 
+- Botón de Terminar Turno 
+- Información sobre la vida (barra de vida) y el nivel de cada una de las unidades en pantalla. 
+- Al seleccionar una unidad del equipo: 
+    - Todas las casillas posibles a las que se puede mover se verán resaltadas. 
+    - Se abrirá un panel con información sobre la metaplanta: 
+        - Atributos (vida, ataque, defensa, resistencias, movimiento, agilidad, tipo de daño) 
+        - Opción de usar su habilidad con su descripción 
+    - Opción de atacar/usar habilidad sobre otra unidad si esta se encuentra dentro de su rango.   
+- Información sobre la casilla a la que te quieres mover 
+
+<img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%>
+
+<a name="4.2"></a>
+##### 4.2 Diagrama de flujo
+
+<br><br><br>
 <a name="5"></a>
 ## 5. Monetización
+
+<a name="5.1"></a>
+##### 5.1 Modelo de negocio
+
+<a name="5.2"></a>
+##### 5.2 Plan a dos años
