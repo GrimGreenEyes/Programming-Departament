@@ -412,9 +412,9 @@ Diferentes canciones:
 ## 4. Interfaz
 
 <a name="4.1"></a>
-##### 4.1 Diseños básicos de las pantallas
+### 4.1 Diseños básicos de las pantallas
 
-###### 4.1.1 Menú de inicio
+##### 4.1.1 Menú de inicio
 Esta pantalla tiene las opciones de: 
 
 - Botón Empezar 
@@ -422,7 +422,7 @@ Esta pantalla tiene las opciones de:
 - Botón Salir del juego 
 - Botón Créditos 
 
-###### 4.1.2 Pantalla de combate
+##### 4.1.2 Pantalla de combate
 Esta pantalla tiene las opciones de: 
 
 - Botón de opciones: Abre el menú de pausa. 
@@ -441,15 +441,95 @@ Esta pantalla tiene las opciones de:
 
 <kdb><img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%/></kdb>
 
+##### 4.1.3 Mapamundi
+Esta pantalla tiene las opciones de: 
+
+- Seleccionar el nodo actual para empezar el nivel 
+- Botón para acceder a la pantalla de gestión del carro-invernadero 
+- Desplazar la cámara para ver el mapa completo 
+- Volver al menú principal 
+
+###### 4.1.4 Gestión del carro-invernadero
+
+Esta pantalla tiene las opciones de: 
+
+- Volver al menú principal 
+- Cambiar a la pantalla de mapa 
+- Leer instrucciones 
+- Regar equipo de metaplantas 
+- Plantar semillas 
+- Abonar plantas 
+- Crear abonos 
+
+
+##### 4.1.5 Tutorial
+
+ Es una pantalla informativa de efectos de terreno. Se muestra antes de cada combate. Contiene: 
+
+- Botón Volver al mapa 
+- Botón continuar para empezar el nivel 
+- Información sobre las particularidades de cada nivel (efectos de terreno y lluvia) 
+- Información sobre los controles 
+
+##### 4.1.6 Pantalla de victoria/derrota
+
+- Opción de volver al mapa 
+- Información sobre los objetos obtenidos tras el combate 
+
+
+
 <a name="4.2"></a>
-##### 4.2 Diagrama de flujo
+### 4.2 Diagrama de flujo
+
+<img src="https://user-images.githubusercontent.com/92206944/197812686-e375d776-8ef2-457b-b481-5618cb2406b8.png">
 
 <br><br><br>
 <a name="5"></a>
 ## 5. Monetización
 
 <a name="5.1"></a>
-##### 5.1 Modelo de negocio
+### 5.1 Modelo de negocio
+
+<a name="5.1.1"></a>
+##### 5.1.1 Información sobre el usuario
+Ejemplo de Usuario: Un estudiante que juega a juegos casual en sus ratos muertos. 
+
+- __¿Qué Quiere?__ 
+
+Un juego de estrategia / gestión de recursos para pasar el rato sin necesidad de "estudiar" el juego. 
+
+- __¿Quién es?__ 
+
+Jugador casual al que le guste los juegos de estrategia que no sean demasiado ni demasiado poco complejos. 
+
+- __¿Aficiones?__ 
+
+Persona joven que juega juegos casual, que viaja, y le interesa poder llevarlos en el móvil. 
+
+- __¿Situación?__ 
+
+Juega en sus ratos muertos. Vuelve cansado del trabajo y busca algo para pasar el rato o para esperar el bus, en el avión... 
+
+- __¿Actividad?__
+
+Sus estudios le ocupan la mayor parte de su tiempo. Busca ratos libres para ver a sus amigos e ir al gimnasio. No tiene mucho más tiempo. 
+
+- __¿Cómo es?__
+
+Usuario joven. Ha jugado antes a juegos de estrategia. Por eso no le cuesta entender juegos nuevos. 
+
+- __¿Qué necesita?__ 
+
+Necesita matar el rato. 
+
+
+<a name="5.1.2"></a>
+##### 5.1.2 Mapa de empatía
+<img src="https://user-images.githubusercontent.com/92206944/197814079-9b7a2ad8-f04e-4b55-a23c-155589ae0700.png">
+
+<a name="5.1.3"></a>
+##### 5.1.3 Caja de herramientas
+<img src=""></a>
 
 <a name="5.2"></a>
-##### 5.2 Plan a dos años
+### 5.2 Plan a dos años
