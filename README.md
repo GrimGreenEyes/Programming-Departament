@@ -40,7 +40,7 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
         - 2.3.2 [Combinaciones de _crafteo_](#2.3.2)
     - 2.4 [Mecánicas de combate](#2.4)
         - 2.4.1 [Objetivo de cada nivel](#2.4.1)
-        - 2.4.2 [Condiciones de Derrota](#2.4.2)
+        - 2.4.2 [Plantas derrotadas](#2.4.2)
         - 2.4.3 [Mecánicas de las losetas de cada bioma](#2.4.3)
         - 2.4.4 [Lluvia](#2.4.4)
         - 2.4.5 [Eventos de terreno](#2.4.5)
@@ -97,23 +97,23 @@ Juego para navegadores web: Mozilla Firefox y Google Chrome.
 Cada partida consta de varios mapas y cada uno tendrá varios biomas, teniendo el primer mapa un solo bioma y del cuarto mapa en adelante los cuatro biomas. 
 
 Cada mapa está dividido en nodos, cada nodo implica un combate. El jugador podrá moverse entre nodos, para pasar a un nodo se debe haber superado el combate del anterior (ver [movimiento por el mapa](#2.2)). Por cada mapa, existe un nodo especial de insectos dominantes.
-- El primer mapa consta de 5 nodos y el nodo de insectos dominantes. 
-- El segundo mapa consta de 4 nodos por bioma y el nodo de insectos dominantes.
-- El tercer mapa consta de 3 nodos por bioma y el nodo de insectos dominantes.  
-- Los mapas del cuarto en adelante constarán de 2 nodos por bioma y el nodo de insectos dominantes. 
+- El primer mapa consta de 5 nodos incluyendo el nodo de insectos dominantes. 
+- El segundo mapa consta de 4 nodos por bioma incluyendo el nodo de insectos dominantes.
+- El tercer mapa consta de 3 nodos por bioma incluyendo el nodo de insectos dominantes.  
+- Los mapas del cuarto en adelante constarán de 2 nodos por bioma incluyendo el nodo de insectos dominantes. 
 
 <a name="2.1.1"></a>
 ##### 2.1.1 Objetivo de cada partida
-El objetivo en cada mapa es alcanzar el nodo de insectos dominantes.  
+El objetivo en cada mapa es alcanzar el nodo de insectos dominantes, el ultimo nodo de cada mapa.  
 
-Al completar un mapa pasaremos al siguiente mapa que contendrá los biomas anteriores con uno nuevo aleatorio de los restantes. Además, no se mantendrá el equipo de metaplantas de la partida anterior, es decir, se comenzará con la metaplanta básica del bioma inicial de la partida. 
+Al completar un mapa pasaremos al siguiente mapa que tendrá un bioma más que el anterior, hasta un máximo de 4, estos biomas serán aleatorios entre distintos mapas. Además, no se mantendrá el equipo de metaplantas de la partida anterior, es decir, se comenzará con la metaplanta del bioma inicial de la partida. 
 
 
 <a name="2.2"></a>
 ### 2.2 Movimiento por el mapa
 El mapamundi está dividido en una red de nodos(emplazamientos). Las conexiones entre nodos son los caminos que comunican los comunican, los cuales están custodiados por insectos enemigos. 
 
-En esta pantalla la __cámara__ irá centrándose en el lugar del jugador pudiendo seleccionar un botón para comenzar el siguiente combate. 
+En esta pantalla la __cámara__ irá centrándose en el lugar del jugador, vanzando entre nodos clicando en el siguiente o pulsando en el botón de _Continuar_. 
 
 <a name="2.2.1"></a>
 #### 2.2.1 Caminos y nodos
@@ -125,6 +125,8 @@ Cada nivel tiene un tipo diferente de bioma. El bioma de cada nivel depende de d
 Estos nodos son el final de cada mapa, el combate para acceder a ellos será contra insectos dominantes, que son versiones más poderosas de los insectos del propio bioma. 
 
 Estos nodos están representados por un doble circulo. 
+
+Completar este nodo significará la victoria en este mapa y se pasará al siguiente. 
 <a name="2.2.3"></a>
 #### 2.2.3 Listado de Biomas
 Cada bioma tendrá su propia variante de insectos, además de los insectos dominantes:
@@ -237,7 +239,7 @@ Una vez superado el nivel, el jugador no podrá volver a repetirlo.
 
 Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tiene un alcance de movimiento distinto.  
 
-Al comenzar un combate se inicia un efecto climatológico aleatorio según el bioma y se indicará si es de día o de noche.
+Al comenzar un combate se inicia un [efecto de evento de terreno](#2.4.5) aleatorio según el bioma.
 
 <a name="2.4.1"></a>
 ##### 2.4.1 Objetivo del nivel:
@@ -253,19 +255,13 @@ Estos recursos se obtienen de tres formas:
 
  Todos estos recursos podrán ser utilizados más tarde en las distintas opciones ofrecidas en el carro invernadero.
  
- Durante el combate el jugador podrá:
+ Durante el combate el jugador podrá realizar lass siguientes acciones en el turno de cada planta:
  
- - Usar las metaplantas cuando sea su turno,
- - Atacar,
  - Moverse,
- - Usar su habilidad.
+ - Atacar o usar su habilidad.
 
 <a name="2.4.2"></a>
-##### 2.4.2 Condiciones de derrota 
- 
-Si el carro resulta destruido el jugador habrá perdido la partida. 
-
-Perder la partida implica que, al volver a jugar, el jugador volverá a empezar por el mapa de un solo bioma.
+##### 2.4.2 Plantas derrotadas
 
 Cada metaplanta que sea derrotada durante un combate será derrotada definitivamente. El jugador no volverá a disponer de ella en el carro-invernadero. 
 
@@ -356,8 +352,67 @@ Ver cómo de mide el agua del tanque.
 
 Desbloquean distintas losetas para la generación procedural de mapa de combate. 
 
+__Desierto__
+- Tormenta de arena : cambia las losetas de _arena_ por las losetas _tormenta de arena_.
+- Oasis: Se habilita la aparición de agua y _arena con palmeras_.
+- Arenas Movedizas: Se habilita la aparición de _arenas movedizas_.
+- Campo de flores: Se habilita la aparición de _flor de laurel_.
+
+
+__Nevado__
+- Tormenta de nieve: Se cambian las losetas de _nieve_ por las losetas de _tormenta de nieve_.
+- Aguas congeladas: Se habilita la aparición de _agua helada_.
+- Campos de flores: Se habilita la aparición de _flor invernal_ y _flor blanca_.
+
+
+__Selva__
+- Campo de flores: Se habilita la aparición de _flor azul_.
+- Tiera húmeda: Si llueve se hablita la aparición de _charco_.
+- Plaga de hormigas: Se habilita la aparición de _hormiguero_.
+
+__Llanura__
+- Campo de flores: Se habilita la aparición de _flor roja_.
+- Tierra Seca: Si no llueve se habilita la aparición de _tierra seca_.
+- Tierra húmeda: Si llueve se habilita la aparición de _charco_.
+- Plaga de hormigas: Se habilita la aparición de _hormiguero_.
+
+
 <a name="2.4.6"></a>
 ##### 2.4.6 Habilidades de las unidades en combate
+
+__Atributos: __
+
+- __Vida__: Cantidad de puntos de daño soportables antes de morir 
+- __Ataque__: Capacidad de ataque sobre 100. 
+- __Defensa__: Capacidad de defensa sobre 100. 
+- __Agilidad__: Probabilidad de anular el daño que le provoquen, además, determina el orden de los turnos de cada entidad. 
+- __Movimiento__: Número de casillas que se puede mover por turno. 
+- __Res. Calor__: Se multiplica su valor por la cantidad de daño del atacante. Sumado a la cantidad de daño por frío, es el total de daño recibido. 
+- __Res. Frío__: Se multiplica su valor por la cantidad de daño del atacante. Sumado a la cantidad de daño por calor, es el total de daño recibido. 
+
+
+__Acciones y habilidades:__
+
+Toda planta e insecto tiene una habilidad y una acción propia que tienen efectos propios. Las que provocan daños están afectados por estadísticas internas de daño de calor y frio por cada acción y habilidad. 
+
+__Cálculo de daños:__
+
+- A: ataque del atacante 
+- D: defensa del defensor 
+- Dt: defensa total del defensor 
+- RC: resistencia calor 
+- RF: resistencia frio 
+- daño de la habilidad/acción del atacante: 
+    - Daño Calor: C 
+    - Daño Frio:  F  
+
+__Daño recibido = A x (Dt / 100) __
+__Dt = D + (RC x C) + (RF x F) __
+
+El daño recibido será la cantidad de vida que pierde el objetivo. 
+
+
+
 <a name="2.5"></a>
 ### 2.5 Controles
 - Selección de botones y menús por clics. 
