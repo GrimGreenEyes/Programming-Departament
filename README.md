@@ -412,6 +412,17 @@ __Dt = D + (RC x C) + (RF x F)__
 
 El daño recibido será la cantidad de vida que pierde el objetivo. 
 
+__Lista de METAPLANTAS en función de sus roles:__
+
+- Apoyo
+- Tanque
+- Atacante
+
+__Lista de INSECTOS en función de sus roles__
+
+- Apoyo
+- Tanque
+- Atacante
 
 
 <a name="2.5"></a>
