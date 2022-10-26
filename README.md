@@ -529,7 +529,21 @@ Necesita matar el rato.
 
 <a name="5.1.3"></a>
 ##### 5.1.3 Caja de herramientas
-<img src=""></a>
+<img src="https://user-images.githubusercontent.com/92206944/198006863-ccf75288-00b9-4baf-aa8a-0d7082387546.png"></a>
+
+<a name="5.1.4"></a>
+##### 5.1.4 Modelo de Lienzo o Canva
+<img src="https://user-images.githubusercontent.com/92206944/198006176-45f1b78e-5dbb-45e3-911e-86a32669e1e9.jpg"></a>
 
 <a name="5.2"></a>
 ### 5.2 Plan a dos años
+
+- DLCS (1 al año) y pack de DLCS más baratos si los compras todos juntos(season pass): cada DLC mete un nuevo bioma y 3 plantas nuevas 
+
+- DLC1: Bioma volcán + enredaderas, algas volcánicas, planta echa/fuego... 
+
+- DLC2: Bioma acuático + algas, coral, flor luminosa... 
+
+- Eventos rotatorios de nuevos enemigos cada dos semanas, que duran un fin de semana para motivar a los jugadores a mantenerse actualizado sobre las novedades.  
+
+- Skins con temática que se van lanzando cada mes para tener una fuente regular de ingresos. En navidad skins de 4 plantas con temática navideña, de halloween, etc. 
