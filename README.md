@@ -380,7 +380,7 @@ __Llanura__
 <a name="2.4.6"></a>
 ##### 2.4.6 Habilidades de las unidades en combate
 
-__Atributos: __
+__Atributos:__
 
 - __Vida__: Cantidad de puntos de daño soportables antes de morir 
 - __Ataque__: Capacidad de ataque sobre 100. 
@@ -406,8 +406,9 @@ __Cálculo de daños:__
     - Daño Calor: C 
     - Daño Frio:  F  
 
-__Daño recibido = A x (Dt / 100) __
-__Dt = D + (RC x C) + (RF x F) __
+__Daño recibido = A x (Dt / 100)__
+
+__Dt = D + (RC x C) + (RF x F)__
 
 El daño recibido será la cantidad de vida que pierde el objetivo. 
 
