@@ -170,8 +170,8 @@ MonoBehaviour:
   mainAttack: {fileID: 2091355357461808738, guid: cc13ee5a86587dd4fa3057a3ddf6a379, type: 3}
   skillPrefabs:
   - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
-  - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 845286623794744505, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   skillObjects:
   - {fileID: 0}
   - {fileID: 0}

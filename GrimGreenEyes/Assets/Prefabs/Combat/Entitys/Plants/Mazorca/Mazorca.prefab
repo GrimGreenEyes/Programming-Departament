@@ -162,10 +162,19 @@ MonoBehaviour:
   freezeResistanceMultiplayer: 1
   bleeding: 0
   hidden: 0
+  attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
   actualState: 0
   mainAttack: {fileID: 422761750842604121, guid: 34f95fb8aa4dca145b14c5a3135cd659, type: 3}
+  skillPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skills:
   - {fileID: 6413465660566873705, guid: ee9627ef907a376428ce51e6faca0834, type: 3}
   - {fileID: 3702969669262309367, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
@@ -192,5 +201,5 @@ MonoBehaviour:
   pathPosition: 0
   directionX: 0
   directionY: 0
-  HUDSprite: {fileID: 21300000, guid: c52e891659b8060468fe64ef11531d2a, type: 3}
+  HUDSprite: {fileID: 21300000, guid: 57d9efa995f8132468e5126c50db13c6, type: 3}
   HUDSpriteSize: 0
