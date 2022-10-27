@@ -394,6 +394,17 @@ __Atributos:__
 __Acciones y habilidades:__
 
 Toda planta e insecto tiene una habilidad y una acción propia que tienen efectos propios. Las que provocan daños están afectados por estadísticas internas de daño de calor y frio por cada acción y habilidad. 
+Hay dos tipos de habilidades: 
+
+- Ofensivas: causan daño a enemigos y cuentan con estadísticas internas de cálculo 		de daño que son daño de calor y daño de frío, pueden tener efectos adicionales. 
+
+- Utilidad: Provocan efectos variados. 
+
+Estas pueden ser: 
+
+- Activas: Su efecto no es constante y deben ser activados para aplicarlos. 
+
+- Pasivas: Su efecto es constante y no deben ser activados para aplicarlos. 
 
 __Cálculo de daños:__
 
