@@ -710,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915653066}
   - component: {fileID: 915653065}
+  - component: {fileID: 915653067}
   m_Layer: 0
   m_Name: GlobalAttributes
   m_TagString: Untagged
@@ -751,6 +752,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915653067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915653064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac601253fea25439095d7886f86a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantsList: []
+  waterAmount: 0
+  horn: {fileID: 11400000, guid: 09ba7060d98ea894085f2adc223f4790, type: 2}
+  wing: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
+  abdomen: {fileID: 11400000, guid: 55d33a6d5241cd6478f60e8a8ee353a5, type: 2}
+  chest: {fileID: 11400000, guid: a2c289df788969e47b95ed897d001d9e, type: 2}
+  leg: {fileID: 11400000, guid: 805b1bc147205894085311b87590615c, type: 2}
+  shell: {fileID: 11400000, guid: 63cfd9dbd45fc5a4db2ed67a6a046ed8, type: 2}
+  aloeVeraS: {fileID: 11400000, guid: c13fb350a79bf3f47babf3475a9d1ccc, type: 2}
+  cactusS: {fileID: 11400000, guid: 9a5e228f684a69640bd4ef2817b5fec0, type: 2}
+  carnivorousFungusS: {fileID: 11400000, guid: ee3deb23685db0940abeed609e479ec5, type: 2}
+  cornS: {fileID: 11400000, guid: 4ddaa4a91ebdfb345a67623903eed0d9, type: 2}
+  lilyS: {fileID: 11400000, guid: f01208e5e2602ae479f933d1716835dc, type: 2}
+  roseS: {fileID: 11400000, guid: 4e45cc3501a16004ab7a114757545ee3, type: 2}
+  sunflowerS: {fileID: 11400000, guid: 5c3ab1d9b40db9047ba378b286509b1a, type: 2}
+  tumbleweedS: {fileID: 11400000, guid: 478f0f9022873f54cbc4ca747a07b6b8, type: 2}
 --- !u!1 &994906987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +1057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Resources
-
-'
+  m_text: INVERNADERO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1532,8 +1559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103, y: -73}
-  m_SizeDelta: {x: 117.46002, y: 54.099976}
+  m_AnchoredPosition: {x: -135.07, y: -73}
+  m_SizeDelta: {x: 181.6, y: 54.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812848222
 MonoBehaviour:
@@ -1578,7 +1605,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1812848223}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2140003093}
+        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
+        m_MethodName: loadScreen
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ResourcesScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1812848223
 MonoBehaviour:
   m_ObjectHideFlags: 0

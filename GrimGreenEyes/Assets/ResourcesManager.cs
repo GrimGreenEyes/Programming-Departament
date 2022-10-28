@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResourcesManager : MonoBehaviour
 {
@@ -10,19 +11,44 @@ public class ResourcesManager : MonoBehaviour
     public FertilizerManager fertilizerManager;
     public WaterTank waterTank;
 
+    public void Start()
+    {
+        LoadResources();
+    }
+
     public void StoreResources()
     {
-        Debug.Log("STORE RESOURCES");
-        teamInfo.itemsDictionary = inventoryManager.inventoryItems;
+        Debug.Log("Resources: STORE RESOURCES");
+        /*teamInfo.itemsDictionary = inventoryManager.inventoryItems;
         teamInfo.fertilizersDictionary = fertilizerManager.storedFertilizers;
-        teamInfo.waterAmount = waterTank.waterAmount;
+        teamInfo.waterAmount = waterTank.waterAmount;*/
     }
 
     public void LoadResources()
     {
-        Debug.Log("LOAD RESOURCES");
-        inventoryManager.inventoryItems = teamInfo.itemsDictionary;
+        Debug.Log("Resources: LOAD RESOURCES");
+        /*inventoryManager.inventoryItems = teamInfo.itemsDictionary;
         fertilizerManager.storedFertilizers = teamInfo.fertilizersDictionary;
-        waterTank.waterAmount = teamInfo.waterAmount;
+        waterTank.waterAmount = teamInfo.waterAmount;*/
+    }
+
+    public void loadScreen(string sceneName)
+    {
+        StoreResources();
+        SceneManager.LoadScene(sceneName);
+        if (string.Equals(sceneName, "MapScene"))
+        {
+            Debug.Log("IGUAL SCENEMAE");
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp();
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
+
+        }
+        else if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
+        {
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+        }
+
+
+
     }
 }
