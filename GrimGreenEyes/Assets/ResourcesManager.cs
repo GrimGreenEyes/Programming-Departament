@@ -23,6 +23,8 @@ public class ResourcesManager : MonoBehaviour
         teamInfo.itemsDictionary = inventoryManager.inventoryItems;
         teamInfo.fertilizersDictionary = fertilizerManager.storedFertilizers;
         teamInfo.waterAmount = waterTank.waterAmount;
+
+        teamInfo.StorePlantsList(plantsManager.plantsList);
     }
 
     public void LoadResources()
@@ -33,6 +35,48 @@ public class ResourcesManager : MonoBehaviour
         waterTank.waterAmount = teamInfo.waterAmount;
 
         waterTank.UpdateWater();
+
+        LoadPlantsList();
+    }
+
+    private List<PlantInfo> plantInfoList;
+
+    private void LoadPlantsList()
+    {
+        plantInfoList = teamInfo.plantsList;
+        int i = 0;
+        List<int> indexList = new List<int>();
+        foreach(PlantInfo newPlant in plantInfoList)
+        {
+            if (newPlant != null)
+            {
+                if (newPlant.GetCurrentHP() > 0)
+                {
+                    plantsManager.LoadPlant(newPlant.plantTypeInternal, i);
+                    i++;
+                }
+                else
+                {
+                    //teamInfo.plantsList.Remove(newPlant);
+                    indexList.Add(i);
+                }
+            }
+        }
+
+        for(int x = indexList.Count - 1; x >= 0; x--)
+        {
+            plantInfoList.RemoveAt(x);
+        }
+
+        int j = 0;
+        foreach(Plant plant in plantsManager.plantsList)
+        {
+            if (plant != null)
+            {
+                plant.healthPoints = teamInfo.plantsList[j].GetCurrentHP();
+                j++;
+            }
+        }
     }
 
     public void loadScreen(string sceneName)

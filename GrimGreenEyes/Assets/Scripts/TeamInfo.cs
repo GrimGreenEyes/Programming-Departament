@@ -12,6 +12,7 @@ public class TeamInfo : MonoBehaviour
 
     //Variables internas
     [SerializeField] private Item horn, wing, abdomen, chest, leg, shell, aloeVeraS, cactusS, carnivorousFungusS, cornS, lilyS, roseS, sunflowerS, tumbleweedS;
+    [SerializeField] private StatRes agility, attack, coldResistance, deffense, health, heatRessistance, movement;
 
     //FUNCIONES PARA COSULTAR EL EQUIPO A ALTO NIVEL
     public List<PlantInfo> GetPlantsList() { return plantsList; }
@@ -49,14 +50,47 @@ public class TeamInfo : MonoBehaviour
 
     public void StorePlantsList(Plant[] originalList)
     {
-        foreach(Plant plant in originalList)
+        plantsList = new List<PlantInfo>();
+
+        foreach (Plant plant in originalList)
         {
-            Debug.Log("storing " + plant.plantType);
+            if (plant != null) {
+
+            PlantInfo aux = new PlantInfo();
+
+            aux.agility = agility;
+            aux.attack = attack;
+            aux.coldResistance = coldResistance;
+            aux.deffense = deffense;
+            aux.health = health;
+            aux.heatRessistance = heatRessistance;
+            aux.movement = movement;
+
+            aux.plantTypePrefab = plant.plantType.prefab;
+            aux.plantTypeInternal = plant.plantType;
+            aux.statsDictionary = plant.statsDictionary;
+            aux.skillsInternal = plant.skillsList;
+
+            aux.healthPoints = plant.healthPoints;
+
+            aux.Initialize();
+            plantsList.Add(aux);
+            }
         }
+
+        //DEBUG
+        /*Debug.Log("storing - Stored plants:");
+        int i = 0;
+        foreach(PlantInfo plant in plantsList)
+        {
+            Debug.Log("storing - Planta " + i.ToString() + ": " + plant.GetPlantType().name + " - MOV: " + plant.GetPlantMovement().ToString() + " - HP: " + plant.GetCurrentHP().ToString());
+            i++;
+        }*/
+        //END
     }
 }
 
-public class PlantInfo : MonoBehaviour
+public class PlantInfo
 {
     //ELEMENTOS CLAVE PARA DEFINIR EL ESTADO DE LA PLANTA
     public GameObject plantTypePrefab; //TIPO BASE DE LA PLANTA (si se quiere saber el NOMBRE del tipo de planta, está almacenado en plantType.name)
@@ -67,6 +101,7 @@ public class PlantInfo : MonoBehaviour
     //Variables internas
     public StatRes agility, attack, coldResistance, deffense, health, heatRessistance, movement;
     public List<SkillRes> skillsInternal = new List<SkillRes>();
+    public PlantType plantTypeInternal;
 
     //FUNCIONES PARA MODIFICAR / CARGAR LA PLANTA A ALTO NIVEL
     public GameObject GetPlantType()
@@ -79,7 +114,7 @@ public class PlantInfo : MonoBehaviour
     public int GetPlantAgility() { return GetStat(agility); }
     public int GetPlantColdRessistance() { return GetStat(coldResistance); }
     public int GetPlantHeatRessistance() { return GetStat(heatRessistance); }
-    public int GetPlantMovemente() { return GetStat(movement); }
+    public int GetPlantMovement() { return GetStat(movement); }
     public int GetPlantHealth() { return GetStat(health); }
     
     public int GetCurrentHP()
@@ -107,5 +142,16 @@ public class PlantInfo : MonoBehaviour
     {
         skillsInternal.Add(skill);
         skillsList.Add(skill.prefab);
+    }
+
+    public void Initialize()
+    {
+        foreach (SkillRes skill in skillsInternal)
+        {
+            if (skill != null)
+            {
+            skillsList.Add(skill.prefab);
+            }
+        }
     }
 }

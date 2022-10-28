@@ -12,7 +12,7 @@ public class Plant : MonoBehaviour
     public PlantType plantType;
     public int plantState = 0; //0 = baby; 1 = middle; 3 = adult
 
-    private Dictionary<StatRes, int> statsDictionary = new Dictionary<StatRes, int>();
+    public Dictionary<StatRes, int> statsDictionary = new Dictionary<StatRes, int>();
     [SerializeField] private StatRes statMaxHealth, statAttack, statAgility, statMovement, statDeffense, statHeatRes, statColdRes;
 
     public int healthPoints;

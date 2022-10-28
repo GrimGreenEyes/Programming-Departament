@@ -90,9 +90,16 @@ public class GlobalVar : MonoBehaviour
                 GameObject.Destroy(child.gameObject);
             }
             created = 0;
-            GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
+            //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
 
-           // BALDO DESTRUYE AQU� LAS PLANTAS Y LO QUE TENGAS QUE CARGARTE
+            //Destrucción de todos los recursos
+            Debug.Log("DESTROY ALL START");
+            TeamInfo teamInfo = GetComponent<TeamInfo>();
+            teamInfo.plantsList = new List<PlantInfo>();
+            teamInfo.fertilizersDictionary = new Dictionary<Fertilizer, int>();
+            teamInfo.itemsDictionary = new Dictionary<Item, int>();
+            teamInfo.waterAmount = 0;
+            Debug.Log("DESTROY ALL DONE");
         }
 
         else if(advance == EnumMapOptions.mapOptions.returnMap)

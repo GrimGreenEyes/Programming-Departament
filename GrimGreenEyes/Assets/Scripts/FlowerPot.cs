@@ -11,7 +11,7 @@ public class FlowerPot : MonoBehaviour
     [SerializeField] private GameObject choosingBorder;
     private PlantType choosingPlant;
     private Plant currentPlant;
-    private bool free = true;
+    public bool free = true;
     private int mode = 0; //PLANTING = 1; FERTILIZING = 2;
     private Fertilizer currentFertilizer = null;
     private FertilizerManager fertilizerManager;

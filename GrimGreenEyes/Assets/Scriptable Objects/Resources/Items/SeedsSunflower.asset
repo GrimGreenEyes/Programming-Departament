@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Semillas de Girasol
   sprite: {fileID: 21300000, guid: f262bf876f49e644a98a7b85b2d6b79e, type: 3}
   type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  seedType: {fileID: 11400000, guid: 86e3dffd82ee6f6459447636eb69d06b, type: 2}

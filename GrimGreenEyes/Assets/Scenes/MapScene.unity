@@ -1037,7 +1037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ac601253fea25439095d7886f86a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsList: []
   waterAmount: 0
   horn: {fileID: 11400000, guid: 09ba7060d98ea894085f2adc223f4790, type: 2}
   wing: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
@@ -1053,6 +1052,13 @@ MonoBehaviour:
   roseS: {fileID: 11400000, guid: 4e45cc3501a16004ab7a114757545ee3, type: 2}
   sunflowerS: {fileID: 11400000, guid: 5c3ab1d9b40db9047ba378b286509b1a, type: 2}
   tumbleweedS: {fileID: 11400000, guid: 478f0f9022873f54cbc4ca747a07b6b8, type: 2}
+  agility: {fileID: 11400000, guid: c1d8874e7ebbf0b44859fe80419de3ea, type: 2}
+  attack: {fileID: 11400000, guid: 933bc0a28b3725248b25eeb5cc6eecaf, type: 2}
+  coldResistance: {fileID: 11400000, guid: 2312812d0bb87e64883353a050d58748, type: 2}
+  deffense: {fileID: 11400000, guid: 73ff1b2de16904142aeb8a3529d8ce05, type: 2}
+  health: {fileID: 11400000, guid: e3c4874a6e2c0144ca66015312320b8c, type: 2}
+  heatRessistance: {fileID: 11400000, guid: f0a4a021679a1454fa1f4632689314d4, type: 2}
+  movement: {fileID: 11400000, guid: 1aeecf18bb0c90c4e91abbdabbbcd0b6, type: 2}
 --- !u!114 &915653068
 MonoBehaviour:
   m_ObjectHideFlags: 0

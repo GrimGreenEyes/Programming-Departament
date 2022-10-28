@@ -57,6 +57,18 @@ public class PlantsManager : MonoBehaviour
         
     }
 
+    public void LoadPlant(PlantType plantType, int pot)
+    {
+        GameObject newPlant = Instantiate(plantPrefab);
+        newPlant.transform.SetParent(potsList[pot].transform);
+        newPlant.transform.localScale = new Vector3(1f, 1f, 1f);
+        newPlant.transform.localPosition = new Vector3(0f, 225f, 0f);
+        newPlant.GetComponent<Plant>().SetPlantType(plantType);
+        potsList[pot].SetPlant(newPlant.GetComponent<Plant>());
+        plantsList[potsList[pot].index] = newPlant.GetComponent<Plant>();
+        potsList[pot].free = false;
+    }
+
     public void FertilizePlant()
     {
         uiManager.ActivateAllElements();
