@@ -603,8 +603,8 @@ MonoBehaviour:
   - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
   width: 0
   height: 0
-  x: 20
-  y: 19
+  x: 10
+  y: 9
   player: {fileID: 0}
 --- !u!4 &580428638
 Transform:
