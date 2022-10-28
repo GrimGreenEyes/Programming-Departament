@@ -46,6 +46,14 @@ public class TeamInfo : MonoBehaviour
             itemsDictionary.Add(item, 1);
         }
     }
+
+    public void StorePlantsList(Plant[] originalList)
+    {
+        foreach(Plant plant in originalList)
+        {
+            Debug.Log("storing " + plant.plantType);
+        }
+    }
 }
 
 public class PlantInfo : MonoBehaviour

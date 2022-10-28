@@ -92,7 +92,7 @@ public class GlobalVar : MonoBehaviour
             created = 0;
             GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
 
-           // BALDO DESTRUYE AQUÍ LAS PLANTAS Y LO QUE TENGAS QUE CARGARTE
+           // BALDO DESTRUYE AQUï¿½ LAS PLANTAS Y LO QUE TENGAS QUE CARGARTE
         }
 
         else if(advance == EnumMapOptions.mapOptions.returnMap)

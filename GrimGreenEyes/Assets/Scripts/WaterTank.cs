@@ -16,7 +16,7 @@ public class WaterTank : MonoBehaviour
         UpdateWater();
     }
 
-    private void UpdateWater()
+    public void UpdateWater()
     {
         waterDistance = sizeOfTank / maxWater;
         waterObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, - (maxWater - waterAmount) * waterDistance, 0f);

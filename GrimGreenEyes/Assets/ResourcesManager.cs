@@ -13,23 +13,26 @@ public class ResourcesManager : MonoBehaviour
 
     public void Start()
     {
+        teamInfo = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
         LoadResources();
     }
 
     public void StoreResources()
     {
         Debug.Log("Resources: STORE RESOURCES");
-        /*teamInfo.itemsDictionary = inventoryManager.inventoryItems;
+        teamInfo.itemsDictionary = inventoryManager.inventoryItems;
         teamInfo.fertilizersDictionary = fertilizerManager.storedFertilizers;
-        teamInfo.waterAmount = waterTank.waterAmount;*/
+        teamInfo.waterAmount = waterTank.waterAmount;
     }
 
     public void LoadResources()
     {
         Debug.Log("Resources: LOAD RESOURCES");
-        /*inventoryManager.inventoryItems = teamInfo.itemsDictionary;
+        inventoryManager.inventoryItems = teamInfo.itemsDictionary;
         fertilizerManager.storedFertilizers = teamInfo.fertilizersDictionary;
-        waterTank.waterAmount = teamInfo.waterAmount;*/
+        waterTank.waterAmount = teamInfo.waterAmount;
+
+        waterTank.UpdateWater();
     }
 
     public void loadScreen(string sceneName)
