@@ -76,6 +76,7 @@ public class ResourcesManager : MonoBehaviour
                 plant.healthPoints = teamInfo.plantsList[j].GetCurrentHP();
                 plant.plantState = teamInfo.plantsList[j].plantState;
                 plant.skillsList = teamInfo.plantsList[j].skillsInternal;
+                plant.statsDictionary = teamInfo.plantsList[j].statsDictionary;
                 j++;
                 
             }

@@ -90,7 +90,7 @@ public class FlowerPot : MonoBehaviour
 
             case 1: //SKILL fertilizer
                 if (currentPlant == null) return;
-                if (currentPlant.skillsList.Count >= 4) return;
+                if (currentPlant.skillsList.Count >= 3) return;
                 if (currentPlant.skillsList.Contains(fertilizer.skill)) return;
 
                 GetComponent<Button>().interactable = true;
