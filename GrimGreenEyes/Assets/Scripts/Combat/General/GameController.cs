@@ -49,7 +49,6 @@ public class GameController : MonoBehaviour
         characters = characters.OrderByDescending(x => x.GetComponent<Entity>().agility).ToList();
         characterSelected = characters.Count - 1;
         NextPlayer();
-        //characters.Sort(Entity.agility);
     }
     public void NextPlayer()
     {
@@ -88,7 +87,6 @@ public class GameController : MonoBehaviour
                         characterSelected = (characterSelected + 1) % characters.Count;
                         characters[characterSelected].GetComponent<Plants>().actualState = Entity.EntityState.START;
                         PlayerPanel.instance.gameObject.SetActive(true);
-                        //PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
                         break;
                     case "Enemy":
                         if (characters[characterSelected].GetComponent<Mosquitoes>().actualState != Entity.EntityState.IDLE)
@@ -134,7 +132,6 @@ public class GameController : MonoBehaviour
                 Finish();
             }
         }
-        //if(characterSelected == characters.Count) { characterSelected = characters.Count - 1; }
         if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
