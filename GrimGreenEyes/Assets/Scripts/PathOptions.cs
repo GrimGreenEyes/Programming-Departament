@@ -26,6 +26,7 @@ public class PathOptions : MonoBehaviour
     public GameObject glovalVar;
 
 	public bool isLast;
+	public bool isNextBiom;
 
 
 	//public bool isLast;
@@ -143,6 +144,11 @@ public class PathOptions : MonoBehaviour
         {
 			glovalVar.GetComponent<GlobalVar>().loadNewScene();
         }
+        if (isNextBiom)
+        {
+			glovalVar.GetComponent<GlobalVar>().biomaActual = glovalVar.GetComponent<GlobalVar>().biomas[1];
+
+		}
 
 
 	}
