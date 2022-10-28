@@ -97,8 +97,8 @@ public class Navigation : MonoBehaviour
                 Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
                 player.transform.position = mediumPos;
                 actualNode = node;
-                glovalVar.GetComponent<GlobalVar>().actualNode = node;
-            Debug.Log("cambia correcto");
+              //  glovalVar.GetComponent<GlobalVar>().actualNode = node;
+                Debug.Log("cambia correcto");
                 //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 
                 camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
@@ -110,9 +110,27 @@ public class Navigation : MonoBehaviour
                 Debug.Log(node.name + "not in list");
     }
 
+    public void matchWon(GameObject node)
+    {
+        if (!node.GetComponent<PathOptions>().isLast)
+        {
+            glovalVar.GetComponent<GlobalVar>().actualNode = node;
+            player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
+            Debug.Log("MATCH WON");
+        }
+    }
+
+    public void matchLoose()
+    {
+
+    }
+
     public void moveToNodeEmpty()
     {
         moveToNode(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().myArray[0].node);
+        StartCoroutine(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().goMatch());
+                //		StartCoroutine(goMatch());
+
     }
 
     IEnumerator cameraMovement(GameObject node){
@@ -120,7 +138,8 @@ public class Navigation : MonoBehaviour
 
             yield return new WaitForSeconds(1);
             Debug.Log("Finished Coroutine::: PLAYER WON ");
-        player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
+        // player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
+        //matchWon(node);
         camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
 
 

@@ -39,12 +39,18 @@ public class ResourcesManager : MonoBehaviour
         if (string.Equals(sceneName, "MapScene"))
         {
             Debug.Log("IGUAL SCENEMAE");
-            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp();
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
 
         }
         else if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
         {
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+        }
+
+        if (string.Equals(sceneName, "MainScene"))
+        {
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchLoose);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
         }
 

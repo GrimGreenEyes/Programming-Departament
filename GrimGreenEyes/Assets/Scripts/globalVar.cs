@@ -19,6 +19,10 @@ public class GlobalVar : MonoBehaviour
 
     public int biomaActual;
 
+    public bool isLastNode;
+
+
+
 
     public static GlobalVar VarInstance;
     void Awake()
@@ -55,28 +59,68 @@ public class GlobalVar : MonoBehaviour
         
     }
 
-    public void MapSceneUp()
+    public void MapSceneUp(EnumMapOptions.mapOptions advance)
     {
-        StartCoroutine(waitForMapSceneLoad());
+        StartCoroutine(waitForMapSceneLoad(advance));
         /*GameObject player = GameObject.Find("PLAYER");
         Debug.Log("SCNE UP");
         player.transform.position = actualNode.transform.position;*/
     }
 
-    public void MapSceneDown()
-    {
 
-    }
-
-    IEnumerator waitForMapSceneLoad()
+    public IEnumerator waitForMapSceneLoad(EnumMapOptions.mapOptions advance)
     {
+        Debug.Log("**********");
+        Debug.Log(advance);
         yield return new WaitForSeconds(0.5f);
         GameObject player = GameObject.Find("PLAYER");
         Debug.Log("SCNE UP");
         isMapUp = true;
-        player.transform.position = actualNode.transform.position;
+
+        if (advance == EnumMapOptions.mapOptions.matchWon)
+        {
+            GameObject.Find("NavigationController").GetComponent<Navigation>().matchWon(actualNode.GetComponent<PathOptions>().myArray[0].node);
+        }
+
+        else if(advance == EnumMapOptions.mapOptions.matchLoose)
+        {
+            Debug.Log("DELETING!!!");
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            created = 0;
+            GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
+
+           // BALDO DESTRUYE AQUÍ LAS PLANTAS Y LO QUE TENGAS QUE CARGARTE
+        }
+
+        else if(advance == EnumMapOptions.mapOptions.returnMap)
+        {
+            player.transform.position = actualNode.transform.position;
+        }
     }
 
+    public void loadNewScene()
+    {
+        level++;
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        created = 0;
+    }
+
+    public void matchTest()
+    {
+        MapSceneUp(EnumMapOptions.mapOptions.matchWon);
+    }
+
+    IEnumerator waitForMapSceneLoadNodeMove()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+    }
 
 
 

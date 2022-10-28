@@ -28,10 +28,10 @@ public class PathOptions : MonoBehaviour
 	public bool isLast;
 
 
-    //public bool isLast;
+	//public bool isLast;
 
 
-    private void Start()
+	private void Start()
 	{
 		navigationController = GameObject.Find("NavigationController");
         glovalVar = GameObject.Find("GlobalAttributes");
@@ -128,6 +128,23 @@ public class PathOptions : MonoBehaviour
             navigationController = GameObject.Find("NavigationController");
         }
         navigationController.GetComponent<Navigation>().moveToNode(thisNode);
+		if(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().getGameobjects(thisNode))
+		StartCoroutine(goMatch());
+	}
+
+
+	public IEnumerator goMatch()
+	{
+		Debug.Log("GOMATCH");
+		yield return new WaitForSeconds(1.0f);
+		glovalVar.GetComponent<MainController>().loadScreen("CombatScene");
+
+        if (isLast)
+        {
+			glovalVar.GetComponent<GlobalVar>().loadNewScene();
+        }
+
+
 	}
 }
 [System.Serializable]
