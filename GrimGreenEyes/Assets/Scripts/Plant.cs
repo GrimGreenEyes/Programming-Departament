@@ -17,6 +17,8 @@ public class Plant : MonoBehaviour
 
     public int healthPoints;
 
+    public string TempAttack;
+
     //SKILLS
     public List<SkillRes> skillsList = new List<SkillRes>();
     //
@@ -63,6 +65,9 @@ public class Plant : MonoBehaviour
         statsDictionary[statDeffense] = plantType.baseDeffense;
         statsDictionary[statHeatRes] = plantType.baseHeatDef;
         statsDictionary[statColdRes] = plantType.baseColdDef;
+
+        TempAttack = plantType.attack;
+
         skillsList.Add(plantType.baseSkill);
     }
 

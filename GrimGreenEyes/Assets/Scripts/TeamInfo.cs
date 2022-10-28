@@ -72,6 +72,7 @@ public class TeamInfo : MonoBehaviour
             aux.skillsInternal = plant.skillsList;
 
             aux.healthPoints = plant.healthPoints;
+            aux.plantState = plant.plantState;
 
             aux.Initialize();
             plantsList.Add(aux);
@@ -102,6 +103,7 @@ public class PlantInfo
     public StatRes agility, attack, coldResistance, deffense, health, heatRessistance, movement;
     public List<SkillRes> skillsInternal = new List<SkillRes>();
     public PlantType plantTypeInternal;
+    public int plantState;
 
     //FUNCIONES PARA MODIFICAR / CARGAR LA PLANTA A ALTO NIVEL
     public GameObject GetPlantType()

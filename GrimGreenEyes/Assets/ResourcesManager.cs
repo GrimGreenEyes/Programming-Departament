@@ -74,7 +74,9 @@ public class ResourcesManager : MonoBehaviour
             if (plant != null)
             {
                 plant.healthPoints = teamInfo.plantsList[j].GetCurrentHP();
+                plant.plantState = teamInfo.plantsList[j].plantState;
                 j++;
+                
             }
         }
     }

@@ -10,4 +10,7 @@ public class PlantType : ScriptableObject
     public int baseAttack, baseMovement, baseAgility, baseDeffense, baseHeatDef, baseColdDef;
     public SkillRes baseSkill;
     public GameObject prefab;
+
+    //TEMPORAL (DEBE SER OTRO SCRIPTABLEOBJECT PARA ALMACENAR DESCRIPCIÓN)
+    public string attack;
 }

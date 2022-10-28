@@ -90,6 +90,7 @@ public class GlobalVar : MonoBehaviour
                 GameObject.Destroy(child.gameObject);
             }
             created = 0;
+            //ESTA LÍNEA COMENTADA DABA ERROR. SI LA DESCOMENTO FUNCIONA BIEN, AL MENOS DESDE EL BOTÓN DE TERMINAR COMBATE
             //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
 
             //Destrucción de todos los recursos
