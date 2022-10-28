@@ -41,16 +41,20 @@ public class PlayerPanel : MonoBehaviour
         skillButtons.Clear();
         livePointsText.SetText(plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString());
         int x = 0;
+        for (int i = 0; i < butonPositions.Length; i++)
+        {
+            if (butonPositions[i].childCount > 0)
+            {
+                Destroy(butonPositions[i].GetChild(0).gameObject);
+            }
+        }
         for (int i = 0; i < plant.skills.Count; i++)
         {
             if(plant.skills[i] == null)
             {
                 return;
             }
-            if (butonPositions[i].childCount > 0)
-            {
-                Destroy(butonPositions[i].GetChild(0).gameObject);
-            }
+            
             if (plant.skills[i].isActiveSkill)
             {
                 GameObject button = Instantiate(buttonPref, butonPositions[x], false);
