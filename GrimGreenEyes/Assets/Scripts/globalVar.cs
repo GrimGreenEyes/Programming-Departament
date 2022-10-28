@@ -17,7 +17,7 @@ public class GlobalVar : MonoBehaviour
 
     public int [] biomas;
 
-    public int biomaActual;
+    public int biomaActual;//0 = desierto, 1 = llanura, 2 = nieve, 3 = selva
 
     public bool isLastNode;
 

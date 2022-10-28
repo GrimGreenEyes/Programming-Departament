@@ -390,6 +390,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 1
 --- !u!120 &2194911049588862888
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -750,6 +751,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &8432168830230043919
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1006,6 +1008,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &4081688971408190814
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1262,6 +1265,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &7842902140404314561
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1686,6 +1690,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 1
+  isNextBiom: 0
 --- !u!120 &1221331238542660348
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1942,6 +1947,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &806754206105928535
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2198,6 +2204,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &3803660867970125924
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2454,6 +2461,7 @@ MonoBehaviour:
   lines: []
   glovalVar: {fileID: 0}
   isLast: 0
+  isNextBiom: 0
 --- !u!120 &6298940929991465281
 LineRenderer:
   m_ObjectHideFlags: 0
