@@ -7,20 +7,29 @@ public class GridCreator : MonoBehaviour
     public static GridCreator instance;
 
     private GameObject[,] tileMap;
+    private EnumMapOptions.mapBiom actualBiome;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
     [SerializeField] private GameObject pathTilePrefab;
-    [SerializeField] private GameObject[] players;
-    [SerializeField] private GameObject[] enemys;
+    [SerializeField] private List<GameObject> players;
+    [SerializeField] private List<GameObject> enemys;
     public float width, height;
     public int x, y;
 
     public GameObject player;
+
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
+        }
+        TeamInfo teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+        for (int i = 0; i < teamManager.GetPlantsList().Count; i++)
+        {
+            players.Add(teamManager.GetPlantsList()[i].GetPlantType());
+            players[i].GetComponent<Plants>().SetStats(teamManager.GetPlantsList()[i].GetCurrentHP(), teamManager.GetPlantsList()[i].GetPlantHealth(), teamManager.GetPlantsList()[i].GetPlantAttack(), teamManager.GetPlantsList()[i].GetPlantDeffense(), teamManager.GetPlantsList()[i].GetPlantHeatRessistance(), teamManager.GetPlantsList()[i].GetPlantColdRessistance(), teamManager.GetPlantsList()[i].GetPlantAgility(), teamManager.GetPlantsList()[i].GetPlantMovement());
+            players[i].GetComponent<Plants>().SetSkills(teamManager.GetPlantsList()[i].GetPlantSkills());
         }
     }
     private void OnDestroy()
@@ -83,11 +92,11 @@ public class GridCreator : MonoBehaviour
             pathTile.name = roadRow + ", " + i;
         }
     }
-    private void GenerateEntitys(GameObject[] entitys, int row)
+    private void GenerateEntitys(List<GameObject> entitys, int row)
     {
         int xEntity = row;
         int yEntity = 1;
-        for (int playerArrayPos = 0; playerArrayPos < entitys.Length; playerArrayPos++)
+        for (int playerArrayPos = 0; playerArrayPos < entitys.Count; playerArrayPos++)
         {
             yEntity = (tileMap[xEntity, yEntity].transform.childCount > 2) ? yEntity += 1 : yEntity;
             player = Instantiate(entitys[playerArrayPos], tileMap[xEntity, yEntity].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));

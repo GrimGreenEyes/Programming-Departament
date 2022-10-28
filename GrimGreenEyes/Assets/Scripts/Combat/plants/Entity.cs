@@ -85,6 +85,22 @@ public class Entity : MonoBehaviour
         
         renderer = GetComponent<SpriteRenderer>();
     }
+    public void SetStats(int newLivePoints, int newMaxLivePoints, int newAttack, int newDefense, int newHeatResistance, int newFreezeResistance, int newAgility, int newMaxMovement)
+    {
+        livePoints = newLivePoints;
+        maxLivePoints = newMaxLivePoints;
+        attack = newAttack;
+        defense = newDefense;
+        heatResistance = newHeatResistance;
+        freezeResistance = newFreezeResistance;
+        agility = newAgility;
+        movement = 0;
+        maxMovement = newMaxMovement;
+    }
+    public void SetSkills(List<GameObject> skillList)
+    {
+        skillPrefabs = skillList;
+    }
     public virtual void States() { }
     public void Start()
     {

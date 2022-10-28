@@ -79,6 +79,7 @@ public class Plants : Entity
                 
                 if (hidden) { Show(); }
                 movement = maxMovement;
+                attacked = false;
                 if(bleeding) livePoints -= (maxLivePoints * 5/100); 
                 if(livePoints <= 0)
                 {
