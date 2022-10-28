@@ -15,9 +15,9 @@ public class GlobalVar : MonoBehaviour
 
     public bool isMapUp;
 
-    public int [] biomas;
+    public EnumMapOptions.mapBiom [] biomas;
 
-    public int biomaActual;//0 = desierto, 1 = llanura, 2 = nieve, 3 = selva
+    public EnumMapOptions.mapBiom biomaActual;//0 = desierto, 1 = llanura, 2 = nieve, 3 = selva
 
     public bool isLastNode;
 
@@ -109,6 +109,7 @@ public class GlobalVar : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         created = 0;
+        biomaActual = biomas[0];
     }
 
     public void matchTest()

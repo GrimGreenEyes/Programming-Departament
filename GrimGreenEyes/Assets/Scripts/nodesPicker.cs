@@ -28,6 +28,8 @@ public class nodesPicker : MonoBehaviour
 
     public int[] mapBioms;  //0 = desierto, 1 = llanura, 2 = nieve, 3 = selva
 
+    public EnumMapOptions.mapBiom [] mapOpt;
+
     private void Awake()
     {
         Object.DontDestroyOnLoad(this);
@@ -41,6 +43,7 @@ public class nodesPicker : MonoBehaviour
         //randTypes = Random.Range(0, mapsTypes);
         //randTypes = Random.Range(0, );
         mapBioms = new int[mapArrays];
+        mapOpt = new EnumMapOptions.mapBiom[mapArrays];
 
 
         if (mapArrays == 1)
@@ -48,6 +51,21 @@ public class nodesPicker : MonoBehaviour
             randTypes = Random.Range(0, mapsToPick1.Length);
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[randTypes];
             mapBioms[0] = randTypes % 4;
+            switch (mapBioms[0])
+            {
+                case 0:
+                    mapOpt[0] = EnumMapOptions.mapBiom.desierto;
+                    break;
+                case 1:
+                    mapOpt[0] = EnumMapOptions.mapBiom.llanura;
+                    break;
+                case 2:
+                    mapOpt[0] = EnumMapOptions.mapBiom.nieve;
+                    break;
+                case 3:
+                    mapOpt[0] = EnumMapOptions.mapBiom.selva;
+                    break;
+            }
         }
         else if(mapArrays == 2)
         {
@@ -57,9 +75,29 @@ public class nodesPicker : MonoBehaviour
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = mapsToPick2[rand2];
             mapBioms[0] = rand1 % 4;
             mapBioms[1] = rand2 % 4;
+
+            switch (mapBioms[1])
+            {
+                case 0:
+                    mapOpt[1] = EnumMapOptions.mapBiom.desierto;
+                    break;
+                case 1:
+                    mapOpt[1] = EnumMapOptions.mapBiom.llanura;
+                    break;
+                case 2:
+                    mapOpt[1] = EnumMapOptions.mapBiom.nieve;
+                    break;
+                case 3:
+                    mapOpt[1] = EnumMapOptions.mapBiom.selva;
+                    break;
+            }
         }
 
-        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas = mapBioms;
+        
+
+
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas = mapOpt;
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual = mapOpt[0];
 
 
         /*if (randTypes == 0)

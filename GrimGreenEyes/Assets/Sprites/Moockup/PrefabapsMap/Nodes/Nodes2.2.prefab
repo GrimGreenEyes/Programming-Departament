@@ -1044,8 +1044,8 @@ MonoBehaviour:
   line: {fileID: 3026558840843897572}
   lines: []
   glovalVar: {fileID: 0}
-  isLast: 1
-  isNextBiom: 0
+  isLast: 0
+  isNextBiom: 1
 --- !u!120 &3026558840843897572
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -11,4 +11,12 @@ public class EnumMapOptions : MonoBehaviour
         matchWon,
         returnMap
     }
+
+    public enum mapBiom
+    {
+        desierto,
+        llanura,
+        nieve,
+        selva
+    }
 }
