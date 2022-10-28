@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Semillas de Mazorca
   sprite: {fileID: 21300000, guid: d7fb5022235c03b49aeaa060bda7cc2d, type: 3}
   type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  seedType: {fileID: 11400000, guid: fd274091264f19644b7e6c866214e053, type: 2}

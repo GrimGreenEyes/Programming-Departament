@@ -15,4 +15,4 @@ MonoBehaviour:
   name: "Semillas de Hongo Carn\xEDvoro"
   sprite: {fileID: 21300000, guid: 25ecff1e026924f409f097b7167b53b1, type: 3}
   type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  seedType: {fileID: 11400000, guid: 25c4c50a1b50cb446974ebf615e4255f, type: 2}

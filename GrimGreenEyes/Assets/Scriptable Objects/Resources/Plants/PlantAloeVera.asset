@@ -24,5 +24,6 @@ MonoBehaviour:
   baseDeffense: 30
   baseHeatDef: 14
   baseColdDef: 8
-  baseSkill: {fileID: 0}
+  baseSkill: {fileID: 11400000, guid: bdd7c589d700ee2478fdab4dcc08af9d, type: 2}
   prefab: {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+  attack: "Savia m\xE1gica"

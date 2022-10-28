@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3ca79f4df11f047a02ec3019a84920, type: 3}
+  m_Name: SkillRosePlague
+  m_EditorClassIdentifier: 
+  name: Plaga de Rosas
+  description: "Al golpear a un enemigo se infesta con p\xE9talos que pasan parte
+    de la vida quitada al usuario."
+  prefab: {fileID: 3707064556478966940, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}

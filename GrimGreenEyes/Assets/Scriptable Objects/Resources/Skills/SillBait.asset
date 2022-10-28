@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3ca79f4df11f047a02ec3019a84920, type: 3}
-  m_Name: SkillSpikes
+  m_Name: SillBait
   m_EditorClassIdentifier: 
-  name: Pinchos
-  description: Pincha al enemigo varias veces
+  name: Cebo
+  description: "La planta se camufla con el ambiente y ataca a los enemigos que pasen
+    cerca, aturdi\xE9ndolo 1 turno."
+  prefab: {fileID: 7789007643247914104, guid: 433b637c6ee392947ae17029f383ed8e, type: 3}

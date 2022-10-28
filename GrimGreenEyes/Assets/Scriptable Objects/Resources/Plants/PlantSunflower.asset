@@ -24,5 +24,6 @@ MonoBehaviour:
   baseDeffense: 30
   baseHeatDef: 18
   baseColdDef: 4
-  baseSkill: {fileID: 0}
+  baseSkill: {fileID: 11400000, guid: 919bb071bbcc33c43a67c75dcc18c300, type: 2}
   prefab: {fileID: 6154406875385546749, guid: 1b97f67bac3a6204ab5109626c321e01, type: 3}
+  attack: Golpe de calor

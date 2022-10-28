@@ -106,6 +106,7 @@ public class Plant : MonoBehaviour
                 statsDictionary[fertilizer.stat] ++;
                 break;
             case 1: //SKILL fertilizer
+                skillsList.Add(fertilizer.skill);
                 break;
         }
     }

@@ -12817,15 +12817,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeList:
-  - input0: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
-    input1: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
-    output: {fileID: 11400000, guid: 2ef253c1e9281e04190d691a5d5748b5, type: 2}
-  - input0: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
-    input1: {fileID: 11400000, guid: 4ddaa4a91ebdfb345a67623903eed0d9, type: 2}
-    output: {fileID: 11400000, guid: 62472d67426166e4caad1ddaea2d25d6, type: 2}
-  - input0: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
-    input1: {fileID: 11400000, guid: 2dbcaa3595a299d4d9dd1e5b61abacfe, type: 2}
-    output: {fileID: 11400000, guid: f981b6e35f7afdd47bf6ea2aed8995e5, type: 2}
+  - input0: {fileID: 11400000, guid: 4e45cc3501a16004ab7a114757545ee3, type: 2}
+    input1: {fileID: 11400000, guid: 55d33a6d5241cd6478f60e8a8ee353a5, type: 2}
+    output: {fileID: 11400000, guid: 9c195396fa4c1d54d9035e216bbffc79, type: 2}
   inputSlots:
   - {fileID: 1767781147}
   - {fileID: 1007712125}

@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3b0c7ad49114c0499bfbab7655fcb58, type: 3}
-  m_Name: PlantAloeVera 4
+  m_Name: PlantCactus
   m_EditorClassIdentifier: 
-  name: Aloe Vera
-  baseHP: 80
+  name: Cactus
+  baseHP: 120
   spriteSheet:
   - {fileID: 21300000, guid: 725ff106e69f2cd4ca32db8bec48d8c1, type: 3}
   - {fileID: 21300000, guid: 5bea8eb71ceb4344cbc8cd7d24a0de20, type: 3}
-  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
-  baseAttack: 25
+  - {fileID: 21300000, guid: 6cc7940c2279df04283d0c9eae760d1a, type: 3}
+  baseAttack: 20
   baseMovement: 4
-  baseAgility: 7
-  baseDeffense: 30
-  baseHeatDef: 14
-  baseColdDef: 8
-  baseSkill: {fileID: 0}
-  prefab: {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+  baseAgility: 4
+  baseDeffense: 55
+  baseHeatDef: 25
+  baseColdDef: 3
+  baseSkill: {fileID: 11400000, guid: 0ad3e95478889ec4e8386f6afd93e91a, type: 2}
+  prefab: {fileID: 8404517906553258289, guid: eeda478b20745184892f29bfa2bb9ea7, type: 3}
+  attack: Garras y espinas

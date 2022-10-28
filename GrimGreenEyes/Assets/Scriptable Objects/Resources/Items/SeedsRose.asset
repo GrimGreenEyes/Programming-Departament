@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Semillas de Rosa
   sprite: {fileID: 21300000, guid: ade71818392eaf34ebcc1759d9add4d6, type: 3}
   type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  seedType: {fileID: 11400000, guid: d71c8b62f6826634e9b550bc6f6168d4, type: 2}

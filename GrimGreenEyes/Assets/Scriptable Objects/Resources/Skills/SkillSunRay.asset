@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3ca79f4df11f047a02ec3019a84920, type: 3}
-  m_Name: SkillPunch
+  m_Name: SkillSunRay
   m_EditorClassIdentifier: 
-  name: "Pu\xF1etazo"
-  description: 'Asesta un gran golpe al enemigo
-
-'
+  name: Rayo Solar
+  description: "Apunta un rayo de sol hacia un aliado, mejorando sus estad\xEDsticas."
+  prefab: {fileID: 845286623794744505, guid: a76e0ca6279f8cd4dab0cf82bd084170, type: 3}

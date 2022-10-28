@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3b0c7ad49114c0499bfbab7655fcb58, type: 3}
-  m_Name: PlantAloeVera 2
+  m_Name: PlantRose
   m_EditorClassIdentifier: 
-  name: Aloe Vera
+  name: Rosa
   baseHP: 80
   spriteSheet:
   - {fileID: 21300000, guid: 725ff106e69f2cd4ca32db8bec48d8c1, type: 3}
   - {fileID: 21300000, guid: 5bea8eb71ceb4344cbc8cd7d24a0de20, type: 3}
-  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
-  baseAttack: 25
+  - {fileID: 21300000, guid: 3c0b39bc5c9be6347b6ee337fea6cc20, type: 3}
+  baseAttack: 40
   baseMovement: 4
-  baseAgility: 7
-  baseDeffense: 30
-  baseHeatDef: 14
-  baseColdDef: 8
-  baseSkill: {fileID: 0}
-  prefab: {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+  baseAgility: 8
+  baseDeffense: 35
+  baseHeatDef: 9
+  baseColdDef: 12
+  baseSkill: {fileID: 11400000, guid: 5a9a948eccd32c240afa9976d866d0c4, type: 2}
+  prefab: {fileID: 6423738474277625457, guid: a2d08a3fe1477e94cb851502b207a5ab, type: 3}
+  attack: Espinas

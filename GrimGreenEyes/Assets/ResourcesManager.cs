@@ -75,6 +75,7 @@ public class ResourcesManager : MonoBehaviour
             {
                 plant.healthPoints = teamInfo.plantsList[j].GetCurrentHP();
                 plant.plantState = teamInfo.plantsList[j].plantState;
+                plant.skillsList = teamInfo.plantsList[j].skillsInternal;
                 j++;
                 
             }
@@ -87,7 +88,6 @@ public class ResourcesManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         if (string.Equals(sceneName, "MapScene"))
         {
-            Debug.Log("IGUAL SCENEMAE");
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
 

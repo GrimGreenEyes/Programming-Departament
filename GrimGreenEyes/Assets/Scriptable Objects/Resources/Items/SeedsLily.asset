@@ -15,4 +15,4 @@ MonoBehaviour:
   name: "Semillas de Nen\xFAfar"
   sprite: {fileID: 21300000, guid: 47390a73bf1ac4945b621a721b7cd9c4, type: 3}
   type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  seedType: {fileID: 11400000, guid: 1baec604c05e64c4784506c74368d5aa, type: 2}
