@@ -170,16 +170,8 @@ MonoBehaviour:
   mainAttack: {fileID: 2091355357461808738, guid: cc13ee5a86587dd4fa3057a3ddf6a379, type: 3}
   skillPrefabs:
   - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  skillObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  skillObjects: []
+  skills: []
   skillSelected: 3
   mainObjective: {fileID: 0}
   MovementSpeed: 2

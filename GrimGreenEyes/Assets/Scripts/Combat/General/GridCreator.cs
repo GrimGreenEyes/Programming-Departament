@@ -9,14 +9,11 @@ public class GridCreator : MonoBehaviour
     private GameObject[,] tileMap;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
-    [SerializeField] private GameObject rail;
+    [SerializeField] private GameObject pathTilePrefab;
     [SerializeField] private GameObject[] players;
     [SerializeField] private GameObject[] enemys;
     public float width, height;
     public int x, y;
-
-
-    //public 
 
     public GameObject player;
     private void Awake()
@@ -64,63 +61,9 @@ public class GridCreator : MonoBehaviour
                 tile.transform.localPosition = new Vector3((j + x) * 0.5f, (j - x) * 0.25f , 0);
                 tile.GetComponent<Tile>().Init((arrayPos++) % 2, x, y);
                 tile.name = x + ", " + y;
-                /*
-                if (i == 0 || j == 0 || i == (width - tile.transform.localScale.x) || j == (height - tile.transform.localScale.y))
-                {
-                    int border = 0;
-                    
-                    if (i == 0 && j == 0)
-                    {
-                        border = 3;
-                    }
-                    else if (i == 0 && j == height - tilePrefab.transform.localScale.y)
-                    {
-                        border = 1;
-                    }
-                    else if (i == 0)
-                    {
-                        border = 8;
-                    }
-                    else if (i == width - tile.transform.localScale.x && j == height - tile.transform.localScale.y)
-                    {
-                        border = 2;
-                    }
-                    else if (j == height - tile.transform.localScale.y)
-                    {
-                        border = 5;
-                    }
-                    else if (i == width - tile.transform.localScale.x && j == 0)
-                    {
-                        border = 4;
-                    }
-                    else if (i == width - tile.transform.localScale.x)
-                    {
-                        border = 6;
-                    }
-                    else if (j == 0)
-                    {
-                        border = 7;
-                    }
-
-
-                    tile.layer = 3;
-                    tile.GetComponent<Tile>().SetBorder(border);
-                }
-                */
-                /*
-                else if(Random.Range(0, 50) < 1)
-                {
-                    Instantiate(ObstaclePrefab, tile.transform.position , Quaternion.Euler(0, 0, 0), tile.transform);
-                }
-                else if (j > 4 && playerArrayPos < players.Length)
-                {
-                    player = Instantiate(players[playerArrayPos], tile.transform.position + new Vector3(0, 0.5f, 0), new Quaternion(0, 0, 0, 0));
-                    GameController.instance.Init(player, playerArrayPos);
-                    playerArrayPos++;
-                }*/
             }
         }
-        //GenerateRoad();
+        GenerateRoad();
         GenerateEntitys(players, 1);
         GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
         GameController.instance.OrderCharacters();
@@ -128,16 +71,16 @@ public class GridCreator : MonoBehaviour
     }
     private void GenerateRoad() 
     {
-        int roadRow = Random.Range(1, x);
-        for(int i = 0; i < x; i++)
+        int roadRow = Random.Range(3, x - 3);
+        for(int i = 0; i < y; i++)
         {
-            for(int j = 0; j < y; j++)
-            {
-                if(j == roadRow)
-                {
-                    Instantiate(rail, tileMap[i,j].transform, false);
-                }
-            }
+
+            Destroy(tileMap[roadRow, i]);
+            GameObject pathTile = Instantiate(pathTilePrefab, transform, false);
+            tileMap[roadRow, i] = pathTile;
+            pathTile.transform.localPosition = new Vector3((i + roadRow) * 0.5f, (i - roadRow) * 0.25f, 0);
+            pathTile.GetComponent<Tile>().Init(0, roadRow, i);
+            pathTile.name = roadRow + ", " + i;
         }
     }
     private void GenerateEntitys(GameObject[] entitys, int row)
@@ -154,6 +97,10 @@ public class GridCreator : MonoBehaviour
         }
 
     }
+    private void createObstacles()
+    {
+
+    }
     public GameObject GetTile(int x, int y)
     {
         if(x < 0 || y < 0 || x >= width || y >= height)
@@ -163,9 +110,9 @@ public class GridCreator : MonoBehaviour
 
         return tileMap[x, y];
     }
-    private void createObstacles()
+    public void GenerateSeed()
     {
-
+        tileMap[(int)Random.Range(0, width - 1), (int)Random.Range(0, height - 1)].GetComponent<Tile>().GenerateSeed();
     }
     private void Update()
     {

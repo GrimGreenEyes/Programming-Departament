@@ -61,7 +61,7 @@ public class Plants : Entity
         if (skillSelected == position)
         {
             actualState = EntityState.IDLE;
-            skillSelected = skills.Length;
+            skillSelected = skills.Count;
             return;
         }
         skillSelected = position;
@@ -86,7 +86,7 @@ public class Plants : Entity
                     GameController.instance.NextPlayer();
                     GameController.instance.Died(gameObject);
                 }
-                for (int i = 0; i < skills.Length; i++)
+                for (int i = 0; i < skills.Count; i++)
                 {
                     skills[i].ReduceCoolDown();
                 }

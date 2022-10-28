@@ -101,10 +101,18 @@ public class GameController : MonoBehaviour
                 }
                 break;
         }
+        if(characterSelected == 0)
+        {
+            NewTurn();
+        }
     }
     public GameObject SelectedPlayer()
     {
         return characters[characterSelected];
+    }
+    private void NewTurn()
+    {
+        GridCreator.instance.GenerateSeed();
     }
     public void Died(GameObject entity)
     {

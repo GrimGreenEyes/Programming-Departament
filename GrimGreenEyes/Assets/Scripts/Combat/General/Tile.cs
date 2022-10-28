@@ -21,6 +21,8 @@ public class Tile : MonoBehaviour
     public bool isWalkable;
     public GameObject entity;
     public int weight;
+
+    [SerializeField] private GameObject[] seeds;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -53,16 +55,27 @@ public class Tile : MonoBehaviour
         }
     }
 
-    
-    public void ShineTile()
+    public void GenerateSeed()
     {
-        if (this.transform.childCount != 1)
+        if(seeds.Length == 0)
         {
             return;
         }
+        if(entity != null)
         {
-            renderer.color = shineColor;
-        }        
+            return;
+        }
+        Instantiate(seeds[Random.Range(0, seeds.Length - 1)], transform, false);
+    }
+    public void ShineTile()
+    {
+        //if (isInRange && isWalkable)
+        //{
+        //    return;
+        //}
+        
+        renderer.color = shineColor;
+                
     }
     public void ShineEntity()
     {
@@ -106,7 +119,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (this.transform.childCount != 2)
+        if(!isWalkable)
         {
             return;
         }

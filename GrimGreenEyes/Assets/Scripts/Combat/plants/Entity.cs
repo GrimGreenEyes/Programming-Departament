@@ -41,9 +41,9 @@ public class Entity : MonoBehaviour
 
     [Header("Combat")]
     public Attack mainAttack;
-    [SerializeField] protected GameObject[] skillPrefabs = new GameObject[3];
-    [SerializeField] protected GameObject[] skillObjects = new GameObject[3];
-    public Skill[] skills = new Skill[3];
+    [SerializeField] protected List<GameObject> skillPrefabs = new List<GameObject>();
+    [SerializeField] protected List<GameObject> skillObjects = new List<GameObject>();
+    public List<Skill> skills = new List<Skill>();
     public int skillSelected = 3;
 
     public GameObject mainObjective;
@@ -89,10 +89,10 @@ public class Entity : MonoBehaviour
     public void Start()
     {
         MovementPoint = transform.position;
-        for (int i = 0; i < skillPrefabs.Length; i++)
+        for (int i = 0; i < skillPrefabs.Count; i++)
         {
-            skillObjects[i] = GameObject.Instantiate(skillPrefabs[i], gameObject.transform);
-            skills[i] = skillObjects[i].GetComponent<Skill>();
+            skillObjects.Add(GameObject.Instantiate(skillPrefabs[i], gameObject.transform));
+            skills.Add(skillObjects[i].GetComponent<Skill>());
         }
     }
     public void SetDestination(GameObject tile)
@@ -144,7 +144,6 @@ public class Entity : MonoBehaviour
         {
 
             angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
-            Debug.Log(angle);
             Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
 
             if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))

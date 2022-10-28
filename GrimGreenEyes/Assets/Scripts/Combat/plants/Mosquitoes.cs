@@ -26,7 +26,7 @@ public class Mosquitoes : Entity
                     GameController.instance.NextPlayer();
                     GameController.instance.Died(gameObject);
                 }
-                for (int i = 0; i < skills.Length; i++)
+                for (int i = 0; i < skills.Count; i++)
                 {
                     skills[i].ReduceCoolDown();
                 }
@@ -80,8 +80,6 @@ public class Mosquitoes : Entity
                 }
                 int positionToMoveX = Random.Range(-movement, movement);
                 int positionToMoveY = Random.Range(-movement, movement);
-                Debug.Log(positionToMoveX);
-                Debug.Log(positionToMoveY);
                 if(Mathf.Abs(positionToMoveX) + Mathf.Abs(positionToMoveY) > movement || Mathf.Abs(positionToMoveX) + Mathf.Abs(positionToMoveY) <= 0)
                 {
                     break;

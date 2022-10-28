@@ -41,7 +41,7 @@ public class PlayerPanel : MonoBehaviour
         skillButtons.Clear();
         livePointsText.SetText(plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString());
         int x = 0;
-        for (int i = 0; i < plant.skills.Length; i++)
+        for (int i = 0; i < plant.skills.Count; i++)
         {
             if(plant.skills[i] == null)
             {

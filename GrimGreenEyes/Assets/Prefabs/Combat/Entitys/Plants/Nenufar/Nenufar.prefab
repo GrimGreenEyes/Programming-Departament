@@ -170,15 +170,8 @@ MonoBehaviour:
   skillPrefabs:
   - {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}
   - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 3707064556478966940, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
-  skillObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 3707064556478966940, guid: f3692c7ddfa2eea43a8e0f0b059bebed, type: 3}
-  skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  skillObjects: []
+  skills: []
   skillSelected: 3
   mainObjective: {fileID: 0}
   MovementSpeed: 2

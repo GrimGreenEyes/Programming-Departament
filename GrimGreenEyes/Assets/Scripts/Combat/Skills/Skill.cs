@@ -32,7 +32,7 @@ public class Skill : MonoBehaviour
         PlayerPanel.instance.SetButtonsToInactive();
         alreadyUsed = true;
         currentCoolDown = coolDown;
-        player.skillSelected = player.skills.Length;
+        player.skillSelected = player.skills.Count;
         player.actualState = Entity.EntityState.IDLE;
     }
     public virtual void Effect(GameObject enemy, GameObject player) 
