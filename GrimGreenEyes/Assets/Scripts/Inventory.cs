@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryObject, debugPanel, inventoryAndBlenderObject; //Objeto padre del panel del inventario
     [SerializeField] private List<InventorySlot> slotsList = new List<InventorySlot>(); //Almacena los SLOTS (objetos con botones) del inventario
-    private Dictionary<Item, int> inventoryItems = new Dictionary<Item, int>(); //Lista de ITEMS que posee el jugador
+    public Dictionary<Item, int> inventoryItems = new Dictionary<Item, int>(); //Lista de ITEMS que posee el jugador
     [SerializeField] private Blender blender;
     [SerializeField] private PlantsManager plantsManager;
 

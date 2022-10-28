@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FertilizerManager : MonoBehaviour
 {
-    private Dictionary<Fertilizer, int> storedFertilizers = new Dictionary<Fertilizer, int>(); //Almacena los fertilizantes y su cantidad
+    public Dictionary<Fertilizer, int> storedFertilizers = new Dictionary<Fertilizer, int>(); //Almacena los fertilizantes y su cantidad
     private List<FertilizerButton> buttonsList = new List<FertilizerButton>(); //Almacena los SLOTS (objetos con botones) del inventario
     [SerializeField] private GameObject fertilizersPanel, fertilizerButtonPrefab, contentGameObject;
     [SerializeField] private TextMeshProUGUI fertilizerName, fertilizerDescription, powerupName, powerupDescription;

@@ -9,6 +9,7 @@ public class PlantDetailsDisplay : MonoBehaviour
     private Plant currentPlant;
     [SerializeField] private TextMeshProUGUI plantName, plantLevel, plantSkills;
     [SerializeField] private TextMeshProUGUI plantDamage, plantCurrentHp, plantMaxHp, plantMovement, plantAgility, plantInitiative;
+    [SerializeField] private StatRes statMaxHealth, statAttack, statAgility, statMovement, statDeffense, statHeatRes, statColdRes;
     [SerializeField] private Image plantImage;
 
     private void Start()

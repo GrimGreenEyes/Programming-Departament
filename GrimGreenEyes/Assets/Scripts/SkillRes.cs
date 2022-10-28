@@ -7,5 +7,6 @@ public class SkillRes : ScriptableObject
     public string name;
     [TextArea(3, 10)]
     public string description;
+    public GameObject prefab;
     //public Color color;
 }

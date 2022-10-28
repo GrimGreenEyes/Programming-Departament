@@ -9,4 +9,5 @@ public class PlantType : ScriptableObject
     public Sprite[] spriteSheet;
     public int baseAttack, baseMovement, baseAgility, baseDeffense, baseHeatDef, baseColdDef;
     public SkillRes baseSkill;
+    public GameObject prefab;
 }

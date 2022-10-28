@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efc284a6dc5e8ad46a6ba82e7492a686, type: 3}
-  m_Name: SeedsCactus
+  m_Name: ItemChest
   m_EditorClassIdentifier: 
-  name: Semillas de Cactus
-  sprite: {fileID: 21300000, guid: 79b7312963271f541a19d6aec346d5dd, type: 3}
-  type: 1
-  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
+  name: "T\xF3rax de insecto"
+  sprite: {fileID: 21300000, guid: 6f077ab9a5b0bc24d9dce2069f58f392, type: 3}
+  type: 2
+  seedType: {fileID: 0}

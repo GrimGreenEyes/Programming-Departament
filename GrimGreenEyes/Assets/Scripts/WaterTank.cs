@@ -37,4 +37,16 @@ public class WaterTank : MonoBehaviour
         waterAmount--;
         UpdateWater();
     }
+
+    public void SetWaterAmount(int cant)
+    {
+        if(cant >= maxWater)
+        {
+            waterAmount = maxWater;
+        }
+        else
+        {
+            waterAmount = cant;
+        }
+    }
 }

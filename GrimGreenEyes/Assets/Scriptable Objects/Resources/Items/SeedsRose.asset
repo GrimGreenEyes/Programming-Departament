@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efc284a6dc5e8ad46a6ba82e7492a686, type: 3}
-  m_Name: FertilizerCactus
+  m_Name: SeedsRose
   m_EditorClassIdentifier: 
-  name: Fertilizante de Cactus
-  sprite: {fileID: 21300000, guid: 9f66e3d8acad22043a9ff001ff7875c0, type: 3}
-  type: 3
+  name: Semillas de Rosa
+  sprite: {fileID: 21300000, guid: ade71818392eaf34ebcc1759d9add4d6, type: 3}
+  type: 1
+  seedType: {fileID: 11400000, guid: c172ee6c60e280c45b5479af346386ea, type: 2}
