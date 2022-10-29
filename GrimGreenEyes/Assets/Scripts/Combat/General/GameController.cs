@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     private TeamInfo teamManager;
     private void Awake()
     {
-        TeamInfo teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+        
         if (instance == null)
         {
             instance = this;
@@ -33,7 +33,11 @@ public class GameController : MonoBehaviour
             instance = null;
         }
     }
-    
+    private void Start()
+    {
+        teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+    }
+
     public void Init(GameObject entity)
     {
         characters.Add(entity);
@@ -120,7 +124,7 @@ public class GameController : MonoBehaviour
         if (entity.tag == "Enemy")
         {
             enemys.Remove(entity);
-            switch((int)Random.Range(0, 5))
+            switch(Random.Range(0, 6))
             {
                 case 0:
                     teamManager.AddItemAbdomen();

@@ -121,7 +121,7 @@ public class GridCreator : MonoBehaviour
     }
     public void GenerateSeed()
     {
-        tileMap[(int)Random.Range(0, width - 1), (int)Random.Range(0, height - 1)].GetComponent<Tile>().GenerateSeed();
+        tileMap[(int)Random.Range(1, width - 1), (int)Random.Range(1, height - 1)].GetComponent<Tile>().GenerateSeed();
     }
     private void Update()
     {
