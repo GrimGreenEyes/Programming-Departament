@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
         if(entity.tag == "Player")
         {
             players.Add(entity);
-            playerLivePoints.Add(0);
+            //playerLivePoints.Add(0);
         }
         else if(entity.tag == "Enemy")
         {
@@ -153,17 +153,18 @@ public class GameController : MonoBehaviour
         }
         else if (entity.tag == "Player")
         {
-            int j = 0;
-            for (int i = 0; j < teamManager.GetPlantsList().Count; i++, j++) {
-                //Debug.Log(players[i] == entity);
-                while (playerLivePoints[j] != 0 && j < playerLivePoints.Count)
-                    j++;
-                if (players[i] == entity)
-                {
-                    playerLivePoints[j] = -1;
-                    break;
-                }
-            }
+            //int j = 0;
+            //for (int i = 0; j < teamManager.GetPlantsList().Count; i++, j++) {
+            //    //Debug.Log(players[i] == entity);
+            //    while (playerLivePoints[j] != 0 && j < playerLivePoints.Count)
+            //        j++;
+            //    if (players[i] == entity)
+            //    {
+            //        playerLivePoints[j] = -1;
+            //        break;
+            //    }
+            //}
+            playerLivePoints.Add(0);
             players.Remove(entity);
             if (players.Count == 0)
             {
@@ -177,20 +178,24 @@ public class GameController : MonoBehaviour
     public void Finish()
     {
         teamManager.AddWater(3);
-        int j = 0;
-        for (int i = 0; j < playerLivePoints.Count; i++, j++) 
+        //int j = 0;
+        //for (int i = 0; j < playerLivePoints.Count; i++, j++) 
+        //{
+        //    while (playerLivePoints[j] != 0)
+        //    {
+        //        j++;
+        //        if (j == playerLivePoints.Count)
+        //            break;
+        //    }
+        //    if (j < playerLivePoints.Count)
+        //    {
+        //        playerLivePoints[j] = players[i].GetComponent<Plants>().livePoints;
+        //        //break;
+        //    }
+        //}
+        for (int i = 0; i < players.Count; i++)
         {
-            while (playerLivePoints[j] != 0)
-            {
-                j++;
-                if (j == playerLivePoints.Count)
-                    break;
-            }
-            if (j < playerLivePoints.Count)
-            {
-                playerLivePoints[j] = players[i].GetComponent<Plants>().livePoints;
-                //break;
-            }
+            playerLivePoints.Add(players[i].GetComponent<Plants>().livePoints);
         }
         for(int i = 0; i < playerLivePoints.Count; i++)
         {
