@@ -4,7 +4,7 @@
 ## El equipo
 
 
-__Adrián Cerdeño de la Cruz__ :
+__Adrián Cerdeño de la Cruz__ : adricerdeno
 
 __Diego Nicolás__ : dieguoin
 
@@ -44,8 +44,8 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
         - 2.4.3 [Mecánicas de las losetas de cada bioma](#2.4.3)
         - 2.4.4 [Lluvia](#2.4.4)
         - 2.4.5 [Eventos de terreno](#2.4.5)
-        - 2.4.6 [Habilidades de las unidades en combate](#2.4.6)
-    - 2.5 [Cotroles](#2.5)
+    - 2.5 [Habilidades de las unidades en combate](#2.5)
+    - 2.6 [Cotroles](#2.6)
 - 3. [Arte](#3)
     - 3.1 [Estética general](#3.1)
     - 3.2 [Música](#3.2)
@@ -96,17 +96,33 @@ Juego para navegadores web: Mozilla Firefox y Google Chrome.
 ### 2.1 Mecánicas de inicio de partida
 Cada partida consta de varios mapas y cada uno tendrá varios biomas, teniendo el primer mapa un solo bioma y del cuarto mapa en adelante los cuatro biomas. 
 
-Cada mapa está dividido en nodos, cada nodo implica un combate. El jugador podrá moverse entre nodos, para pasar a un nodo se debe haber superado el combate del anterior (ver [movimiento por el mapa](#2.2)). Por cada mapa, existe un nodo especial de insectos dominantes.
+Cada mapa está dividido en nodos por los que el jugador irá avanzando, para llegar a un nodo implica realizar un combate y para pasar a un nodo se debe haber superado el combate del anterior. Por cada mapa, existe un nodo especial de insectos dominantes al final del mismo, que representa el combate final antes de llegar al asentamiento objetivo. 
 - El primer mapa consta de 5 nodos incluyendo el nodo de insectos dominantes. 
 - El segundo mapa consta de 4 nodos por bioma incluyendo el nodo de insectos dominantes.
 - El tercer mapa consta de 3 nodos por bioma incluyendo el nodo de insectos dominantes.  
 - Los mapas del cuarto en adelante constarán de 2 nodos por bioma incluyendo el nodo de insectos dominantes. 
 
+Al empezar en un mapa nuevo el jugador comenzará con una de las siguientes plantas en función del bioma. 
+
+- Desierto 
+    - Rolay 
+- Nevado 
+    - Sartiry 
+    - Toxkill 
+- Selva 
+    - Toxkill 
+- Llanura 
+    - Sartiry 
+  
+(Ver [tipos de bioma](#2.2.3) y [listado de metaplantas](#ListaMetaplantas))
+
 <a name="2.1.1"></a>
 ##### 2.1.1 Objetivo de cada partida
 El objetivo en cada mapa es alcanzar el nodo de insectos dominantes, el ultimo nodo de cada mapa.  
 
-Al completar un mapa pasaremos al siguiente mapa que tendrá un bioma más que el anterior, hasta un máximo de 4, estos biomas serán aleatorios entre distintos mapas. Además, no se mantendrá el equipo de metaplantas de la partida anterior, es decir, se comenzará con la metaplanta del bioma inicial de la partida. 
+Al completar un mapa pasaremos al siguiente mapa que tendrá un bioma más que el anterior, hasta un máximo de 4 y al superar dicho mapa se regresará al de un solo bioma para repetir el ciclo.  
+
+Estos biomas serán aleatorios entre distintos mapas. Además, __no se mantendrá el equipo de metaplantas de la partida anterior__, es decir, se comenzará con la metaplanta del bioma inicial de la partida. 
 
 
 <a name="2.2"></a>
@@ -117,19 +133,22 @@ En esta pantalla la __cámara__ irá centrándose en el lugar del jugador, vanza
 
 <a name="2.2.1"></a>
 #### 2.2.1 Caminos y nodos
-Los caminos son las intersecciones entre nodos, al desplazarnos un nuevo nodo comenzará una batalla contra los insectos de la zona. 
+Los caminos son las intersecciones entre nodos, al desplazarnos un nuevo nodo comenzará una batalla contra los insectos mutantes de la zona. 
 
 Cada nivel tiene un tipo diferente de bioma. El bioma de cada nivel depende de dónde se encuentre el nodo en el mapa (El bioma será de nieve si se ha seleccionado un nodo en una zona nevada del mapa). 
 <a name="2.2.2"></a>
 #### 2.2.2 Nodos de insectos dominantes
 Estos nodos son el final de cada mapa, el combate para acceder a ellos será contra insectos dominantes, que son versiones más poderosas de los insectos del propio bioma. 
 
-Estos nodos están representados por un doble circulo. 
+Estos nodos están representados por un doble circulo, que representa la ciudad a la que se dirige nuestro viajero. 
 
 Completar este nodo significará la victoria en este mapa y se pasará al siguiente. 
 <a name="2.2.3"></a>
 #### 2.2.3 Listado de Biomas
-Cada bioma tendrá su propia variante de insectos, además de los insectos dominantes:
+Cada bioma tendrá su propia variante de insectos, además de los insectos dominantes.
+
+Sus estadísticas serán diferentes a las del resto de zonas y potenciadas si es insecto dominante (aún por definir).
+
 - Desierto 
 
 El sprite de los insectos llevará un filtro marrón claro. 
@@ -237,7 +256,7 @@ Cada nivel de combate se creará de forma procedural en función de su bioma y e
 
 Una vez superado el nivel, el jugador no podrá volver a repetirlo. 
 
-Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tiene un alcance de movimiento distinto.  
+Las metaplantas y los bichos se mueven por casillas, cada tipo de personaje tiene un alcance de movimiento distinto determinado por su atributo "movimiento".  
 
 Al comenzar un combate se inicia un [efecto de evento de terreno](#2.4.5) aleatorio según el bioma.
 
@@ -245,6 +264,11 @@ Al comenzar un combate se inicia un [efecto de evento de terreno](#2.4.5) aleato
 ##### 2.4.1 Objetivo del nivel:
 
 El __objetivo__ de cada combate será desplazar el carro-invernadero hasta el final del mapa desplazándolo por los distintos caminos propuestos. Los distintos enemigos aparecerán por el mapa a medida que el carro se desplaza y tratarán de destruir el carro. 
+
+__Carro-invernadero:__ 
+
+El carro-invernadero cuenta con 4 puntos de movimiento, 250 de vida y 20 de defensa y será 	tratado como una planta más para los enemigos, la diferencia es que solo podrá desplazarse 	y defenderse. 
+
 El jugador moverá las metaplantas por el mapa __escoltando al carro, combatiendo con los insectos y obteniendo recursos__. 
 
 Estos recursos se obtienen de tres formas: 
@@ -255,7 +279,7 @@ Estos recursos se obtienen de tres formas:
 
  Todos estos recursos podrán ser utilizados más tarde en las distintas opciones ofrecidas en el carro invernadero.
  
- Durante el combate el jugador podrá realizar lass siguientes acciones en el turno de cada planta:
+ Durante el combate el jugador podrá realizar lass siguientes acciones en el turno de cada planta en cualquier orden:
  
  - Moverse,
  - Atacar o usar su habilidad.
@@ -272,20 +296,20 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 
 - Permite el desplazamiento de: todos, solo metaplantas e insectos, ninguno 
 
-- Efectos de terreno (si la metaplanta o insecto termina o pasa por dicha casilla ocurrirán efectos adicionales que modifiquen los atributos de la metaplanta o insecto de forma temporal durante dicha batalla): pierde x puntos de vida, gana x puntos de vida o ataque, etc...
+- Efectos de terreno: si la metaplanta o insecto termina o pasa por dicha casilla ocurrirán efectos adicionales que modifiquen los atributos de la metaplanta o insecto de forma temporal durante dicha batalla. En el caso de las losetas de agua y agua helada, en función del bioma, estos efectos se activan cuando un insecto o planta pase o termine en una casilla adyacente. 
 
-- Frecuencias de aparición
+- Frecuencia de aparición: hace referencia a la cantidad de losetas de dicho tipo que podría haber en el mapa y si están condicionadas por un evento de terreno. 
 
 **Losetas del desierto**
 
 |Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de arena| Todos| Ninguno|Camino|
-|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 10pt de agua|baja|
+|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 10pt de agua|condicionada/ baja|
 |Arena| Plantas e Insectos|Ninguno| Alta|
-|Arena con plameras|Plantas e Insectos|Recupera 5pt de vida|baja|
-|Arenas movedizas| Plantas e Insectos|Pierde 5pt de vida|baja|
-|Tormenta de arena| Plantas e Insectos| Pierde 1pt de vida|Alta|
+|Arena con plameras|Plantas e Insectos|Recupera 5pt de vida|condicionada/baja|
+|Arenas movedizas| Plantas e Insectos|Pierde 5pt de vida|condicionada/ baja|
+|Tormenta de arena| Plantas e Insectos| Pierde 1pt de vida|condicionada/Alta|
 |Floar laurel| Plantass e insectos| Gana 2pt de vida|Baja|
 
 
@@ -296,12 +320,12 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de nieve|Todos|Ninguno|Camino|
 |Montaña|Ninguno|Ninguno|Baja|
-|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 5pt de agua|Media|
+|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 5pt de agua|condicionada/Media|
 |Nieve|Plantas e Insectos|Ninguno|Alta|
-|Flor Invernal| Plantas e Insectos| Recupera 5pt de vida| Baja|
+|Flor Invernal| Plantas e Insectos| Recupera 5pt de vida| condiconada/ Baja|
 |Estalagmita de hielo| Plantas e Insectos| Pierde 1pt de vida| Baja|
-|Tormenta de nieve| Plantas e insectos| Pierde 1pt de vida| Alta|
-|Flor Blanca| Plantas e Insectos| Gana 2pt de ataque| Baja|
+|Tormenta de nieve| Plantas e insectos| Pierde 1pt de vida|condicionada/ Alta|
+|Flor Blanca| Plantas e Insectos| Gana 2pt de ataque| condicionada/Baja|
 
 
 **Losetas de la selva**
@@ -313,9 +337,9 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 20pt de agua| Media|
 |Hierba alta| Plantas e Insectos| Recupera 5pt de vida| Baja|
 |Charco| Plantas e insectos| Ninguno| Alta|
-|Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque| Baja|
-|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas| Baja|
-|Flor azul| Plantas e Insectos| Gana 2pt de ataque| Baja|
+|Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque|condicionada/ Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas|condicionada/ Baja|
+|Flor azul| Plantas e Insectos| Gana 2pt de ataque|condicionada/ Baja|
 
 
 **Losetas de la llanura**
@@ -324,18 +348,18 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de hierba| Todos| Ninguno| Camino|
 |Montaña| Ninguno| NInguno| Baja|
-|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 30pt de agua|Baja|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 30pt de agua|condicionada/Baja|
 |Hierba| Plantas e Insectos| Ninguno| Alta|
-|Charco| Planntas e Insectos| Recupera 5pt de vida| Baja|
+|Charco| Planntas e Insectos| Recupera 5pt de vida|condicionada/ Baja|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 5pt de vida. Gana 2pt de ataque| Baja|
-|Tierra seca| Plantas e Insectos| Las plantas pierden 2pt de vida| Alta|
-|Flor Roja| Plantas e Insectos| Gana 2pt de ataque| Baja|
-|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas| Baja|
+|Tierra seca| Plantas e Insectos| Las plantas pierden 2pt de vida| condicionada/Alta|
+|Flor Roja| Plantas e Insectos| Gana 2pt de ataque| condicionada/Baja|
+|Hormiguero| Plantas e Insectos| Las plantas pierden 8pt de vida. Aparecen hormigas enemigas| condicionada/Baja|
 
 
 <a name="2.4.4"></a>
 ##### 2.4.4 LLuvia
-Al comenzar una partida en función del bioma cabe la posibilidad de que llueva durante el combate.
+Al comenzar un combate en función del bioma cabe la posibilidad de que llueva durante el combate.
 Esto se representa con una animación de lluvia durante la batalla. Además, si llueve tras la batalla, el tanque de agua del invernadero se rellenará a causa de la lluvia. 
 
 |Bioma|Probabilidad de lluvia|Agua añadida al tanque|
@@ -350,35 +374,42 @@ Ver cómo de mide el agua del tanque.
 <a name="2.4.5"></a>
 ##### 2.4.5 Eventos de terreno
 
-Desbloquean distintas losetas para la generación procedural de mapa de combate. 
+Al comenzar un combate en función del bioma cabe la posibilidad de que se desbloquen distintas losetas para la generación procedural de mapa de combate. Pudiendo ocurrir ninguno o varios eventos del bioma. 
 
 __Desierto__
-- Tormenta de arena : cambia las losetas de _arena_ por las losetas _tormenta de arena_.
-- Oasis: Se habilita la aparición de agua y _arena con palmeras_.
-- Arenas Movedizas: Se habilita la aparición de _arenas movedizas_.
-- Campo de flores: Se habilita la aparición de _flor de laurel_.
+- Tormenta de arena : cambia las losetas de _arena_ por las losetas _tormenta de arena_. _Probabilidad de suceso: 50%_
+- Oasis: Se habilita la aparición de agua y _arena con palmeras_. _Probabilidad de suceso: 20%_
+- Arenas Movedizas: Se habilita la aparición de _arenas movedizas_.  _Probabilidad de suceso: 30%_
+- Campo de flores: Se habilita la aparición de _flor de laurel_. _Probabilidad de suceso: 30%_
 
 
 __Nevado__
-- Tormenta de nieve: Se cambian las losetas de _nieve_ por las losetas de _tormenta de nieve_.
-- Aguas congeladas: Se habilita la aparición de _agua helada_.
-- Campos de flores: Se habilita la aparición de _flor invernal_ y _flor blanca_.
+- Tormenta de nieve: Se cambian las losetas de _nieve_ por las losetas de _tormenta de nieve_.  _Probabilidad de suceso: 50%_
+- Aguas congeladas: Se habilita la aparición de _agua helada_.  _Probabilidad de suceso: 80%_
+- Campos de flores: Se habilita la aparición de _flor invernal_ y _flor blanca_.  _Probabilidad de suceso: 40%_
 
 
 __Selva__
-- Campo de flores: Se habilita la aparición de _flor azul_.
-- Tiera húmeda: Si llueve se hablita la aparición de _charco_.
-- Plaga de hormigas: Se habilita la aparición de _hormiguero_.
+- Campo de flores: Se habilita la aparición de _flor azul_.  _Probabilidad de suceso: 60%_
+- Tiera húmeda: Si llueve se hablita la aparición de _charco_.  _Probabilidad de suceso: 100% si llueve, 30% si no llueve_
+- Plaga de hormigas: Se habilita la aparición de _hormiguero_.  _Probabilidad de suceso: 60%_
 
 __Llanura__
-- Campo de flores: Se habilita la aparición de _flor roja_.
-- Tierra Seca: Si no llueve se habilita la aparición de _tierra seca_.
-- Tierra húmeda: Si llueve se habilita la aparición de _charco_.
-- Plaga de hormigas: Se habilita la aparición de _hormiguero_.
-
+- Campo de flores: Se habilita la aparición de _flor roja_.  _Probabilidad de suceso: 50%_
+- Tierra Seca: Si no llueve se habilita la aparición de _tierra seca_. _Probabilidad de suceso: 50%_
+- Tierra húmeda: Si llueve se habilita la aparición de _charco_.  _Probabilidad de suceso: 100% si llueve, 30% si no llueve_
+- Plaga de hormigas: Se habilita la aparición de _hormiguero_.  _Probabilidad de suceso: 60%_
 
 <a name="2.4.6"></a>
-##### 2.4.6 Habilidades de las unidades en combate
+##### 2.4.6 Condiciones de derrota
+__Si el carro resulta destruido el jugador habrá perdido la partida.__ 
+
+Perder la partida implica que, al volver a jugar, el jugador volverá a empezar por el mapa de un solo bioma. 
+
+El jugador jugará de forma indefinida rotando de mapas cada vez que complete uno hasta que gane la partida 
+
+<a name="2.5"></a>
+### 2.5 Habilidades de las unidades en combate
 
 __Atributos:__
 
@@ -423,6 +454,8 @@ __Dt = D + (RC x C) + (RF x F)__
 
 El daño recibido será la cantidad de vida que pierde el objetivo. 
 
+
+<a name="ListaMetaplantas"></a>
 __Lista de METAPLANTAS en función de sus roles:__
 
 - Apoyo
@@ -436,8 +469,8 @@ __Lista de INSECTOS en función de sus roles__
 - Atacante
 
 
-<a name="2.5"></a>
-### 2.5 Controles
+<a name="2.6"></a>
+### 2.6 Controles
 - Selección de botones y menús por clics. 
 
 - En el mapamundi y el mapa de combate se podrá desplazar la vista manteniendo el clic y arrastrando. 
@@ -445,7 +478,7 @@ __Lista de INSECTOS en función de sus roles__
 <a name="3"></a>
 ## 3. Arte
 <a name="3.1"></a>
-##### 3.1 Estética general
+### 3.1 Estética general
 A la hora de diseñar las plantas se ha querido dotarlas de una personalidad agresiva, a pesar de que son los personajes aliados del jugador. Esto se debe a que se ha querido mostrar al jugador que a pesar de que son plantas en un mundo dominado por monstruos hambrientos, estas también son duras y peligrosas al igual que sus enemigos. Además, debido al mundo de juego diseñado, postapocalíptico y oscuro, se ha querido dotar de esta oscuridad a los personajes, plantas e insectos. 
 
 Los insectos, al igual que las plantas, comparten ese aspecto agresivo y peligroso, pero menos amigable y con una apariencia más esperpéntica que las plantas para que el jugador sea capaz de distinguir que, aunque sus plantas son oscuras y de aspecto lúgubre y aterrador, los insectos son los enemigos. 
@@ -459,7 +492,7 @@ Las animaciones de cada personaje del juego serán realizadas frame a frame y se
 - Morir. 
 
 <a name="3.2"></a>
-##### 3.2 Música
+### 3.2 Música
 Diferentes canciones: 
 
 - Canción para inicio del juego. 
@@ -477,7 +510,7 @@ Diferentes canciones:
 
 
 <a name="3.3"></a>
-##### 3.3 Moodboard
+### 3.3 Moodboard
 <img src="https://user-images.githubusercontent.com/92206944/197797750-9dcf3333-283c-46c6-88c9-db8f465953c2.png">
 <img src="https://user-images.githubusercontent.com/92206944/197797901-8d950b57-eb17-4fb3-8e88-e6fbf645485b.png">
 <img src="https://user-images.githubusercontent.com/92206944/197798048-26118c33-a8f1-420b-b80c-dfc9fe4673ef.png">
@@ -500,7 +533,9 @@ Esta pantalla tiene las opciones de:
 - Botón Salir del juego 
 - Botón Créditos 
 
-##### 4.1.2 Pantalla de combate
+##### 4.1.2 Pantallas In Game
+
+##### 4.1.2.1 Pantalla de combate
 Esta pantalla tiene las opciones de: 
 
 - Botón de opciones: Abre el menú de pausa. 
@@ -519,7 +554,7 @@ Esta pantalla tiene las opciones de:
 
 <kdb><img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%/></kdb>
 
-##### 4.1.3 Mapamundi
+##### 4.1.2.2 Mapamundi
 Esta pantalla tiene las opciones de: 
 
 - Seleccionar el nodo actual para empezar el nivel 
@@ -527,7 +562,7 @@ Esta pantalla tiene las opciones de:
 - Desplazar la cámara para ver el mapa completo 
 - Volver al menú principal 
 
-###### 4.1.4 Gestión del carro-invernadero
+###### 4.1.2.3 Gestión del carro-invernadero
 
 Esta pantalla tiene las opciones de: 
 
@@ -539,8 +574,9 @@ Esta pantalla tiene las opciones de:
 - Abonar plantas 
 - Crear abonos 
 
+<img src="https://user-images.githubusercontent.com/92206944/198827076-871a2307-cd01-414d-8229-bb52bb00e8ff.jpeg">
 
-##### 4.1.5 Tutorial
+##### 4.1.2.4 Tutorial
 
  Es una pantalla informativa de efectos de terreno. Se muestra antes de cada combate. Contiene: 
 
@@ -549,7 +585,7 @@ Esta pantalla tiene las opciones de:
 - Información sobre las particularidades de cada nivel (efectos de terreno y lluvia) 
 - Información sobre los controles 
 
-##### 4.1.6 Pantalla de victoria/derrota
+##### 4.1.2.5 Pantalla de victoria/derrota
 
 - Opción de volver al mapa 
 - Información sobre los objetos obtenidos tras el combate 
