@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Entity : MonoBehaviour
 {
@@ -74,7 +76,7 @@ public class Entity : MonoBehaviour
     public float directionX;
     public float directionY;
 
-
+    public TMP_Text livePointsText;
 
     public Sprite HUDSprite;
     public float HUDSpriteSize;

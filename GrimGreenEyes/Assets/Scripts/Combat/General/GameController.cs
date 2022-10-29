@@ -17,9 +17,11 @@ public class GameController : MonoBehaviour
     public GameObject winScreen;
     public GameObject looseScreen;
 
+    private TeamInfo teamManager;
     private void Awake()
     {
-        if(instance == null)
+        TeamInfo teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+        if (instance == null)
         {
             instance = this;
         }
@@ -118,7 +120,27 @@ public class GameController : MonoBehaviour
         if (entity.tag == "Enemy")
         {
             enemys.Remove(entity);
-            
+            switch((int)Random.Range(0, 5))
+            {
+                case 0:
+                    teamManager.AddItemAbdomen();
+                    break;
+                case 1:
+                    teamManager.AddItemShell();
+                    break;
+                case 2:
+                    teamManager.AddItemLeg();
+                    break;
+                case 3:
+                    teamManager.AddItemHorn();
+                    break;
+                case 4:
+                    teamManager.AddItemWing();
+                    break;
+                case 5:
+                    teamManager.AddItemChest();
+                    break;
+            }
             if (enemys.Count == 0)
             {
                 Finish();
@@ -137,7 +159,8 @@ public class GameController : MonoBehaviour
     }
     public void Finish()
     {
-        Time.timeScale = 0;
+        teamManager.AddWater(3);
+
         if (enemys.Count == 0)
         {
             winScreen.SetActive(true);

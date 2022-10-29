@@ -9,6 +9,7 @@ public class Mosquitoes : Entity
     private void Update()
     {
         States();
+        livePointsText.text = livePoints.ToString() + "/" + maxLivePoints.ToString();
     }
     public override void States()
     {

@@ -65,7 +65,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        Instantiate(seeds[Random.Range(0, seeds.Length - 1)], transform, false);
+        Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false);
     }
     public void ShineTile()
     {
