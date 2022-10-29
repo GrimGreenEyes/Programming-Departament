@@ -459,7 +459,12 @@ El daño recibido será la cantidad de vida que pierde el objetivo.
 __Lista de METAPLANTAS en función de sus roles:__
 
 - Apoyo
+<img src="https://user-images.githubusercontent.com/92206944/198828521-a477d474-f204-4779-ab03-c68f5260e456.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198828544-97760733-cd54-418c-8aa7-10fe5cae6cfa.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198828570-071d218d-6994-4219-b7cb-34c55f218ca0.png" width ="70%">
 - Tanque
+<img src="https://user-images.githubusercontent.com/92206944/198828595-4b2f6ec7-e2ad-403e-a65b-3586a100e90e.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198828625-9a70be90-ccf6-4053-a29a-6f9a6c6baa3f.png" width ="70%">
 - Atacante
 
 __Lista de INSECTOS en función de sus roles__
