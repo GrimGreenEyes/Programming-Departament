@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c271a655aa7544ab4aaf4ce1cede35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 0
   created: 0
   mapGenerated: {fileID: 0}
   actualNode: {fileID: 0}
