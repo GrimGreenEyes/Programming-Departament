@@ -173,16 +173,15 @@ public class Mosquitoes : Entity
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(gameObject.tag != "Feet")
+        {
+            return;
+        }
         switch (collision.tag)
         {
             case "Proyectil":
                 livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Mosquitoes>(), collision.gameObject.GetComponentInParent<Plants>());
                 print(livePoints);
-                break;
-            case "tile":
-                gridX = collision.gameObject.GetComponent<Tile>().GetX();
-                gridY = collision.gameObject.GetComponent<Tile>().GetY();
-                thisTile = collision.gameObject.gameObject;
                 break;
         }
     }

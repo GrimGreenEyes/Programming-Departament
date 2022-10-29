@@ -99,15 +99,16 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player" || collision.tag == "Enemy")
+        if(collision.tag == "Feet")
         {
-            entity = collision.gameObject;
+            entity = collision.gameObject.transform.parent.gameObject;
             isWalkable = false;
+            entity.GetComponent<Entity>().SetTile(gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player" || collision.tag == "Enemy")
+        if(collision.tag == "Feet")
         {
             entity = null;
             isWalkable = true;

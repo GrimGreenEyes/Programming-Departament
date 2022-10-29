@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     private int characterSelected = -1;
     private List<GameObject> characters = new List<GameObject>();
     private List<GameObject> players = new List<GameObject>();
+    private List<int> playerLivePoints = new List<int>();
     private List<GameObject> enemys = new List<GameObject>();
 
     public GameObject winScreen;
@@ -44,6 +45,7 @@ public class GameController : MonoBehaviour
         if(entity.tag == "Player")
         {
             players.Add(entity);
+            playerLivePoints.Add(0);
         }
         else if(entity.tag == "Enemy")
         {
@@ -120,11 +122,10 @@ public class GameController : MonoBehaviour
     }
     public void Died(GameObject entity)
     {
-        Destroy(entity);
         if (entity.tag == "Enemy")
         {
             enemys.Remove(entity);
-            switch(Random.Range(0, 6))
+            switch (Random.Range(0, 6))
             {
                 case 0:
                     teamManager.AddItemAbdomen();
@@ -150,21 +151,52 @@ public class GameController : MonoBehaviour
                 Finish();
             }
         }
-        else if(entity.tag == "Player")
+        else if (entity.tag == "Player")
         {
+            int j = 0;
+            for (int i = 0; j < teamManager.GetPlantsList().Count; i++, j++) {
+                //Debug.Log(players[i] == entity);
+                while (playerLivePoints[j] != 0 && j < playerLivePoints.Count)
+                    j++;
+                if (players[i] == entity)
+                {
+                    playerLivePoints[j] = -1;
+                    break;
+                }
+            }
             players.Remove(entity);
             if (players.Count == 0)
             {
                 Finish();
             }
         }
+        Destroy(entity);
         if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
     public void Finish()
     {
         teamManager.AddWater(3);
-
+        int j = 0;
+        for (int i = 0; j < playerLivePoints.Count; i++, j++) 
+        {
+            while (playerLivePoints[j] != 0)
+            {
+                j++;
+                if (j == playerLivePoints.Count)
+                    break;
+            }
+            if (j < playerLivePoints.Count)
+            {
+                playerLivePoints[j] = players[i].GetComponent<Plants>().livePoints;
+                //break;
+            }
+        }
+        for(int i = 0; i < playerLivePoints.Count; i++)
+        {
+            teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
+        }
+        
         if (enemys.Count == 0)
         {
             winScreen.SetActive(true);

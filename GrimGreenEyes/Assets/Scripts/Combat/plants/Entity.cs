@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Entity : MonoBehaviour
@@ -175,5 +174,12 @@ public class Entity : MonoBehaviour
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
             //path.Clear();
         }
+    }
+    public void SetTile(GameObject tile)
+    {
+
+        gridX = tile.gameObject.GetComponent<Tile>().GetX();
+        gridY = tile.gameObject.GetComponent<Tile>().GetY();
+        thisTile = tile.gameObject.gameObject;
     }
 }

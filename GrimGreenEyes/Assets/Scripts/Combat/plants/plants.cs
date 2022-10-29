@@ -103,7 +103,6 @@ public class Plants : Entity
                 if (gameObject == GameController.instance.SelectedPlayer())
                 {
                     PathFinding.instance.PathShine(thisTile);
-                    //GridCreator.instance.ShineTiles(gridX, gridY, movement, true);
                 }
                 MovementPoint = transform.position;
                 moveing = false;
@@ -142,23 +141,6 @@ public class Plants : Entity
         }
     }
 
-    ///
-    ///MOVEMENT
-    ///
-
-    
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.tag)
-        {
-            case "tile":
-                gridX = collision.gameObject.GetComponent<Tile>().GetX();
-                gridY = collision.gameObject.GetComponent<Tile>().GetY();
-                thisTile = collision.gameObject.gameObject;
-                break;
-        }
-    }
     private Color saveColor;
     public void Hide(Color hideColor) 
     {
