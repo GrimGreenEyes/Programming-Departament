@@ -120,7 +120,7 @@ Al empezar en un mapa nuevo el jugador comenzará con una de las siguientes plan
 ##### 2.1.1 Objetivo de cada partida
 El objetivo en cada mapa es alcanzar el nodo de insectos dominantes, el ultimo nodo de cada mapa.  
 
-Al completar un mapa pasaremos al siguiente mapa que tendrá un bioma más que el anterior, hasta un máximo de 4 y al superar dicho mapa se regresará al de un solo bioma para repetir el ciclo.  
+Al completar un mapa pasaremos al siguiente mapa que tendrá un bioma más que el anterior, hasta un máximo de 4 y al superar dicho mapa se mantendrá el tipo de mapa, es decir, la cantidad de biomas por mapa.
 
 Estos biomas serán aleatorios entre distintos mapas. Además, __no se mantendrá el equipo de metaplantas de la partida anterior__, es decir, se comenzará con la metaplanta del bioma inicial de la partida. 
 
