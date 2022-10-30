@@ -464,15 +464,22 @@ __Lista de METAPLANTAS en función de sus roles:__
 <img src="https://user-images.githubusercontent.com/92206944/198828570-071d218d-6994-4219-b7cb-34c55f218ca0.png" width ="70%">
 - Tanque
 <img src="https://user-images.githubusercontent.com/92206944/198828595-4b2f6ec7-e2ad-403e-a65b-3586a100e90e.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198828625-9a70be90-ccf6-4053-a29a-6f9a6c6baa3f.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198828625-9a70be90-ccf6-4053-a29a-6f9a6c6baa3f.png" c>
 - Atacante
+<img src="https://user-images.githubusercontent.com/92206944/198876852-a77b2558-55e4-4991-8ed2-a6ec040a8fed.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198876871-cd390f59-448b-4d75-a8d7-8b1ab18021ae.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198876889-4591fe23-bb3a-412f-ad0c-56bbed6f7442.png" width ="70%">
 
 __Lista de INSECTOS en función de sus roles__
 
 - Apoyo
+<img src="https://user-images.githubusercontent.com/92206944/198877149-230200a8-792b-418d-81fd-79cf4dc65752.png" width ="70%">
 - Tanque
+<img src="https://user-images.githubusercontent.com/92206944/198877920-1584c5f0-c2e4-42fb-a60f-2c28b6dd12bd.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198877962-e3772591-3d88-4942-a0f6-7a2816399739.png" width ="70%">
 - Atacante
-
+<img src="https://user-images.githubusercontent.com/92206944/198877989-dd4699dc-521d-40e8-96c5-1cb9c51d694a.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/198878011-f207254a-74fe-44b2-a0e2-a94d861ee2b4.png" width ="70%">
 
 <a name="2.6"></a>
 ### 2.6 Controles
