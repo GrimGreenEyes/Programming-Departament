@@ -47,6 +47,10 @@ public class Tile : MonoBehaviour
         {
             ShineEntity();
         }
+        if(entity != null && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL && Mathf.Abs(positionX - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(positionY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) <= GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].radious)
+        {
+            ShineEntity();
+        }
         if (isInRange && isWalkable && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
         {
             ShineTile();
@@ -79,13 +83,36 @@ public class Tile : MonoBehaviour
     }
     public void ShineEntity()
     {
-        if (entity.tag == "Enemy" && !GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
+        switch (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState)
         {
-            renderer.color = enemyColor;
-        }
-        else if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
-        {
-            renderer.color = allyColor;
+            case Entity.EntityState.IDLE:
+                if (GameController.instance.SelectedPlayer().GetComponent<Plants>().attacked)
+                {
+                    return;
+                }
+                if (entity.tag == "Enemy" && !GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
+                {
+                    renderer.color = enemyColor;
+                }
+                else if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.directedToAlly)
+                {
+                    renderer.color = allyColor;
+                }
+                break;
+            case Entity.EntityState.USINGSKILL:
+                if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].currentCoolDown > 0)
+                {
+
+                }
+                if (entity.tag == "Enemy" && !GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
+                {
+                    renderer.color = enemyColor;
+                }
+                else if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
+                {
+                    renderer.color = allyColor;
+                }
+                break;
         }
     }
     public void SetClickable(bool isCliclabke)

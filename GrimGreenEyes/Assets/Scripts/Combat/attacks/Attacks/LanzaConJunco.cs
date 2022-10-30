@@ -10,7 +10,7 @@ public class LanzaConJunco : Attack
         Debug.Log("Lanza");
         int damage = DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
         enemy.GetComponent<Mosquitoes>().livePoints -= damage;
-        player.GetComponent<Plants>().livePoints += (int)(damage * liveRegen);
+        player.GetComponent<Plants>().livePoints = (player.GetComponent<Plants>().livePoints + (int)(damage * liveRegen) < player.GetComponent<Plants>().maxLivePoints) ? player.GetComponent<Plants>().livePoints + (int)(damage * liveRegen) : player.GetComponent<Plants>().maxLivePoints;
         CheckDead(enemy.GetComponent<Mosquitoes>());
         player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }

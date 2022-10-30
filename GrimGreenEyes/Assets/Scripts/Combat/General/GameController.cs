@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject looseScreen;
+    public GameObject defaultWinButton;
 
     private TeamInfo teamManager;
     private void Awake()
@@ -204,10 +205,12 @@ public class GameController : MonoBehaviour
         
         if (enemys.Count == 0)
         {
+            defaultWinButton.SetActive(false);
             winScreen.SetActive(true);
         }
         else if(players.Count == 0)
         {
+            defaultWinButton.SetActive(false);
             looseScreen.SetActive(true);
         }
     }

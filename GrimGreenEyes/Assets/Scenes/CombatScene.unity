@@ -1673,6 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1060572743}
   looseScreen: {fileID: 1490765307}
+  defaultWinButton: {fileID: 1385699499}
 --- !u!4 &1241752637
 Transform:
   m_ObjectHideFlags: 0
