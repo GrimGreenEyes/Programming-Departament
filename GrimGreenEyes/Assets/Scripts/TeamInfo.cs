@@ -89,6 +89,51 @@ public class TeamInfo : MonoBehaviour
         }*/
         //END
     }
+
+    private void Start()
+    {
+        AddInitialPlant();
+    }
+
+    [SerializeField] private PlantType lilyPlantType;
+    [SerializeField] private GameObject lilyPrefab, shieldPrefab;
+    [SerializeField] private SkillRes shieldSkill;
+
+    private void AddInitialPlant()
+    {
+        PlantInfo initialPlant = new PlantInfo();
+        initialPlant.plantTypeInternal = lilyPlantType;
+        initialPlant.plantTypePrefab = lilyPrefab;
+
+        initialPlant.statsDictionary = new Dictionary<StatRes, int>();
+        initialPlant.statsDictionary.Add(agility, lilyPlantType.baseAgility);
+        initialPlant.statsDictionary.Add(attack, lilyPlantType.baseAttack);
+        initialPlant.statsDictionary.Add(coldResistance, lilyPlantType.baseColdDef);
+        initialPlant.statsDictionary.Add(deffense, lilyPlantType.baseDeffense);
+        initialPlant.statsDictionary.Add(health, lilyPlantType.baseHP);
+        initialPlant.statsDictionary.Add(heatRessistance, lilyPlantType.baseHeatDef);
+        initialPlant.statsDictionary.Add(movement, lilyPlantType.baseMovement);
+
+        initialPlant.skillsList = new List<GameObject>();
+        initialPlant.skillsList.Add(shieldPrefab);
+
+        initialPlant.healthPoints = lilyPlantType.baseHP;
+
+        initialPlant.agility = agility;
+        initialPlant.attack = attack;
+        initialPlant.coldResistance = coldResistance;
+        initialPlant.deffense = deffense;
+        initialPlant.health = health;
+        initialPlant.heatRessistance = heatRessistance;
+        initialPlant.movement = movement;
+
+        initialPlant.skillsInternal = new List<SkillRes>();
+        initialPlant.skillsInternal.Add(shieldSkill);
+
+        initialPlant.plantState = 2;
+
+        plantsList.Add(initialPlant);
+    }
 }
 
 public class PlantInfo

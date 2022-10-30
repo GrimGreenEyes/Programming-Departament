@@ -1059,6 +1059,10 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: e3c4874a6e2c0144ca66015312320b8c, type: 2}
   heatRessistance: {fileID: 11400000, guid: f0a4a021679a1454fa1f4632689314d4, type: 2}
   movement: {fileID: 11400000, guid: 1aeecf18bb0c90c4e91abbdabbbcd0b6, type: 2}
+  lilyPlantType: {fileID: 11400000, guid: 1baec604c05e64c4784506c74368d5aa, type: 2}
+  lilyPrefab: {fileID: 9144611413271231580, guid: c323db1f51cd7fd478dd2810ccc4488f, type: 3}
+  shieldPrefab: {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}
+  shieldSkill: {fileID: 11400000, guid: 8910aac8a8593d1479951c2b7bb71da6, type: 2}
 --- !u!114 &915653068
 MonoBehaviour:
   m_ObjectHideFlags: 0
