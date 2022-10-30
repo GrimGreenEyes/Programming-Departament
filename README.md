@@ -578,15 +578,15 @@ Esta pantalla tiene las opciones de:
 
 Esta pantalla tiene las opciones de: 
 
-- Volver al menú principal 
-- Cambiar a la pantalla de mapa 
-- Leer instrucciones 
-- Regar equipo de metaplantas 
-- Plantar semillas 
-- Abonar plantas 
-- Crear abonos 
+1. Regar equipo de metaplantas
+2. Abonar plantas 
+3. Crear abonos
+4. Cambiar a la pantalla de mapa 
+5. Leer instrucciones 
+6. Obtener información sobre las Metaplantas 
+7. Volver al menú principal 
 
-<img src="https://user-images.githubusercontent.com/92206944/198827076-871a2307-cd01-414d-8229-bb52bb00e8ff.jpeg">
+<img src="https://user-images.githubusercontent.com/92206944/198880224-2a49ecc8-d68b-4ee2-905f-c9cfc6a9db2e.jpeg">
 
 ##### 4.1.2.4 Tutorial
 
