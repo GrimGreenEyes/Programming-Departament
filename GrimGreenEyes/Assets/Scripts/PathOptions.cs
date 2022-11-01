@@ -137,7 +137,7 @@ public class PathOptions : MonoBehaviour
 	public IEnumerator goMatch()
 	{
 		Debug.Log("GOMATCH");
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds(4.0f);
 		glovalVar.GetComponent<MainController>().loadScreen("CombatScene");
 
         if (isLast)

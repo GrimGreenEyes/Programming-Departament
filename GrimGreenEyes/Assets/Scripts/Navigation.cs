@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Navigation : MonoBehaviour
@@ -10,6 +11,9 @@ public class Navigation : MonoBehaviour
     public GameObject player;
     public GameObject camera;
     public float camSpeed;
+
+    public float playerSpeed;
+
 
     public Vector3 camFuturePos;
 
@@ -81,6 +85,8 @@ public class Navigation : MonoBehaviour
         else
             camera.transform.position = Vector3.Lerp(camera.transform.position, camFuturePos, Time.deltaTime * camSpeed*5);
 
+        Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.x) / 2), ((actualNode.transform.position.y + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.y) / 2), -1.0f);
+        player.transform.position = Vector3.Lerp(player.transform.position, mediumPos, Time.deltaTime * playerSpeed);
     }
 
     public void moveToNode(GameObject node)
@@ -95,10 +101,15 @@ public class Navigation : MonoBehaviour
             if (actualNode.GetComponent<PathOptions>().getGameobjects(node))
             {
                 Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
-                player.transform.position = mediumPos;
+                //player.transform.position = mediumPos;
                 actualNode = node;
-              //  glovalVar.GetComponent<GlobalVar>().actualNode = node;
-                Debug.Log("cambia correcto");
+            //AQUI ESTABA PARA QUE EL PLAYER SE MUEVA A LA MITAD DIRECTAMENTE
+
+
+
+
+            //  glovalVar.GetComponent<GlobalVar>().actualNode = node;
+            Debug.Log("cambia correcto");
                 //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 
                 camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
@@ -111,13 +122,26 @@ public class Navigation : MonoBehaviour
     }
 
     public void matchWon(GameObject node)
-    {
-        if (!node.GetComponent<PathOptions>().isLast)
+    {      
+
+        if(!glovalVar.GetComponent<GlobalVar>().isLastNode)
+       // if (!node.GetComponent<PathOptions>().isLast)
         {
             glovalVar.GetComponent<GlobalVar>().actualNode = node;
             player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
+
+            Vector3 playerPos = new Vector3(node.transform.position.x, node.transform.position.y, player.transform.position.z);
+          //  player.transform.position = Vector3.Lerp(player.transform.position, playerPos, Time.deltaTime * camSpeed); 
             Debug.Log("MATCH WON");
         }
+  
+
+        if (node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().isLast)
+        {
+            glovalVar.GetComponent<GlobalVar>().isLastNode = true;
+        }
+        else
+            glovalVar.GetComponent<GlobalVar>().isLastNode = false;
     }
 
     public void matchLoose()

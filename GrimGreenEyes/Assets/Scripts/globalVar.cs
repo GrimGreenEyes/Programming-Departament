@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalVar : MonoBehaviour
 {
@@ -72,7 +73,13 @@ public class GlobalVar : MonoBehaviour
     {
         Debug.Log("**********");
         Debug.Log(advance);
-        yield return new WaitForSeconds(0.5f);
+
+        while(SceneManager.GetActiveScene().name != "MapScene")
+        {
+            yield return null;
+        }
+
+
         GameObject player = GameObject.Find("PLAYER");
         Debug.Log("SCNE UP");
         isMapUp = true;
