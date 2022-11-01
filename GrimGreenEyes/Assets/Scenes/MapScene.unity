@@ -947,7 +947,8 @@ MonoBehaviour:
   actualNode: {fileID: 0}
   player: {fileID: 2068701366}
   camera: {fileID: 1512866571}
-  camSpeed: 0.5
+  camSpeed: 0.2
+  playerSpeed: 1
   camFuturePos: {x: 0, y: 0, z: 0}
   mapPrefabs:
   - {fileID: 8694746253191296201, guid: 5f57d3b075479834c8930f3ab2cf29c5, type: 3}
@@ -1673,7 +1674,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512866571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8f92c04eef33bc41bd60bb1ce762c44, type: 3}
   m_Name: 
