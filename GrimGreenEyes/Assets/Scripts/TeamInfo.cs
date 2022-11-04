@@ -99,7 +99,7 @@ public class TeamInfo : MonoBehaviour
     [SerializeField] private GameObject lilyPrefab, shieldPrefab;
     [SerializeField] private SkillRes shieldSkill;
 
-    private void AddInitialPlant()
+    public void AddInitialPlant()
     {
         PlantInfo initialPlant = new PlantInfo();
         initialPlant.plantTypeInternal = lilyPlantType;

@@ -24,7 +24,6 @@ public class GlobalVar : MonoBehaviour
 
 
 
-
     public static GlobalVar VarInstance;
     void Awake()
     {
@@ -101,13 +100,13 @@ public class GlobalVar : MonoBehaviour
             //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
 
             //Destrucción de todos los recursos
-            Debug.Log("DESTROY ALL START");
             TeamInfo teamInfo = GetComponent<TeamInfo>();
             teamInfo.plantsList = new List<PlantInfo>();
             teamInfo.fertilizersDictionary = new Dictionary<Fertilizer, int>();
             teamInfo.itemsDictionary = new Dictionary<Item, int>();
             teamInfo.waterAmount = 0;
-            Debug.Log("DESTROY ALL DONE");
+
+            teamInfo.AddInitialPlant();
         }
 
         else if(advance == EnumMapOptions.mapOptions.returnMap)
