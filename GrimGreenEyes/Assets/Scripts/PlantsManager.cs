@@ -111,8 +111,19 @@ public class PlantsManager : MonoBehaviour
 
     public void WaterPlant(int plantIndex)
     {
-        if (plantsList[plantIndex] == null || waterTank.waterAmount <= 0 || (plantsList[plantIndex].plantState >= 2 && plantsList[plantIndex].healthPoints >= plantsList[plantIndex].GetMaxHealth()))
+        if(plantsList[plantIndex] == null)
         {
+            uiManager.ShowWarning("No hay ninguna planta bajo este grifo", 2);
+            return;
+        }
+        if (plantsList[plantIndex].plantState >= 2 && plantsList[plantIndex].healthPoints >= plantsList[plantIndex].GetMaxHealth())
+        {
+            uiManager.ShowWarning("Esta planta tiene toda la salud", 2);
+            return;
+        }
+        if (waterTank.waterAmount <= 0)
+        {
+            uiManager.ShowWarning("No te queda agua", 1.5f);
             return;
         }
         else
@@ -120,5 +131,34 @@ public class PlantsManager : MonoBehaviour
             plantsList[plantIndex].ReceiveWater();
             waterTank.RemoveWater();
         }
+    }
+
+    public bool AnyFreePot()
+    {
+        bool freePot = false;
+        foreach(FlowerPot pot in potsList)
+        {
+            if(pot.free == true)
+            {
+                freePot = true;
+            }
+        }
+        return freePot;
+    }
+
+    public bool CheckFertilizer(Fertilizer fertilizer)
+    {
+        bool canBeUsed = false;
+        foreach(Plant plant in plantsList)
+        {
+            if(plant != null)
+            {
+                if(!plant.skillsList.Contains(fertilizer.skill) && plant.skillsList.Count < 3)
+                {
+                    canBeUsed = true;
+                }
+            }
+        }
+        return canBeUsed;
     }
 }

@@ -7,9 +7,12 @@ public class UIManager : MonoBehaviour
 {
     public List<Button> sceneElements = new List<Button>();
     public PlantDetailsDisplay plantDetailsDisplay;
+    public GameObject warningMsgPrefab;
+    private GameObject currentWarning = null;
 
     private void Start()
     {
+
     }
 
     public void DesactivateAllElements()
@@ -31,5 +34,13 @@ public class UIManager : MonoBehaviour
     public void AddButton(Button button)
     {
         sceneElements.Add(button);
+    }
+
+    public void ShowWarning(string msg, float time)
+    {
+        WarningMsg warning = Instantiate(warningMsgPrefab).GetComponent<WarningMsg>();
+        Destroy(currentWarning);
+        currentWarning = warning.gameObject;
+        warning.DisplayMsg(msg, time);
     }
 }

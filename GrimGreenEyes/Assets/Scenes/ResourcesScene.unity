@@ -5882,6 +5882,7 @@ MonoBehaviour:
   - {fileID: 939731764}
   - {fileID: 898388932}
   plantDetailsDisplay: {fileID: 64105227}
+  warningMsgPrefab: {fileID: 252302367521210176, guid: 6f659f6251ce19840932d28fdd88a0d6, type: 3}
 --- !u!1001 &812187265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6438,7 +6439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 469.07, y: -57.82}
+  m_AnchoredPosition: {x: 469.07, y: -57.820007}
   m_SizeDelta: {x: 918.14, y: 95.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895134875

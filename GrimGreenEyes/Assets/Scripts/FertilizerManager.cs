@@ -12,9 +12,11 @@ public class FertilizerManager : MonoBehaviour
     [SerializeField] private GameObject powerupPanel, useButton;
     private Fertilizer selectedFertilizer;
     [SerializeField] private PlantsManager plantsManager;
+    private UIManager uiManager;
 
     private void Start()
     {
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         UpdateFertilizers();
     }
 
@@ -107,8 +109,14 @@ public class FertilizerManager : MonoBehaviour
 
     public void ClickUseFertilizer()
     {
-        CloseFertilizersList();
-        plantsManager.UseFertilizer(selectedFertilizer);
+        if (!plantsManager.CheckFertilizer(selectedFertilizer))
+        {
+            uiManager.ShowWarning("No se puede aplicar sobre ninguna planta", 1.5f);
+        }
+        else {
+            CloseFertilizersList();
+            plantsManager.UseFertilizer(selectedFertilizer);
+        }
     }
 
     #region DEBUG

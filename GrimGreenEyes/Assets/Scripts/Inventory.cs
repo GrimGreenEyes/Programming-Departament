@@ -12,10 +12,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private PlantsManager plantsManager;
 
     [SerializeField] private OptionsPanel optionsPanel;
+    [SerializeField] private UIManager uiManager;
 
 
     void Start() //Indexa todos los slots en una lista
     {
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         foreach (Transform child in inventoryObject.transform)
         {
             slotsList.Add(child.GetComponent<InventorySlot>());
@@ -119,7 +121,15 @@ public class Inventory : MonoBehaviour
 
     public void PlantSeed(Item item)
     {
-        CloseInventory();
-        plantsManager.PlantSeed(item);
+        if (!plantsManager.AnyFreePot())
+        {
+            uiManager.ShowWarning("No hay ningún macetero libre", 1.5f);
+        }
+        else
+        {
+            CloseInventory();
+            plantsManager.PlantSeed(item);
+        }
     }
+
 }
