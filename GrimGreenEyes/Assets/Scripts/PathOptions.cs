@@ -71,10 +71,8 @@ public class PathOptions : MonoBehaviour
 					copy[0].node.GetComponent<PathOptions>().line.SetPosition(0, itNodePos);
 					copy[0].node.GetComponent<PathOptions>().line.SetPosition(1, copyNodePos);
 
-					Debug.Log(copy[0].node.name);
 					itNode = copy[0].node;
 					copy = copy[0].node.GetComponent<PathOptions>().myArray;
-					Debug.Log("line added");
 					//Debug.Log(lines.Count);
 				}
 				else

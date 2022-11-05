@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,8 +24,16 @@ public class GlobalVar : MonoBehaviour
     public bool isLastNode;
 
 
+    public List<Transform> biomCont;
+
 
     public static GlobalVar VarInstance;
+
+
+    private EnumMapOptions any;
+
+
+    public List<GameObject> biomsList;
     void Awake()
     {
         isMapUp = true;
@@ -50,7 +59,8 @@ public class GlobalVar : MonoBehaviour
     }*/
     void Start()
     {
-        biomaActual = biomas[0];   
+       // biomaActual = biomas[0];
+       // checkBioms("CanvasNodes");
     }
 
     // Update is called once per frame
@@ -65,6 +75,21 @@ public class GlobalVar : MonoBehaviour
         /*GameObject player = GameObject.Find("PLAYER");
         Debug.Log("SCNE UP");
         player.transform.position = actualNode.transform.position;*/
+    }
+
+    public void checkBioms(string name)
+    {
+       
+
+        foreach (GameObject bb in biomsList)
+        {
+            Debug.Log(bb.name);
+            bb.GetComponent<BiomController>().biom = any.biomToInt(biomas[bb.GetComponent<BiomController>().numberBiom]);
+            bb.GetComponent<BiomController>().setPaths();
+        }
+        
+            
+        
     }
 
 

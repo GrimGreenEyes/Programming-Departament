@@ -30,6 +30,9 @@ public class nodesPicker : MonoBehaviour
 
     public EnumMapOptions.mapBiom [] mapOpt;
 
+    //biom which belongs
+   // public EnumMapOptions.mapBiom thisBiom;
+
     private void Awake()
     {
         Object.DontDestroyOnLoad(this);
@@ -46,8 +49,6 @@ public class nodesPicker : MonoBehaviour
         mapOpt = new EnumMapOptions.mapBiom[mapArrays];
 
 
-        if (mapArrays == 1)
-        {
             randTypes = Random.Range(0, mapsToPick1.Length);
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[randTypes];
             mapBioms[0] = randTypes % 4;
@@ -65,16 +66,18 @@ public class nodesPicker : MonoBehaviour
                 case 3:
                     mapOpt[0] = EnumMapOptions.mapBiom.selva;
                     break;
-            }
-        }
-        else if(mapArrays == 2)
+            
+        };
+         if(mapArrays == 2)
         {
-            int rand1 = Random.Range(0, mapsToPick1.Length);
+         //   int rand1 = Random.Range(0, mapsToPick1.Length);
             int rand2 = Random.Range(0, mapsToPick2.Length);
-            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[rand1];
+            //transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[rand];
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = mapsToPick2[rand2];
-            mapBioms[0] = rand1 % 4;
             mapBioms[1] = rand2 % 4;
+            Debug.Log(mapBioms[0]);
+            Debug.Log(mapBioms[1]);
+
 
             switch (mapBioms[1])
             {
@@ -98,6 +101,11 @@ public class nodesPicker : MonoBehaviour
 
         GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas = mapOpt;
         GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual = mapOpt[0];
+
+        for (int i = 0; i< GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas.Length; i++)
+        {
+          Debug.Log(GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas[i]);
+        }
 
 
         /*if (randTypes == 0)

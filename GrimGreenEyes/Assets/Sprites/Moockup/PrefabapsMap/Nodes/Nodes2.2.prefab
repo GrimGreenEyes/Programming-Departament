@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.31, y: -4}
+  m_AnchoredPosition: {x: -20.64, y: -4}
   m_SizeDelta: {x: 1.1463, y: 1.3014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8264881242791062026
@@ -256,7 +256,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &971569678738529009
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.64, y: -0.83}
+  m_AnchoredPosition: {x: -22.86, y: -0.83}
   m_SizeDelta: {x: 1.1463, y: 1.3014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2689096708411983469
@@ -770,7 +770,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &2248025572632214634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &4206013183279090505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1401,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &4413217485327837552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,6 +2365,7 @@ GameObject:
   - component: {fileID: 3848372298771733655}
   - component: {fileID: 9200699666640077945}
   - component: {fileID: 571572014906822518}
+  - component: {fileID: 5364763744068147955}
   m_Layer: 5
   m_Name: CanvasNodes
   m_TagString: Untagged
@@ -2457,6 +2458,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5364763744068147955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385199532288564249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8c2b514826f5f418de758804edf874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberBiom: 1
+  biom: 0
+  glovalBar: {fileID: 0}
+  nodes: []
+  materials:
+  - {fileID: 2100000, guid: a681dac7cfbf5ed4ea69d7b9d1ae56b4, type: 2}
+  - {fileID: 2100000, guid: e9d4da0d6346c844284906de4318dee4, type: 2}
+  - {fileID: 2100000, guid: 665ae0286bb7fc145abf36f77a8d1cae, type: 2}
+  - {fileID: 2100000, guid: f4ef991c1a60a0e4996ed3569e209e38, type: 2}
 --- !u!1 &8445428466045952824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,6 +2491,7 @@ GameObject:
   - component: {fileID: 3493402891401123775}
   - component: {fileID: 3866162507399476688}
   - component: {fileID: 8760311353523283169}
+  - component: {fileID: 5559102489939522494}
   m_Layer: 5
   m_Name: CanvasNodes
   m_TagString: Untagged
@@ -2561,3 +2584,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5559102489939522494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445428466045952824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8c2b514826f5f418de758804edf874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberBiom: 0
+  biom: 0
+  glovalBar: {fileID: 0}
+  nodes: []
+  materials:
+  - {fileID: 2100000, guid: a681dac7cfbf5ed4ea69d7b9d1ae56b4, type: 2}
+  - {fileID: 2100000, guid: e9d4da0d6346c844284906de4318dee4, type: 2}
+  - {fileID: 2100000, guid: 665ae0286bb7fc145abf36f77a8d1cae, type: 2}
+  - {fileID: 2100000, guid: f4ef991c1a60a0e4996ed3569e209e38, type: 2}
