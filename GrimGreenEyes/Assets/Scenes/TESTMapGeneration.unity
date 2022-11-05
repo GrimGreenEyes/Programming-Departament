@@ -156,14 +156,17 @@ MonoBehaviour:
   origin: {fileID: 323745944}
   sizeX: 11
   sizeY: 14
-  distanceX: 1
-  distanceY: 1
   minPathOriginY: 3
   maxPathOriginY: 10
   minPathEndY: 2
   maxPathEndY: 11
   minPathDistanceY: 2
   maxPathDistanceY: 7
+  waterChance: 80
+  minWaterX: 2
+  averageStreamIntensity: 85
+  averageStreamDecay: 40
+  maxStreamSize: 4
 --- !u!4 &323745946
 Transform:
   m_ObjectHideFlags: 0
