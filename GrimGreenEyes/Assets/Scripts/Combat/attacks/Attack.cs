@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
 
     public int DamageCalculator(Entity enemy, Entity player)
     {
-
+        
         float totalDefense = enemy.defense +
             (
             enemy.heatResistance * heatDamage

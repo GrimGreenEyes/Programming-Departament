@@ -6,7 +6,8 @@ public class HardThorns : Skill
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        
-        DeactivateSkill(player.GetComponent<Plants>());
+        Debug.Log("activated skill");
+        enemy.GetComponent<Entity>().livePoints -= 5;
+        CheckDead(enemy.GetComponent<Entity>());
     }
 }

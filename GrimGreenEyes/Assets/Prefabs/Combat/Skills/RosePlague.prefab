@@ -49,9 +49,14 @@ MonoBehaviour:
     de la vida quitada al usuario."
   isActiveSkill: 0
   isbuffing: 0
+  isReciveingDamage: 0
+  isDoingDamage: 1
   isReflexive: 0
   actilveOnClick: 0
   radious: 0
   areaOfEffect: 0
+  turnsActive: 0
+  maxTurnsActive: 0
   alreadyUsed: 0
   coolDown: 3
+  currentCoolDown: 0

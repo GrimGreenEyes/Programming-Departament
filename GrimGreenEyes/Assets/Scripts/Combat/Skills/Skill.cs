@@ -8,10 +8,14 @@ public class Skill : MonoBehaviour
     public string description;
     public bool isActiveSkill;
     public bool isbuffing;
+    public bool isReciveingDamage;
+    public bool isDoingDamage;
     public bool isReflexive;
     public bool actilveOnClick;
     public int radious;
     public int areaOfEffect;
+    public int turnsActive;
+    public int maxTurnsActive;
 
     public bool alreadyUsed;
     public int coolDown;
@@ -27,6 +31,13 @@ public class Skill : MonoBehaviour
             alreadyUsed = false;
         }
     }
+    public void CheckDead(Entity enemy)
+    {
+        if (enemy.livePoints <= 0)
+        {
+            GameController.instance.Died(enemy.gameObject);
+        }
+    }
     public void DeactivateSkill(Plants player)
     {
         PlayerPanel.instance.SetButtonsToInactive();
@@ -35,9 +46,20 @@ public class Skill : MonoBehaviour
         player.skillSelected = player.skills.Count;
         player.actualState = Entity.EntityState.IDLE;
     }
+    public int DamageCalculator(Entity enemy, Entity player)
+    {
+
+        float totalDefense = enemy.defense +
+            (
+            enemy.heatResistance * player.mainAttack.heatDamage
+            ) + (
+            enemy.freezeResistance * player.mainAttack.freezeDamage
+            );
+        float damage = (player.attack) * totalDefense / 100f;
+        return (int)damage;
+    }
     public virtual void Effect(GameObject enemy, GameObject player) 
     {
-        Debug.Log("then, does this");
         player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }

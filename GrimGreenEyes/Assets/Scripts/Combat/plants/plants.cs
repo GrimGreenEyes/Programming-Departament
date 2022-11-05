@@ -78,10 +78,11 @@ public class Plants : Entity
         {
             case EntityState.START:
                 
-                if (hidden) { Show(); }
+                if (hidden) Show(); 
                 movement = maxMovement;
                 attacked = false;
-                if(bleeding) livePoints -= (maxLivePoints * 5/100); 
+                if(bleeding) livePoints -= 5;
+                
                 if(livePoints <= 0)
                 {
                     actualState = EntityState.IDLE;
@@ -119,7 +120,16 @@ public class Plants : Entity
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
                 attacked = true;
+                for (int i = 0; i < GetComponent<Entity>().skills.Count; i++)
+                    if (GetComponent<Entity>().skills[i].isDoingDamage)
+                        skills[i].Effect(mainObjective, gameObject);
+                for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                {
+                    if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                        mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                }
                 mainAttack.Effect(mainObjective, gameObject);
+
                 break;
             case EntityState.STUNED:
                 
@@ -140,7 +150,6 @@ public class Plants : Entity
                 break;
         }
     }
-
     private Color saveColor;
     public void Hide(Color hideColor) 
     {
