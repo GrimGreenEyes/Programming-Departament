@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a3e86df851298f4e88c2fe29ca2629d
+guid: f5cf1add5048bec48a60dd598b783d9b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,127 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_0
+      name: WALK_CARA_DER_0
       rect:
         serializedVersion: 2
-        x: 70
+        x: 0
         y: 0
-        width: 1117
-        height: 1139
+        width: 1000
+        height: 959
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67bcf1e1d67afac4b92b9429fb946780
-      internalID: 1414448067
+      spriteID: b5b354b44956cd74d9be606826b8f2e7
+      internalID: 1803795848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_1
+      name: WALK_CARA_DER_1
       rect:
         serializedVersion: 2
-        x: 1187
+        x: 1000
         y: 0
-        width: 1117
-        height: 1139
+        width: 1000
+        height: 959
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa36d306fc3c81c409390d4be6a58347
-      internalID: -1578393557
+      spriteID: bf9ca05666b70974c9f9c816d9aaadf2
+      internalID: 590725080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_2
+      name: WALK_CARA_DER_2
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 2000
         y: 0
-        width: 1117
-        height: 1139
+        width: 1000
+        height: 959
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1639889ee121dc4bb6543e950105dfc
-      internalID: -1686854190
+      spriteID: 3f2a9e22ba1ecea40b1c0187425b5c1e
+      internalID: -539463192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_3
+      name: WALK_CARA_DER_3
       rect:
         serializedVersion: 2
-        x: 3421
+        x: 3000
         y: 0
-        width: 1117
-        height: 1139
+        width: 1000
+        height: 959
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b5673b3a770ff74b85704e2a038fd8a
-      internalID: -1351203593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_4
-      rect:
-        serializedVersion: 2
-        x: 4538
-        y: 0
-        width: 1117
-        height: 1139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b923ac975d4c224992d9c1595d7aea6
-      internalID: 2021765795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_Izq_Espalda_02_5
-      rect:
-        serializedVersion: 2
-        x: 5655
-        y: 0
-        width: 1117
-        height: 1139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce3bd834793f9964494657428b09f036
-      internalID: 889786887
+      spriteID: 1d004991b6384254182f8b0c7639882a
+      internalID: 1728518292
       vertices: []
       indices: 
       edges: []
@@ -253,12 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE_Izq_Espalda_02_0: 1414448067
-      IDLE_Izq_Espalda_02_2: -1686854190
-      IDLE_Izq_Espalda_02_1: -1578393557
-      IDLE_Izq_Espalda_02_3: -1351203593
-      IDLE_Izq_Espalda_02_4: 2021765795
-      IDLE_Izq_Espalda_02_5: 889786887
+      WALK_CARA_DER_1: 590725080
+      WALK_CARA_DER_3: 1728518292
+      WALK_CARA_DER_2: -539463192
+      WALK_CARA_DER_0: 1803795848
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
