@@ -80,10 +80,12 @@ public class Entity : MonoBehaviour
     public Sprite HUDSprite;
     public float HUDSpriteSize;
 
+    [Header("Animation")]
+    private Animator animator;
 
     private void Awake()
     {
-        
+        animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
     }
     public void SetStats(int newLivePoints, int newMaxLivePoints, int newAttack, int newDefense, int newHeatResistance, int newFreezeResistance, int newAgility, int newMaxMovement)
@@ -134,6 +136,7 @@ public class Entity : MonoBehaviour
             if (Vector2.Distance(transform.position, MovementPoint) == 0)
             {
                 movement--;
+
                 moveing = false;
                 pathPosition = (pathPosition <= 0) ? 0 : pathPosition - 1;
             }
@@ -162,15 +165,28 @@ public class Entity : MonoBehaviour
 
             angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
             Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
-
+            if(directionY == -1)
+            {
+                animator.SetInteger("direction", 0);
+            }else if(directionY == 1){
+                animator.SetInteger("direction", 1);
+            }else if(directionX == -1)
+            {
+                animator.SetInteger("direction", 3);
+            }else if(directionX == 1)
+            {
+                animator.SetInteger("direction", 2);
+            }
             if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
             {
+                animator.SetBool("walking", true);
                 moveing = true;
                 MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
             }
         }
         if (transform.position == destination.GetComponent<Tile>().transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
         {
+            animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
             //path.Clear();
         }
