@@ -167,6 +167,22 @@ MonoBehaviour:
   averageStreamIntensity: 85
   averageStreamDecay: 40
   maxStreamSize: 4
+  anyMountainChance: 100
+  minMountains: 5
+  maxMountains: 8
+  mountainGrowthChance: 50
+  anyPowerupChance: 50
+  minPowerups: 1
+  maxPowerups: 3
+  powerupGrowthChance: 45
+  anyHealerChance: 70
+  minHealers: 3
+  maxHealers: 5
+  healerGrowthChance: 30
+  anyDamagerChance: 70
+  minDamagers: 3
+  maxDamagers: 5
+  damagerGrowthChance: 30
 --- !u!4 &323745946
 Transform:
   m_ObjectHideFlags: 0
@@ -484,7 +500,7 @@ GameObject:
   - component: {fileID: 1605377258}
   - component: {fileID: 1605377257}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GenerateButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
