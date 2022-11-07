@@ -66,7 +66,11 @@ public class BiomController : MonoBehaviour
         {
             // materials[numberBiom] = nodes[i].GetComponent<PathOptions>().line.material;
             nodes[i].GetComponent<PathOptions>().line.material = materials[biom];
-            nodes[i].GetComponent<Button>().image.sprite = sprites[biom];
+           if(!nodes[i].GetComponent<PathOptions>().isLast)
+                nodes[i].GetComponent<Button>().image.sprite = sprites[biom];
+            else
+                nodes[i].GetComponent<Button>().image.sprite = spritesFinales[biom];
+          
         }
     }
 

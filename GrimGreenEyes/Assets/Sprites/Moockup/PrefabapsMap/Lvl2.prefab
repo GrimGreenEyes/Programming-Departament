@@ -132,7 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodesToPick:
   - {fileID: 2320445468937435741, guid: 3fe61f813d00fd44d857f3bedd671018, type: 3}
-  - {fileID: 2320445468937435741, guid: 3fe61f813d00fd44d857f3bedd671018, type: 3}
+  - {fileID: 6502398715422396000, guid: dc5c293275d3a7c4888e7e2422a7a26d, type: 3}
+  - {fileID: 5727082835665019462, guid: 6fa162c61bd5320439a9abddbd108806, type: 3}
   mapsToPick1:
   - {fileID: 21300000, guid: d09f6e486d2dc0043a7b29876728dfb8, type: 3}
   - {fileID: 21300000, guid: 20e00638449574e43bc1c6f4065a09c3, type: 3}
