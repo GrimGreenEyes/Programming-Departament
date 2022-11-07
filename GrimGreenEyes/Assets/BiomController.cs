@@ -16,7 +16,9 @@ public class BiomController : MonoBehaviour
 
     public Material[] materials;
 
-    EnumMapOptions any;
+    public Sprite[] sprites;
+
+    public Sprite[] spritesFinales;
 
     void Start()
     {
@@ -64,6 +66,7 @@ public class BiomController : MonoBehaviour
         {
             // materials[numberBiom] = nodes[i].GetComponent<PathOptions>().line.material;
             nodes[i].GetComponent<PathOptions>().line.material = materials[biom];
+            nodes[i].GetComponent<Button>().image.sprite = sprites[biom];
         }
     }
 
