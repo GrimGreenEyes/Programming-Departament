@@ -70,13 +70,26 @@ public class nodesPicker : MonoBehaviour
         };
          if(mapArrays == 2)
         {
-         //   int rand1 = Random.Range(0, mapsToPick1.Length);
+            //   int rand1 = Random.Range(0, mapsToPick1.Length);
+            /* int rand2 = Random.Range(0, mapsToPick2.Length);
+             //transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[rand];
+             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = mapsToPick2[rand2];
+             mapBioms[1] = rand2 % 4;
+             Debug.Log(mapBioms[0]);
+             Debug.Log(mapBioms[1]);
+            */
             int rand2 = Random.Range(0, mapsToPick2.Length);
-            //transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mapsToPick1[rand];
+            Debug.Log(rand2%4);
+            Debug.Log(mapBioms[0]);
+            while(rand2%4 == mapBioms[0])
+            {
+
+                 rand2 = Random.Range(0, mapsToPick2.Length);
+                Debug.Log(rand2 % 4);
+
+            }
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = mapsToPick2[rand2];
             mapBioms[1] = rand2 % 4;
-            Debug.Log(mapBioms[0]);
-            Debug.Log(mapBioms[1]);
 
 
             switch (mapBioms[1])
