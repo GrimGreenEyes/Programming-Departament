@@ -37,11 +37,11 @@ public class PathOptions : MonoBehaviour
 		navigationController = GameObject.Find("NavigationController");
         glovalVar = GameObject.Find("GlobalAttributes");
 
-		if (isLast)
+		/*if (isLast)
 		{
 			gameObject.GetComponent<Image>().color = Color.red;
 		}
-
+		*/
         if (firstItem)
 		{
 			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
