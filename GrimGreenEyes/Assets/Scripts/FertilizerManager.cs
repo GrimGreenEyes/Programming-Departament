@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class FertilizerManager : MonoBehaviour
+public class FertilizerManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Dictionary<Fertilizer, int> storedFertilizers = new Dictionary<Fertilizer, int>(); //Almacena los fertilizantes y su cantidad
     private List<FertilizerButton> buttonsList = new List<FertilizerButton>(); //Almacena los SLOTS (objetos con botones) del inventario
@@ -12,6 +14,8 @@ public class FertilizerManager : MonoBehaviour
     [SerializeField] private GameObject powerupPanel, useButton;
     private Fertilizer selectedFertilizer;
     [SerializeField] private PlantsManager plantsManager;
+    [SerializeField] private Sprite normalSprite, hoverSprite;
+    public float offsetX, offsetY;
     private UIManager uiManager;
 
     private void Start()
@@ -117,6 +121,22 @@ public class FertilizerManager : MonoBehaviour
             CloseFertilizersList();
             plantsManager.UseFertilizer(selectedFertilizer);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!GetComponent<Button>().interactable) return;
+        GetComponent<Image>().sprite = hoverSprite;
+        GetComponent<Image>().SetNativeSize();
+        transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!GetComponent<Button>().interactable) return;
+        GetComponent<Image>().sprite = normalSprite;
+        GetComponent<Image>().SetNativeSize();
+        transform.position = new Vector3(transform.position.x - offsetX, transform.position.y - offsetY, transform.position.z);
     }
 
     #region DEBUG
