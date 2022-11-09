@@ -49,9 +49,16 @@ MonoBehaviour:
     de batalla."
   isActiveSkill: 1
   isbuffing: 0
+  isReciveingDamage: 0
+  isDoingDamage: 0
   isReflexive: 0
   actilveOnClick: 0
+  selectsTile: 1
+  destinationTile: {fileID: 0}
   radious: 0
   areaOfEffect: 0
+  turnsActive: 0
+  maxTurnsActive: 0
   alreadyUsed: 0
   coolDown: 3
+  currentCoolDown: 0

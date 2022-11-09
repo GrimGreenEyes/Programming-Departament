@@ -12,6 +12,8 @@ public class Skill : MonoBehaviour
     public bool isDoingDamage;
     public bool isReflexive;
     public bool actilveOnClick;
+    public bool selectsTile;
+    public GameObject destinationTile;
     public int radious;
     public int areaOfEffect;
     public int turnsActive;
