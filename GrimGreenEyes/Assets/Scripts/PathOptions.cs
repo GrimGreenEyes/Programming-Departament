@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -46,9 +47,19 @@ public class PathOptions : MonoBehaviour
 		{
 			navigationController.GetComponent<Navigation>().actualNode = this.gameObject;
 			glovalVar.GetComponent<GlobalVar>().actualNode = this.gameObject;
-		}
 
-		if (firstItem)
+			//	float helperPl = GameObject.Find("PLAYER").transform
+
+			// GameObject.Find("PLAYER").transform.LookAt(myArray[0].node.GetComponent<PathOptions>().myArray[0].node.transform);
+			//GameObject.Find("PLAYER").transform.Rotate
+			// player.transform.LookAt(actualNode.GetComponent<PathOptions>().myArray[0].node.transform);
+
+
+			
+
+        }
+
+        if (firstItem)
 		{
 			Vector3 thisPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1);
 			GameObject.Find("PLAYER").transform.position = thisPos;
@@ -78,14 +89,21 @@ public class PathOptions : MonoBehaviour
 				else
 					cont = false;
 			}
-			//}
-			/*if (isLast)
+
+            Vector3 vectorToTarget = myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+
+			Debug.Log(angle);
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            GameObject.Find("PLAYER").transform.rotation = q;
+            //}
+            /*if (isLast)
 			{
 				Array.Resize(ref myArray, myArray.Length + 1);
 				SubClass testt = new SubClass();
 				myArray[1] = testt;
 			}*/
-		}
+        }
 	}
 
 	private void OnDrawGizmos()
