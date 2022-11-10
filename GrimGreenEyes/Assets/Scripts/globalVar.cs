@@ -73,7 +73,6 @@ public class GlobalVar : MonoBehaviour
     {
         StartCoroutine(waitForMapSceneLoad(advance));
         /*GameObject player = GameObject.Find("PLAYER");
-        Debug.Log("SCNE UP");
         player.transform.position = actualNode.transform.position;*/
     }
 
@@ -83,7 +82,6 @@ public class GlobalVar : MonoBehaviour
 
         foreach (GameObject bb in biomsList)
         {
-            Debug.Log(bb.name);
             bb.GetComponent<BiomController>().biom = any.biomToInt(biomas[bb.GetComponent<BiomController>().numberBiom]);
             bb.GetComponent<BiomController>().setPaths();
         }
@@ -95,17 +93,21 @@ public class GlobalVar : MonoBehaviour
 
     public IEnumerator waitForMapSceneLoad(EnumMapOptions.mapOptions advance)
     {
-        Debug.Log("**********");
-        Debug.Log(advance);
+        if(advance == EnumMapOptions.mapOptions.loadGame)
+        {
+            level = PlayerPrefs.GetInt("level");
+        }
 
         while(SceneManager.GetActiveScene().name != "MapScene")
         {
             yield return null;
         }
 
+        PlayerPrefs.SetInt("level", level);
+        PlayerPrefs.Save();
+
 
         GameObject player = GameObject.Find("PLAYER");
-        Debug.Log("SCNE UP");
         isMapUp = true;
 
         if (advance == EnumMapOptions.mapOptions.matchWon)
@@ -115,7 +117,6 @@ public class GlobalVar : MonoBehaviour
 
         else if(advance == EnumMapOptions.mapOptions.matchLoose)
         {
-            Debug.Log("DELETING!!!");
             foreach (Transform child in transform)
             {
                 GameObject.Destroy(child.gameObject);
@@ -134,7 +135,7 @@ public class GlobalVar : MonoBehaviour
             teamInfo.AddInitialPlant();
         }
 
-        else if(advance == EnumMapOptions.mapOptions.returnMap)
+        else if(advance == EnumMapOptions.mapOptions.returnMap || advance == EnumMapOptions.mapOptions.loadGame)
         {
             player.transform.position = actualNode.transform.position;
             Vector3 vectorToTarget =actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
@@ -148,6 +149,7 @@ public class GlobalVar : MonoBehaviour
     public void loadNewScene()
     {
         level++;
+       
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);

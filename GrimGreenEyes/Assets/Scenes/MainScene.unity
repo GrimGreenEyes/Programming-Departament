@@ -1437,7 +1437,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MapScene
+          m_StringArgument: LoadMapScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1485808101
@@ -1615,6 +1615,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537155063}
   m_CullTransparentMesh: 1
+--- !u!1 &1715785739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715785743}
+  - component: {fileID: 1715785742}
+  - component: {fileID: 1715785741}
+  - component: {fileID: 1715785740}
+  m_Layer: 0
+  m_Name: GlobalAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1715785740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715785739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1715785741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715785739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac601253fea25439095d7886f86a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterAmount: 0
+  horn: {fileID: 11400000, guid: 09ba7060d98ea894085f2adc223f4790, type: 2}
+  wing: {fileID: 11400000, guid: c55cd27034edd3644b5defbee74730e2, type: 2}
+  abdomen: {fileID: 11400000, guid: 55d33a6d5241cd6478f60e8a8ee353a5, type: 2}
+  chest: {fileID: 11400000, guid: a2c289df788969e47b95ed897d001d9e, type: 2}
+  leg: {fileID: 11400000, guid: 805b1bc147205894085311b87590615c, type: 2}
+  shell: {fileID: 11400000, guid: 63cfd9dbd45fc5a4db2ed67a6a046ed8, type: 2}
+  aloeVeraS: {fileID: 11400000, guid: c13fb350a79bf3f47babf3475a9d1ccc, type: 2}
+  cactusS: {fileID: 11400000, guid: 9a5e228f684a69640bd4ef2817b5fec0, type: 2}
+  carnivorousFungusS: {fileID: 11400000, guid: ee3deb23685db0940abeed609e479ec5, type: 2}
+  cornS: {fileID: 11400000, guid: 4ddaa4a91ebdfb345a67623903eed0d9, type: 2}
+  lilyS: {fileID: 11400000, guid: f01208e5e2602ae479f933d1716835dc, type: 2}
+  roseS: {fileID: 11400000, guid: 4e45cc3501a16004ab7a114757545ee3, type: 2}
+  sunflowerS: {fileID: 11400000, guid: 5c3ab1d9b40db9047ba378b286509b1a, type: 2}
+  tumbleweedS: {fileID: 11400000, guid: 478f0f9022873f54cbc4ca747a07b6b8, type: 2}
+  agility: {fileID: 11400000, guid: c1d8874e7ebbf0b44859fe80419de3ea, type: 2}
+  attack: {fileID: 11400000, guid: 933bc0a28b3725248b25eeb5cc6eecaf, type: 2}
+  coldResistance: {fileID: 11400000, guid: 2312812d0bb87e64883353a050d58748, type: 2}
+  deffense: {fileID: 11400000, guid: 73ff1b2de16904142aeb8a3529d8ce05, type: 2}
+  health: {fileID: 11400000, guid: e3c4874a6e2c0144ca66015312320b8c, type: 2}
+  heatRessistance: {fileID: 11400000, guid: f0a4a021679a1454fa1f4632689314d4, type: 2}
+  movement: {fileID: 11400000, guid: 1aeecf18bb0c90c4e91abbdabbbcd0b6, type: 2}
+  lilyPlantType: {fileID: 11400000, guid: 1baec604c05e64c4784506c74368d5aa, type: 2}
+  lilyPrefab: {fileID: 9144611413271231580, guid: c323db1f51cd7fd478dd2810ccc4488f, type: 3}
+  shieldPrefab: {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}
+  shieldSkill: {fileID: 11400000, guid: 8910aac8a8593d1479951c2b7bb71da6, type: 2}
+--- !u!114 &1715785742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715785739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c271a655aa7544ab4aaf4ce1cede35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  created: 0
+  mapGenerated: {fileID: 0}
+  actualNode: {fileID: 0}
+  isMapUp: 0
+  biomas: 
+  biomaActual: 0
+  isLastNode: 0
+  biomCont: []
+  biomsList: []
+--- !u!4 &1715785743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715785739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4928875, y: 0.5049034, z: -0.36008143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822107490
 GameObject:
   m_ObjectHideFlags: 0

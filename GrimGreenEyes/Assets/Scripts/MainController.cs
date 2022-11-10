@@ -21,24 +21,38 @@ public class MainController : MonoBehaviour
 
     public void loadScreen(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (sceneName == "LoadMapScene")
+            SceneManager.LoadScene("MapScene");
+        else
+                    SceneManager.LoadScene(sceneName);
         Debug.Log(sceneName);
         if (string.Equals(sceneName, "MapScene"))
         {
-            Debug.Log("IGUAL SCENEMAE");
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
-            
+
         }
-        else if(GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
-        {
-            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+        else if (GameObject.Find("GlobalAttributes")) {
+         if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
+            {
+                if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated != null)
+                {
+                    GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+                }
+            }
         }
 
         if(string.Equals(sceneName, "MainScene"))
         {
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchLoose);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+        }
+
+        if (string.Equals(sceneName, "LoadMapScene"))
+        {
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.loadGame);
+            Debug.Log("GOT LEVEL::  "+ PlayerPrefs.GetInt("level"));
+            
         }
     }
 

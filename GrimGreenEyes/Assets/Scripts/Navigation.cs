@@ -69,7 +69,6 @@ public class Navigation : MonoBehaviour
             glovalVar.GetComponent<GlobalVar>().mapGenerated.transform.parent = glovalVar.transform;
             glovalVar.GetComponent<GlobalVar>().created = 1;
 
-            Debug.Log(player.name);
 
            // actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
           //  player.transform.LookAt(actualNode.GetComponent<PathOptions>().myArray[0].node.transform);
