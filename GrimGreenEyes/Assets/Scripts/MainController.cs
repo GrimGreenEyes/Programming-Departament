@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +28,7 @@ public class MainController : MonoBehaviour
             Debug.Log("IGUAL SCENEMAE");
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
-
+            
         }
         else if(GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isMapUp == true)
         {
