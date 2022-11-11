@@ -13,6 +13,7 @@ public class Skill : MonoBehaviour
     public bool isReflexive;
     public bool actilveOnClick;
     public bool selectsTile;
+    public bool isOnDestination;
     public GameObject destinationTile;
     public int radious;
     public int areaOfEffect;

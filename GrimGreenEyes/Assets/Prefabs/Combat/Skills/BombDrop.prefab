@@ -54,6 +54,7 @@ MonoBehaviour:
   isReflexive: 0
   actilveOnClick: 0
   selectsTile: 1
+  isOnDestination: 1
   destinationTile: {fileID: 0}
   radious: 0
   areaOfEffect: 0

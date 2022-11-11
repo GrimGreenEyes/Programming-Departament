@@ -140,6 +140,13 @@ public class Plants : Entity
                 {
                     skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
                 }
+                else if (skills[skillSelected].isOnDestination)
+                {
+                    if(skills[skillSelected].destinationTile != null)
+                    {
+                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                    }
+                }
                 else
                 {
                     GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].radious, false);

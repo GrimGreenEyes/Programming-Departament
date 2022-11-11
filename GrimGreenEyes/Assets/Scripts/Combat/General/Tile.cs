@@ -140,7 +140,11 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Feet")
+        if(entity != null)
+        {
+            return;
+        }
+        if (collision.tag == "Feet")
         {
             entity = collision.gameObject.transform.parent.gameObject;
             isWalkable = false;
@@ -149,8 +153,13 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        
         if(collision.tag == "Feet")
         {
+            if (collision.gameObject.transform.parent.gameObject != entity)
+            {
+                return;
+            }
             entity = null;
             isWalkable = true;
         }
