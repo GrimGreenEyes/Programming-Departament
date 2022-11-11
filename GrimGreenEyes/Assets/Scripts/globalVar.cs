@@ -104,8 +104,12 @@ public class GlobalVar : MonoBehaviour
             yield return null;
         }
 
-        PlayerPrefs.SetInt("level", level);
-        PlayerPrefs.Save();
+        if (level >= PlayerPrefs.GetInt("level"))
+        {
+            PlayerPrefs.SetInt("level", level);
+            PlayerPrefs.Save();
+        }
+        
 
 
         GameObject player = GameObject.Find("PLAYER");
