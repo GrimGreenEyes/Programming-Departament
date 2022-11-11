@@ -162,7 +162,8 @@ public class PathOptions : MonoBehaviour
         }
         if (isNextBiom)
         {
-			glovalVar.GetComponent<GlobalVar>().biomaActual = glovalVar.GetComponent<GlobalVar>().biomas[1];
+			glovalVar.GetComponent<GlobalVar>().indBioma += 1;
+		   glovalVar.GetComponent<GlobalVar>().biomaActual = glovalVar.GetComponent<GlobalVar>().biomas[glovalVar.GetComponent<GlobalVar>().indBioma];
 
 		}
 

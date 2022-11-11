@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c271a655aa7544ab4aaf4ce1cede35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 2
   created: 0
   mapGenerated: {fileID: 0}
   actualNode: {fileID: 0}
@@ -1012,6 +1012,7 @@ MonoBehaviour:
   biomaActual: 0
   isLastNode: 0
   biomCont: []
+  indBioma: 0
   biomsList: []
 --- !u!4 &915653066
 Transform:

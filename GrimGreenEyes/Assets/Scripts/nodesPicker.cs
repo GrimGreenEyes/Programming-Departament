@@ -14,6 +14,8 @@ public class nodesPicker : MonoBehaviour
     //public Sprite[] mapsElements;
     public Sprite[] mapsToPick2;
     public Sprite[] mapsToPick3;
+    public Sprite[] mapsToPick4;
+
 
 
 
@@ -68,7 +70,7 @@ public class nodesPicker : MonoBehaviour
                     break;
             
         };
-         if(mapArrays == 2)
+         if(mapArrays != 1)
         {
             //   int rand1 = Random.Range(0, mapsToPick1.Length);
             /* int rand2 = Random.Range(0, mapsToPick2.Length);
@@ -109,11 +111,80 @@ public class nodesPicker : MonoBehaviour
             }
         }
 
-        
+
+
+        if (mapArrays == 3 || mapArrays == 4 )
+        {
+            int rand3 = Random.Range(0, mapsToPick3.Length);
+            Debug.Log(mapBioms[0]);
+            while (rand3 % 4 == mapBioms[0] || rand3 % 4 == mapBioms[1])
+            {
+
+                rand3 = Random.Range(0, mapsToPick3.Length);
+                Debug.Log(rand3 % 4);
+
+            }
+            transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = mapsToPick3[rand3];
+            mapBioms[2] = rand3 % 4;
+
+            switch (mapBioms[2])
+            {
+                case 0:
+                    mapOpt[2] = EnumMapOptions.mapBiom.desierto;
+                    break;
+                case 1:
+                    mapOpt[2] = EnumMapOptions.mapBiom.llanura;
+                    break;
+                case 2:
+                    mapOpt[2] = EnumMapOptions.mapBiom.nieve;
+                    break;
+                case 3:
+                    mapOpt[2] = EnumMapOptions.mapBiom.selva;
+                    break;
+            }
+        }
+
+       
+
+        if (mapArrays == 4)
+        {
+            int rand4 = Random.Range(0, mapsToPick4.Length);
+            Debug.Log(mapBioms[0]);
+            while (rand4 % 4 == mapBioms[0] || rand4 % 4 == mapBioms[1] || rand4 % 4 == mapBioms[2])
+            {
+
+                rand4 = Random.Range(0, mapsToPick4.Length);
+                Debug.Log(rand4 % 4);
+
+            }
+            transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = mapsToPick3[rand4];
+            mapBioms[3] = rand4 % 4;
+
+            switch (mapBioms[3])
+            {
+                case 0:
+                    mapOpt[3] = EnumMapOptions.mapBiom.desierto;
+                    break;
+                case 1:
+                    mapOpt[3] = EnumMapOptions.mapBiom.llanura;
+                    break;
+                case 2:
+                    mapOpt[3] = EnumMapOptions.mapBiom.nieve;
+                    break;
+                case 3:
+                    mapOpt[3] = EnumMapOptions.mapBiom.selva;
+                    break;
+            }
+
+        }
+
+
 
 
         GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas = mapOpt;
         GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual = mapOpt[0];
+
+
 
         for (int i = 0; i< GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomas.Length; i++)
         {

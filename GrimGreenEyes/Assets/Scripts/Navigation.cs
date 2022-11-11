@@ -142,7 +142,7 @@ public class Navigation : MonoBehaviour
 
     public void matchWon(GameObject node)
     {
-       // actualNode = node;
+        actualNode = node;
 
         if(!glovalVar.GetComponent<GlobalVar>().isLastNode)
        // if (!node.GetComponent<PathOptions>().isLast)

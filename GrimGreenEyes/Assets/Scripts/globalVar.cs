@@ -32,6 +32,7 @@ public class GlobalVar : MonoBehaviour
 
     private EnumMapOptions any;
 
+    public int indBioma;
 
     public List<GameObject> biomsList;
     void Awake()
