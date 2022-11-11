@@ -17,6 +17,7 @@ public class ContinueLvl : MonoBehaviour
         }
         else
             lastLevel = 0;
+        lastLevel += 1;
        loadText.text = "Continue Level: " + lastLevel;
     }
 
