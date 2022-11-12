@@ -41,7 +41,7 @@ public class Skill : MonoBehaviour
             GameController.instance.Died(enemy.gameObject);
         }
     }
-    public void DeactivateSkill(Plants player)
+    public void DeactivateSkill(Entity player)
     {
         PlayerPanel.instance.SetButtonsToInactive();
         alreadyUsed = true;

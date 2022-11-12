@@ -168,14 +168,6 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if(entity != null)
-        {
-            return;
-        }
-        if(!isWalkable)
-        {
-            return;
-        }
         TilePanel.instance.Hide();
         TilePanel.instance.Change(gameObject);
         onHover.SetActive(true);
@@ -203,9 +195,6 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        /*if (!GameController.instance.IsPointerOverUIObject(Input.GetTouch(0)))
-        {
-        }*/
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
             GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(gameObject);
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)

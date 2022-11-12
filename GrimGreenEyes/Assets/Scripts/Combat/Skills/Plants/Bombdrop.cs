@@ -33,7 +33,7 @@ public class Bombdrop : Skill
         {
             arrived = false;
             destinationTile = tile;
-            startingTile = player.GetComponent<Plants>().thisTile;
+            startingTile = player.GetComponent<Entity>().thisTile;
             GetTiles();
         }
         Move(player);
@@ -43,7 +43,7 @@ public class Bombdrop : Skill
             affectedTiles.Clear();
             destinationTile = null;
             startingTile = null;
-            DeactivateSkill(player.GetComponent<Plants>());
+            DeactivateSkill(player.GetComponent<Entity>());
         }
     }
     private void Move(GameObject player)
