@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Mazorca
   baseHP: 80
   spriteSheet:
-  - {fileID: 21300000, guid: 725ff106e69f2cd4ca32db8bec48d8c1, type: 3}
-  - {fileID: 21300000, guid: 5bea8eb71ceb4344cbc8cd7d24a0de20, type: 3}
+  - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
+  - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
   - {fileID: 21300000, guid: 235ddd7ac074e5d44829c90554f4d3ff, type: 3}
   baseAttack: 50
   baseMovement: 4

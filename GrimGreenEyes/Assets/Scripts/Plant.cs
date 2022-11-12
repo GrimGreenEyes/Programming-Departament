@@ -39,7 +39,19 @@ public class Plant : MonoBehaviour
     private void UpdatePlantVisuals()
     {
         GetComponent<Image>().sprite = plantType.spriteSheet[plantState];
-        if(plantState >= 2)
+        GetComponent<Image>().SetNativeSize();
+        switch (plantState)
+        {
+            case 0:
+                transform.localPosition = new Vector3(5f, 50f, 0f);
+                break;
+            case 1:
+                transform.localPosition = new Vector3(-6f, 35f, 0f);
+                break;
+            default:
+                break;
+        }
+        if (plantState >= 2)
         {
             plantStatusText.text = healthPoints.ToString() + " / " + statsDictionary[statMaxHealth].ToString();
         }

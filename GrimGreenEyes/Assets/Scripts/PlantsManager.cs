@@ -8,6 +8,8 @@ public class PlantsManager : MonoBehaviour
 {
     private List<FlowerPot> potsList = new List<FlowerPot>();
     public Plant[] plantsList = new Plant[5];
+    public Animator[] tapsAnimatorsList = new Animator[5];
+    public Animator[] waterdropsAnimatorsList = new Animator[5];
     [SerializeField] Inventory inventoryManager;
     private Item plantingSeedItem;
     private Fertilizer usingFertilizer;
@@ -48,7 +50,7 @@ public class PlantsManager : MonoBehaviour
         GameObject newPlant = Instantiate(plantPrefab);
         newPlant.transform.SetParent(chosenPot.gameObject.transform);
         newPlant.transform.localScale = new Vector3(1f, 1f, 1f);
-        newPlant.transform.localPosition = new Vector3(0f, 225f, 0f);
+        newPlant.transform.localPosition = new Vector3(5f, 50f, 0f);
         newPlant.GetComponent<Plant>().SetPlantType(plantType);
         chosenPot.SetPlant(newPlant.GetComponent<Plant>());
         plantsList[chosenPot.index] = newPlant.GetComponent<Plant>();
@@ -129,6 +131,10 @@ public class PlantsManager : MonoBehaviour
         else
         {
             plantsList[plantIndex].ReceiveWater();
+            tapsAnimatorsList[plantIndex].SetBool("openTab", true);
+
+
+
             waterTank.RemoveWater();
         }
     }

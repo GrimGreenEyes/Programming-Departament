@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3103185688721777237}
   - component: {fileID: 3103185688721777234}
   - component: {fileID: 7943477658642946663}
+  - component: {fileID: 9009545120139929505}
   m_Layer: 5
   m_Name: Tap
   m_TagString: Untagged
@@ -150,3 +151,23 @@ MonoBehaviour:
   offsetY: 0
   normalSprite: {fileID: 21300000, guid: 9d4fb527f2c665348a9a7a482f022ca0, type: 3}
   hoverSprite: {fileID: 21300000, guid: da6949a076c831745ba63a64734b5622, type: 3}
+--- !u!95 &9009545120139929505
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103185688721777232}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28fc82dd2f8b67742afe8652fd91aa09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
