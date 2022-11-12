@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     private bool clickable = false;
     public bool isInRange = false;
     public bool isWalkable;
+    public bool isAcided;
     public GameObject entity;
     public int weight;
 
@@ -149,6 +150,7 @@ public class Tile : MonoBehaviour
             entity = collision.gameObject.transform.parent.gameObject;
             isWalkable = false;
             entity.GetComponent<Entity>().SetTile(gameObject);
+            isAcided = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

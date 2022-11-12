@@ -46,6 +46,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected List<GameObject> skillObjects = new List<GameObject>();
     public List<Skill> skills = new List<Skill>();
     public int skillSelected = 3;
+    public int charges = 0;
 
     public GameObject mainObjective;
 
@@ -193,7 +194,17 @@ public class Entity : MonoBehaviour
     }
     public void SetTile(GameObject tile)
     {
-
+        if (tile.GetComponent<Tile>().isAcided)
+        {
+            int pathSize = path.Count();
+            destination = tile;
+            path.Clear();
+            for (int i = 0; i < pathSize; i++)
+            {
+                path.Add(tile);
+            }
+            movement = 1;
+        }
         gridX = tile.gameObject.GetComponent<Tile>().GetX();
         gridY = tile.gameObject.GetComponent<Tile>().GetY();
         thisTile = tile.gameObject.gameObject;

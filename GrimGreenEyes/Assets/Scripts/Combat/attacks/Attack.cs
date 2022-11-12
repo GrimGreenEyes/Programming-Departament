@@ -12,7 +12,8 @@ public class Attack : MonoBehaviour
     public float freezeDamage = 0.7f;
     public float heatDamage = 0.3f;
 
-    public int DamageCalculator(Entity enemy, Entity player)
+    private const int chargeDamage = 5;
+    public int DamageCalculator(Entity enemy, Entity player, int charges = 0)
     {
         
         float totalDefense = enemy.defense +
@@ -21,7 +22,7 @@ public class Attack : MonoBehaviour
             ) + (
             enemy.freezeResistance * freezeDamage
             );
-        float damage =  (player.attack) * totalDefense / 100f;
+        float damage =  (player.attack + chargeDamage * charges) * totalDefense / 100f;
         return (int)damage;
     }
     public void CheckDead(Entity enemy)
