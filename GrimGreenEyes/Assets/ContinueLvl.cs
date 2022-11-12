@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ContinueLvl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int lastLevel;
-    public TextMeshProUGUI loadText;
+    
     void Start()
     {
-        loadText = GetComponent<TextMeshProUGUI>();
-        if (PlayerPrefs.HasKey("level"))
+        Button button = GetComponent<Button>();
+
+        if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().created == 0)
         {
-            lastLevel = PlayerPrefs.GetInt("level");
+            button.interactable = false;
         }
         else
-            lastLevel = 0;
-        lastLevel += 1;
-       loadText.text = "Continue Level: " + lastLevel;
+            button.interactable = true;
+
     }
 
     // Update is called once per frame
@@ -26,4 +25,5 @@ public class ContinueLvl : MonoBehaviour
     {
         
     }
+    
 }

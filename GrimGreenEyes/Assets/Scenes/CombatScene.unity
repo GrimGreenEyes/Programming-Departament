@@ -1548,6 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchHasWon: 0
 --- !u!114 &1208759514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,6 +1899,7 @@ GameObject:
   - component: {fileID: 1385699503}
   - component: {fileID: 1385699502}
   - component: {fileID: 1385699501}
+  - component: {fileID: 1385699505}
   m_Layer: 5
   m_Name: NextScene (1)
   m_TagString: Untagged
@@ -1933,11 +1935,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385699499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchHasWon: 0
 --- !u!114 &1385699502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,10 +1985,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1385699501}
-        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
-        m_MethodName: loadScreenFromBattle
-        m_Mode: 6
+      - m_Target: {fileID: 1385699505}
+        m_TargetAssemblyTypeName: MainControllerHelper, Assembly-CSharp
+        m_MethodName: clickWin
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2032,6 +2035,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385699499}
   m_CullTransparentMesh: 1
+--- !u!114 &1385699505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385699499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ed8dc806e5d56448c97395efdea7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1446685723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchHasWon: 0
 --- !u!114 &1762169471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,7 +3198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.99993, y: 0}
+  m_AnchoredPosition: {x: 125.99994, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706

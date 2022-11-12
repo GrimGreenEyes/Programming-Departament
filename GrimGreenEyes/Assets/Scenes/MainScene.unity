@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 219750212}
   - component: {fileID: 219750214}
   - component: {fileID: 219750213}
-  - component: {fileID: 219750215}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -317,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Continue
+  m_text: 'Continue Game
 
 '
   m_isRightToLeft: 0
@@ -396,20 +395,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219750211}
   m_CullTransparentMesh: 1
---- !u!114 &219750215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219750211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4a1e1e8c83eac469d13c3898f35b43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastLevel: 0
-  loadText: {fileID: 0}
 --- !u!1 &337740932
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +844,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MapScene
+          m_StringArgument: LoadMapScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &810016071
@@ -979,6 +964,7 @@ GameObject:
   - component: {fileID: 1148835369}
   - component: {fileID: 1148835371}
   - component: {fileID: 1148835370}
+  - component: {fileID: 1148835372}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1103,6 +1089,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148835368}
   m_CullTransparentMesh: 1
+--- !u!114 &1148835372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148835368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ad9671e2a1b6e44a07e1d68ff94e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastLevel: 0
+  loadText: {fileID: 0}
 --- !u!1 &1283922346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1371,7 @@ GameObject:
   - component: {fileID: 1485808102}
   - component: {fileID: 1485808101}
   - component: {fileID: 1485808100}
+  - component: {fileID: 1485808103}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -1452,7 +1453,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LoadMapScene
+          m_StringArgument: MapScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1485808101
@@ -1493,6 +1494,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485808098}
   m_CullTransparentMesh: 1
+--- !u!114 &1485808103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485808098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a1e1e8c83eac469d13c3898f35b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1537155063
 GameObject:
   m_ObjectHideFlags: 0

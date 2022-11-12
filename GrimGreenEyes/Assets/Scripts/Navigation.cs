@@ -27,7 +27,9 @@ public class Navigation : MonoBehaviour
 
     private int level;
 
-    public GameObject glovalVar; 
+    public GameObject glovalVar;
+
+    public bool movingCam;
 
     void Start()
     {
@@ -68,22 +70,23 @@ public class Navigation : MonoBehaviour
             glovalVar.GetComponent<GlobalVar>().created = 1;
 
 
-           // actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
-          //  player.transform.LookAt(actualNode.GetComponent<PathOptions>().myArray[0].node.transform);
+            // actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
+            //  player.transform.LookAt(actualNode.GetComponent<PathOptions>().myArray[0].node.transform);
 
-           /* var lookPos = player.transform.position - actualNode.GetComponent<PathOptions>().myArray[0].node.transform.position;
-            lookPos.z = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
-            player.transform.rotation = Quaternion.Slerp(player.transform.rotation, rotation, 1);
-            player.transform.LookAt()
-           */
+            /* var lookPos = player.transform.position - actualNode.GetComponent<PathOptions>().myArray[0].node.transform.position;
+             lookPos.z = 0;
+             var rotation = Quaternion.LookRotation(lookPos);
+             player.transform.rotation = Quaternion.Slerp(player.transform.rotation, rotation, 1);
+             player.transform.LookAt()
+            */
             // player.transform.rotation = Quaternion.LookRotation(Vector3.forward,  actualNode.GetComponent<PathOptions>().myArray[0].node.transform.rotation));
 
+            Debug.Log("MAP GENERATION!!");
         }
         else
         {
-            //Do smth
-        }
+            actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
+         }
 
 
     }
@@ -92,11 +95,12 @@ public class Navigation : MonoBehaviour
     void Update()
     {
         camFuturePos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
-        if(Vector3.Distance(camera.transform.position, player.transform.position) < 5){
+        if(!GameObject.Find("GlobalAttributes").GetComponent<MainController>().movingCam){
             camera.transform.position = Vector3.Lerp(camera.transform.position, camFuturePos, Time.deltaTime * camSpeed);
         }
         else
-            camera.transform.position = Vector3.Lerp(camera.transform.position, camFuturePos, Time.deltaTime * camSpeed*5);
+            camera.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y, camera.transform.position.z);
+
 
         Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.x) / 2), ((actualNode.transform.position.y + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.y) / 2), -1.0f);
         player.transform.position = Vector3.Lerp(player.transform.position, mediumPos, Time.deltaTime * playerSpeed);
@@ -143,25 +147,13 @@ public class Navigation : MonoBehaviour
         actualNode = node;
 
         if(!glovalVar.GetComponent<GlobalVar>().isLastNode)
-       // if (!node.GetComponent<PathOptions>().isLast)
         {
             glovalVar.GetComponent<GlobalVar>().actualNode = node;
             player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
 
             Vector3 playerPos = new Vector3(node.transform.position.x, node.transform.position.y, player.transform.position.z);
-          //  player.transform.position = Vector3.Lerp(player.transform.position, playerPos, Time.deltaTime * camSpeed); 
             Debug.Log("MATCH WON");
-            //player.transform.LookAt(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().myArray[0].node.transform);
-
-            /* Vector3 vector3 = new Vector3(GameObject.Find("PLAYER").transform.position.x + 26, GameObject.Find("PLAYER").transform.position.y, GameObject.Find("PLAYER").transform.position.z);
-
-             Vector3 vectorToTarget = node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().myArray[0].node.transform.position - vector3;
-             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-          //   angle -= 20;
-
-             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-             GameObject.Find("PLAYER").transform.rotation = q;
-            */
+           
             Vector3 vectorToTarget = node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);

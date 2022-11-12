@@ -119,36 +119,20 @@ public class GlobalVar : MonoBehaviour
         {
             GameObject.Find("NavigationController").GetComponent<Navigation>().matchWon(actualNode.GetComponent<PathOptions>().myArray[0].node);
         }
-
-        else if(advance == EnumMapOptions.mapOptions.matchLoose)
-        {
-            foreach (Transform child in transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-            created = 0;
-            //ESTA LÍNEA COMENTADA DABA ERROR. SI LA DESCOMENTO FUNCIONA BIEN, AL MENOS DESDE EL BOTÓN DE TERMINAR COMBATE
-            //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
-
-            //Destrucción de todos los recursos
-            TeamInfo teamInfo = GetComponent<TeamInfo>();
-            teamInfo.plantsList = new List<PlantInfo>();
-            teamInfo.fertilizersDictionary = new Dictionary<Fertilizer, int>();
-            teamInfo.itemsDictionary = new Dictionary<Item, int>();
-            teamInfo.waterAmount = 0;
-
-            teamInfo.AddInitialPlant();
-        }
-
-        else if(advance == EnumMapOptions.mapOptions.returnMap || advance == EnumMapOptions.mapOptions.loadGame)
+       
+        else if (advance == EnumMapOptions.mapOptions.returnMap || advance == EnumMapOptions.mapOptions.loadGame)
         {
             player.transform.position = actualNode.transform.position;
-            Vector3 vectorToTarget =actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
+            Vector3 vectorToTarget = actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             player.transform.rotation = q;
+
+            Debug.Log("LLEGA ROTACION");
         }
+
+
     }
 
     public void loadNewScene()
@@ -171,6 +155,28 @@ public class GlobalVar : MonoBehaviour
     IEnumerator waitForMapSceneLoadNodeMove()
     {
         yield return new WaitForSeconds(0.5f);
+
+    }
+
+    public void delete()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        created = 0;
+        //ESTA LÍNEA COMENTADA DABA ERROR. SI LA DESCOMENTO FUNCIONA BIEN, AL MENOS DESDE EL BOTÓN DE TERMINAR COMBATE
+        //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
+
+        //Destrucción de todos los recursos
+        TeamInfo teamInfo = GetComponent<TeamInfo>();
+        teamInfo.plantsList = new List<PlantInfo>();
+        teamInfo.fertilizersDictionary = new Dictionary<Fertilizer, int>();
+        teamInfo.itemsDictionary = new Dictionary<Item, int>();
+        teamInfo.waterAmount = 0;
+
+        teamInfo.AddInitialPlant();
+        Debug.Log("MAP DELETE 1");
 
     }
 

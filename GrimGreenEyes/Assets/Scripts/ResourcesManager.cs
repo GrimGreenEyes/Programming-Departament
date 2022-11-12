@@ -86,7 +86,8 @@ public class ResourcesManager : MonoBehaviour
     public void loadScreen(string sceneName)
     {
         StoreResources();
-        SceneManager.LoadScene(sceneName);
+        GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreen(sceneName);
+        //SceneManager.LoadScene(sceneName);
         if (string.Equals(sceneName, "MapScene"))
         {
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
