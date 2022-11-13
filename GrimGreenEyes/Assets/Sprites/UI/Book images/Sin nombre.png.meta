@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 293fba02a258cd941897d9b59e00dde4
+guid: dd7183904c21e9a489abeaec76f9852f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,28 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: libro_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 642
-        height: 928
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 143, y: 54, z: 23, w: 82}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f12b7c291b73d64b95301ff6cf0118f
-      internalID: -1229938575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -147,8 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      libro_0: 1272157643
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
