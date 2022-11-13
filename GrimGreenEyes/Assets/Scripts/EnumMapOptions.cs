@@ -10,7 +10,8 @@ public class EnumMapOptions : MonoBehaviour
         matchLoose,
         matchWon,
         returnMap,
-        loadGame
+        loadGame,
+        loadNextScene
     }
 
     public enum mapBiom

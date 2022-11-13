@@ -48,11 +48,14 @@ public class MainController : MonoBehaviour
                 {
                     GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchWon);
                     matchHasWon = false;
+                    GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
+
+                   
                 }
-                
+
             }
             else
-                GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.loadGame);
+                GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
 
 
         }
@@ -88,25 +91,25 @@ public class MainController : MonoBehaviour
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
             }
         }
+      
     }
 
     public void loadScreenFromBattle(bool won)
     {
         if (won)
-        {/*
-            SceneManager.LoadScene("MapScene");
-            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchWon);
-            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
-            */
+        {
             Debug.Log("LOAD SCREEN FROM BATTLE");
             Debug.Log(matchHasWon);
+            
             matchHasWon = true;
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().nextNode();
             Debug.Log(matchHasWon);
             SceneManager.LoadScene("ResourcesScene");
         }
         else
         {
             loadScreen("MainScene");
+            matchHasWon=false;
         }
     }
 

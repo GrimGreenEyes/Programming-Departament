@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -112,26 +113,13 @@ public class Navigation : MonoBehaviour
 
     public void moveToNode(GameObject node)
     {
-        Debug.Log("click");
-        // if (actualNode)
-        //  GameObject isInList = actualNode.GetComponent<PathOptions>().myArray
-        //Debug.Log("");
-        //if(actualNode) // si el bot�n (nodo) est� en la lista del primero y est� activo, el nodo actual es el siguiente
-        //
+       
         actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
             if (actualNode.GetComponent<PathOptions>().getGameobjects(node))
             {
                 Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + node.transform.position.x)/2), ((actualNode.transform.position.y + node.transform.position.y)/2), -1.0f);
                 //player.transform.position = mediumPos;
                 actualNode = node;
-            //AQUI ESTABA PARA QUE EL PLAYER SE MUEVA A LA MITAD DIRECTAMENTE
-
-
-
-
-            //  glovalVar.GetComponent<GlobalVar>().actualNode = node;
-            Debug.Log("cambia correcto");
-                //player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y , -1);
 
                 camera.transform.position = Vector3.Lerp(camera.transform.position, player.transform.position, Time.deltaTime * camSpeed);
                 
@@ -141,7 +129,31 @@ public class Navigation : MonoBehaviour
             else
                 Debug.Log(node.name + "not in list");
     }
+    
+    public void matchWonDef()
+    {
 
+        if (!glovalVar.GetComponent<GlobalVar>().isLastNode)
+        {
+            player.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y, -1);
+            Vector3 playerPos = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y, player.transform.position.z);
+            Debug.Log("MATCH WON");
+
+            Vector3 vectorToTarget = actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            GameObject.Find("PLAYER").transform.rotation = q;
+        }
+
+
+        if (actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().isLast)
+        {
+            glovalVar.GetComponent<GlobalVar>().isLastNode = true;
+        }
+        else
+            glovalVar.GetComponent<GlobalVar>().isLastNode = false;
+    }
+    /*
     public void matchWon(GameObject node)
     {
         actualNode = node;
@@ -168,7 +180,7 @@ public class Navigation : MonoBehaviour
         else
             glovalVar.GetComponent<GlobalVar>().isLastNode = false;
     }
-
+    */
     public void matchLoose()
     {
 

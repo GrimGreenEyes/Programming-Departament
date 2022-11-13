@@ -49,15 +49,7 @@ public class GlobalVar : MonoBehaviour
             DestroyObject(gameObject);
         }
     }
-   /* private void Awake()
-    {
-        if (GameObject.Find("GlobalAttributes"))
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-        //created = 0;
-    }*/
+   
     void Start()
     {
        // biomaActual = biomas[0];
@@ -88,9 +80,13 @@ public class GlobalVar : MonoBehaviour
         }
         
             
-        
     }
 
+    public void nextNode()
+    {
+        if(created == 1)
+        actualNode = actualNode.GetComponent<PathOptions>().myArray[0].node;
+    }
 
     public IEnumerator waitForMapSceneLoad(EnumMapOptions.mapOptions advance)
     {
@@ -117,7 +113,7 @@ public class GlobalVar : MonoBehaviour
 
         if (advance == EnumMapOptions.mapOptions.matchWon)
         {
-            GameObject.Find("NavigationController").GetComponent<Navigation>().matchWon(actualNode.GetComponent<PathOptions>().myArray[0].node);
+            GameObject.Find("NavigationController").GetComponent<Navigation>().matchWonDef();
         }
        
         else if (advance == EnumMapOptions.mapOptions.returnMap || advance == EnumMapOptions.mapOptions.loadGame)
