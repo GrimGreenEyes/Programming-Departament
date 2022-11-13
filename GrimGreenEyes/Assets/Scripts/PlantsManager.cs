@@ -17,6 +17,7 @@ public class PlantsManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private MsgWindow msgWindow;
     [SerializeField] private WaterTank waterTank;
+    private bool[] lockedTap = new bool[5];
 
     private void Start()
     {
@@ -130,13 +131,28 @@ public class PlantsManager : MonoBehaviour
         }
         else
         {
-            plantsList[plantIndex].ReceiveWater();
-            tapsAnimatorsList[plantIndex].SetBool("openTab", true);
-
-
-
-            waterTank.RemoveWater();
+            if (lockedTap[plantIndex])
+            {
+                return;
+            }
+            else
+            {
+                lockedTap[plantIndex] = true;
+                waterTank.RemoveWater();
+                tapsAnimatorsList[plantIndex].SetBool("openTab", true);
+                waterdropsAnimatorsList[plantIndex].SetBool("dropWater", true);
+                StartCoroutine(DelayWaterPlant(plantIndex));
+            }
         }
+    }
+
+    private IEnumerator DelayWaterPlant(int index)
+    {
+        yield return new WaitForSeconds(1.33f);
+        plantsList[index].ReceiveWater();
+        tapsAnimatorsList[index].SetBool("openTab", false);
+        waterdropsAnimatorsList[index].SetBool("dropWater", false);
+        lockedTap[index] = false;
     }
 
     public bool AnyFreePot()

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public PlantDetailsDisplay plantDetailsDisplay;
     public GameObject warningMsgPrefab;
     private GameObject currentWarning = null;
+    public FollowMouse followMouse;
 
     private void Start()
     {

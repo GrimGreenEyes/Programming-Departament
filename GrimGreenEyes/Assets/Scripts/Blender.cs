@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Blender : MonoBehaviour
 {
-    [SerializeField] private List<Recipe> recipeList = new List<Recipe>();
+    [SerializeField] public List<Recipe> recipeList = new List<Recipe>();
     [SerializeField] private GameObject[] inputSlots = new GameObject[2];
     [SerializeField] private GameObject outputSlot;
     private Item[] blenderStorage = new Item[2];

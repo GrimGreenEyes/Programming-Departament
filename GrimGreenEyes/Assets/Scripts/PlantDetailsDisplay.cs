@@ -22,7 +22,7 @@ public class PlantDetailsDisplay : MonoBehaviour
     public void LoadPlantDetails(Plant plant)
     {
         currentPlant = plant;
-        UpdateDetailsDisplay();
+        //UpdateDetailsDisplay();
 
         OpenPlantDetailsDisplay();
     }

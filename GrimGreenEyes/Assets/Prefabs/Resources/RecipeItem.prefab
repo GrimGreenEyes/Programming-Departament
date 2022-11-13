@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 7868606531210931098}
   - component: {fileID: 7868606531210931100}
   - component: {fileID: 7868606531210931099}
+  - component: {fileID: 988172229719395135}
   m_Layer: 5
   m_Name: Input1
   m_TagString: Untagged
@@ -211,6 +212,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &988172229719395135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868606531210931097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1edc36010f1438cda2b261281620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: 
 --- !u!1 &7868606531376039095
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +371,7 @@ GameObject:
   - component: {fileID: 7868606531462084740}
   - component: {fileID: 7868606531462084742}
   - component: {fileID: 7868606531462084741}
+  - component: {fileID: 267439671897231547}
   m_Layer: 5
   m_Name: Input2
   m_TagString: Untagged
@@ -422,6 +437,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &267439671897231547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868606531462084739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1edc36010f1438cda2b261281620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: 
 --- !u!1 &7868606531725352724
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +462,7 @@ GameObject:
   - component: {fileID: 7868606531725352728}
   - component: {fileID: 7868606531725352727}
   - component: {fileID: 7868606531725352726}
+  - component: {fileID: 5842693490642200074}
   m_Layer: 5
   m_Name: RecipeItem
   m_TagString: Untagged
@@ -511,7 +540,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7868606531725352724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -548,6 +577,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5842693490642200074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868606531725352724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6fc74281358f244bec3c78a5d5acf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input1: {fileID: 7868606531210931099}
+  input2: {fileID: 7868606531462084741}
+  output: {fileID: 7868606531772900170}
 --- !u!1 &7868606531772900168
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +603,7 @@ GameObject:
   - component: {fileID: 7868606531772900169}
   - component: {fileID: 7868606531772900171}
   - component: {fileID: 7868606531772900170}
+  - component: {fileID: 8838043899128595539}
   m_Layer: 5
   m_Name: Output
   m_TagString: Untagged
@@ -575,8 +620,8 @@ RectTransform:
   m_GameObject: {fileID: 7868606531772900168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.27, y: 1.27, z: 1.27}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7868606531725352725}
   m_RootOrder: 2
@@ -624,3 +669,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8838043899128595539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868606531772900168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1edc36010f1438cda2b261281620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: 
