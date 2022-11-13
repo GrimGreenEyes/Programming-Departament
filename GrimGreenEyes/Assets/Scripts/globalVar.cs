@@ -35,6 +35,8 @@ public class GlobalVar : MonoBehaviour
     public int indBioma;
 
     public List<GameObject> biomsList;
+
+    public bool showLoad;
     void Awake()
     {
         isMapUp = true;
@@ -148,11 +150,22 @@ public class GlobalVar : MonoBehaviour
         MapSceneUp(EnumMapOptions.mapOptions.matchWon);
     }
 
-    IEnumerator waitForMapSceneLoadNodeMove()
+   /* public IEnumerator waitScene()
     {
-        yield return new WaitForSeconds(0.5f);
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log(gameObject.transform.GetChild(0).gameObject.name);
+        while (showLoad)
+        {
+            yield return null;
+
+        }
+        yield return new WaitForSeconds(3);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        showLoad = false;
+        Debug.Log(gameObject.transform.GetChild(0).gameObject.name);
 
     }
+   */
 
     public void delete()
     {
@@ -174,6 +187,18 @@ public class GlobalVar : MonoBehaviour
         teamInfo.AddInitialPlant();
         Debug.Log("MAP DELETE 1");
 
+    }
+
+    public void doShowLoad()
+    {
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        showLoad = true;
+
+    }
+    public void notShowLoad()
+    {
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        showLoad = true;
     }
 
 
