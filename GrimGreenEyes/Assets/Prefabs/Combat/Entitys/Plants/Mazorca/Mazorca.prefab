@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2219520641958587103}
   - component: {fileID: 2324614070528822135}
   - component: {fileID: 527922213998584775}
+  - component: {fileID: -123000234893527775}
   m_Layer: 0
   m_Name: Mazorca
   m_TagString: Player
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2219520641958587106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1950331511644263019}
@@ -78,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0.9371229, b: 0, a: 1}
+  m_Sprite: {fileID: -197336960, guid: b37ec7af95d798b46bb389e5125803d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,7 +125,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.64, y: 0.93}
   m_Direction: 0
 --- !u!114 &527922213998584775
 MonoBehaviour:
@@ -139,13 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Mazorca
-  livePoints: 100
-  maxLivePoints: 100
-  attack: 20
-  defense: 80
-  heatResistance: 70
-  freezeResistance: 10
-  agility: 100
+  livePoints: 80
+  maxLivePoints: 80
+  attack: 50
+  defense: 20
+  heatResistance: 15
+  freezeResistance: 5
+  agility: 12
   movement: 0
   maxMovement: 4
   attackMultiplayer: 1
@@ -159,10 +160,12 @@ MonoBehaviour:
   renderer: {fileID: 0}
   actualState: 0
   mainAttack: {fileID: 422761750842604121, guid: 34f95fb8aa4dca145b14c5a3135cd659, type: 3}
-  skillPrefabs: []
+  skillPrefabs:
+  - {fileID: 6796131682827152524, guid: ee9627ef907a376428ce51e6faca0834, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
+  charges: 0
   mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
@@ -187,6 +190,26 @@ MonoBehaviour:
   livePointsText: {fileID: 2362480325833250713}
   HUDSprite: {fileID: 21300000, guid: 57d9efa995f8132468e5126c50db13c6, type: 3}
   HUDSpriteSize: 0
+--- !u!95 &-123000234893527775
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219520641958587106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8d71dd21135517468fc49b75e0953c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2259952070634223672
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,11 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.146
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.z

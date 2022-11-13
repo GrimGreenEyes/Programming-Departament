@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 8404517906553258252}
   - component: {fileID: 1349632918273334193}
   - component: {fileID: 7871171430639896596}
+  - component: {fileID: 6880730160977930451}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Player
@@ -265,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 8404517906553258289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6098257198448980412}
@@ -314,12 +315,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1467901928, guid: c3db131f9ad6f3546873c582c6e84388, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -360,7 +361,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.56, y: 0.76}
   m_Direction: 0
 --- !u!114 &7871171430639896596
 MonoBehaviour:
@@ -378,9 +379,9 @@ MonoBehaviour:
   livePoints: 120
   maxLivePoints: 120
   attack: 20
-  defense: 50
-  heatResistance: 20
-  freezeResistance: 10
+  defense: 55
+  heatResistance: 25
+  freezeResistance: 3
   agility: 4
   movement: 0
   maxMovement: 4
@@ -397,11 +398,10 @@ MonoBehaviour:
   mainAttack: {fileID: 1085834782170022000, guid: bc09c06347bf941429c000cec8a9c95e, type: 3}
   skillPrefabs:
   - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
-  - {fileID: 6796131682827152524, guid: ee9627ef907a376428ce51e6faca0834, type: 3}
-  - {fileID: 1276064010140777734, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
+  charges: 0
   mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
@@ -426,6 +426,26 @@ MonoBehaviour:
   livePointsText: {fileID: 7662691129071967356}
   HUDSprite: {fileID: 21300000, guid: e62a0a8e12ae74d4894daf4a829cc0fa, type: 3}
   HUDSpriteSize: 0
+--- !u!95 &6880730160977930451
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404517906553258289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d0283495fb6c544081f0bffd2ea0770, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4484777306946570956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,11 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.z
