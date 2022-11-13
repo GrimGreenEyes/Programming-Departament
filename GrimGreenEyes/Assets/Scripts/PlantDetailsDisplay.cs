@@ -13,9 +13,13 @@ public class PlantDetailsDisplay : MonoBehaviour
     [SerializeField] private Image plantImage;
     [SerializeField] private GameObject skillDisplay, skillsParent;
     private List<GameObject> skillsList = new List<GameObject>();
+    private UIManager uiManager;
+    private FollowMouse elementNameDisplay;
 
     private void Start()
     {
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        elementNameDisplay = uiManager.followMouse;
         ClosePlantDetailsDisplay();
     }
 
@@ -41,12 +45,15 @@ public class PlantDetailsDisplay : MonoBehaviour
         heatRes.text = currentPlant.statsDictionary[statHeatRes].ToString();
         coldRes.text = currentPlant.statsDictionary[statColdRes].ToString();
         //
-        //plantDamage.text = currentPlant.damage.ToString();
-        //plantCurrentHp.text = currentPlant.healthPoints.ToString();
-        //plantMaxHp.text = currentPlant.maxHP.ToString();
-        //plantMovement.text = currentPlant.movement.ToString();
-        //plantAgility.text = currentPlant.agility.ToString();
-        //plantInitiative.text = currentPlant.initiative.ToString();
+
+        health.transform.parent.GetComponent<HoverElement>().displayText = statMaxHealth.description;
+        attack.transform.parent.GetComponent<HoverElement>().displayText = statAttack.description;
+        agility.transform.parent.GetComponent<HoverElement>().displayText = statAgility.description;
+        movement.transform.parent.GetComponent<HoverElement>().displayText = statMovement.description;
+        deffense.transform.parent.GetComponent<HoverElement>().displayText = statDeffense.description;
+        heatRes.transform.parent.GetComponent<HoverElement>().displayText = statHeatRes.description;
+        coldRes.transform.parent.GetComponent<HoverElement>().displayText = statColdRes.description;
+
         //
         plantImage.sprite = currentPlant.plantType.spriteSheet[currentPlant.plantState];
 
@@ -71,11 +78,13 @@ public class PlantDetailsDisplay : MonoBehaviour
     public void OpenPlantDetailsDisplay()
     {
         gameObject.SetActive(true);
+        elementNameDisplay.EnableObject();
         UpdateDetailsDisplay();
     }
 
     public void ClosePlantDetailsDisplay()
     {
         gameObject.SetActive(false);
+        elementNameDisplay.DisableObject();
     }
 }
