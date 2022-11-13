@@ -27,6 +27,7 @@ public class MainController : MonoBehaviour
         else
             SceneManager.LoadScene(sceneName);
 
+      // GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
         Debug.Log(sceneName);
         Debug.Log(matchHasWon);
        
@@ -91,7 +92,9 @@ public class MainController : MonoBehaviour
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
             }
         }
-      
+        if (string.Equals(sceneName, "CombatScene"))
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
+
     }
 
     public void loadScreenFromBattle(bool won)
