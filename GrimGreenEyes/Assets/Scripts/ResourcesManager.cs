@@ -85,9 +85,15 @@ public class ResourcesManager : MonoBehaviour
 
     public void loadScreen(string sceneName)
     {
-        StoreResources();
+        StoreResources();/*
         GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreen(sceneName);
         //SceneManager.LoadScene(sceneName);
+        if (sceneName == "MapScene" & GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isLastNode)
+        {
+            sceneName = "LoadMapScene";
+            GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreen(sceneName);
+        }
+            
         if (string.Equals(sceneName, "MapScene"))
         {
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
@@ -103,7 +109,10 @@ public class ResourcesManager : MonoBehaviour
         {
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchLoose);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
-        }
+        }*/
+       // if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isLastNode)
+         //   sceneName = "LoadMapScene";
+        GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreen(sceneName);
 
 
 
