@@ -108,14 +108,15 @@ public class GameController : MonoBehaviour
                 }
                 break;
         }
+        TurnPanel.instance.SetTurns();
         if(characterSelected == 0)
         {
             NewTurn();
         }
     }
-    public GameObject SelectedPlayer()
+    public GameObject SelectedPlayer(int addPosition = 0)
     {
-        return characters[characterSelected];
+        return characters[(characterSelected + addPosition) % characters.Count()];
     }
     private void NewTurn()
     {

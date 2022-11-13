@@ -401,6 +401,7 @@ MonoBehaviour:
   skillObjects: []
   skills: []
   skillSelected: 3
+  charges: 0
   mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
@@ -423,8 +424,8 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 8572305601528682411}
-  HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
-  HUDSpriteSize: 100
+  HUDSprite: {fileID: 21300000, guid: 7266a6ed63b08044c92d83ed36cd6202, type: 3}
+  HUDSpriteSize: 5.3
 --- !u!95 &7948153811679935146
 Animator:
   serializedVersion: 4

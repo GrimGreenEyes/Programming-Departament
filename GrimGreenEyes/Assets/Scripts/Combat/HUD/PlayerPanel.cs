@@ -34,7 +34,7 @@ public class PlayerPanel : MonoBehaviour
     {
         Entity plant = newPlant.GetComponent<Entity>();
         image.sprite = plant.HUDSprite;
-        image.type = Image.Type.Sliced;
+        image.type = Image.Type.Tiled;
         image.pixelsPerUnitMultiplier = plant.HUDSpriteSize;
         image.preserveAspect = true;
         nameText.SetText(plant.name);
