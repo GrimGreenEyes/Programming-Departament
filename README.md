@@ -100,15 +100,13 @@ Cada mapa está dividido en nodos por los que el jugador irá avanzando, para ll
 - El primer mapa consta de 5 nodos incluyendo el nodo de insectos dominantes. 
 - El segundo mapa consta de 4 nodos por bioma incluyendo el nodo de insectos dominantes.
 - El tercer mapa consta de 3 nodos por bioma incluyendo el nodo de insectos dominantes.  
-- Los mapas del cuarto en adelante constarán de 2 nodos por bioma incluyendo el nodo de insectos dominantes. 
-
+- Los mapas del cuarto en adelante constarán de 2 nodos por bioma, el ultimo bioma cuenta adicionalmente con el nodo de insectos dominantes. 
 Al empezar en un mapa nuevo el jugador comenzará con una de las siguientes plantas en función del bioma. 
 
 - Desierto 
     - Rolay 
 - Nevado 
     - Sartiry 
-    - Toxkill 
 - Selva 
     - Toxkill 
 - Llanura 
@@ -480,6 +478,67 @@ __Lista de INSECTOS en función de sus roles__
 - Atacante
 <img src="https://user-images.githubusercontent.com/92206944/198877989-dd4699dc-521d-40e8-96c5-1cb9c51d694a.png" width ="70%">
 <img src="https://user-images.githubusercontent.com/92206944/198878011-f207254a-74fe-44b2-a0e2-a94d861ee2b4.png" width ="70%">
+
+__Incremento de atributos por nodo__
+
+Este es el incremento a los atributos de los insectos por cada nodo avanzado en el mapa sobre las estadísticas base. 
+
+Nodo 1, 2, 3: 
+
+Atributos base 
+
+Nodo 4,5,6: 
+
+|Insecto|Ataque|Defensa|Vida|Movimiento|Agilidad|Res.Calor|Res.Frío|
+|:---:|:------:|:-----:|:---:|:-------:|:------:|:-------:|:------:|
+|Araña|+5|+2|+10|+0|+1|+2|+2|
+|Escarabajo|+3|+6|+6|+0|+0|+2|+2|
+|Caracol|+5|+2|+10|+0|+0|+1|+1|
+|Hormiga|+3|+2|+5|+0|+0|+1|+1|
+|Gusano|+5|+2|+5|+1|+1|+1|+1|
+
+Nodo 7,8,9: 
+
+|Insecto|Ataque|Defensa|Vida|Movimiento|Agilidad|Res.Calor|Res.Frío|
+|:---:|:------:|:-----:|:---:|:-------:|:------:|:-------:|:------:|
+|Araña|+10|+6|+20|+1|+2|+5|+5|
+|Escarabajo|+8|+15|+20|+1|+1|+6|+4|
+|Caracol|+6|+20|+15|+1|+0|+4|+4|
+|Hormiga|+10|+10|+8|+1|+0|+4|+4|
+|Gusano|+25|+5|+10|+2|+4|+4|+4|
+
+
+__Incremento de atributos de insectos dominantes según el mapa__
+
+Este es el incremento de los insectos dominantes, con la base de los atributos normales de los insectos. Estos cambios solo se aplican a los dominantes que se encuentran en el último combate de cada mapa. 
+
+Mapa 1
+|Insecto|Ataque|Defensa|Vida|Movimiento|Agilidad|Res.Calor|Res.Frío|
+|:---:|:------:|:-----:|:---:|:-------:|:------:|:-------:|:------:|
+|Araña|+7|+4|+13|+1|+1|+3|+3|
+|Escarabajo|+6|+10|+9|+0|+0|+5|+5|
+|Caracol|+5|+6|+13|+0|+0|+3|+3|
+|Hormiga|+5|+3|+7|+0|+0|+3|+3|
+|Gusano|+7|+3|+10|+2|+1|+3|+3|
+
+Mapa 2 y 3
+|Insecto|Ataque|Defensa|Vida|Movimiento|Agilidad|Res.Calor|Res.Frío|
+|:---:|:------:|:-----:|:---:|:-------:|:------:|:-------:|:------:|
+|Araña|+12|+8|+30|+2|+3|+5|+5|
+|Escarabajo|+10|+20|+35|+1|+2|+8|+5|
+|Caracol|+8|+25|+35|+1|+2|+6|+6|
+|Hormiga|+12|+12|+15|+1|+2|+6|+6|
+|Gusano|+33|+10|+20|+2|+6|+6|+6|
+
+Mapa 4
+|Insecto|Ataque|Defensa|Vida|Movimiento|Agilidad|Res.Calor|Res.Frío|
+|:---:|:------:|:-----:|:---:|:-------:|:------:|:-------:|:------:|
+|Araña|+15|+10|+35|+2|+3|+6|+6|
+|Escarabajo|+12|+25|+40|+1|+2|+10|+6|
+|Caracol|+10|+30|+40|+1|+2|+7|+7|
+|Hormiga|+15|+15|+20|+1|+2|+7|+7|
+|Gusano|+36|+14|+20|+3|+10|+7|+7|
+
 
 <a name="2.6"></a>
 ### 2.6 Controles
