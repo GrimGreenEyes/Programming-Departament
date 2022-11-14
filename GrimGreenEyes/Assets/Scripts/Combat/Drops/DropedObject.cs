@@ -14,8 +14,20 @@ public class DropedObject : MonoBehaviour
         {
             return;
         }
-        PickUpObject();
-        Destroy(gameObject);
+        GameObject thisEntity = collision.transform.parent.gameObject;
+        if (thisEntity.tag == "Player")
+        {
+            PickUpObject();
+            Destroy(gameObject);
+        }else
+            for (int i = 0; i <  thisEntity.GetComponent<Entity>().skills.Count; i++)
+            {
+                if (thisEntity.GetComponent<Entity>().skills[i].isOnSeed)
+                {
+                    thisEntity.GetComponent<Entity>().skillSelected = i;
+                    thisEntity.GetComponent<Entity>().actualState = Entity.EntityState.USINGSKILL;
+                }
+            }
     }
     private void PickUpObject()
     {

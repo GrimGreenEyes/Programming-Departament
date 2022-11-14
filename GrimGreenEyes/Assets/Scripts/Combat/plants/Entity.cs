@@ -27,6 +27,8 @@ public class Entity : MonoBehaviour
     public float freezeResistanceMultiplayer;
 
     public bool bleeding = false;
+    public bool poisoned = false;
+    public bool stuned = false;
     public bool hidden = false;
     public bool attacked = false;
 
@@ -36,7 +38,7 @@ public class Entity : MonoBehaviour
     public SpriteRenderer renderer;
 
 
-    public enum EntityState { START, IDLE, MOVEING, ATTACKING, STUNED, USINGSKILL, FINISHED }
+    public enum EntityState { START, IDLE, MOVEING, ATTACKING, USINGSKILL, FINISHED }
     public EntityState actualState = EntityState.IDLE;
 
 
@@ -134,7 +136,7 @@ public class Entity : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, MovementPoint, MovementSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, MovementPoint) == 0)
+            if (transform.position == MovementPoint)
             {
                 movement--;
 
@@ -164,8 +166,8 @@ public class Entity : MonoBehaviour
         if ((direction.x != 0 ^ direction.y != 0) && !moveing)
         {
 
-            angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
-            Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
+            //angle = (direction.x == 0) ? new Vector3(0, 0, Mathf.Atan(tileScale.x / tileScale.y) * Mathf.Rad2Deg) : new Vector3(0, 0, Mathf.Atan(tileScale.y / tileScale.x) * Mathf.Rad2Deg);
+            //Vector2 checkPoint = new Vector2(transform.position.x, transform.position.y) + offsetMovePoint + new Vector2((Quaternion.Euler(angle) * direction).x, (Quaternion.Euler(angle) * direction).y);
             if(directionY == -1)
             {
                 animator.SetInteger("direction", 0);
@@ -178,14 +180,17 @@ public class Entity : MonoBehaviour
             {
                 animator.SetInteger("direction", 2);
             }
-            if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
-            {
-                animator.SetBool("walking", true);
-                moveing = true;
-                MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
-            }
+            //if (!Physics2D.OverlapCircle(checkPoint, radious, obstacles))
+            //{
+            //    animator.SetBool("walking", true);
+            //    moveing = true;
+            //    MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
+            //}
+            animator.SetBool("walking", true);
+            MovementPoint = path[pathPosition].transform.position + new Vector3(0, 0.25f, 0);
+            moveing = true;
         }
-        if (transform.position == destination.GetComponent<Tile>().transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
+        if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
         {
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
@@ -213,5 +218,9 @@ public class Entity : MonoBehaviour
     {
         Debug.Log("Healing: " + quantity);
         GetComponent<Plants>().livePoints = (GetComponent<Plants>().livePoints + quantity < GetComponent<Plants>().maxLivePoints) ? GetComponent<Plants>().maxLivePoints + quantity : GetComponent<Plants>().maxLivePoints;
+    }
+    public void EndTurn()
+    {
+        actualState = EntityState.FINISHED;
     }
 }

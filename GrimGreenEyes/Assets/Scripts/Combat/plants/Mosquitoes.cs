@@ -36,7 +36,14 @@ public class Mosquitoes : Entity
 
                     PlayerPanel.instance.ChangePlayer(gameObject);
                 }
-                actualState = EntityState.IDLE;
+                if (stuned)
+                {
+                    actualState = EntityState.FINISHED;
+                }
+                else
+                {
+                    actualState = EntityState.IDLE;
+                }
                 break;
             case EntityState.IDLE:
                 if (gameObject != GameController.instance.SelectedPlayer())
@@ -108,9 +115,6 @@ public class Mosquitoes : Entity
                 }
                 mainAttack.Effect(mainObjective, gameObject);
                 break;
-            case EntityState.STUNED:
-
-                break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
                 if (skills[skillSelected].actilveOnClick)
@@ -119,11 +123,11 @@ public class Mosquitoes : Entity
                 }
                 else
                 {
-                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].radious, false);
+                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
                 }
                 break;
             case EntityState.FINISHED:
-
+                GameController.instance.NextPlayer();
                 break;
         }
     }
@@ -145,7 +149,7 @@ public class Mosquitoes : Entity
             {
                 return;
             }
-            if (Mathf.Abs(gridX - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(gridY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) > GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].radious)
+            if (Mathf.Abs(gridX - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(gridY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) > GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].range)
             {
                 return;
             }

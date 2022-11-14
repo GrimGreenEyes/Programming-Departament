@@ -635,6 +635,9 @@ MonoBehaviour:
   enemys:
   - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
   - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
+  - {fileID: 6782853898566395305, guid: 3461d78778321c843a9d293ce28af8ea, type: 3}
   width: 0
   height: 0
   x: 14
@@ -2469,7 +2472,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1241752636}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: NextPlayer
+        m_MethodName: NextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3293,7 +3296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.99994, y: 0}
+  m_AnchoredPosition: {x: 125.99995, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706

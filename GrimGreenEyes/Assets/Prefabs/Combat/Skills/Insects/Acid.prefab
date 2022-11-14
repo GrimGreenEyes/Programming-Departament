@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &419186179298654320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419186179298654334}
+  - component: {fileID: 419186179298654335}
+  m_Layer: 0
+  m_Name: Acid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &419186179298654334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419186179298654320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9516897, y: 0.012659162, z: 5.2802696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419186179298654335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419186179298654320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c18a6c80deea841b4a270bef30bbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Acid
+  description: 
+  isActiveSkill: 1
+  isbuffing: 0
+  isReciveingDamage: 0
+  isDoingDamage: 0
+  isReflexive: 0
+  actilveOnClick: 0
+  selectsStightTile: 0
+  selectsTile: 1
+  isOnSeed: 0
+  isOnDestination: 0
+  destinationTile: {fileID: 0}
+  range: 4
+  areaOfEffect: 0
+  turnsActive: 0
+  maxTurnsActive: 0
+  alreadyUsed: 0
+  coolDown: 3
+  currentCoolDown: 0

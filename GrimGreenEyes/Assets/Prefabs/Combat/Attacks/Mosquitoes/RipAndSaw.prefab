@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1276064010140777734
+--- !u!1 &7408283117710079186
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,58 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8653018585290553326}
-  - component: {fileID: 8753920312683335616}
+  - component: {fileID: 4407422830939285679}
+  - component: {fileID: 1139857387330724877}
   m_Layer: 0
-  m_Name: BombDrop
+  m_Name: RipAndSaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8653018585290553326
+--- !u!4 &4407422830939285679
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276064010140777734}
+  m_GameObject: {fileID: 7408283117710079186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.9516897, y: 0.012659162, z: 5.2802696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8753920312683335616
+--- !u!114 &1139857387330724877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276064010140777734}
+  m_GameObject: {fileID: 7408283117710079186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e57ab98c231da44bacaaf6ceeab2ac2, type: 3}
+  m_Script: {fileID: 11500000, guid: 84203679c6ab5cd48b4387e8351dacbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Bombardeo
-  description: "La planta atraviesa el campo en una direcci\xF3n t bombardea el campo
-    de batalla."
-  isActiveSkill: 1
-  isbuffing: 0
-  isReciveingDamage: 0
-  isDoingDamage: 0
-  isReflexive: 0
-  actilveOnClick: 0
-  selectsTile: 1
-  isOnDestination: 1
-  destinationTile: {fileID: 0}
+  name: Rip and saw
+  range: 1
   radious: 0
-  areaOfEffect: 0
-  turnsActive: 0
-  maxTurnsActive: 0
-  alreadyUsed: 0
-  coolDown: 3
-  currentCoolDown: 0
+  directedToAlly: 0
+  freezeDamage: 0.7
+  heatDamage: 0.3

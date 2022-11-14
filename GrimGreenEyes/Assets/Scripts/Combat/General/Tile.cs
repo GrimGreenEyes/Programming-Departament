@@ -40,27 +40,32 @@ public class Tile : MonoBehaviour
     {
         StopShine();
         SetClickable(false);
-        if(GameController.instance.SelectedPlayer().tag != "Player")
+        GameObject player = GameController.instance.SelectedPlayer();
+        if(player.tag != "Player")
         {
             return;
         }
-        if(entity != null && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE && Mathf.Abs(positionX  - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(positionY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) <= GameController.instance.SelectedPlayer().GetComponent<Plants>().mainAttack.range)
+        if(entity != null && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE && Mathf.Abs(positionX  - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().mainAttack.range)
         {
             ShineEntity();
         }
-        if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL )
+        if(player.GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL )
         {
-            if (entity == null && GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsTile)
+            if (entity == null && player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].selectsStightTile && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
-                Debug.Log("staight Path 1");
                 ShineStraightLine();
             }
-            else if(entity != null && Mathf.Abs(positionX - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX) + Mathf.Abs(positionY - GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY) <= GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].radious)
+            else if (entity == null && player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].selectsTile && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
+            {
+                ShineTile();
+                SetClickable(true);
+            }
+            else if(entity != null && !player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].isOnDestination && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
                 ShineEntity();
             }
         }
-        if (isInRange && isWalkable && GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
+        if (isInRange && isWalkable && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE)
         {
             ShineTile();
             SetClickable(true);
@@ -122,8 +127,6 @@ public class Tile : MonoBehaviour
     }
     private void ShineStraightLine()
     {
-        
-        Debug.Log("staight Path 2");
         if(positionX == GameController.instance.SelectedPlayer().GetComponent<Plants>().gridX || positionY == GameController.instance.SelectedPlayer().GetComponent<Plants>().gridY)
         {
             SetClickable(true);
@@ -151,6 +154,10 @@ public class Tile : MonoBehaviour
             isWalkable = false;
             entity.GetComponent<Entity>().SetTile(gameObject);
             isAcided = false;
+            if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
+            {
+                isAcided = true;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -191,14 +198,11 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if(this.transform.childCount != 1)
-        {
-            return;
-        }
+        
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
             GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(gameObject);
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)
-            if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsTile)
+            if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsTile || GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsStightTile)
             {
                 GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
             }

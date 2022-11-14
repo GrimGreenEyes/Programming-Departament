@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+        //teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
     }
 
     public void Init(GameObject entity)
@@ -53,6 +53,11 @@ public class GameController : MonoBehaviour
             enemys.Add(entity);
         }
     }
+    public void AddEnemy(GameObject newEnemyPref, Transform position)
+    {
+        GameObject newEnemy = Instantiate(newEnemyPref, position);
+        Init(newEnemy);
+    }
     public void OrderCharacters()
     {
         characters = characters.OrderByDescending(x => x.GetComponent<Entity>().agility).ToList();
@@ -67,20 +72,20 @@ public class GameController : MonoBehaviour
                 switch (characters[(characterSelected + 1) % characters.Count].tag)
                 {
                     case "Player":
-                        if (characters[characterSelected].GetComponent<Plants>().actualState != Entity.EntityState.IDLE)
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
                         {
                             return;
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Plants>().actualState = Entity.EntityState.START;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
                         break;
                     case "Enemy":
-                        if (characters[characterSelected].GetComponent<Plants>().actualState != Entity.EntityState.IDLE)
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
                         {
                             return;
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Mosquitoes>().actualState = Entity.EntityState.START;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
                         PlayerPanel.instance.gameObject.SetActive(false);
                         break;
                 }
@@ -89,37 +94,38 @@ public class GameController : MonoBehaviour
                 switch (characters[(characterSelected + 1) % characters.Count].tag)
                 {
                     case "Player":
-                        if (characters[characterSelected].GetComponent<Mosquitoes>().actualState != Entity.EntityState.IDLE)
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
                         {
                             return;
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Plants>().actualState = Entity.EntityState.START;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
                         PlayerPanel.instance.gameObject.SetActive(true);
                         break;
                     case "Enemy":
-                        if (characters[characterSelected].GetComponent<Mosquitoes>().actualState != Entity.EntityState.IDLE)
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
                         {
                             return;
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Mosquitoes>().actualState = Entity.EntityState.START;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
                         break;
                 }
                 break;
         }
         TurnPanel.instance.SetTurns();
-        if(characterSelected == 0)
-        {
-            NewTurn();
-        }
     }
     public GameObject SelectedPlayer(int addPosition = 0)
     {
         return characters[(characterSelected + addPosition) % characters.Count()];
     }
-    private void NewTurn()
+    public void NextTurn()
     {
+        SelectedPlayer().GetComponent<Entity>().EndTurn();
+        if(characterSelected != 0)
+        {
+            return;
+        }
         GridCreator.instance.GenerateSeed();
     }
     public void Died(GameObject entity)

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 192312548320703660}
   - component: {fileID: 4385606644279347994}
   - component: {fileID: 4004619573126807341}
+  - component: {fileID: -4600822438082363797}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Enemy
@@ -153,16 +154,20 @@ MonoBehaviour:
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  poisoned: 0
+  stuned: 0
   hidden: 0
   attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
-  actualState: 1
-  mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
-  skillPrefabs: []
+  actualState: 5
+  mainAttack: {fileID: 805721938524684691, guid: 150c722a4a1f4574db477f9ab2989eab, type: 3}
+  skillPrefabs:
+  - {fileID: 419186179298654320, guid: 660dc70ac5b880740b959817e41e9bc2, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
+  charges: 0
   mainObjective: {fileID: 0}
   MovementSpeed: 2
   MovementPoint: {x: 0, y: 0, z: 0}
@@ -187,6 +192,26 @@ MonoBehaviour:
   livePointsText: {fileID: 7296510475246959956}
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
   HUDSpriteSize: 100
+--- !u!95 &-4600822438082363797
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192312548320703699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae37a3b42d5deec4fa1396e92e2f69ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5123966361631142608
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5540276384327767973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5540276384327767995}
+  - component: {fileID: 5540276384327767972}
+  m_Layer: 0
+  m_Name: BioEnergiced
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5540276384327767995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540276384327767973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9516897, y: 0.012659162, z: 5.2802696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5540276384327767972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540276384327767973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d58bd16ee53644494ab4a9ff0969d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  isActiveSkill: 0
+  isbuffing: 0
+  isReciveingDamage: 0
+  isDoingDamage: 1
+  isReflexive: 0
+  actilveOnClick: 0
+  selectsTile: 0
+  isOnSeed: 0
+  isOnDestination: 0
+  destinationTile: {fileID: 0}
+  radious: 0
+  areaOfEffect: 0
+  turnsActive: 0
+  maxTurnsActive: 0
+  alreadyUsed: 0
+  coolDown: 0
+  currentCoolDown: 0

@@ -85,7 +85,7 @@ public class Plants : Entity
                 
                 if(livePoints <= 0)
                 {
-                    actualState = EntityState.IDLE;
+                    actualState = EntityState.FINISHED;
                     GameController.instance.NextPlayer();
                     GameController.instance.Died(gameObject);
                 }
@@ -98,7 +98,14 @@ public class Plants : Entity
 
                     PlayerPanel.instance.ChangePlayer(gameObject);
                 }
-                actualState = EntityState.IDLE;
+                if (stuned)
+                {
+                    actualState = EntityState.FINISHED;
+                }
+                else
+                {
+                    actualState = EntityState.IDLE;
+                }
                 break;
             case EntityState.IDLE:
                 if (gameObject == GameController.instance.SelectedPlayer())
@@ -131,9 +138,6 @@ public class Plants : Entity
                 mainAttack.Effect(mainObjective, gameObject);
 
                 break;
-            case EntityState.STUNED:
-                
-                break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
                 if (skills[skillSelected].actilveOnClick)
@@ -149,11 +153,11 @@ public class Plants : Entity
                 }
                 else
                 {
-                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].radious, false);
+                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
                 }
                 break;
             case EntityState.FINISHED:
-                
+                GameController.instance.NextPlayer();
                 break;
         }
     }
@@ -164,8 +168,7 @@ public class Plants : Entity
         hidden = true;
         renderer.color = hideColor;
         defenseMultiplayer = 2;
-        actualState = EntityState.IDLE;
-        GameController.instance.NextPlayer();
+        actualState = EntityState.FINISHED;
     }
     public void Show()
     {

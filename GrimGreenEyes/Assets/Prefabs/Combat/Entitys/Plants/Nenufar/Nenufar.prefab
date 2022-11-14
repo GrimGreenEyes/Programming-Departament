@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Nenufar
-  type: 0
   livePoints: 180
   maxLivePoints: 180
   attack: 30
@@ -391,11 +390,13 @@ MonoBehaviour:
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  poisoned: 0
+  stuned: 0
   hidden: 0
   attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
-  actualState: 0
+  actualState: 5
   mainAttack: {fileID: 8890309519532701782, guid: e3a04ef5d4b2a9f4084c23043eceec09, type: 3}
   skillPrefabs:
   - {fileID: 618901584674733914, guid: 887d9ce837cd7ab46b277f6f5c15bd91, type: 3}

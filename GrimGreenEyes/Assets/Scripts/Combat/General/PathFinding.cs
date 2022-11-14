@@ -82,25 +82,21 @@ public class PathFinding : MonoBehaviour
         if (thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width - 1 && !parents.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && !openSet.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
         {
             openSet.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()));
-            Debug.LogError(openSet.Last());
             parents.Add(openSet[openSet.Count() - 1], thisTile);
         }
         if (thisTile.GetComponent<Tile>().GetX() - 1 >= 0 && (!parents.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY())) && !openSet.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()))) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
         {
             openSet.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()));
-            Debug.LogError(openSet.Last());
             parents.Add(openSet[openSet.Count() - 1], thisTile);
         }
         if (thisTile.GetComponent<Tile>().GetY() + 1 < GridCreator.instance.height - 1 && !parents.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1)) && !openSet.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1))  && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<Tile>().isWalkable)
         {
             openSet.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1));
-            Debug.LogError(openSet.Last());
             parents.Add(openSet[openSet.Count() - 1], thisTile);
         }
         if (thisTile.GetComponent<Tile>().GetY() - 1 >= 0 && (!parents.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1)) && !openSet.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1))) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<Tile>().isWalkable)
         {
             openSet.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1));
-            Debug.LogError(openSet.Last());
             parents.Add(openSet[openSet.Count() - 1], thisTile);
         }
         openSet = openSet.OrderBy(tile => tile.GetComponent<Tile>().weight).ToList();

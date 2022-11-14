@@ -390,14 +390,17 @@ MonoBehaviour:
   heatResistanceMultiplayer: 1
   freezeResistanceMultiplayer: 1
   bleeding: 0
+  poisoned: 0
+  stuned: 0
   hidden: 0
   attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
-  actualState: 0
+  actualState: 5
   mainAttack: {fileID: 2091355357461808738, guid: cc13ee5a86587dd4fa3057a3ddf6a379, type: 3}
   skillPrefabs:
   - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
+  - {fileID: 419186179298654320, guid: 660dc70ac5b880740b959817e41e9bc2, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
