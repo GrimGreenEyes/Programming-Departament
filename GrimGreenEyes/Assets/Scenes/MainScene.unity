@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5f2d1a7e5119b854e9629a2c9cd4ff52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fddd2017c6671364aa1059a07c83022a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -282,7 +282,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 77050054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1715785742}
+        m_TargetAssemblyTypeName: GlobalVar, Assembly-CSharp
+        m_MethodName: notShowLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &77050054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +393,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -518,8 +530,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -965,8 +977,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1246,7 +1258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715785740}
+      - m_Target: {fileID: 430973605}
         m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: loadScreen
         m_Mode: 5
@@ -1503,8 +1515,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1639,8 +1651,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start new game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1812,7 +1824,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715785740}
+      - m_Target: {fileID: 430973605}
         m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: exitGame
         m_Mode: 1
@@ -2069,7 +2081,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715785740}
+      - m_Target: {fileID: 430973605}
         m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: loadScreen
         m_Mode: 5
@@ -2193,8 +2205,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2218,14 +2230,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.7
+  m_fontSize: 58.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2328,8 +2340,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2392,7 +2404,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1713141342
@@ -2576,10 +2588,60 @@ MonoBehaviour:
       la tierra. Ahora sus semillas ya no son lo que fueron, lo mejor que puedes
       hacer si le ves a lo lejos es rezar que no te haya visto, porque en ese caso...
       de nada te servir\xE1 correr, Rolay te alcanzar\xE1 y no ser\xE1 para hablar. "
+    msgEng: 'Once he travelled the world leaving his seeds to spread across the land.
+      Now his seeds are no longer what they were, the best thing to do if you see
+      him in the distance is to pray that he hasn''t seen you, because in that case...
+      it won''t do you any good to run, Rolay will catch up with you and it won''t
+      be to talk. '
   - name: LUMENDUS
     image: {fileID: 21300000, guid: 15c2d48be846183479be39d0b6f11600, type: 3}
     msg: "Aunque su trabajo es ayudar a sus compa\xF1eros, ser\xE1 capaz de hacer
       frente al cualquier enemigo si este... le calienta mucho las pipas. "
+    msgEng: 'Although his job is to help his comrades, he will be able to deal with
+      any enemy if the enemy... gets his pipes too hot. '
+  - name: SKARMOR
+    image: {fileID: 21300000, guid: 0a5c4d51cb6213f40b7b5326c6fd9b23, type: 3}
+    msg: "Capaz de despedazar a cualquiera que le haga enfadar, no es un amigo con
+      el que poder abrazarte, pero seguro que ser\xE1 capaz de mantener a tus enemigos
+      lejos, a no ser... que estos quieran terminar como un colador. "
+    msgEng: 'Capable of tearing apart anyone who pisses him off, he''s not a friend
+      you can cuddle with, but he''ll certainly be able to keep your enemies away,
+      unless... they want to end up as a sieve. '
+  - name: ZEMAYS
+    image: {fileID: 21300000, guid: 1171775a024f2954d92df5c306b897dd, type: 3}
+    msg: "Se cree el gobernador de cualquier ser que considere inferior, nunca le
+      veras mal vestido, adem\xE1s, para \xE9l no hay mayor pecado que dirigirle
+      la palabra si no estas a su altura... \u201CEso nunca pasar\xE1\u201D "
+    msgEng: He thinks he is the ruler of any being he considers inferior, you will
+      never see him badly dressed, besides, for him there is no greater sin than
+      to speak to him if you are not at his level... "That will never happen.
+  - name: BELATOR
+    image: {fileID: 21300000, guid: eb899d98ddf1ee04c87e1808f58d8e9b, type: 3}
+    msg: "Caballero particular, sirve a su prop\xF3sito de proteger y por ello se
+      le doto de dos grandes escudos, uno para proteger al pr\xF3jimo y otro para
+      proteger su cuerpo recubierto de fuertes placas de nen\xFAfares. Porta con
+      honor su lanza, para arrebatar la vida a aquellos con no se la han ganado. "
+    msgEng: 'A particular knight, he serves his purpose of protection and is therefore
+      endowed with two great shields, one to protect his fellow man and the other
+      to protect his body covered with strong plates of water lilies. He carries
+      his spear with honour, to take the lives of those who have not earned it. '
+  - name: SARTIRY
+    image: {fileID: 21300000, guid: 7dd63bfb65060f041b7239baa663a13d, type: 3}
+    msg: "En el pasado quedo su deslumbrante belleza que todos admiraban, ahora busca
+      venganza y recuperar lo que sus antepasadas poseyeron. Aliment\xE1ndose de
+      la sangre de sus enemigos calma su ira y recupera, temporalmente, el reflejo
+      de lo que alguna vez fue y nos mostrar\xE1 lo que puede llegar hacer por tratar
+      de recuperarlo. "
+    msgEng: 'In the past is her dazzling beauty that everyone admired, now she seeks
+      revenge and to regain what her ancestors possessed. Feeding on the blood of
+      her enemies, she calms her anger and recovers, temporarily, the reflection
+      of what she once was and will show us what she can do to try to get it back. '
+  - name: VERA
+    image: {fileID: 21300000, guid: 316570928dd906a40a8bc91a9457a872, type: 3}
+    msg: "De car\xE1cter feliz y risue\xF1o, a diferencia del resto del mundo, que
+      ha quedado desolado y lleno de ira. "
+    msgEng: 'A happy and smiling plant, unlike the rest of the world, which has become
+      desolate and full of anger. '
   blcImg: {fileID: 0}
   text: {fileID: 0}
   plantImg: {fileID: 0}
@@ -2707,8 +2769,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2951,8 +3013,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
