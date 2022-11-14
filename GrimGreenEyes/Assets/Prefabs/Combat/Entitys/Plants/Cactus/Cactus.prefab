@@ -427,7 +427,8 @@ MonoBehaviour:
   directionY: 0
   livePointsText: {fileID: 7662691129071967356}
   HUDSprite: {fileID: 21300000, guid: 9ba7969a4214fcb4285c9fbdb30dd754, type: 3}
-  HUDSpriteSize: 0
+  HUDSpriteSize: 6
+  HUDTurnSize: 12
 --- !u!95 &6880730160977930451
 Animator:
   serializedVersion: 4

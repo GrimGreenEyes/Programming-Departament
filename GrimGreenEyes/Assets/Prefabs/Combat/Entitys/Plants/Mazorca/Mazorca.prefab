@@ -190,8 +190,9 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 2362480325833250713}
-  HUDSprite: {fileID: 21300000, guid: 57d9efa995f8132468e5126c50db13c6, type: 3}
+  HUDSprite: {fileID: 21300000, guid: 7114dccb5eaaad244b9cf3164cdbbd23, type: 3}
   HUDSpriteSize: 4.6
+  HUDTurnSize: 10
 --- !u!95 &-123000234893527775
 Animator:
   serializedVersion: 4

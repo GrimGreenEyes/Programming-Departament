@@ -320,7 +320,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -428,6 +428,7 @@ MonoBehaviour:
   livePointsText: {fileID: 8156315579651209601}
   HUDSprite: {fileID: 21300000, guid: b7238e05e7cf0154fa05cdb34664ad83, type: 3}
   HUDSpriteSize: 6.5
+  HUDTurnSize: 14
 --- !u!95 &9082230222418526374
 Animator:
   serializedVersion: 4

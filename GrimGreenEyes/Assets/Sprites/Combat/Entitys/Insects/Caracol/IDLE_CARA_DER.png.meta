@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f70a8db52880ef469cd2704f0354bbb
+guid: 0098f56617d8fe44caf19926c77585c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDEL_CARA_IZQ_0
+      name: IDLE_CARA_DER_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1000
-        height: 1516
+        height: 893
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac01125e71ea04f40abff550f49ffd88
-      internalID: -486274702
+      spriteID: f55961898d517854582ad6bfade03871
+      internalID: -843152552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDEL_CARA_IZQ_1
+      name: IDLE_CARA_DER_1
       rect:
         serializedVersion: 2
         x: 1000
         y: 0
         width: 1000
-        height: 1516
+        height: 893
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6637f3ce97d2d24d869dc8ad272e4a1
-      internalID: 346833446
+      spriteID: 9a0ca6f8e72d5a64e967a4ae1e2d9f32
+      internalID: 1572425948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDEL_CARA_IZQ_2
+      name: IDLE_CARA_DER_2
       rect:
         serializedVersion: 2
         x: 2000
         y: 0
         width: 1000
-        height: 1516
+        height: 893
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,134 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd7db7a8c2b8a1c40bcce78f97c67edd
-      internalID: -1447996926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72285b9c3902d964f9c90da2cc58ebd4
-      internalID: 154119719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f14e1bf75ed24a439d183879e1e8a9b
-      internalID: 835297721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_5
-      rect:
-        serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6d726fac5bf7f94ba964c7ae02fab34
-      internalID: 107584886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_6
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2277f1ab70eac741846cf54dbf55591
-      internalID: 1423163925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5e9bb8ae8932d448bac3b8005f6b97e
-      internalID: -1928166764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDEL_CARA_IZQ_8
-      rect:
-        serializedVersion: 2
-        x: 8000
-        y: 0
-        width: 1000
-        height: 1516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9af19dfde4f0124abfbea07a2e3b965
-      internalID: -1205968417
+      spriteID: 34a61443b124db34b9a2a8f1426c474a
+      internalID: 753008591
       vertices: []
       indices: 
       edges: []
@@ -316,15 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDEL_CARA_IZQ_6: 1423163925
-      IDEL_CARA_IZQ_4: 835297721
-      IDEL_CARA_IZQ_1: 346833446
-      IDEL_CARA_IZQ_3: 154119719
-      IDEL_CARA_IZQ_7: -1928166764
-      IDEL_CARA_IZQ_8: -1205968417
-      IDEL_CARA_IZQ_2: -1447996926
-      IDEL_CARA_IZQ_5: 107584886
-      IDEL_CARA_IZQ_0: -486274702
+      IDLE_CARA_DER_0: -843152552
+      IDLE_CARA_DER_1: 1572425948
+      IDLE_CARA_DER_2: 753008591
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

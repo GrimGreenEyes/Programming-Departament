@@ -82,6 +82,7 @@ public class Entity : MonoBehaviour
 
     public Sprite HUDSprite;
     public float HUDSpriteSize;
+    public float HUDTurnSize;
 
     [Header("Animation")]
     private Animator animator;

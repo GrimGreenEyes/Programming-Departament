@@ -7,7 +7,6 @@ public class TilePanel : MonoBehaviour
 {
     public static TilePanel instance;
 
-    [SerializeField] private Image image;
     [SerializeField] private TMP_Text description;
 
     private void Awake()
@@ -28,7 +27,6 @@ public class TilePanel : MonoBehaviour
 
     public void Change(GameObject newTile)
     {
-        image.sprite = newTile.GetComponent<Sprite>();
         description.SetText(newTile.GetComponent<Tile>().description);
     }
     public void Hide()
