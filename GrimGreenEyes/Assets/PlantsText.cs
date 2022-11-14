@@ -32,12 +32,20 @@ public class PlantsText : MonoBehaviour
         text.GetComponent<TextMeshProUGUI>().text = info.msgEng;
         plantImg.GetComponent<Image>().sprite = info.image;
         plantName.GetComponent<TextMeshProUGUI>().text = info.name;
+
         StartCoroutine(loadingScene());
 
     }
     private void OnEnable()
     {
         GameObject.Find("Continue").GetComponent<Button>().interactable = false;
+
+
+        blcImg = transform.GetChild(0).gameObject;
+        text = blcImg.transform.GetChild(0).gameObject;
+        plantImg = blcImg.transform.GetChild(1).gameObject;
+        plantName = blcImg.transform.GetChild(2).gameObject;
+
 
         int rand = Random.RandomRange(0, infos.Count);
         Info info = infos[rand];
@@ -75,9 +83,13 @@ public class PlantsText : MonoBehaviour
 
     IEnumerator loadingScene()
     {
+        GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
+
         int rand = Random.RandomRange(2, 10);
         yield return new WaitForSeconds(rand);
         GameObject.Find("Continue").GetComponent<Button>().interactable = true;
+
+        GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
     }
 }
 [System.Serializable]
