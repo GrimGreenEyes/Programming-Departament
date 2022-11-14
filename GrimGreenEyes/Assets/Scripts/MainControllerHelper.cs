@@ -14,8 +14,18 @@ public class MainControllerHelper : MonoBehaviour
     public void clickWin()
     {
         GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreenFromBattle(true);
-
     }
+
+    public void loadScreen(string scena)
+    {
+        GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreen(scena);
+    }
+    public void exitGame()
+    {
+        GameObject.Find("GlobalAttributes").GetComponent<MainController>().exitGame();
+    }
+
+
     // Update is called once per frame
     void Update()
     {

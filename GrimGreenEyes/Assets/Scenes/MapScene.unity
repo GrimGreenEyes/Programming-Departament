@@ -957,6 +957,7 @@ MonoBehaviour:
   - {fileID: 3579049386689704778, guid: 8b49e11af4a8c4840aa732147c9f26ec, type: 3}
   mapPos: {x: 0, y: 0, z: 0}
   glovalVar: {fileID: 0}
+  movingCam: 0
 --- !u!4 &794946634
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +1015,8 @@ MonoBehaviour:
   biomCont: []
   indBioma: 0
   biomsList: []
+  showLoad: 0
+  fadePrefab: {fileID: 0}
 --- !u!4 &915653066
 Transform:
   m_ObjectHideFlags: 0
@@ -1079,6 +1082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchHasWon: 0
+  movingCam: 0
+  audioManager: {fileID: 0}
 --- !u!1 &994906987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,8 +1911,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2140003093}
-        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
+      - m_Target: {fileID: 2140003094}
+        m_TargetAssemblyTypeName: MainControllerHelper, Assembly-CSharp
         m_MethodName: loadScreen
         m_Mode: 5
         m_Arguments:
@@ -2270,6 +2276,7 @@ GameObject:
   - component: {fileID: 2140003090}
   - component: {fileID: 2140003089}
   - component: {fileID: 2140003093}
+  - component: {fileID: 2140003094}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2373,5 +2380,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6f069cf8fcd56419a8c2056ead5b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchHasWon: 0
+  movingCam: 0
+  audioManager: {fileID: 0}
+--- !u!114 &2140003094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140003088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ed8dc806e5d56448c97395efdea7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

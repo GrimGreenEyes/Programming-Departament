@@ -37,6 +37,8 @@ public class GlobalVar : MonoBehaviour
     public List<GameObject> biomsList;
 
     public bool showLoad;
+
+    public GameObject fadePrefab;
     void Awake()
     {
         isMapUp = true;
@@ -54,8 +56,12 @@ public class GlobalVar : MonoBehaviour
    
     void Start()
     {
-       // biomaActual = biomas[0];
-       // checkBioms("CanvasNodes");
+        // biomaActual = biomas[0];
+        // checkBioms("CanvasNodes");
+       /* if (!gameObject.transform.Find("Fade"))
+        {
+            Instantiate(fadePrefab);
+        }*/
     }
 
     // Update is called once per frame
@@ -186,6 +192,7 @@ public class GlobalVar : MonoBehaviour
 
         teamInfo.AddInitialPlant();
         Debug.Log("MAP DELETE 1");
+
 
     }
 

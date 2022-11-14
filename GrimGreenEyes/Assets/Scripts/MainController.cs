@@ -8,10 +8,23 @@ public class MainController : MonoBehaviour
 
     public bool matchHasWon;
     public bool movingCam;
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         matchHasWon = false;
+
+        if (!GameObject.Find("GlobalAttributes").gameObject.transform.Find("Fade"))
+        {
+          GameObject childFade = Instantiate(GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().fadePrefab);
+            childFade.transform.SetParent(GameObject.Find("GlobalAttributes").transform);
+            childFade.transform.SetAsFirstSibling();
+
+
+        }
+        Debug.Log(GameObject.Find("GlobalAttributes").gameObject.transform.Find("Fade").name);
+
+        audioManager = GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -33,6 +46,7 @@ public class MainController : MonoBehaviour
        
         if (string.Equals(sceneName, "MapScene"))
         {
+            audioManager.changeMusic("mapa");
             if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().created == 1)
             {
                 movingCam = true;
@@ -74,6 +88,8 @@ public class MainController : MonoBehaviour
         {
           //  GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchLoose);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
+            audioManager.changeMusic("menu");
+
         }
 
         if (string.Equals(sceneName, "LoadMapScene"))
@@ -91,9 +107,27 @@ public class MainController : MonoBehaviour
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.loadGame);
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
             }
+            audioManager.changeMusic("mapa");
+
         }
         if (string.Equals(sceneName, "CombatScene"))
+        {
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
+            if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual == EnumMapOptions.mapBiom.desierto)
+                audioManager.changeMusic("desierto");
+            if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual == EnumMapOptions.mapBiom.nieve)
+                audioManager.changeMusic("nieve");
+            if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual == EnumMapOptions.mapBiom.llanura)
+                audioManager.changeMusic("llanura1");
+            if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual == EnumMapOptions.mapBiom.selva)
+                audioManager.changeMusic("jungla1");
+
+        }
+        if (string.Equals(sceneName, "ResourcesScene"))
+        {
+            audioManager.changeMusic("carro");
+        }
+
 
     }
 
@@ -108,11 +142,14 @@ public class MainController : MonoBehaviour
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().nextNode();
             Debug.Log(matchHasWon);
             SceneManager.LoadScene("ResourcesScene");
+            audioManager.changeMusic("carro");
+
         }
         else
         {
             loadScreen("MainScene");
             matchHasWon=false;
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().delete();
         }
     }
 
