@@ -6,10 +6,8 @@ public class Thorns : Attack
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        Debug.Log("Ataque rosa");
-        enemy.GetComponent<Mosquitoes>().livePoints -= player.GetComponent<Plants>().mainAttack.DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
-        enemy.GetComponent<Mosquitoes>().bleeding = true;
-        CheckDead(enemy.GetComponent<Mosquitoes>());
-        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+        enemy.GetComponent<Entity>().bleeding = true;
+        enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

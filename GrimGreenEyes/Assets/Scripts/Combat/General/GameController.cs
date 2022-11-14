@@ -185,7 +185,6 @@ public class GameController : MonoBehaviour
     }
     public void Finish()
     {
-        teamManager.AddWater(3);
         //int j = 0;
         //for (int i = 0; j < playerLivePoints.Count; i++, j++) 
         //{
@@ -220,5 +219,9 @@ public class GameController : MonoBehaviour
             defaultWinButton.SetActive(false);
             looseScreen.SetActive(true);
         }
+    }
+    public void AddWater()
+    {
+        teamManager.AddWater(1);
     }
 }

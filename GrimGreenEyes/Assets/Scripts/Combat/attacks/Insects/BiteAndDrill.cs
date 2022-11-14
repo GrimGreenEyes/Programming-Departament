@@ -6,8 +6,7 @@ public class BiteAndDrill : Attack
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Entity>().livePoints -= DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        CheckDead(enemy.GetComponent<Entity>());
+        enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
         SearchBack(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
         player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
@@ -21,6 +20,6 @@ public class BiteAndDrill : Attack
             return;
         }
         otherEnemy.GetComponent<Entity>().livePoints -= DamageCalculator(otherEnemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        CheckDead(otherEnemy);
+        enemy.GetComponent<Entity>().CheckDead();
     }
 }

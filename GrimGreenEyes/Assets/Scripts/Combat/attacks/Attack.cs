@@ -25,13 +25,7 @@ public class Attack : MonoBehaviour
         float damage =  (player.attack + chargeDamage * charges) * totalDefense / 100f;
         return (int)damage;
     }
-    public void CheckDead(Entity enemy)
-    {
-        if (enemy.livePoints <= 0)
-        {
-            GameController.instance.Died(enemy.gameObject);
-        }
-    }
+    
     public virtual void Effect(GameObject objective, GameObject player) {
         Debug.Log("ataque base");
     }

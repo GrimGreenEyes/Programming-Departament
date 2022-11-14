@@ -382,7 +382,7 @@ MonoBehaviour:
   defense: 5
   heatResistance: 5
   freezeResistance: 5
-  agility: 0
+  agility: 12
   movement: 0
   maxMovement: 4
   attackMultiplayer: 1
@@ -428,6 +428,7 @@ MonoBehaviour:
   livePointsText: {fileID: 4163818713158511662}
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
   HUDSpriteSize: 100
+  HUDTurnSize: 0
 --- !u!95 &7266658047780522756
 Animator:
   serializedVersion: 4

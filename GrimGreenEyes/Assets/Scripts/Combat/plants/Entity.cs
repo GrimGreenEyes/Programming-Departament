@@ -223,4 +223,16 @@ public class Entity : MonoBehaviour
     {
         actualState = EntityState.FINISHED;
     }
+    public void CheckDead()
+    {
+        if (livePoints <= 0)
+        {
+            GameController.instance.Died(gameObject);
+        }
+    }
+    public void Damage(int damage)
+    {
+        livePoints -= damage;
+        CheckDead();
+    }
 }

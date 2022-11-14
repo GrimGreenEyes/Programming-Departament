@@ -550,8 +550,8 @@ RectTransform:
   m_Father: {fileID: 433991856}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.17264739, y: 0.09265622}
-  m_AnchorMax: {x: 0.84564745, y: 0.22200002}
+  m_AnchorMin: {x: 0.17264739, y: 0.076000005}
+  m_AnchorMax: {x: 0.84564745, y: 0.202}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2024,7 +2024,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.46274513, g: 0.18823531, b: 0.027450982, a: 0}
+  m_BackGroundColor: {r: 0.5377358, g: 0.45378956, b: 0.2916963, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

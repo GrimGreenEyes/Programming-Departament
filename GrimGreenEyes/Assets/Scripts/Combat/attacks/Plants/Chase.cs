@@ -18,8 +18,7 @@ public class Chase : Attack
     }
     private void DoDamage(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Mosquitoes>().livePoints -= DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
-        CheckDead(enemy.GetComponent<Mosquitoes>());
+        enemy.GetComponent<Mosquitoes>().Damage(DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>()));
         player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
 
     }

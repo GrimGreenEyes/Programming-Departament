@@ -7,8 +7,7 @@ public class BiteAndTangle : Attack
     const float STUN_PERCENTAGE = 30;
     public override void Effect(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Entity>().livePoints -= DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        CheckDead(enemy.GetComponent<Entity>());
+        enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
         if (Random.Range(0, 100) < STUN_PERCENTAGE)
         {
             enemy.GetComponent<Entity>().stuned = true;

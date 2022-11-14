@@ -19,7 +19,10 @@ public class Tile : MonoBehaviour
     private bool clickable = false;
     public bool isInRange = false;
     public bool isWalkable;
+    public bool isWatered;
     public bool isAcided;
+    public bool dealsDamage;
+    public const int DAMAGE = 3;
     public GameObject entity;
     public int weight;
 
@@ -161,6 +164,14 @@ public class Tile : MonoBehaviour
             isWalkable = false;
             entity.GetComponent<Entity>().SetTile(gameObject);
             isAcided = false;
+            if (isWatered)
+            {
+                GameController.instance.AddWater();
+            }
+            if (dealsDamage)
+            {
+                collision.GetComponentInParent<Entity>().Damage(DAMAGE);
+            }
             if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
             {
                 isAcided = true;
@@ -176,6 +187,7 @@ public class Tile : MonoBehaviour
             {
                 return;
             }
+            
             entity = null;
             isWalkable = true;
         }
@@ -205,7 +217,6 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE)
             GameController.instance.SelectedPlayer().GetComponent<Plants>().SetDestination(gameObject);
         if(GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)
@@ -215,7 +226,6 @@ public class Tile : MonoBehaviour
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = gameObject;
             }
     }
-    
     public int GetX()
     {
         return positionX;

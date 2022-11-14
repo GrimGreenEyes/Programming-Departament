@@ -11,7 +11,7 @@ public class LanzaConJunco : Attack
         int damage = DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>());
         enemy.GetComponent<Mosquitoes>().livePoints -= damage;
         player.GetComponent<Plants>().Heal((int)(damage * liveRegen));
-        CheckDead(enemy.GetComponent<Mosquitoes>());
+        enemy.GetComponent<Entity>().CheckDead();
         player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
     }
 }
