@@ -12,5 +12,6 @@ public class PopRod : Attack
         Debug.Log("lanzar palomita");
         popCorn = Instantiate(popCornPref, player.transform);
         popCorn.GetComponent<PopCorn>().throwTowards(enemy.transform.position);
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

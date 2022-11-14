@@ -55,7 +55,7 @@ MonoBehaviour:
   selectsStightTile: 0
   selectsTile: 1
   isOnSeed: 0
-  isOnDestination: 0
+  isOnDestination: 1
   destinationTile: {fileID: 0}
   range: 4
   areaOfEffect: 0

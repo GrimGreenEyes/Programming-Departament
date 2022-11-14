@@ -6,7 +6,7 @@ public class Acid : Skill
 {
     private GameObject startingTile;
     private bool arrived = false;
-    private float speed = 4;
+    private float speed = 3;
 
     public override void Effect(GameObject tile, GameObject player)
     {

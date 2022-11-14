@@ -216,7 +216,6 @@ public class Entity : MonoBehaviour
     }
     public void Heal(int quantity)
     {
-        Debug.Log("Healing: " + quantity);
         GetComponent<Plants>().livePoints = (GetComponent<Plants>().livePoints + quantity < GetComponent<Plants>().maxLivePoints) ? GetComponent<Plants>().maxLivePoints + quantity : GetComponent<Plants>().maxLivePoints;
     }
     public void EndTurn()

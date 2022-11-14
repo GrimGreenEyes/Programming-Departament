@@ -100,8 +100,6 @@ public class PathFinding : MonoBehaviour
             parents.Add(openSet[openSet.Count() - 1], thisTile);
         }
         openSet = openSet.OrderBy(tile => tile.GetComponent<Tile>().weight).ToList();
-        Debug.LogWarning("new list");
-        ConsoleOutput();
         if (openSet.Count != 0)
         {
             FindPath(openSet[0]);

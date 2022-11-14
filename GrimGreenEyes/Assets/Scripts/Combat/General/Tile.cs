@@ -53,14 +53,21 @@ public class Tile : MonoBehaviour
         {
             if (entity == null && player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].selectsStightTile && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
-                ShineStraightLine();
+                if (player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].destinationTile == null)
+                {
+                    ShineStraightLine();
+
+                }
             }
             else if (entity == null && player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].selectsTile && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
-                ShineTile();
-                SetClickable(true);
+                if (player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].destinationTile == null)
+                {
+                    ShineTile();
+                    SetClickable(true);
+                }
             }
-            else if(entity != null && !player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].isOnDestination && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
+            else if (entity != null && !player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].isOnDestination && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
                 ShineEntity();
             }
@@ -205,6 +212,7 @@ public class Tile : MonoBehaviour
             if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsTile || GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].selectsStightTile)
             {
                 GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = gameObject;
             }
     }
     

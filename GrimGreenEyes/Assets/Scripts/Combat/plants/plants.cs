@@ -148,7 +148,7 @@ public class Plants : Entity
                 {
                     if(skills[skillSelected].destinationTile != null)
                     {
-                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                        skills[skillSelected].Effect(mainObjective, GameController.instance.SelectedPlayer());
                     }
                 }
                 else
