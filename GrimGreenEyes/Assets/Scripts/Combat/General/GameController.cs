@@ -9,11 +9,11 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
-    private int characterSelected = -1;
+    public int characterSelected = -1;
     private List<GameObject> characters = new List<GameObject>();
-    private List<GameObject> players = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
     private List<int> playerLivePoints = new List<int>();
-    private List<GameObject> enemys = new List<GameObject>();
+    public List<GameObject> enemys = new List<GameObject>();
 
     public GameObject winScreen;
     public GameObject looseScreen;
