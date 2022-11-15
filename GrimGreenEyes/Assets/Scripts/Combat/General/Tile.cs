@@ -124,11 +124,11 @@ public class Tile : MonoBehaviour
                 {
 
                 }
-                if (entity.tag == "Enemy" && !GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
+                if (entity.tag == "Enemy" && GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isAttacking)
                 {
                     renderer.color = enemyColor;
                 }
-                else if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
+                if (entity.tag == "Player" && GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
                 {
                     renderer.color = allyColor;
                 }

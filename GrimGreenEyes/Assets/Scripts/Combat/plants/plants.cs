@@ -81,8 +81,12 @@ public class Plants : Entity
                 if (hidden) Show(); 
                 movement = maxMovement;
                 attacked = false;
-                if(bleeding) livePoints -= 5;
-                
+                if(bleeding) Damage(5);
+                if (poisoned)
+                {
+                    Damage((int)((float)livePoints * 0.1f));
+                    poisoned = false;
+                }
                 if(livePoints <= 0)
                 {
                     actualState = EntityState.FINISHED;

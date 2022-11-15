@@ -400,6 +400,7 @@ MonoBehaviour:
   mainAttack: {fileID: 1085834782170022000, guid: bc09c06347bf941429c000cec8a9c95e, type: 3}
   skillPrefabs:
   - {fileID: 3238834319357822859, guid: 14630a11000848c4ca69e3266055ab59, type: 3}
+  - {fileID: 2012598686898675213, guid: d4360ecde46eade40b5deed55096fb7f, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3

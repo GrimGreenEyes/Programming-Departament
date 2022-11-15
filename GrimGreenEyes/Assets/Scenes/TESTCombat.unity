@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchHasWon: 0
   movingCam: 0
+  audioManager: {fileID: 0}
 --- !u!114 &144129713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2949,6 +2950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchHasWon: 0
   movingCam: 0
+  audioManager: {fileID: 0}
 --- !u!114 &1982201359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3379,6 +3381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchHasWon: 0
   movingCam: 0
+  audioManager: {fileID: 0}
 --- !u!114 &2138746615
 MonoBehaviour:
   m_ObjectHideFlags: 0

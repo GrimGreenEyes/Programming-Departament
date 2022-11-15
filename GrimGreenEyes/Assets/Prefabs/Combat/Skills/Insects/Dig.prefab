@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2860580040852217672
+--- !u!1 &1003371160015502217
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5045895836725696714}
-  - component: {fileID: 5204054957660908025}
+  - component: {fileID: 1749007420231832659}
+  - component: {fileID: 68129194709052544}
   m_Layer: 0
-  m_Name: Rooting
+  m_Name: Dig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5045895836725696714
+--- !u!4 &1749007420231832659
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860580040852217672}
+  m_GameObject: {fileID: 1003371160015502217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.24774426, y: 0.2772695, z: -0.03951069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5204054957660908025
+--- !u!114 &68129194709052544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860580040852217672}
+  m_GameObject: {fileID: 1003371160015502217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4277c0420cfcacc4495f34362ad26e86, type: 3}
+  m_Script: {fileID: 11500000, guid: 67fc296f326c4a04393cd8c64f5209d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Enraizar
-  description: La planta se mete bajo tierra escondiendo su cuerpo y aumentando su
-    defensa.
+  name: Dig
+  description: 
   isActiveSkill: 1
-  isAttacking: 0
   isbuffing: 0
   isReciveingDamage: 0
   isDoingDamage: 0
-  isReflexive: 1
-  actilveOnClick: 1
+  isReflexive: 0
+  actilveOnClick: 0
   selectsStightTile: 0
-  selectsTile: 0
+  selectsTile: 1
   isOnSeed: 0
-  isOnDestination: 0
+  isOnDestination: 1
   destinationTile: {fileID: 0}
-  range: 0
+  range: 4
   areaOfEffect: 0
   turnsActive: 0
   maxTurnsActive: 0
   alreadyUsed: 0
-  coolDown: 3
+  coolDown: 0
   currentCoolDown: 0
-  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.56078434}

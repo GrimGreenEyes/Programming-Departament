@@ -401,6 +401,7 @@ MonoBehaviour:
   skillPrefabs:
   - {fileID: 2860580040852217672, guid: b33ec4f94897d61469addd61ac684172, type: 3}
   - {fileID: 419186179298654320, guid: 660dc70ac5b880740b959817e41e9bc2, type: 3}
+  - {fileID: 1003371160015502217, guid: c9a93168c89fea24a86a15d29cb7973d, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
