@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Plants : Entity
 {
-
+    private bool pathShined = false;
 
     public void SetAttack(Attack newAttack)
     {
@@ -58,12 +58,12 @@ public class Plants : Entity
     }
     public void selectSkill(int position)
     {
-        if (skillSelected == position)
-        {
-            actualState = EntityState.IDLE;
-            skillSelected = skills.Count;
-            return;
-        }
+        //if (skillSelected == position)
+        //{
+        //    actualState = EntityState.IDLE;
+        //    skillSelected = skills.Count;
+        //    return;
+        //}
         skillSelected = position;
         actualState = EntityState.USINGSKILL;
     }

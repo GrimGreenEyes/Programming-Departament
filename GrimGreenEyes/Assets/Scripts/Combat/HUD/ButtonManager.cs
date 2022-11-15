@@ -24,10 +24,6 @@ public class ButtonManager : MonoBehaviour
     }
     public void SelectSkill()
     {
-        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[skillPosition].currentCoolDown > 0)
-        {
-            return;
-        }
         bool wasActive = isActive;
         PlayerPanel.instance.SetButtonsToInactive();
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE || GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)

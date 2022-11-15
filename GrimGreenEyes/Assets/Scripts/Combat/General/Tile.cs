@@ -175,6 +175,7 @@ public class Tile : MonoBehaviour
             if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
             {
                 isAcided = true;
+                weight = 3;
             }
         }
     }

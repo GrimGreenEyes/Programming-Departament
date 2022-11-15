@@ -46,9 +46,9 @@ public class Skill : MonoBehaviour
     }
     public void DeactivateSkill(Entity player)
     {
-        PlayerPanel.instance.SetButtonsToInactive();
         alreadyUsed = true;
         currentCoolDown = coolDown;
+        PlayerPanel.instance.SetButtonsToInactive();
         player.skillSelected = player.skills.Count;
         player.actualState = Entity.EntityState.IDLE;
     }

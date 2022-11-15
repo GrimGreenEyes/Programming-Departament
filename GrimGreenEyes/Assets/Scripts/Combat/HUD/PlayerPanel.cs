@@ -69,9 +69,12 @@ public class PlayerPanel : MonoBehaviour
     {
         for (int i = 0; i < skillButtons.Count; i++)
         {
-            skillButtons[i].GetComponent<ButtonManager>().isActive = false;
-            skillButtons[i].GetComponent<ButtonManager>().SetColor(skillButtons[i].GetComponent<ButtonManager>().onButtonUpColor);
-            GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+            if(GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[i].currentCoolDown == 0)
+            {
+                skillButtons[i].GetComponent<ButtonManager>().isActive = false;
+                skillButtons[i].GetComponent<ButtonManager>().SetColor(skillButtons[i].GetComponent<ButtonManager>().onButtonUpColor);
+                GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+            }
         }
     }
 

@@ -47,6 +47,7 @@ MonoBehaviour:
   name: Dig
   description: 
   isActiveSkill: 1
+  isAttacking: 0
   isbuffing: 0
   isReciveingDamage: 0
   isDoingDamage: 0
@@ -62,5 +63,5 @@ MonoBehaviour:
   turnsActive: 0
   maxTurnsActive: 0
   alreadyUsed: 0
-  coolDown: 0
+  coolDown: 3
   currentCoolDown: 0
