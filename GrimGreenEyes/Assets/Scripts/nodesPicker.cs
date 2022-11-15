@@ -157,7 +157,7 @@ public class nodesPicker : MonoBehaviour
                 Debug.Log(rand4 % 4);
 
             }
-            transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = mapsToPick3[rand4];
+            transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = mapsToPick4[rand4];
             mapBioms[3] = rand4 % 4;
 
             switch (mapBioms[3])

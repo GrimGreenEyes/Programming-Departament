@@ -39,7 +39,6 @@ public class BiomController : MonoBehaviour
         //  setPaths();
 
         glovalBar.biomsList.Add(this.gameObject);
-        Debug.Log(glovalBar.biomas[numberBiom]);
         EnumMapOptions.mapBiom biomtext = glovalBar.biomas[numberBiom];
         switch (biomtext)
         {

@@ -540,8 +540,8 @@ MonoBehaviour:
   spritesFinales:
   - {fileID: 21300000, guid: 39db6cc1fcb44cc4ba52d3cd3dfbbb4c, type: 3}
   - {fileID: 21300000, guid: 2cf5f0a465f989a4e991507d46d5df49, type: 3}
-  - {fileID: 21300000, guid: a2ef5d7983d7f124292017cbaeb09eb8, type: 3}
-  - {fileID: 21300000, guid: 7912c6072c75bf54483cd5fa9bab8736, type: 3}
+  - {fileID: 21300000, guid: 1fa22dd120824424cb798999e3e96a26, type: 3}
+  - {fileID: 21300000, guid: d950c8c11e2986a4eabea17aeee50fa3, type: 3}
 --- !u!1 &2615776541098115145
 GameObject:
   m_ObjectHideFlags: 0

@@ -1779,7 +1779,7 @@ MonoBehaviour:
   mapGenerated: {fileID: 0}
   actualNode: {fileID: 0}
   isMapUp: 0
-  biomas: 
+  biomas: 00000000000000000000000000000000
   biomaActual: 0
   isLastNode: 0
   biomCont: []
