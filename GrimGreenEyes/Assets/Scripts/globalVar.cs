@@ -23,6 +23,8 @@ public class GlobalVar : MonoBehaviour
 
     public bool isLastNode;
 
+    public bool itsRaining;
+    public bool specialEvent;
 
     public List<Transform> biomCont;
 

@@ -399,7 +399,7 @@ MonoBehaviour:
   actualState: 5
   mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
   skillPrefabs:
-  - {fileID: 5860293171188052277, guid: 985f431dcb41a9b44a3820294714e1fa, type: 3}
+  - {fileID: 2012598686898675213, guid: d4360ecde46eade40b5deed55096fb7f, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
@@ -428,6 +428,7 @@ MonoBehaviour:
   livePointsText: {fileID: 248440954534126182}
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
   HUDSpriteSize: 100
+  HUDTurnSize: 0
 --- !u!95 &6801036089218073932
 Animator:
   serializedVersion: 4

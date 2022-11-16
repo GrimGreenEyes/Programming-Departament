@@ -61,9 +61,13 @@ MonoBehaviour:
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
   description: groundTile
+  type: mountain
+  spawnBlocks: 0
   isInRange: 0
   isWalkable: 0
+  isWatered: 0
   isAcided: 0
+  dealsDamage: 0
   entity: {fileID: 0}
   weight: 1
   seeds:

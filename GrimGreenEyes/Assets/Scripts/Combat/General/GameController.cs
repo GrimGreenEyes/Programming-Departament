@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        //teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+        teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
     }
 
     public void Init(GameObject entity)

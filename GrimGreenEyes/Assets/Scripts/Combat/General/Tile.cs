@@ -15,6 +15,9 @@ public class Tile : MonoBehaviour
     [Header("InGame")]
     public string description;
 
+    public string type;
+    public bool spawnBlocks;
+
     private int positionX, positionY;
     private bool clickable = false;
     public bool isInRange = false;
@@ -41,6 +44,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
+        
         StopShine();
         SetClickable(false);
         GameObject player = GameController.instance.SelectedPlayer();
@@ -86,6 +90,7 @@ public class Tile : MonoBehaviour
             SetClickable(true);
             isInRange = false;
         }
+        
     }
 
     public void GenerateSeed()
