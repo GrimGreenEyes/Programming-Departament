@@ -62,6 +62,8 @@ MonoBehaviour:
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
   description: groundTile
+  type: healer
+  spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
   isWatered: 1
