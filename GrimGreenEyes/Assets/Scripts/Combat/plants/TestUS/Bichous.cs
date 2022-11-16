@@ -30,6 +30,11 @@ public class Bichous : Entity
     
     int movementH;
 
+    public GridCreator gridCreator;
+    public Carriage carro;
+
+    bool isAttacking;
+
 
     private void Update()
     {
@@ -39,6 +44,10 @@ public class Bichous : Entity
     //ESCARABAJO
     private void Start()
     {
+        isAttacking = false;
+        gridCreator = GameObject.Find("Grid").GetComponent<GridCreator>();
+
+        carro = GameObject.Find("carro(Clone)").GetComponent<Carriage>();
         isWalking = false;
         int movementH = maxMovement;
         options = new float[4]; 
@@ -200,6 +209,13 @@ public class Bichous : Entity
                         mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
                 }
                 mainAttack.Effect(mainObjective, gameObject);
+                if (isAttacking)
+                {
+                    actualState = EntityState.MOVEING;
+                    isAttacking = false;
+                }
+                States();
+              
                 break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
@@ -230,15 +246,66 @@ public class Bichous : Entity
 
     public void PickOption()
     {
+        carro = GameObject.Find("carro(Clone)").GetComponent<Carriage>();
         //Attack Carro
-        //options.Add(0);
-        options[0] = 0;
+        List<Factor> factorsAttackCarro = new List<Factor>();
+
+        Factor minTwenty = new LeafVariable(() => 0.2f, 1, 0);
+
+        List<Factor> factorsHealth = new List<Factor>();
+        Factor _healthCarroAbs = new LeafVariable(() =>  carro.livePoints, 1, carro.maxLivePoints);
+        factorsHealth.Add(minTwenty);
+        factorsHealth.Add(_healthCarroAbs);
+
+        List<Factor> factorsFinalDist = new List<Factor>();
+        Factor _finalDistCarroAbs = new LeafVariable(() => carro.gridY, gridCreator.y, 1);
+        factorsFinalDist.Add(minTwenty);
+        factorsFinalDist.Add(_finalDistCarroAbs);
+
+        Factor _distCarro = new LeafVariable(() => distSmthToPlant(carro), gridCreator.y + gridCreator.x, 1);
+
+        Factor _healthCarro = new MaxFusion(factorsHealth);
+
+
+        Factor _finalDistCarro = new MaxFusion(factorsFinalDist);
+
+        factorsAttackCarro.Add(_healthCarro);
+        factorsAttackCarro.Add(_finalDistCarro);
+        factorsAttackCarro.Add(_distCarro);
+
+        // List<float> valuesCarro = new List<float>();
+        //valuesCarro.Add(_healthCarro.getValue());
+        List<float> weightsC = new List<float>();
+        weightsC.Add(0.34f);
+        weightsC.Add(0.34f);
+        weightsC.Add(0.34f);
+
+        Factor weightAtC = new WeightedSumFusion(factorsAttackCarro, weightsC);
+
+
+        float valueHealth = _healthCarro.getValue();
+        float valueFinalDistC = _finalDistCarro.getValue();
+        float valueDistC = _distCarro.getValue();
+
+
+
+        Debug.Log("HEAL CARRO:  " + _healthCarro.getValue());
+        Debug.Log("FINAL DIST CARRO:  " + _finalDistCarro.getValue());
+        Debug.Log("DIST CARRO:  " + _distCarro.getValue());
+        Debug.Log("CARRO PESADO: " + weightAtC.getValue());
+
+        options[0] = weightAtC.getValue();
+
+        options[0] += 0.5f;
+
+
         //Imp Mov Carro
-      //  options.Add(0);
         options[1] = 0;
+
         //Huir Planta
-        //  options.Add(0.05f);
         options[2] = 0.05f;
+
+
         //Atacar Planta X
 
         float[] plantsAtt = new float[plants.Count];
@@ -258,11 +325,11 @@ public class Bichous : Entity
 
             factors.Add(esRent);
             // Pesos
-            List<float> weights = new List<float>();
-            weights.Add(0.4f);
-            weights.Add(0.6f);
+            List<float> weightsAP = new List<float>();
+            weightsAP.Add(0.4f);
+            weightsAP.Add(0.6f);
             // Weighted Sum 2 opciones
-            Factor weightFactor = new WeightedSumFusion(factors, weights);
+            Factor weightFactor = new WeightedSumFusion(factors, weightsAP);
             plantsAtt[i] = weightFactor.getValue();
 
             Debug.Log(plantsAtt[i] + " " + plantsInfo[i].name);
@@ -295,6 +362,61 @@ public class Bichous : Entity
         if (decision == 0)
         {
             //Atack Carro
+            //IGUAL QUE ATACAR A PLANTA PERO AL CARRO
+
+            Carriage falseCarro = carro;
+            if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
+            {
+               // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
+                if (distSmthToPlant(carro) <= 2) // 1 o range
+                {
+                    //Attack
+                    //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(carro.GetComponent<Entity>().gridX, carro.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+                    if (!attacked)
+                    {
+                        mainObjective = carro.gameObject;
+                        GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+
+                        // attacked = true;
+                        Debug.Log("ATTACK 1");
+                        Debug.Log("attacking");
+                        attacked = true;
+                        for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                        {
+                            if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                                mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                        }
+                        mainAttack.Effect(mainObjective, gameObject);
+                    }
+                }
+                else
+                {
+                    (int newX, int newY) = MoveToClosePositionC(carro);
+                    //attacked = true;
+
+                    // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
+                    
+                    falseCarro.gridX = newX;
+                    falseCarro.gridY = newY;
+
+                    //  plantsInfo[indPlanta].GridX = newX;
+                    // plantsInfo[indPlanta].GridY = newY;
+                    //plantsInfo[indPlanta].UpdateRelevant();
+                    float a = distSmthToPlant(falseCarro);
+                    if (distSmthToPlant(falseCarro) <= 3) // 1 o range
+                    {
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+
+                        GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.MOVEING;
+
+                        States();
+
+                    }
+                }
+               
+            }
+
+
             return;
 
         }
@@ -565,8 +687,93 @@ public class Bichous : Entity
         }
     }
 
-    
+    public int distSmthToPlant(Entity who)
+    {
+        int distX = Mathf.Abs(who.gridX - gridX);
+        int distY = Mathf.Abs(who.gridY - gridY);
+
+        int distTo = (distX + distY);
+        int distToPlant = distTo;
+        Debug.Log(distToPlant + " " + who.name);
+
+        return distToPlant;
+    }
+
+
+    //REDUNDANTE QUITAR
+    //IGUAL QUE EL METODO DE PLANTAS
+
+    public (int, int) MoveToClosePositionC(Carriage plantaObj)
+    {
+        //TO DO
+        int destX = 0;
+        int destY = 0;
+
+
+        int movedX = 0;
+        int movedY = 0;
+
+        bool contX = false;
+        bool contY = false;
+
+        movementH = maxMovement;
+
+        movedX = gridX + destX;
+        movedY = gridY + destY;
+
+        while (movementH > 0 && (contX && contY) == false)
+        {
+            if (Mathf.Abs(movedX - plantaObj.gridX) < 2)
+                contX = true;
+            if (!contX)
+            {
+                if (plantaObj.gridX > movedX)
+                    destX = 1;
+                else
+                    destX = -1;
+                movedX += destX;
+                movementH -= 1;
+
+
+            }
+            if (Mathf.Abs(movedY - plantaObj.gridY) < 2)
+                contY = true;
+            if (!contY)
+            {
+                if (plantaObj.gridY > movedY)
+                    destY = 1;
+                else
+                    destY = -1;
+                movedY += destY;
+                movementH -= 1;
+            }
+        }
+        Debug.Log(movedX + ", " + movedY);
+        Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        
+
+        if(contX && contY && !attacked)
+        {
+            Debug.Log("VA A MOVE AND ATACAR");
+        }
+
+        SetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        MovementPoint = transform.position;
+        moveing = false;
+        path = null;
+        return (movedX, movedY);
+
+    }
+
+
+
+
+
+
 }
+
+    
+
 
 [System.Serializable]
 public class RelevantInfoPlantInsect : MonoBehaviour

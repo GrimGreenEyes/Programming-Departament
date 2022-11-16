@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Carro
-  livePoints: 3
-  maxLivePoints: 3
+  livePoints: 50
+  maxLivePoints: 50
   attack: 3
   defense: 3
   heatResistance: 3
@@ -153,6 +153,7 @@ MonoBehaviour:
   HUDSprite: {fileID: 21300000, guid: aeb97341a970b84498fdd6459f231c93, type: 3}
   HUDSpriteSize: 5
   HUDTurnSize: 5
+  isWalking: 0
 --- !u!95 &1106284797
 Animator:
   serializedVersion: 4
@@ -367,7 +368,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5159805437695876880
 MonoBehaviour:
