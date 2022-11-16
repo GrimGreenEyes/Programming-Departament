@@ -405,7 +405,7 @@ MonoBehaviour:
   freezeResistance: 5
   agility: 1
   movement: 0
-  maxMovement: 4
+  maxMovement: 10
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -456,6 +456,8 @@ MonoBehaviour:
   _PesoDP: 0
   _PesoATT: 0
   options: []
+  optionPicked: 0
+  enemyPicked: {fileID: 0}
 --- !u!114 &1196673981667879080
 MonoBehaviour:
   m_ObjectHideFlags: 0

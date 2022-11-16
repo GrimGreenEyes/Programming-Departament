@@ -87,6 +87,9 @@ public class Entity : MonoBehaviour
     [Header("Animation")]
     private Animator animator;
 
+    public bool isWalking;
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -190,12 +193,16 @@ public class Entity : MonoBehaviour
             animator.SetBool("walking", true);
             MovementPoint = path[pathPosition].transform.position + new Vector3(0, 0.25f, 0);
             moveing = true;
+            Debug.Log("IS WALKING!!");
         }
         if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
         {
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
             //path.Clear();
+            isWalking = false;
+            Debug.Log("IS not :( WALKING!!");
+
         }
     }
     public void SetTile(GameObject tile)
