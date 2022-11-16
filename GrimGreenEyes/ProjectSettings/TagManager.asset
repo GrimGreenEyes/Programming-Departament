@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Feet
   - CanvasNodes
+  - Carriage
+  - Undefined
+  - PathTile
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public List<GameObject> players = new List<GameObject>();
     private List<int> playerLivePoints = new List<int>();
     public List<GameObject> enemys = new List<GameObject>();
+    private GameObject carriage;
 
     public GameObject winScreen;
     public GameObject looseScreen;
@@ -52,6 +53,10 @@ public class GameController : MonoBehaviour
         {
             enemys.Add(entity);
         }
+        else if(entity.tag == "Carriage")
+        {
+            carriage = entity;
+        }
     }
     public void AddEnemy(GameObject newEnemyPref, Transform position)
     {
@@ -88,6 +93,14 @@ public class GameController : MonoBehaviour
                         characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
                         PlayerPanel.instance.gameObject.SetActive(false);
                         break;
+                    case "Carriage":
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        break;
                 }
                 break;
             case "Enemy":
@@ -109,6 +122,37 @@ public class GameController : MonoBehaviour
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
                         characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        break;
+                    case "Carriage":
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        PlayerPanel.instance.gameObject.SetActive(true);
+                        break;
+                }
+                break;
+            case "Carriage": 
+                switch(characters[(characterSelected + 1) % characters.Count].tag)
+                {
+                    case "Player":
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        break;
+                    case "Enemy":
+                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+                        {
+                            return;
+                        }
+                        characterSelected = (characterSelected + 1) % characters.Count;
+                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        PlayerPanel.instance.gameObject.SetActive(false);
                         break;
                 }
                 break;
@@ -154,10 +198,7 @@ public class GameController : MonoBehaviour
                     teamManager.AddItemChest();
                     break;
             }
-            if (enemys.Count == 0)
-            {
-                Finish();
-            }
+            
         }
         else if (entity.tag == "Player")
         {
@@ -174,16 +215,13 @@ public class GameController : MonoBehaviour
             //}
             playerLivePoints.Add(0);
             players.Remove(entity);
-            if (players.Count == 0)
-            {
-                Finish();
-            }
+            
         }
         Destroy(entity);
         if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
-    public void Finish()
+    public void Finish(bool victory)
     {
         //int j = 0;
         //for (int i = 0; j < playerLivePoints.Count; i++, j++) 
@@ -206,20 +244,18 @@ public class GameController : MonoBehaviour
         }
         for(int i = 0; i < playerLivePoints.Count; i++)
         {
-            teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
+            //teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
         }
-        
-        if (enemys.Count == 0)
+        if (victory)
         {
-            defaultWinButton.SetActive(false);
             winScreen.SetActive(true);
-        }
-        else if(players.Count == 0)
+        }       
+        else
         {
-            defaultWinButton.SetActive(false);
             looseScreen.SetActive(true);
         }
     }
+
     public void AddWater()
     {
         teamManager.AddWater(1);

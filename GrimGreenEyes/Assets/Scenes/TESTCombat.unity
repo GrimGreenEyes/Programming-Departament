@@ -167,6 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f70738176232b4c961af7f87fa03fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSelected: -1
+  players: []
+  enemys: []
   winScreen: {fileID: 941866102}
   looseScreen: {fileID: 1236132849}
   defaultWinButton: {fileID: 2138746611}
@@ -1884,6 +1887,8 @@ MonoBehaviour:
   tilePrefab: {fileID: 4368756039915833080, guid: 8c0eb60924395254a8afb6e24ed382f8, type: 3}
   ObstaclePrefab: {fileID: 5419867194575542065, guid: 97fda6422c6666942a0cf0d0f05837ad, type: 3}
   pathTilePrefab: {fileID: 4368756039915833080, guid: 08aa0b3c4a9703b4e982b09aa794ccd7, type: 3}
+  carriage:
+  - {fileID: 4535999862920829099, guid: d733ae73d7021ca4aa776f7aa055fc86, type: 3}
   players:
   - {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
   - {fileID: 8404517906553258289, guid: eeda478b20745184892f29bfa2bb9ea7, type: 3}

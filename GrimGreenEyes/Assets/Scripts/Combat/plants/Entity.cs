@@ -228,6 +228,7 @@ public class Entity : MonoBehaviour
     }
     public void EndTurn()
     {
+        if(actualState != EntityState.IDLE) { return; }
         actualState = EntityState.FINISHED;
     }
     public void CheckDead()
