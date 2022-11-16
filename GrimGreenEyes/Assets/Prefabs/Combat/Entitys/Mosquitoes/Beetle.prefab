@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 5233281671253155352}
   - component: {fileID: 5489465308862893948}
   - component: {fileID: 6351717593639001695}
+  - component: {fileID: 1196673981667879080}
   m_Layer: 0
   m_Name: Beetle
   m_TagString: Enemy
@@ -402,7 +403,7 @@ MonoBehaviour:
   defense: 5
   heatResistance: 5
   freezeResistance: 5
-  agility: 0
+  agility: 1
   movement: 0
   maxMovement: 4
   attackMultiplayer: 1
@@ -455,6 +456,71 @@ MonoBehaviour:
   _PesoDP: 0
   _PesoATT: 0
   options: []
+--- !u!114 &1196673981667879080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563503210063929809}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bbf6c675c237d49b8ff66fed04b340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  livePoints: 0
+  maxLivePoints: 0
+  attack: 0
+  defense: 0
+  heatResistance: 0
+  freezeResistance: 0
+  agility: 0
+  movement: 0
+  maxMovement: 0
+  attackMultiplayer: 0
+  defenseMultiplayer: 0
+  heatResistanceMultiplayer: 0
+  freezeResistanceMultiplayer: 0
+  bleeding: 0
+  poisoned: 0
+  stuned: 0
+  hidden: 0
+  attacked: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
+  actualState: 1
+  mainAttack: {fileID: 0}
+  skillPrefabs: []
+  skillObjects: []
+  skills: []
+  skillSelected: 3
+  charges: 0
+  mainObjective: {fileID: 0}
+  MovementSpeed: 0
+  MovementPoint: {x: 0, y: 0, z: 0}
+  tileScale: {x: 0, y: 0}
+  angle: {x: 0, y: 0, z: 0}
+  offsetMovePoint: {x: 0, y: 0}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  radious: 0
+  moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  gridX: 0
+  gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0
+  livePointsText: {fileID: 0}
+  HUDSprite: {fileID: 0}
+  HUDSpriteSize: 0
+  HUDTurnSize: 0
 --- !u!1001 &7512990563057462814
 PrefabInstance:
   m_ObjectHideFlags: 0

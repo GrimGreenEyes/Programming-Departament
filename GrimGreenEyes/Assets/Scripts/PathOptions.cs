@@ -150,7 +150,11 @@ public class PathOptions : MonoBehaviour
 	public IEnumerator goMatch()
 	{
 		Debug.Log("GOMATCH");
-		float distancia = Vector3.Distance(gameObject.transform.position, GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().actualNode.transform.position);
+        if (navigationController == null)
+        {
+            navigationController = GameObject.Find("NavigationController");
+        }
+        float distancia = Vector3.Distance(gameObject.transform.position, GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().actualNode.transform.position);
 		yield return new WaitForSeconds(1+distancia/navigationController.GetComponent<Navigation>().playerSpeed);
 		glovalVar.GetComponent<MainController>().loadScreen("CombatScene");
 

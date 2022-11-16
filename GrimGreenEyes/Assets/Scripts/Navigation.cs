@@ -152,34 +152,7 @@ public class Navigation : MonoBehaviour
         else
             glovalVar.GetComponent<GlobalVar>().isLastNode = false;
     }
-    /*
-    public void matchWon(GameObject node)
-    {
-        actualNode = node;
-
-        if(!glovalVar.GetComponent<GlobalVar>().isLastNode)
-        {
-            glovalVar.GetComponent<GlobalVar>().actualNode = node;
-            player.transform.position = new Vector3(node.transform.position.x, node.transform.position.y, -1);
-
-            Vector3 playerPos = new Vector3(node.transform.position.x, node.transform.position.y, player.transform.position.z);
-            Debug.Log("MATCH WON");
-           
-            Vector3 vectorToTarget = node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
-            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            GameObject.Find("PLAYER").transform.rotation = q;
-        }
-
-
-        if (node.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().isLast)
-        {
-            glovalVar.GetComponent<GlobalVar>().isLastNode = true;
-        }
-        else
-            glovalVar.GetComponent<GlobalVar>().isLastNode = false;
-    }
-    */
+  
     public void matchLoose()
     {
 

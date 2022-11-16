@@ -25,6 +25,22 @@ public class MainControllerHelper : MonoBehaviour
         GameObject.Find("GlobalAttributes").GetComponent<MainController>().exitGame();
     }
 
+    public void changeVolume(float sliderValue)
+    {
+        GameObject.Find("GlobalAttributes").GetComponent<AudioSource>().volume = sliderValue;
+    }
+
+    public void resetLevels()
+    {
+        if (PlayerPrefs.HasKey("level"))
+        {
+            PlayerPrefs.SetInt("level", 0);
+            PlayerPrefs.Save();
+
+            Debug.Log(PlayerPrefs.GetInt("level"));
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
