@@ -78,63 +78,75 @@ public class PathFinding : MonoBehaviour
             thisTile = openSet[0];
             if (openSet[0].distance < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement)
             {
-                if (thisTile.GetComponent<Tile>().GetY() - 1 >= 0 && !GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<PathTile>().selected)
+                if(thisTile.GetComponent<Tile>().GetY() - 1 >= 0 && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<Tile>().isWalkable)
                 {
-                    nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
-                    if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
+                    if (!GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<PathTile>().selected)
                     {
-                        if(GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                        nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
+                        if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
                         {
-                            openSet.Add(nextTile);
-                        }
-                        else if(GameController.instance.SelectedPlayer().tag != "Carriage")
-                        {
-                            openSet.Add(nextTile);
+                            if(GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                            {
+                                openSet.Add(nextTile);
+                            }
+                            else if(GameController.instance.SelectedPlayer().tag != "Carriage")
+                            {
+                                openSet.Add(nextTile);
+                            }
                         }
                     }
                 }
-                if (thisTile.GetComponent<Tile>().GetY() + 1 < GridCreator.instance.height && !GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<PathTile>().selected)
+                if (thisTile.GetComponent<Tile>().GetY() + 1 < GridCreator.instance.height && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<Tile>().isWalkable)
                 {
-                    nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
-                    if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
+                    if (!GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<PathTile>().selected)
                     {
-                        if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                        nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
+                        if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
                         {
-                            openSet.Add(nextTile);
-                        }
-                        else if (GameController.instance.SelectedPlayer().tag != "Carriage")
-                        {
-                            openSet.Add(nextTile);
+                            if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                            {
+                                openSet.Add(nextTile);
+                            }
+                            else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                            {
+                                openSet.Add(nextTile);
+                            }
                         }
                     }
                 }
-                if (thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width && !GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().selected)
+                if(thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
                 {
-                    nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);                  
-                    if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
+                    if (!GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().selected)
                     {
-                        if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                        nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);                  
+                        if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
                         {
-                            openSet.Add(nextTile);
-                        }
-                        else if (GameController.instance.SelectedPlayer().tag != "Carriage")
-                        {
-                            openSet.Add(nextTile);
+                            if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                            {
+                                openSet.Add(nextTile);
+                            }
+                            else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                            {
+                                openSet.Add(nextTile);
+                            }
                         }
                     }
                 }
-                if (thisTile.GetComponent<Tile>().GetX() - 1 >= 0 && !GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().selected)
+                if (thisTile.GetComponent<Tile>().GetX() - 1 >= 0 && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
                 {
-                    nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
-                    if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
+                    if (!GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().selected)
                     {
-                        if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                        nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);
+                        if (!closeSet.Contains(nextTile) && !openSet.Contains(nextTile) && nextTile.GetComponent<Tile>().isWalkable)
                         {
-                            openSet.Add(nextTile);
-                        }
-                        else if (GameController.instance.SelectedPlayer().tag != "Carriage")
-                        {
-                            openSet.Add(nextTile);
+                            if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.gameObject.tag == "PathTile")
+                            {
+                                openSet.Add(nextTile);
+                            }
+                            else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                            {
+                                openSet.Add(nextTile);
+                            }
                         }
                     }
                 }

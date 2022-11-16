@@ -1884,6 +1884,180 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619b466aa2c67884baee6e4813090d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desert:
+    name: 
+    groundTile: {fileID: 0}
+    pathTile: {fileID: 0}
+    waterTile: {fileID: 0}
+    mountainTile: {fileID: 0}
+    powerupTile: {fileID: 0}
+    healerTile: {fileID: 0}
+    damagerTile: {fileID: 0}
+    eventTile: {fileID: 0}
+    waterChance: 80
+    minWaterY: 2
+    averageStreamIntensity: 90
+    averageStreamDecay: 40
+    maxStreamSize: 3
+    anyMountainChance: 100
+    minMountains: 3
+    maxMountains: 7
+    mountainGrowthChance: 50
+    anyPowerupChance: 50
+    minPowerups: 2
+    maxPowerups: 3
+    powerupGrowthChance: 50
+    anyHealerChance: 70
+    minHealers: 4
+    maxHealers: 6
+    healerGrowthChance: 50
+    anyDamagerChance: 70
+    minDamagers: 4
+    maxDamagers: 6
+    damagerGrowthChance: 50
+    rainChance: 0
+    eventChance: 0
+  forest:
+    name: 
+    groundTile: {fileID: 0}
+    pathTile: {fileID: 0}
+    waterTile: {fileID: 0}
+    mountainTile: {fileID: 0}
+    powerupTile: {fileID: 0}
+    healerTile: {fileID: 0}
+    damagerTile: {fileID: 0}
+    eventTile: {fileID: 0}
+    waterChance: 80
+    minWaterY: 2
+    averageStreamIntensity: 90
+    averageStreamDecay: 40
+    maxStreamSize: 3
+    anyMountainChance: 100
+    minMountains: 3
+    maxMountains: 7
+    mountainGrowthChance: 50
+    anyPowerupChance: 50
+    minPowerups: 2
+    maxPowerups: 3
+    powerupGrowthChance: 50
+    anyHealerChance: 70
+    minHealers: 4
+    maxHealers: 6
+    healerGrowthChance: 50
+    anyDamagerChance: 70
+    minDamagers: 4
+    maxDamagers: 6
+    damagerGrowthChance: 50
+    rainChance: 0
+    eventChance: 0
+  snow:
+    name: 
+    groundTile: {fileID: 0}
+    pathTile: {fileID: 0}
+    waterTile: {fileID: 0}
+    mountainTile: {fileID: 0}
+    powerupTile: {fileID: 0}
+    healerTile: {fileID: 0}
+    damagerTile: {fileID: 0}
+    eventTile: {fileID: 0}
+    waterChance: 80
+    minWaterY: 2
+    averageStreamIntensity: 90
+    averageStreamDecay: 40
+    maxStreamSize: 3
+    anyMountainChance: 100
+    minMountains: 3
+    maxMountains: 7
+    mountainGrowthChance: 50
+    anyPowerupChance: 50
+    minPowerups: 2
+    maxPowerups: 3
+    powerupGrowthChance: 50
+    anyHealerChance: 70
+    minHealers: 4
+    maxHealers: 6
+    healerGrowthChance: 50
+    anyDamagerChance: 70
+    minDamagers: 4
+    maxDamagers: 6
+    damagerGrowthChance: 50
+    rainChance: 0
+    eventChance: 0
+  plains:
+    name: 
+    groundTile: {fileID: 0}
+    pathTile: {fileID: 0}
+    waterTile: {fileID: 0}
+    mountainTile: {fileID: 0}
+    powerupTile: {fileID: 0}
+    healerTile: {fileID: 0}
+    damagerTile: {fileID: 0}
+    eventTile: {fileID: 0}
+    waterChance: 80
+    minWaterY: 2
+    averageStreamIntensity: 90
+    averageStreamDecay: 40
+    maxStreamSize: 3
+    anyMountainChance: 100
+    minMountains: 3
+    maxMountains: 7
+    mountainGrowthChance: 50
+    anyPowerupChance: 50
+    minPowerups: 2
+    maxPowerups: 3
+    powerupGrowthChance: 50
+    anyHealerChance: 70
+    minHealers: 4
+    maxHealers: 6
+    healerGrowthChance: 50
+    anyDamagerChance: 70
+    minDamagers: 4
+    maxDamagers: 6
+    damagerGrowthChance: 50
+    rainChance: 0
+    eventChance: 0
+  currentBiome:
+    name: 
+    groundTile: {fileID: 0}
+    pathTile: {fileID: 0}
+    waterTile: {fileID: 0}
+    mountainTile: {fileID: 0}
+    powerupTile: {fileID: 0}
+    healerTile: {fileID: 0}
+    damagerTile: {fileID: 0}
+    eventTile: {fileID: 0}
+    waterChance: 80
+    minWaterY: 2
+    averageStreamIntensity: 90
+    averageStreamDecay: 40
+    maxStreamSize: 3
+    anyMountainChance: 100
+    minMountains: 3
+    maxMountains: 7
+    mountainGrowthChance: 50
+    anyPowerupChance: 50
+    minPowerups: 2
+    maxPowerups: 3
+    powerupGrowthChance: 50
+    anyHealerChance: 70
+    minHealers: 4
+    maxHealers: 6
+    healerGrowthChance: 50
+    anyDamagerChance: 70
+    minDamagers: 4
+    maxDamagers: 6
+    damagerGrowthChance: 50
+    rainChance: 0
+    eventChance: 0
+  origin: {fileID: 1067248212}
+  sizeX: 11
+  sizeY: 14
+  minPathOriginX: 3
+  maxPathOriginX: 10
+  minPathEndX: 3
+  maxPathEndX: 10
+  minPathDistanceX: 2
+  maxPathDistanceX: 5
   tilePrefab: {fileID: 4368756039915833080, guid: 8c0eb60924395254a8afb6e24ed382f8, type: 3}
   ObstaclePrefab: {fileID: 5419867194575542065, guid: 97fda6422c6666942a0cf0d0f05837ad, type: 3}
   pathTilePrefab: {fileID: 4368756039915833080, guid: 08aa0b3c4a9703b4e982b09aa794ccd7, type: 3}

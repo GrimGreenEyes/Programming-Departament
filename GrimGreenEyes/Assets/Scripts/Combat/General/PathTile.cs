@@ -23,6 +23,6 @@ public class PathTile : MonoBehaviour
             parent = null;
             weight = GetComponent<Tile>().weight;
             selected = false;
-            }
+        }
     }
 }

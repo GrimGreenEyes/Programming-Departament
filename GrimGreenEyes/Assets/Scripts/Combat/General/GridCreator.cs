@@ -130,8 +130,9 @@ public class GridCreator : MonoBehaviour
         GenerateDamagers();
         //GenerateEventTiles();
 
-        GenerateEntitys(players, 1);
-        GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
+        GenerateEntitys(players);
+        GenerateEntitys(enemys);
+        GenerateEntitys(carriage);
         GameController.instance.OrderCharacters();
     }
     
@@ -159,6 +160,7 @@ public class GridCreator : MonoBehaviour
         //aux.transform.localPosition = new Vector3(x * distanceX, y * distanceY, 0);
         aux.transform.localPosition = new Vector3((y + x) * 0.5f, (y - x) * 0.25f, 0);
         aux.name = x + ", " + y;
+        aux.GetComponent<Tile>().Init((x + y) % 2, x, y);
         //aux.GetComponent<SpriteRenderer>().color = color;
         tileMap[x, y] = aux;
     }
@@ -788,17 +790,18 @@ public class GridCreator : MonoBehaviour
         {
             case EnumMapOptions.mapBiom.desierto:
                 currentBiome = desert;
-                break;
+            break;
             case EnumMapOptions.mapBiom.llanura:
                 currentBiome = plains;
-                break;
+            break;
             case EnumMapOptions.mapBiom.selva:
                 currentBiome = forest;
-                break;
+            break;
             case EnumMapOptions.mapBiom.nieve:
                 currentBiome = snow;
-                break;
+            break;
         }
+        
 
         if (first)
         {
@@ -896,53 +899,61 @@ public class GridCreator : MonoBehaviour
             }
         }
         //GenerateRoad();
-        GenerateEntitys(players, 1);
-        GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
         GameController.instance.OrderCharacters();
     }
-    
-    /*
-    private void GenerateRoad() 
+    private void GenerateEntitys(List<GameObject> entitys)
     {
-        int roadRow = Random.Range(5, x - 5);
-        for(int i = 0; i < y; i++)
+        int playerArrayPos = 0;
+        switch (entitys[playerArrayPos].tag)
         {
-
-            Destroy(tileMap[roadRow, i]);
-            GameObject pathTile = Instantiate(pathTilePrefab, transform, false);
-            tileMap[roadRow, i] = pathTile;
-            pathTile.transform.localPosition = new Vector3((i + roadRow) * 0.5f, (i - roadRow) * 0.25f, 0);
-            pathTile.GetComponent<Tile>().Init(0, roadRow, i);
-            pathTile.name = roadRow + ", " + i;
-            if(i == 0)
-            {
-                GameObject car = Instantiate(carriage[0], pathTile.transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
-                GameController.instance.Init(car);
-            }
+            case "Player":
+                for(int i = 0; i < sizeX; i++)
+                {
+                    for(int j = 0; j < sizeY; j++)
+                    {
+                        if (tileMap[i, j].GetComponent<Tile>().spawnBlocks && playerArrayPos < entitys.Count())
+                        {
+                            player = Instantiate(entitys[playerArrayPos], tileMap[i, j].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                            playerArrayPos++;
+                            GameController.instance.Init(player);
+                        }
+                    }
+                }
+                break;
+            case "Enemy":
+                for(int i = 1; i < sizeX; i++)
+                {
+                    if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, sizeX - 1].GetComponent<Tile>().entity == null && tileMap[i, sizeX - 1].GetComponent<Tile>().isWalkable)
+                    {
+                        player = Instantiate(entitys[playerArrayPos], tileMap[i, sizeY - 1].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                        playerArrayPos++;
+                        GameController.instance.Init(player);
+                    }
+                }
+                break;
+            case "Carriage":
+                for(int i = 0; i < sizeX; i++)
+                {
+                    if(tileMap[i, 0].tag == "PathTile")
+                    {
+                        player = Instantiate(entitys[playerArrayPos], tileMap[i, 0].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                        playerArrayPos++;
+                        GameController.instance.Init(player);
+                    }
+                }
+                break;
         }
+        //int xEntity = row;
+        //int yEntity = 1;
+        //for (int playerArrayPos = 0; playerArrayPos < entitys.Count; playerArrayPos++)
+        //{
+        //    yEntity = (tileMap[xEntity, yEntity].transform.childCount > 2) ? yEntity += 1 : yEntity;
+        //    player = Instantiate(entitys[playerArrayPos], tileMap[xEntity, yEntity].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+        //    
+        //    GameController.instance.Init(player);
+        //    yEntity += 2;
+        //}
     }
-    */
-
-    private void GenerateEntitys(List<GameObject> entitys, int row)
-    {
-        int xEntity = row;
-        int yEntity = 1;
-        for (int playerArrayPos = 0; playerArrayPos < entitys.Count; playerArrayPos++)
-        {
-            yEntity = (tileMap[xEntity, yEntity].transform.childCount > 2) ? yEntity += 1 : yEntity;
-            player = Instantiate(entitys[playerArrayPos], tileMap[xEntity, yEntity].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
-            
-            GameController.instance.Init(player);
-            yEntity += 2;
-        }
-
-    }
-    private void createObstacles()
-    {
-
-    }
-
-    
     public GameObject GetTile(int x, int y)
     {
         if(x < 0 || y < 0 || x >= width || y >= height)

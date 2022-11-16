@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2806384041355147352}
   m_Layer: 0
   m_Name: Jungle Path Tile
-  m_TagString: tile
+  m_TagString: PathTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
