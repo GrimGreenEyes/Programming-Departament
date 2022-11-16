@@ -180,7 +180,7 @@ public class PathFinding : MonoBehaviour
             thisTile.GetComponent<Tile>().isInRange = true;
             if (openSetDictionary[thisTile] < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement)
             {
-                if (thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width - 1 && !closeSetGO.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && !openSetDictionary.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
+                if (thisTile.GetComponent<Tile>().GetX() + 1 <= GridCreator.instance.width - 1 && !closeSetGO.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && !openSetDictionary.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY())) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
                 {
                     openSetDictionary.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()), openSetDictionary[thisTile] + 1);
                     openSetGO.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()));
@@ -192,7 +192,7 @@ public class PathFinding : MonoBehaviour
                     openSetGO.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY()));
 
                 }
-                if (thisTile.GetComponent<Tile>().GetY() + 1 < GridCreator.instance.height - 1 && !closeSetGO.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1)) && !openSetDictionary.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1)) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<Tile>().isWalkable)
+                if (thisTile.GetComponent<Tile>().GetY() + 1 <= GridCreator.instance.height - 1 && !closeSetGO.Contains(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1)) && !openSetDictionary.ContainsKey(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1)) && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1).GetComponent<Tile>().isWalkable)
                 {
                     openSetDictionary.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1), openSetDictionary[thisTile] + 1);
                     openSetGO.Add(GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1));

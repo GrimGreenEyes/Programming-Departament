@@ -11,6 +11,7 @@ public class GridCreator : MonoBehaviour
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject ObstaclePrefab;
     [SerializeField] private GameObject pathTilePrefab;
+    [SerializeField] private List<GameObject> carriage;
     [SerializeField] private List<GameObject> players;
     [SerializeField] private List<GameObject> enemys;
     public float width, height;
@@ -76,11 +77,10 @@ public class GridCreator : MonoBehaviour
         GenerateEntitys(players, 1);
         GenerateEntitys(enemys, tileMap.GetLength(1) - 1);
         GameController.instance.OrderCharacters();
-        
     }
     private void GenerateRoad() 
     {
-        int roadRow = Random.Range(3, x - 3);
+        int roadRow = Random.Range(5, x - 5);
         for(int i = 0; i < y; i++)
         {
 
@@ -90,6 +90,11 @@ public class GridCreator : MonoBehaviour
             pathTile.transform.localPosition = new Vector3((i + roadRow) * 0.5f, (i - roadRow) * 0.25f, 0);
             pathTile.GetComponent<Tile>().Init(0, roadRow, i);
             pathTile.name = roadRow + ", " + i;
+            if(i == 0)
+            {
+                GameObject car = Instantiate(carriage[0], pathTile.transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                GameController.instance.Init(car);
+            }
         }
     }
     private void GenerateEntitys(List<GameObject> entitys, int row)
@@ -133,65 +138,6 @@ public class GridCreator : MonoBehaviour
         //    }
         //}
     }
-    public void ShineTiles(int x, int y, int distance, bool setClickable)
-    {
-        int auxY = y;
-        for(int i = x; i >= -distance + x; i--)
-        {
-            for(int j = y; j + i >= -distance + x + y; j--)
-            {
-                tileMap[i, j].GetComponent<Tile>().ShineTile();
-                tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-
-                if(j == 1)
-                {
-                    j = -100;
-                }
-            }
-            for (int j = y; j + i <= distance + x + auxY; j++)
-            {
-                tileMap[i, j].GetComponent<Tile>().ShineTile();
-                tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-              
-                if (j == tileMap.GetLength(1) - 2)
-                {
-                    j = tileMap.GetLength(1) + 100;
-                }
-            }
-            if (i == 1)
-            {
-                i = -100;
-            }
-            auxY -= 2;
-        }
-        auxY = y;
-        for(int i = x; i <= distance + x; i++)
-        {
-            for(int j = y; j + i <= distance + x + y; j++)
-            {
-                tileMap[i, j].GetComponent<Tile>().ShineTile();
-                tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-                if(j == tileMap.GetLength(1) - 2)
-                {
-                    j = tileMap.GetLength(1) + 100;
-                }
-            }
-            for (int j = y; j + i >= -distance + x + auxY; j--)
-            {
-                tileMap[i, j].GetComponent<Tile>().ShineTile();
-                tileMap[i, j].GetComponent<Tile>().SetClickable(setClickable);
-                if (j == 1)
-                {
-                    j = -100;
-                }
-            }
-            if (i == tileMap.GetLength(0) - 2)
-            {
-                i = tileMap.GetLength(0) + 100;
-            }
-            auxY += 2;
-        }
-    }
     public void SearchObjective(int x, int y, int distance, bool setClickable)
     {
         int auxY = y;
@@ -203,11 +149,7 @@ public class GridCreator : MonoBehaviour
                 {
                     tileMap[i, j].GetComponent<Tile>().ShineEntity();
                 }
-                
-                if (j == 1)
-                {
-                    j = -100;
-                }
+
             }
             for (int j = y; j + i <= distance + x + auxY; j++)
             {
@@ -215,15 +157,6 @@ public class GridCreator : MonoBehaviour
                 {
                     tileMap[i, j].GetComponent<Tile>().ShineEntity();
                 }
-
-                if (j == tileMap.GetLength(1) - 2)
-                {
-                    j = tileMap.GetLength(1) + 100;
-                }
-            }
-            if (i == 1)
-            {
-                i = -100;
             }
             auxY -= 2;
         }
@@ -236,10 +169,7 @@ public class GridCreator : MonoBehaviour
                 {
                     tileMap[i, j].GetComponent<Tile>().ShineEntity();
                 }
-                if (j == tileMap.GetLength(1) - 2)
-                {
-                    j = tileMap.GetLength(1) + 100;
-                }
+
             }
             for (int j = y; j + i >= -distance + x + auxY; j--)
             {
@@ -247,15 +177,9 @@ public class GridCreator : MonoBehaviour
                 {
                     tileMap[i, j].GetComponent<Tile>().ShineEntity();
                 }
-                if (j == 1)
-                {
-                    j = -100;
-                }
+
             }
-            if (i == tileMap.GetLength(0) - 2)
-            {
-                i = tileMap.GetLength(0) + 100;
-            }
+
             auxY += 2;
         }
     }
