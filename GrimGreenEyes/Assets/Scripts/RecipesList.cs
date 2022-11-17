@@ -18,7 +18,6 @@ public class RecipesList : MonoBehaviour
     public void OpenRecipesList()
     {
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        uiManager.followMouse.EnableObject();
         gameObject.SetActive(true);
         if (first)
         {
@@ -30,7 +29,6 @@ public class RecipesList : MonoBehaviour
 
     public void CloseRecipesList()
     {
-        uiManager.followMouse.DisableObject();
         gameObject.SetActive(false);
     }
 

@@ -75,6 +75,7 @@ public class Inventory : MonoBehaviour
     public void OpenInventory()
     {
         inventoryAndBlenderObject.SetActive(true);
+        GameObject.Find("UIManager").GetComponent<UIManager>().HideExitButton();
     }
 
     public void CloseInventory()
@@ -83,6 +84,7 @@ public class Inventory : MonoBehaviour
         blender.RemoveItemInSlot(0);
         blender.RemoveItemInSlot(1);
         inventoryAndBlenderObject.SetActive(false);
+        GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
     }
 
     public void TestAddItem(Item item)

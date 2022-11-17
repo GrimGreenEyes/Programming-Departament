@@ -1411,6 +1411,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: 6c7fc30d95231504db6f78732343283c, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: d044382640675b9488abf25b15ee0c79, type: 3}
     eventTile: {fileID: 0}
+    lPath1: {fileID: 4368756039915833080, guid: f9c18c637fda5fb4e9e6678c8575a5d4, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: fe24ca29b19bfb94e87c1086b51682cb, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: af830ee9371125b4eae306b33fafd3cf, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: 3135029a5a7f2474c9f00a8e201979a6, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1444,6 +1448,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: 1dc68d12b5ed40040b4a97c0075545bd, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: bbd9829f212a69a48ae34b2fb2689abf, type: 3}
     eventTile: {fileID: 0}
+    lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1477,6 +1485,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: f6d0330ff41ce1a4f8f8b4cf818865b1, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: 714e7178b56b72d4e85e42ce186abb98, type: 3}
     eventTile: {fileID: 0}
+    lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1510,6 +1522,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: dce07109b46ec314fab93c00ae617af5, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: 650b7d4250752ff4e85b7a9c06357c39, type: 3}
     eventTile: {fileID: 0}
+    lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1543,6 +1559,10 @@ MonoBehaviour:
     healerTile: {fileID: 0}
     damagerTile: {fileID: 0}
     eventTile: {fileID: 0}
+    lPath1: {fileID: 0}
+    lPath2: {fileID: 0}
+    lPath3: {fileID: 0}
+    lPath4: {fileID: 0}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -2451,7 +2471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &812131976
 RectTransform:
   m_ObjectHideFlags: 0

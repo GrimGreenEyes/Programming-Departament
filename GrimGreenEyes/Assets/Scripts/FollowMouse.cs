@@ -8,6 +8,9 @@ public class FollowMouse : MonoBehaviour
 {
     private Canvas myCanvas;
     public TextMeshProUGUI itemNameText;
+    public GameObject text;
+    public int baseWidth = 500;
+    public int margin = 5;
 
     void Start()
     {
@@ -20,16 +23,15 @@ public class FollowMouse : MonoBehaviour
         Vector2 pos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
         transform.position = myCanvas.transform.TransformPoint(new Vector2(pos.x + 25, pos.y));
-    }
 
-    public void DisableObject()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void EnableObject()
-    {
-        gameObject.SetActive(true);
+        /*if(text.GetComponent<RectTransform>().rect.width < baseWidth - (2 * margin))
+        {
+            gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(text.GetComponent<RectTransform>().rect.width + (2 * margin), gameObject.GetComponent<RectTransform>().sizeDelta.y);
+        }
+        else
+        {
+            gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(baseWidth, gameObject.GetComponent<RectTransform>().sizeDelta.y);
+        }*/
     }
 
     public void HideText()

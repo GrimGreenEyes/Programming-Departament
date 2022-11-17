@@ -78,13 +78,13 @@ public class PlantDetailsDisplay : MonoBehaviour
     public void OpenPlantDetailsDisplay()
     {
         gameObject.SetActive(true);
-        elementNameDisplay.EnableObject();
         UpdateDetailsDisplay();
+        GameObject.Find("UIManager").GetComponent<UIManager>().HideExitButton();
     }
 
     public void ClosePlantDetailsDisplay()
     {
         gameObject.SetActive(false);
-        elementNameDisplay.DisableObject();
+        GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
     }
 }

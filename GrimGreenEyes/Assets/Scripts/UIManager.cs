@@ -10,10 +10,21 @@ public class UIManager : MonoBehaviour
     public GameObject warningMsgPrefab;
     private GameObject currentWarning = null;
     public FollowMouse followMouse;
+    public GameObject exitButton;
 
     private void Start()
     {
+        
+    }
 
+    public void HideExitButton()
+    {
+        exitButton.SetActive(false);
+    }
+
+    public void ShowExitButton()
+    {
+        exitButton.SetActive(true);
     }
 
     public void DesactivateAllElements()

@@ -10,11 +10,20 @@ public class ResourcesManager : MonoBehaviour
     public PlantsManager plantsManager;
     public FertilizerManager fertilizerManager;
     public WaterTank waterTank;
+    private GlobalVar globalVar;
+    public Book book;
 
     public void Start()
     {
         teamInfo = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
         LoadResources();
+
+        globalVar = GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>();
+        if (globalVar.firstTimeResources)
+        {
+            book.OpenBook();
+            globalVar.firstTimeResources = false;
+        }
     }
 
     public void StoreResources()

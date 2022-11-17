@@ -11,17 +11,20 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject nextButton, prevButton, closeButton;
     [SerializeField] private TextMeshProUGUI titleText, descriptionText;
     [SerializeField] private Image pageImage;
+    private GlobalVar globalVar;
 
     public void OpenBook()
     {
         gameObject.SetActive(true);
         position = 0;
         UpdateVisuals();
+        GameObject.Find("UIManager").GetComponent<UIManager>().HideExitButton();
     }
 
     public void CloseBook()
     {
         gameObject.SetActive(false);
+        GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
     }
 
     public void NextPage()
