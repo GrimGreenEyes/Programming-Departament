@@ -156,8 +156,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 19f2b7daa7d22b4449fc147788351bcc, type: 3}
   - {fileID: 21300000, guid: 684e0a562fb7c4c4ea912a932da3673c, type: 3}
   - {fileID: 21300000, guid: 22e8c4253386cae438f4f894300ca3a4, type: 3}
+  mapsToPick4: []
   isFirstBiom: 1
   mapsTypes: 3
   mapArrays: 1
   mapBioms: 
   mapOpt: 
+  artPrfs: []

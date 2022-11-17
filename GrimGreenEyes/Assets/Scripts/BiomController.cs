@@ -20,16 +20,22 @@ public class BiomController : MonoBehaviour
 
     public Sprite[] spritesFinales;
 
+    public Sprite[] artPrfs;
+
+    public GameObject artGameObject;
+
+
     void Start()
     {
         glovalBar = GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>();
 
+       // artGameObject = GameObject.Find("Arte");
         
 
-        //biom = any.biomToInt(glovalBar.biomas[numberBiom]);
+                //biom = any.biomToInt(glovalBar.biomas[numberBiom]);
 
-        int children = transform.childCount;
-        for (int i = 0; i < children; ++i)
+                int children = transform.childCount;
+        for (int i = 0; i < children - 1; ++i)
         {
            // print("For loop: " + transform.GetChild(i));
             nodes.Add(transform.GetChild(i).gameObject);
@@ -55,6 +61,8 @@ public class BiomController : MonoBehaviour
                 biom = 3;
                 break;
         }
+        setArt();
+
         setPaths();
 
     }
@@ -70,6 +78,37 @@ public class BiomController : MonoBehaviour
             else
                 nodes[i].GetComponent<Button>().image.sprite = spritesFinales[biom];
           
+        }
+    }
+
+    public void setArt()
+    {
+
+        if(biom == 3)
+        {
+            Debug.Log("nieve");
+        }
+        foreach (Transform child in artGameObject.transform)
+        {
+            int randPick = biom;
+            if(biom == 0)
+            {
+                int randBiomDes = Random.Range(0, 2);
+                if (randBiomDes == 0)
+                    randPick = 5;
+                else if (randBiomDes == 1)
+                    randPick = biom;
+            }
+            if (biom == 1)
+            {
+                int randBiomDes = Random.Range(0, 2);
+                if (randBiomDes == 0)
+                    randPick = 4;
+                else if (randBiomDes == 1)
+                    randPick = biom;
+            }
+
+            child.GetComponent<Image>().sprite = artPrfs[randPick];
         }
     }
 
