@@ -191,7 +191,7 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 7296510475246959956}
-  HUDSprite: {fileID: 0}
+  HUDSprite: {fileID: 21300000, guid: 9bd6b94bd238431498091daad0183122, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
   isWalking: 0
