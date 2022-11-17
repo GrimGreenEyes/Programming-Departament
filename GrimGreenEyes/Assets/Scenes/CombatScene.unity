@@ -1606,7 +1606,7 @@ MonoBehaviour:
   - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
   - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
   - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
-  - {fileID: 6782853898566395305, guid: 3461d78778321c843a9d293ce28af8ea, type: 3}
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
   width: 0
   height: 0
   x: 11
@@ -3646,6 +3646,7 @@ MonoBehaviour:
   winScreen: {fileID: 1060572743}
   looseScreen: {fileID: 1490765307}
   defaultWinButton: {fileID: 1385699499}
+  playerTurn: {fileID: 0}
 --- !u!4 &1241752637
 Transform:
   m_ObjectHideFlags: 0
@@ -5865,6 +5866,7 @@ MonoBehaviour:
   Hres: {fileID: 895178049}
   CRes: {fileID: 773386451}
   steps: {fileID: 1191076931}
+  plant: {fileID: 0}
 --- !u!1 &2008232704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,7 +5905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.99994, y: 0}
+  m_AnchoredPosition: {x: 125.999954, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706

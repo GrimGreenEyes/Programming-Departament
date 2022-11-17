@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
     public GameObject defaultWinButton;
 
     private TeamInfo teamManager;
+
+    public GameObject playerTurn;
     private void Awake()
     {
         
@@ -71,6 +73,7 @@ public class GameController : MonoBehaviour
     }
     public void NextPlayer()
     {
+        playerTurn = characters[characterSelected];
         switch (characters[characterSelected].tag)
         {
             case "Player":

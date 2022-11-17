@@ -61,32 +61,32 @@ public class Mosquitoes : Entity
                     {
                         if (GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag != "Enemy")
                         {
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity;
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
                         }
                     }
                     if (GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity != null)
                     {
                         if (GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity.tag != "Enemy")
                         {
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity;
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
                         }
                     }
                     if (GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity != null)
                     {
                         if (GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity.tag != "Enemy")
                         {
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity;
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
                         }
                     }
                     if (GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity != null)
                     {
                         if(GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity.tag != "Enemy")
                         {
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().mainObjective = GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity;
-                            GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity;
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
                         }
                     }
                 }
@@ -193,7 +193,7 @@ public class Mosquitoes : Entity
         switch (collision.tag)
         {
             case "Proyectil":
-                livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Mosquitoes>(), collision.gameObject.GetComponentInParent<Plants>());
+                livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Bichous>(), collision.gameObject.GetComponentInParent<Plants>());
                 print(livePoints);
                 break;
         }

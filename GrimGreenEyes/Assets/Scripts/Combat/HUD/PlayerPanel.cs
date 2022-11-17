@@ -21,7 +21,7 @@ public class PlayerPanel : MonoBehaviour
     [SerializeField] private TMP_Text CRes;
     [SerializeField] private TMP_Text steps;
 
-    private Entity plant; 
+    public Entity plant; 
 
     private List<GameObject> skillButtons = new List<GameObject>();
 

@@ -34,6 +34,9 @@ public class Bichous : Entity
     public Carriage carro;
 
     bool isAttacking;
+    int selection;
+
+    public bool isMoving;
 
 
     private void Update()
@@ -44,6 +47,7 @@ public class Bichous : Entity
     //ESCARABAJO
     private void Start()
     {
+        isMoving = false;
         isAttacking = false;
         gridCreator = GameObject.Find("Grid").GetComponent<GridCreator>();
 
@@ -172,33 +176,63 @@ public class Bichous : Entity
                 {
                     PickOption();
                 }
-                
-                else if (actualState != EntityState.MOVEING && !attacked && plantsInfo[indexPicked].distToPlant <= 2)
+                /*
+                else if (actualState != EntityState.MOVEING && !attacked)
                 {
-                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
-
-                    GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
-
-                    Debug.Log("attacking");
-                    attacked = true;
-                    for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                    float dist = 999;
+                    if (selection == 0)
                     {
-                        if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
-                            mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                        dist = distSmthToPlant(carro);
+
                     }
-                    mainAttack.Effect(mainObjective, gameObject);
-                    Debug.Log("ATTACK!!");
-                    //optionPicked = true;
-                }
+                    else dist = plantsInfo[indexPicked].distToPlant;
+                    //float a = distSmthToPlant(falseCarro);
+
+                    if (dist <= 2)
+                    {
+                        if (!attacked)
+                        {
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
+                            //Mosquitoes?
+                            Debug.Log("attacking");
+                            attacked = true;
+                            for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                            {
+                                if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                                    mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                            }
+                            mainAttack.Effect(mainObjective, gameObject);
+                            Debug.Log("ATTACK!!");
+                            //optionPicked = true;
+                        }
+                    }
+                
+                }*/
 
                 break;
             case EntityState.MOVEING:
-                if (path == null || path.Count == 0)
-                {
-                    path = PathFinding.instance.PathFind(thisTile, destination);
-                    pathPosition = path.Count() - 1;
+                Debug.Log("BUCLE MOVEING");
+                //if (!isMoving)
+              //  {
+                    if (path == null || path.Count == 0)
+                    {
+                        Debug.Log(thisTile.name);
+                        Debug.Log(destination.name);
+
+                        path = PathFinding.instance.PathFind(thisTile, destination);
+                        pathPosition = path.Count() - 1;
+                    isMoving = false;
+                    Move();
                 }
-                Move();
+                    else
+                {
+                    isMoving = false;
+                    Move();
+                }
+                    
+               // }
                 break;
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
@@ -214,7 +248,7 @@ public class Bichous : Entity
                     actualState = EntityState.MOVEING;
                     isAttacking = false;
                 }
-                States();
+               // States();
               
                 break;
             case EntityState.USINGSKILL:
@@ -242,6 +276,19 @@ public class Bichous : Entity
 
 
         // }
+    }
+
+    public GameObject CustomSetDestination(GameObject tile)
+    {
+        Debug.Log("Bucle CUSTOM");
+        GetComponent<Entity>().actualState = Entity.EntityState.MOVEING;
+        destination = tile;
+        if (destination.GetComponent<Tile>() != null)
+            return null;
+        if (destination.GetComponent<Tile>().isWalkable)
+            return tile;
+        else
+            return null;
     }
 
     public void PickOption()
@@ -296,7 +343,7 @@ public class Bichous : Entity
 
         options[0] = weightAtC.getValue();
 
-        options[0] += 0.5f;
+    //    options[0] += 0.5f;
 
 
         //Imp Mov Carro
@@ -313,6 +360,8 @@ public class Bichous : Entity
         for (int i = 0; i < plants.Count; i++)
         {
             List<Factor> factors = new List<Factor>();
+            Bichous test = gameObject.GetComponent<Bichous>();
+            Plants tes2 = plants[i].GetComponent<Plants>();
             plantsInfo[i].Init(plants[i].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
             //plantsInfo[i].UpdateRelevant();
 
@@ -342,7 +391,7 @@ public class Bichous : Entity
         Debug.Log(plantsAtt[index]);
 
         float maxValue = options.Max();
-        int selection = options.ToList().IndexOf(maxValue);
+        selection = options.ToList().IndexOf(maxValue);
 
         //GameController.instance.SelectedPlayer().GetComponent<Plants>().mainObjective = gameObject;
         //GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState = Entity.EntityState.ATTACKING;
@@ -364,7 +413,10 @@ public class Bichous : Entity
             //Atack Carro
             //IGUAL QUE ATACAR A PLANTA PERO AL CARRO
 
-            Carriage falseCarro = carro;
+            Carriage falseCarro = new Carriage();
+            falseCarro.gridX = carro.gridX;
+            falseCarro.gridY = carro.gridY;
+
             if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
             {
                // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
@@ -375,8 +427,9 @@ public class Bichous : Entity
                     if (!attacked)
                     {
                         mainObjective = carro.gameObject;
-                        GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
 
+                        //Mosquitoes?
                         // attacked = true;
                         Debug.Log("ATTACK 1");
                         Debug.Log("attacking");
@@ -407,8 +460,8 @@ public class Bichous : Entity
                     {
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
 
-                        GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.MOVEING;
-
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                        //mosquitoes?
                         States();
 
                     }
@@ -440,8 +493,8 @@ public class Bichous : Entity
                 {
                     //Attack
                     GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
-                    GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
-
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
+                    //mosquitoes?
                     // attacked = true;
                     Debug.Log("ATTACK 2");
                     Debug.Log("attacking");
@@ -471,7 +524,17 @@ public class Bichous : Entity
                     GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
                     //  attacked = true;
                     //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
-                    GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.MOVEING;
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                    //mosquitoes?
+
+                    attacked = true;
+                    for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                    {
+                        if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                            mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                    }
+                    mainAttack.Effect(mainObjective, gameObject);
+
                     /* Debug.Log("ATTACK 3");
                      Debug.Log("attacking");
                      attacked = true;
@@ -496,6 +559,8 @@ public class Bichous : Entity
 
     public (int,int) MoveToClosePosition(RelevantInfoPlantInsect plantaObj)
     {
+        GameObject dest = null;
+
         //TO DO
         int destX = 0;
         int destY = 0;
@@ -565,8 +630,30 @@ public class Bichous : Entity
         }
            */
 
+        if(CustomSetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY))!= null)
+        dest = CustomSetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        int movedXi = movedX;
+        int movedYi = movedY;
+        int bucles = 0;
+        while(dest != null)
+        {
+            bucles++;
+            movedXi++;
+            movedYi--;
+            if(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+            dest = CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
 
-        SetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+            if(bucles == 30)
+            {
+                while (dest != null)
+                {
+                    movedXi--;
+                    movedYi++;
+                    if(CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi))!= null)
+                    dest = CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                }
+            }
+        }
         MovementPoint = transform.position;
         moveing = false;
         path = null;
@@ -681,7 +768,8 @@ public class Bichous : Entity
         switch (collision.tag)
         {
             case "Proyectil":
-                livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Mosquitoes>(), collision.gameObject.GetComponentInParent<Plants>());
+                livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Bichous>(), collision.gameObject.GetComponentInParent<Plants>());
+                //mosquitoes?
                 print(livePoints);
                 break;
         }
