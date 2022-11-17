@@ -11,6 +11,9 @@ public class PlantType : ScriptableObject
     public SkillRes baseSkill;
     public GameObject prefab;
 
+    public int upgradeAttack, upgradeDeffense, upgradeAgility, upgradeMovement, upgradeHeatDef, upgradeColdDef, upgradeHP;
+
+
     //TEMPORAL (DEBE SER OTRO SCRIPTABLEOBJECT PARA ALMACENAR DESCRIPCIÓN)
     public string attack;
 }

@@ -15,6 +15,8 @@ public class Plant : MonoBehaviour
     public Dictionary<StatRes, int> statsDictionary = new Dictionary<StatRes, int>();
     [SerializeField] private StatRes statMaxHealth, statAttack, statAgility, statMovement, statDeffense, statHeatRes, statColdRes;
 
+    private Dictionary<StatRes, int> upgradeStatValue = new Dictionary<StatRes, int>();
+
     public int healthPoints;
 
     public string TempAttack;
@@ -78,6 +80,14 @@ public class Plant : MonoBehaviour
         statsDictionary[statHeatRes] = plantType.baseHeatDef;
         statsDictionary[statColdRes] = plantType.baseColdDef;
 
+        upgradeStatValue.Add(statMaxHealth, plantType.upgradeHP);
+        upgradeStatValue.Add(statAttack, plantType.upgradeAttack);
+        upgradeStatValue.Add(statMovement, plantType.upgradeMovement);
+        upgradeStatValue.Add(statAgility, plantType.upgradeAgility);
+        upgradeStatValue.Add(statDeffense, plantType.upgradeDeffense);
+        upgradeStatValue.Add(statHeatRes, plantType.upgradeHeatDef);
+        upgradeStatValue.Add(statColdRes, plantType.upgradeColdDef);
+
         TempAttack = plantType.attack;
 
         skillsList.Add(plantType.baseSkill);
@@ -115,7 +125,7 @@ public class Plant : MonoBehaviour
         {
             case 0: //STAT fertilizer
                 //Pendiente aplicar algoritmos de subida de nivel
-                statsDictionary[fertilizer.stat] ++;
+                statsDictionary[fertilizer.stat] += upgradeStatValue[fertilizer.stat];
                 break;
             case 1: //SKILL fertilizer
                 skillsList.Add(fertilizer.skill);

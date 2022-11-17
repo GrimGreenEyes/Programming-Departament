@@ -26,4 +26,11 @@ MonoBehaviour:
   baseColdDef: 3
   baseSkill: {fileID: 11400000, guid: 0ad3e95478889ec4e8386f6afd93e91a, type: 2}
   prefab: {fileID: 8404517906553258289, guid: eeda478b20745184892f29bfa2bb9ea7, type: 3}
+  upgradeAttack: 1
+  upgradeDeffense: 5
+  upgradeAgility: 1
+  upgradeMovement: 1
+  upgradeHeatDef: 3
+  upgradeColdDef: 1
+  upgradeHP: 8
   attack: Garras y espinas

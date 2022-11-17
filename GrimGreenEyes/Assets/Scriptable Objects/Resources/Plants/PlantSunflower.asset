@@ -26,4 +26,11 @@ MonoBehaviour:
   baseColdDef: 4
   baseSkill: {fileID: 11400000, guid: 919bb071bbcc33c43a67c75dcc18c300, type: 2}
   prefab: {fileID: 6154406875385546749, guid: 1b97f67bac3a6204ab5109626c321e01, type: 3}
+  upgradeAttack: 2
+  upgradeDeffense: 3
+  upgradeAgility: 1
+  upgradeMovement: 1
+  upgradeHeatDef: 2
+  upgradeColdDef: 1
+  upgradeHP: 5
   attack: Golpe de calor

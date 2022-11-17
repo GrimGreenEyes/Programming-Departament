@@ -26,4 +26,11 @@ MonoBehaviour:
   baseColdDef: 2
   baseSkill: {fileID: 11400000, guid: e08845c8e1aaa364280960dbca7fad6d, type: 2}
   prefab: {fileID: 4351174600713128711, guid: 707a7eea7a2b0074dbb0eb353b6204de, type: 3}
+  upgradeAttack: 5
+  upgradeDeffense: 1
+  upgradeAgility: 2
+  upgradeMovement: 2
+  upgradeHeatDef: 2
+  upgradeColdDef: 1
+  upgradeHP: 3
   attack: Perseguir

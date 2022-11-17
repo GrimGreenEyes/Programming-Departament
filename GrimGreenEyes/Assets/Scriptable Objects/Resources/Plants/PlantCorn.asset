@@ -26,4 +26,11 @@ MonoBehaviour:
   baseColdDef: 5
   baseSkill: {fileID: 11400000, guid: e2ee2918bacbfaf40954b3bfd646ef87, type: 2}
   prefab: {fileID: 2219520641958587106, guid: a4f2860deb7c1634a9072c5073df64a2, type: 3}
+  upgradeAttack: 6
+  upgradeDeffense: 1
+  upgradeAgility: 2
+  upgradeMovement: 1
+  upgradeHeatDef: 3
+  upgradeColdDef: 2
+  upgradeHP: 5
   attack: "Bast\xF3n de palomitas"

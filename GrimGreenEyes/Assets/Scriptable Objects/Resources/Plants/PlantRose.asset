@@ -26,4 +26,11 @@ MonoBehaviour:
   baseColdDef: 12
   baseSkill: {fileID: 11400000, guid: 5a9a948eccd32c240afa9976d866d0c4, type: 2}
   prefab: {fileID: 6423738474277625457, guid: a2d08a3fe1477e94cb851502b207a5ab, type: 3}
+  upgradeAttack: 4
+  upgradeDeffense: 3
+  upgradeAgility: 2
+  upgradeMovement: 1
+  upgradeHeatDef: 2
+  upgradeColdDef: 4
+  upgradeHP: 5
   attack: Espinas
