@@ -921,9 +921,9 @@ public class GridCreator : MonoBehaviour
                 }
                 break;
             case "Enemy":
-                for(int i = 1; i < sizeX; i++)
+                for(int i = 1; i < sizeY; i++)
                 {
-                    if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, sizeX - 1].GetComponent<Tile>().entity == null && tileMap[i, sizeX - 1].GetComponent<Tile>().isWalkable)
+                    if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, sizeY - 1].GetComponent<Tile>().entity == null && tileMap[i, sizeY - 1].GetComponent<Tile>().isWalkable)
                     {
                         player = Instantiate(entitys[playerArrayPos], tileMap[i, sizeY - 1].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
                         playerArrayPos++;
