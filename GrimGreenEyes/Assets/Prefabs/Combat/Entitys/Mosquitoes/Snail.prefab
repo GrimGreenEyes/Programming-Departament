@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 192312548320703696}
   - component: {fileID: 192312548320703660}
   - component: {fileID: 736872531743559615}
+  - component: {fileID: 6728832346952978367}
   - component: {fileID: 4004619573126807341}
   - component: {fileID: 1924572314554395244}
   m_Layer: 0
@@ -127,7 +128,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 0.7}
   m_Direction: 0
---- !u!114 &4004619573126807341
+--- !u!114 &6728832346952978367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +136,83 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192312548320703699}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e353b02ea1d7b8d439707de66910e104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Caracol
+  livePoints: 5
+  maxLivePoints: 5
+  attack: 30
+  defense: 5
+  heatResistance: 5
+  freezeResistance: 5
+  agility: 0
+  movement: 0
+  maxMovement: 4
+  attackMultiplayer: 1
+  defenseMultiplayer: 1
+  heatResistanceMultiplayer: 1
+  freezeResistanceMultiplayer: 1
+  bleeding: 0
+  poisoned: 0
+  stuned: 0
+  hidden: 0
+  attacked: 0
+  timeLineSprite: {fileID: 0}
+  renderer: {fileID: 0}
+  actualState: 1
+  mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
+  skillPrefabs:
+  - {fileID: 419186179298654320, guid: 660dc70ac5b880740b959817e41e9bc2, type: 3}
+  skillObjects: []
+  skills: []
+  skillSelected: 3
+  charges: 0
+  mainObjective: {fileID: 0}
+  MovementSpeed: 2
+  MovementPoint: {x: 0, y: 0, z: 0}
+  tileScale: {x: 0.7, y: 0.35}
+  angle: {x: 0, y: 0, z: 0}
+  offsetMovePoint: {x: 0.559017, y: 0.559017}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  radious: 0
+  moveing: 0
+  input: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  gridX: 0
+  gridY: 0
+  thisTile: {fileID: 0}
+  destination: {fileID: 0}
+  path: []
+  pathPosition: 0
+  directionX: 0
+  directionY: 0
+  livePointsText: {fileID: 5581456808127308278}
+  HUDSprite: {fileID: 0}
+  HUDSpriteSize: 100
+  HUDTurnSize: 0
+  isWalking: 0
+  global: {fileID: 0}
+  plants: []
+  plantsInfo: []
+  _PesoDP: 0
+  _PesoATT: 0
+  options: []
+  optionPicked: 0
+  enemyPicked: {fileID: 0}
+  gridCreator: {fileID: 0}
+  carro: {fileID: 0}
+--- !u!114 &4004619573126807341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192312548320703699}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08bbf6c675c237d49b8ff66fed04b340, type: 3}
   m_Name: 
@@ -193,6 +271,12 @@ MonoBehaviour:
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
+  isWalking: 0
+  Att: 
+  Def: 
+  Agl: 
+  Hres: 
+  Cres: 
 --- !u!95 &1924572314554395244
 Animator:
   serializedVersion: 4

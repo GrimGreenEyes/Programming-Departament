@@ -200,6 +200,7 @@ public class Entity : MonoBehaviour
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
             //path.Clear();
+            moveing = false;
             isWalking = false;
             Debug.Log("IS not :( WALKING!!");
 
@@ -220,6 +221,7 @@ public class Entity : MonoBehaviour
         }
         gridX = tile.gameObject.GetComponent<Tile>().GetX();
         gridY = tile.gameObject.GetComponent<Tile>().GetY();
+        Debug.Log(tile.gameObject.name + "  " + gameObject.name);
         thisTile = tile.gameObject.gameObject;
     }
     public void Heal(int quantity)
