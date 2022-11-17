@@ -19,7 +19,9 @@ public class Chase : Attack
     private void DoDamage(GameObject enemy, GameObject player)
     {
         enemy.GetComponent<Mosquitoes>().Damage(DamageCalculator(enemy.GetComponent<Mosquitoes>(), player.GetComponent<Plants>()));
-        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(1);
+        new WaitForSeconds(1f);
 
     }
     private void CalculatePosition(int distanceX, int distanceY, GameObject enemy, GameObject player)

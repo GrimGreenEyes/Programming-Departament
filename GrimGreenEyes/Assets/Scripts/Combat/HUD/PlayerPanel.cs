@@ -13,6 +13,16 @@ public class PlayerPanel : MonoBehaviour
     [SerializeField] private TMP_Text livePointsText;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Transform[] butonPositions = new Transform[3];
+    [SerializeField] private TMP_Text PS;
+    [SerializeField] private TMP_Text Att;
+    [SerializeField] private TMP_Text Def;
+    [SerializeField] private TMP_Text Agl;
+    [SerializeField] private TMP_Text Hres;
+    [SerializeField] private TMP_Text CRes;
+    [SerializeField] private TMP_Text steps;
+
+    private Entity plant; 
+
     private List<GameObject> skillButtons = new List<GameObject>();
 
 
@@ -23,6 +33,7 @@ public class PlayerPanel : MonoBehaviour
             instance = this;
         }
     }
+
     private void OnDestroy()
     {
         if(instance = this)
@@ -30,9 +41,20 @@ public class PlayerPanel : MonoBehaviour
             instance = null;
         }
     }
+    private void Update()
+    {
+        Att.text = plant.attack.ToString();
+        Def.text = plant.defense.ToString();
+        Agl.text = plant.agility.ToString();
+        Hres.text = plant.heatResistance.ToString();
+        CRes.text = plant.freezeResistance.ToString();
+        steps.text = plant.movement.ToString();
+        PS.text = plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString();
+
+    }
     public void ChangePlayer(GameObject newPlant)
     {
-        Entity plant = newPlant.GetComponent<Entity>();
+        plant = newPlant.GetComponent<Entity>();
         image.sprite = plant.HUDSprite;
         image.type = Image.Type.Tiled;
         image.pixelsPerUnitMultiplier = plant.HUDSpriteSize;

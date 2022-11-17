@@ -542,7 +542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &430973607
 MonoBehaviour:
@@ -656,13 +656,74 @@ RectTransform:
   - {fileID: 793776205}
   - {fileID: 1948683841}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &562944731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.776546
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.221631
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.684933
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781744, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_Name
+      value: Aloe Vera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948153811679935146, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e68fb120f3d9ca54ea93ca833314f05d, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
 --- !u!1 &793776204
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +1058,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148835368
 GameObject:
@@ -1734,6 +1795,8 @@ MonoBehaviour:
   biomas: 
   biomaActual: 0
   isLastNode: 0
+  itsRaining: 0
+  specialEvent: 0
   biomCont: []
   indBioma: 0
   biomsList: []
@@ -1753,7 +1816,7 @@ Transform:
   m_Children:
   - {fileID: 2006407258}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1715785744
 AudioSource:

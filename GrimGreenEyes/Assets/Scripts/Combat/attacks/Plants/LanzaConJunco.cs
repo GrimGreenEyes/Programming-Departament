@@ -12,6 +12,11 @@ public class LanzaConJunco : Attack
         enemy.GetComponent<Mosquitoes>().livePoints -= damage;
         player.GetComponent<Plants>().Heal((int)(damage * liveRegen));
         enemy.GetComponent<Entity>().CheckDead();
-        player.GetComponent<Plants>().actualState = Entity.EntityState.IDLE;
+        if(enemy.transform.childCount < 3)
+        {
+            GameObject animation = Instantiate(attackAnimation, enemy.transform);
+            animation.GetComponent<AttackAnimation>().Animate(6);
+            new WaitForSeconds(1f);
+        }
     }
 }

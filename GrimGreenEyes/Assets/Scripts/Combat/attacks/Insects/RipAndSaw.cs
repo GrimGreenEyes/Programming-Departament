@@ -8,6 +8,8 @@ public class RipAndSaw : Attack
     {
         enemy.GetComponent<Entity>().livePoints -= DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>(), player.GetComponent<Entity>().charges);
         enemy.GetComponent<Entity>().CheckDead();
-        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(4);
+        new WaitForSeconds(1f);
     }
 }

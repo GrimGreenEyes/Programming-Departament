@@ -47,6 +47,8 @@ MonoBehaviour:
   name: PopRod
   range: 10
   radious: 0
+  directedToAlly: 0
   freezeDamage: 0.7
   heatDamage: 0.3
+  attackAnimation: {fileID: 8801658638766239520, guid: 955088bb6d3aa9249a2eda0726e5e650, type: 3}
   popCornPref: {fileID: 5000178023076423987, guid: eb5572206436b70448a984aa02659ccb, type: 3}

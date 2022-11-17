@@ -12,6 +12,8 @@ public class BiteAndTangle : Attack
         {
             enemy.GetComponent<Entity>().stuned = true;
         }
-        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(4);
+        new WaitForSeconds(1f); ;
     }
 }

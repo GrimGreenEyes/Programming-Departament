@@ -8,6 +8,8 @@ public class Thorns : Attack
     {
         enemy.GetComponent<Entity>().bleeding = true;
         enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
-        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(6);
+        new WaitForSeconds(1f);
     }
 }

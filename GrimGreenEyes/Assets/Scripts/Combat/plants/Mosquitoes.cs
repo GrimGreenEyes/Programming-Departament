@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Mosquitoes : Entity
 {
-
+    [SerializeField] private int[] Att; 
+    [SerializeField] private int[] Def; 
+    [SerializeField] private int[] Agl; 
+    [SerializeField] private int[] Hres; 
+    [SerializeField] private int[] Cres; 
     private void Update()
     {
         States();

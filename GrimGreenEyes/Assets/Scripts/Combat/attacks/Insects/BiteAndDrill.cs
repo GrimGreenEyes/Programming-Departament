@@ -8,7 +8,9 @@ public class BiteAndDrill : Attack
     {
         enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
         SearchBack(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(4);
+        new WaitForSeconds(1f);
     }
     private void SearchBack(Entity enemy, Entity player)
     {

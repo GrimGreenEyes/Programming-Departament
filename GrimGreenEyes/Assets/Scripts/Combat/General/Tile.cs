@@ -194,7 +194,6 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
         if(collision.tag == "Feet")
         {
             if (collision.gameObject.transform.parent.gameObject != entity)
@@ -203,7 +202,10 @@ public class Tile : MonoBehaviour
             }
             
             entity = null;
-            isWalkable = true;
+        if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.MOVEING)
+            {
+                isWalkable = true;
+            }
         }
     }
     private void OnMouseEnter()

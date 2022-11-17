@@ -35,7 +35,9 @@ public class GreatShield : Skill
         
         tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX - 1, player.GetComponent<Plants>().gridY).GetComponent<Tile>();
         GiveBuff(tile);
-
+        GameObject animation = Instantiate(attackAnimation, player.transform);
+        animation.GetComponent<AttackAnimation>().Animate(3);
+        new WaitForSeconds(1f);
         DeactivateSkill(player.GetComponent<Plants>());
     }
 }

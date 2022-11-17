@@ -26,9 +26,9 @@ public class Skill : MonoBehaviour
     public bool alreadyUsed;
     public int coolDown;
     public int currentCoolDown;
-    
-    
-    
+
+    [SerializeField] protected GameObject attackAnimation;
+
     public void ReduceCoolDown()
     {
         currentCoolDown = (currentCoolDown <= 0) ? 0 : currentCoolDown - 1 ;

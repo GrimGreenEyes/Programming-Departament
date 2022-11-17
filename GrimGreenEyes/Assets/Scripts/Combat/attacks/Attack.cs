@@ -13,6 +13,8 @@ public class Attack : MonoBehaviour
     public float heatDamage = 0.3f;
 
     private const int chargeDamage = 5;
+
+    [SerializeField] protected GameObject attackAnimation;
     public int DamageCalculator(Entity enemy, Entity player, int charges = 0)
     {
         
