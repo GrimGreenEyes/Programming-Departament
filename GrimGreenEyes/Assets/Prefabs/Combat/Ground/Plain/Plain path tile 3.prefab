@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4368756039915833081}
   - component: {fileID: 4368756039915833079}
-  - component: {fileID: 7807549943224012861}
+  - component: {fileID: 3874345791097977250}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
   - component: {fileID: 5254859341999245058}
-  - component: {fileID: 7383211306489967528}
+  - component: {fileID: 6501731790505467175}
   m_Layer: 0
-  m_Name: DesertPathTile
+  m_Name: Plain path tile 3
   m_TagString: PathTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   entity: {fileID: 0}
   weight: 1
   seeds: []
---- !u!114 &7807549943224012861
+--- !u!114 &3874345791097977250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,12 +147,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be501f19cf3a51443a301ba45f1e5e24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 791ec776cd34e764e9f58a1417178e40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 11.31, y: 6.04}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -175,8 +175,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.31, y: 6.04}
-    newSize: {x: 11.31, y: 6.04}
+    oldSize: {x: 11.28, y: 6.09}
+    newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -184,7 +184,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45220554, y: 0.20825917}
   m_EdgeRadius: 0
---- !u!60 &7383211306489967528
+--- !u!60 &6501731790505467175
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,8 +201,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.31, y: 6.04}
-    newSize: {x: 11.31, y: 6.04}
+    oldSize: {x: 11.28, y: 6.09}
+    newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -213,7 +213,7 @@ PolygonCollider2D:
       - {x: 1.90625, y: 0.1328125}
       - {x: 1.34375, y: 0.4140625}
       - {x: 1.0585938, y: 0.55859375}
-      - {x: 0.51171875, y: 0.8359375}
+      - {x: 0.49609375, y: 0.84375}
       - {x: -0.0078125, y: 1.0976562}
       - {x: -0.05078125, y: 1.0976562}
       - {x: -0.29296875, y: 0.97265625}
@@ -303,12 +303,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be501f19cf3a51443a301ba45f1e5e24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a73544f8a294c4849a55d73bae2ac585, type: 3}
   m_Color: {r: 0.8330588, g: 1, b: 0.37254906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 11.31, y: 6.04}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
