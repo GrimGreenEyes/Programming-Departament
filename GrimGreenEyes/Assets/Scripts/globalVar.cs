@@ -28,6 +28,7 @@ public class GlobalVar : MonoBehaviour
 
     public List<Transform> biomCont;
 
+    public bool firstTimeResources = true;
 
     public static GlobalVar VarInstance;
 

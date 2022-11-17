@@ -36,56 +36,6 @@ public class GridCreator : MonoBehaviour
     [SerializeField] private int minPathDistanceX = 2;
     [SerializeField] private int maxPathDistanceX = 5;
 
-    /*
-    [Header("WATER")]
-    [Range(0, 100)]
-    [SerializeField] private float waterChance = 80;
-    [SerializeField] private int minWaterY = 2;
-    [Range(0, 100)]
-    [SerializeField] private float averageStreamIntensity = 90;
-    [Range(0, 100)]
-    [SerializeField] private float averageStreamDecay = 40;
-    [Range(0, 10)]
-    [SerializeField] private int maxStreamSize = 3;
-
-    [Header("MOUNTAINS")]
-    [Range(0, 100)]
-    [SerializeField] private int anyMountainChance = 100;
-    [SerializeField] private int minMountains = 3;
-    [SerializeField] private int maxMountains = 7;
-    [Range(0, 100)]
-    [SerializeField] private int mountainGrowthChance = 50;
-
-    [Header("POWERUPS")]
-    [Range(0, 100)]
-    [SerializeField] private int anyPowerupChance = 50;
-    [SerializeField] private int minPowerups = 2;
-    [SerializeField] private int maxPowerups = 3;
-    [Range(0, 100)]
-    [SerializeField] private int powerupGrowthChance = 50;
-
-    [Header("HEALERS")]
-    [Range(0, 100)]
-    [SerializeField] private int anyHealerChance = 70;
-    [SerializeField] private int minHealers = 4;
-    [SerializeField] private int maxHealers = 6;
-    [Range(0, 100)]
-    [SerializeField] private int healerGrowthChance = 50;
-
-    [Header("DAMAGERS")]
-    [Range(0, 100)]
-    [SerializeField] private int anyDamagerChance = 70;
-    [SerializeField] private int minDamagers = 4;
-    [SerializeField] private int maxDamagers = 6;
-    [Range(0, 100)]
-    [SerializeField] private int damagerGrowthChance = 50;
-
-    [Header("EVENTS")]
-    [Range(0, 100)]
-    [SerializeField] private int rainingChance = 25;
-    [Range(0, 100)]
-    [SerializeField] private int eventChance = 25;
-    */
     private bool specialEvent = false;
     private bool itsRaining = false;
 
@@ -239,12 +189,14 @@ public class GridCreator : MonoBehaviour
             {
                 if (isGoingUp)
                 {
-                    InstantiateSquare(currentHeight + 1, i, "path");
+                    InstantiateSquareOverwrite(currentHeight + 1, i, "lPath3");
+                    InstantiateSquareOverwrite(currentHeight, i, "lPath2");
                     currentHeight++;
                 }
                 else
                 {
-                    InstantiateSquare(currentHeight - 1, i, "path");
+                    InstantiateSquareOverwrite(currentHeight - 1, i, "lPath1");
+                    InstantiateSquareOverwrite(currentHeight, i, "lPath4");
                     currentHeight--;
                 }
             }
@@ -813,6 +765,10 @@ public class GridCreator : MonoBehaviour
             currentBiome.tilesDictionary.Add("healer", currentBiome.healerTile);
             currentBiome.tilesDictionary.Add("damager", currentBiome.damagerTile);
             currentBiome.tilesDictionary.Add("event", currentBiome.eventTile);
+            currentBiome.tilesDictionary.Add("lPath1", currentBiome.lPath1);
+            currentBiome.tilesDictionary.Add("lPath2", currentBiome.lPath2);
+            currentBiome.tilesDictionary.Add("lPath3", currentBiome.lPath3);
+            currentBiome.tilesDictionary.Add("lPath4", currentBiome.lPath4);
 
             first = false;
         }
@@ -1031,7 +987,7 @@ public class Biome
     public string name;
 
     public Dictionary<string, GameObject> tilesDictionary = new Dictionary<string, GameObject>();
-    [SerializeField] public GameObject groundTile, pathTile, waterTile, mountainTile, powerupTile, healerTile, damagerTile, eventTile;
+    [SerializeField] public GameObject groundTile, pathTile, waterTile, mountainTile, powerupTile, healerTile, damagerTile, eventTile, lPath1, lPath2, lPath3, lPath4;
 
     [Header("WATER")]
     [Range(0, 100)] public float waterChance = 80;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b0c7ad49114c0499bfbab7655fcb58, type: 3}
   m_Name: PlantThumbleweed
   m_EditorClassIdentifier: 
-  name: Planta rodadora
+  name: Rolay
   baseHP: 95
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
@@ -34,3 +34,5 @@ MonoBehaviour:
   upgradeColdDef: 1
   upgradeHP: 3
   attack: Perseguir
+  actionDescription: "Se desplaza 8 casillas en una direcci\xF3n y no se para hasta
+    chocar con un enemigo, haci\xE9ndole da\xF1o."

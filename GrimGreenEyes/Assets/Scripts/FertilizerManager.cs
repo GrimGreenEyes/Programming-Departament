@@ -11,6 +11,7 @@ public class FertilizerManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private List<FertilizerButton> buttonsList = new List<FertilizerButton>(); //Almacena los SLOTS (objetos con botones) del inventario
     [SerializeField] private GameObject fertilizersPanel, fertilizerButtonPrefab, contentGameObject;
     [SerializeField] private TextMeshProUGUI fertilizerName, fertilizerDescription, powerupName, powerupDescription;
+    [SerializeField] private Image fertilizerImage;
     [SerializeField] private GameObject powerupPanel, useButton;
     private Fertilizer selectedFertilizer;
     [SerializeField] private PlantsManager plantsManager;
@@ -28,11 +29,13 @@ public class FertilizerManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         fertilizersPanel.SetActive(true);
         UpdateFertilizers();
+        GameObject.Find("UIManager").GetComponent<UIManager>().HideExitButton();
     }
 
     public void CloseFertilizersList()
     {
         fertilizersPanel.SetActive(false);
+        GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
     }
 
     public void AddFertilizer(Fertilizer fertilizer) //Añade un fertilizante al diccionario (inventario). Si ese fertilizante ya existía, aumenta su cantidad en 1 unidad.
@@ -85,6 +88,7 @@ public class FertilizerManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         powerupPanel.SetActive(false);
         useButton.SetActive(false);
+        fertilizerImage.transform.parent.gameObject.SetActive(false);
         fertilizerName.text = Strings.FERTILIZERS_TITLE;
         fertilizerDescription.text = Strings.FERTILIZERS_INTRO;
     }
@@ -102,11 +106,15 @@ public class FertilizerManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 fertilizerDescription.text = Strings.STAT_FERT_DESC + fertilizer.stat.name + ".";
                 powerupName.text = fertilizer.stat.name;
                 powerupDescription.text = fertilizer.stat.description;
+                fertilizerImage.transform.parent.gameObject.SetActive(true);
+                fertilizerImage.sprite = fertilizer.sprite;
                 break;
             case 1: //SKILL fertilizer
                 fertilizerDescription.text = Strings.SKILL_FERT_DESC + fertilizer.skill.name + ".";
                 powerupName.text = fertilizer.skill.name;
                 powerupDescription.text = fertilizer.skill.description;
+                fertilizerImage.transform.parent.gameObject.SetActive(true);
+                fertilizerImage.sprite = fertilizer.sprite;
                 break;
         }
     }

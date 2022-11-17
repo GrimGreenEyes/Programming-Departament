@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b0c7ad49114c0499bfbab7655fcb58, type: 3}
   m_Name: PlantLily
   m_EditorClassIdentifier: 
-  name: "Nen\xFAfar"
+  name: Belator
   baseHP: 180
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
@@ -34,3 +34,4 @@ MonoBehaviour:
   upgradeColdDef: 6
   upgradeHP: 10
   attack: Lanza de junco
+  actionDescription: "Golpea a un enemigo adyacente y se cura 50% del da\xF1o ocasionado."

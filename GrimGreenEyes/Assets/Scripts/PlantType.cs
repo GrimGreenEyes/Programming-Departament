@@ -16,4 +16,6 @@ public class PlantType : ScriptableObject
 
     //TEMPORAL (DEBE SER OTRO SCRIPTABLEOBJECT PARA ALMACENAR DESCRIPCIÓN)
     public string attack;
+    [TextArea(3, 10)]
+    public string actionDescription;
 }

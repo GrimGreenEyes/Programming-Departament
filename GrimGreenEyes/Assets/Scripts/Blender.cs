@@ -25,9 +25,9 @@ public class Blender : MonoBehaviour
 
     public void UpdateBlender()
     {
-        inputSlots[0].transform.GetChild(0).GetComponent<Image>().sprite = blenderStorage[0].sprite;
-        inputSlots[1].transform.GetChild(0).GetComponent<Image>().sprite = blenderStorage[1].sprite;
-        outputSlot.transform.GetChild(0).GetComponent<Image>().sprite = voidItem.sprite;
+        inputSlots[0].transform.GetChild(1).GetComponent<Image>().sprite = blenderStorage[0].sprite;
+        inputSlots[1].transform.GetChild(1).GetComponent<Image>().sprite = blenderStorage[1].sprite;
+        outputSlot.transform.GetChild(1).GetComponent<Image>().sprite = voidItem.sprite;
         blendButton.SetActive(false);
         currentOutput = null;
         CheckRecipe();
@@ -74,7 +74,7 @@ public class Blender : MonoBehaviour
         {
             if((blenderStorage[0] == recipe.input0 && blenderStorage[1] == recipe.input1) || (blenderStorage[1] == recipe.input0 && blenderStorage[0] == recipe.input1))
             {
-                outputSlot.transform.GetChild(0).GetComponent<Image>().sprite = recipe.output.sprite;
+                outputSlot.transform.GetChild(1).GetComponent<Image>().sprite = recipe.output.sprite;
                 blendButton.SetActive(true);
                 currentOutput = recipe.output;
                 recipeFound = true;
