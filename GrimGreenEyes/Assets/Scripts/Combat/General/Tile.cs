@@ -202,7 +202,7 @@ public class Tile : MonoBehaviour
             }
             
             entity = null;
-        if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.MOVEING)
+        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING)
             {
                 isWalkable = true;
             }

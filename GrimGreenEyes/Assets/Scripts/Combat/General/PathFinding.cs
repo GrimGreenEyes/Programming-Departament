@@ -155,7 +155,7 @@ public class PathFinding : MonoBehaviour
             if(thisTile.gameObject == finish)
             {
                 
-                for (int j = 0; j < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement; j++)
+                for (int j = 0; j <= GameController.instance.SelectedPlayer().GetComponent<Entity>().movement; j++)
                 {
         
                     if(thisTile.parent == null) { return; }
