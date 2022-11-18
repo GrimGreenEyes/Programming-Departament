@@ -684,7 +684,10 @@ MonoBehaviour:
   biomas: 
   biomaActual: 0
   isLastNode: 0
+  itsRaining: 0
+  specialEvent: 0
   biomCont: []
+  firstTimeResources: 1
   indBioma: 0
   biomsList: []
   showLoad: 0
@@ -1657,7 +1660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
   m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}

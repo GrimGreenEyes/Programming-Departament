@@ -18,7 +18,7 @@ public class NewGame : MonoBehaviour
         else
             lastLevel = 0;
         lastLevel += 1;
-        loadText.text = "New Game Level : " + lastLevel;
+        loadText.text = "Empezar nuevo nivel : " + lastLevel;
     }
 
 }

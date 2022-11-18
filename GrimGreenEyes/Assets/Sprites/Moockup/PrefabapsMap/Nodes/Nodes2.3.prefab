@@ -256,7 +256,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &1023533792067754327
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &4034373943445891332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1977,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &6604714952020098163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2567,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &7854833454526677439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,4 +2945,4 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0

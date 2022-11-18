@@ -145,11 +145,13 @@ public class GlobalVar : MonoBehaviour
     public void loadNewScene()
     {
         level++;
-       
-        foreach (Transform child in transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+
+        /* foreach (Transform child in transform)
+         {
+             GameObject.Destroy(child.gameObject);
+         }*/
+        Debug.Log(transform.GetChild(1).name);
+        GameObject.Destroy(transform.GetChild(1).gameObject);
         created = 0;
         biomaActual = biomas[0];
     }
@@ -178,10 +180,12 @@ public class GlobalVar : MonoBehaviour
 
     public void delete()
     {
-        foreach (Transform child in transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        /* foreach (Transform child in transform)
+         {
+             GameObject.Destroy(child.gameObject);
+         }*/
+        GameObject.Destroy(transform.GetChild(1).gameObject);
+
         created = 0;
         //ESTA LÍNEA COMENTADA DABA ERROR. SI LA DESCOMENTO FUNCIONA BIEN, AL MENOS DESDE EL BOTÓN DE TERMINAR COMBATE
         //GameObject.Find("Canvas").GetComponent<MainController>().loadScreen("MainScene");
