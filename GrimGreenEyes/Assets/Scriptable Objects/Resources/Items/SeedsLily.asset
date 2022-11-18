@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc284a6dc5e8ad46a6ba82e7492a686, type: 3}
   m_Name: SeedsLily
   m_EditorClassIdentifier: 
-  name: "Semillas de Nen\xFAfar"
+  name: Semillas de Belator
   sprite: {fileID: 21300000, guid: 47390a73bf1ac4945b621a721b7cd9c4, type: 3}
   type: 1
   seedType: {fileID: 11400000, guid: 1baec604c05e64c4784506c74368d5aa, type: 2}

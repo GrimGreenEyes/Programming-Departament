@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198939fe7db5f6a4bb102b1480fb6f27, type: 3}
   m_Name: FertilizerLily
   m_EditorClassIdentifier: 
-  name: "Fertilizante de habilidad: Nen\xFAfar"
+  name: 'Fertilizante de habilidad: Belator'
   sprite: {fileID: 21300000, guid: d3ffcc2f2d7690d40b6bfcd882d29c2e, type: 3}
   type: 1
   skill: {fileID: 11400000, guid: 8910aac8a8593d1479951c2b7bb71da6, type: 2}

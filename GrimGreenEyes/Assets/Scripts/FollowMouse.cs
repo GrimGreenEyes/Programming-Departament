@@ -36,16 +36,6 @@ public class FollowMouse : MonoBehaviour
         {
             thisTransform.pivot = new Vector2(0f, 0.5f);
         }
-
-
-        /*if(text.GetComponent<RectTransform>().rect.width < baseWidth - (2 * margin))
-        {
-            gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(text.GetComponent<RectTransform>().rect.width + (2 * margin), gameObject.GetComponent<RectTransform>().sizeDelta.y);
-        }
-        else
-        {
-            gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(baseWidth, gameObject.GetComponent<RectTransform>().sizeDelta.y);
-        }*/
     }
 
     public void HideText()

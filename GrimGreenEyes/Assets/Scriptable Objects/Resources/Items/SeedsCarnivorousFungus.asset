@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc284a6dc5e8ad46a6ba82e7492a686, type: 3}
   m_Name: SeedsCarnivorousFungus
   m_EditorClassIdentifier: 
-  name: "Semillas de Hongo Carn\xEDvoro"
+  name: Semillas de Toxkill
   sprite: {fileID: 21300000, guid: 25ecff1e026924f409f097b7167b53b1, type: 3}
   type: 1
   seedType: {fileID: 11400000, guid: 25c4c50a1b50cb446974ebf615e4255f, type: 2}

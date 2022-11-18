@@ -28,9 +28,11 @@ public class Blender : MonoBehaviour
         inputSlots[0].transform.GetChild(1).GetComponent<Image>().sprite = blenderStorage[0].sprite;
         inputSlots[1].transform.GetChild(1).GetComponent<Image>().sprite = blenderStorage[1].sprite;
         outputSlot.transform.GetChild(1).GetComponent<Image>().sprite = voidItem.sprite;
+
         blendButton.SetActive(false);
         currentOutput = null;
         CheckRecipe();
+        UpdateNames();
     }
 
     public bool isBlenderFull()
@@ -68,6 +70,7 @@ public class Blender : MonoBehaviour
 
     private void CheckRecipe()
     {
+        outputSlot.GetComponent<HoverElement>().enabled = false;
         bool recipeFound = false;
         if (blenderStorage[0] == voidItem || blenderStorage[1] == voidItem) return; //Solo comprueba crafteos si hay 2 items en el input
         foreach(Recipe recipe in recipeList)
@@ -75,6 +78,10 @@ public class Blender : MonoBehaviour
             if((blenderStorage[0] == recipe.input0 && blenderStorage[1] == recipe.input1) || (blenderStorage[1] == recipe.input0 && blenderStorage[0] == recipe.input1))
             {
                 outputSlot.transform.GetChild(1).GetComponent<Image>().sprite = recipe.output.sprite;
+
+                outputSlot.GetComponent<HoverElement>().enabled = true;
+                outputSlot.GetComponent<HoverElement>().displayText = recipe.output.name;
+
                 blendButton.SetActive(true);
                 currentOutput = recipe.output;
                 recipeFound = true;
@@ -83,9 +90,41 @@ public class Blender : MonoBehaviour
         }
         if (!recipeFound)
         {
-            outputSlot.transform.GetChild(0).GetComponent<Image>().sprite = nullRecipeSprite;
+            outputSlot.transform.GetChild(1).GetComponent<Image>().sprite = nullRecipeSprite;
+            outputSlot.GetComponent<HoverElement>().enabled = false;
+        }
+    }
+
+    public void UpdateNames()
+    {
+        if (blenderStorage[0] != voidItem && blenderStorage[0] != null)
+        {
+            inputSlots[0].GetComponent<HoverElement>().enabled = true;
+            inputSlots[0].GetComponent<HoverElement>().displayText = blenderStorage[0].name;
+        }
+        else
+        {
+            inputSlots[0].GetComponent<HoverElement>().enabled = false;
         }
 
+        if (blenderStorage[1] != voidItem && blenderStorage[0] != null)
+        {
+            inputSlots[1].GetComponent<HoverElement>().enabled = true;
+            inputSlots[1].GetComponent<HoverElement>().displayText = blenderStorage[1].name;
+        }
+        else
+        {
+            inputSlots[1].GetComponent<HoverElement>().enabled = false;
+        }
+
+        if (false)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     public void ClickBlend()

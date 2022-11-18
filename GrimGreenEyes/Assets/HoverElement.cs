@@ -25,4 +25,9 @@ public class HoverElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         itemNameDisplay.HideText();
     }
+
+    public void OnDisable()
+    {
+        itemNameDisplay.HideText();
+    }
 }

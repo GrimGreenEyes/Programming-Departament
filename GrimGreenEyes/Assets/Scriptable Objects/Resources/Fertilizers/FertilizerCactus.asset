@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198939fe7db5f6a4bb102b1480fb6f27, type: 3}
   m_Name: FertilizerCactus
   m_EditorClassIdentifier: 
-  name: 'Fertilizante de habilidad: Cactus'
+  name: 'Fertilizante de habilidad: Skarkmor'
   sprite: {fileID: 21300000, guid: ab4b01075371e83449b2da11cf4350e2, type: 3}
   type: 1
   skill: {fileID: 11400000, guid: 0ad3e95478889ec4e8386f6afd93e91a, type: 2}
