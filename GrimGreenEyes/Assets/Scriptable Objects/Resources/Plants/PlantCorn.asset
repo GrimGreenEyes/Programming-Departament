@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 235ddd7ac074e5d44829c90554f4d3ff, type: 3}
+  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
   baseAttack: 50
   baseMovement: 4
   baseAgility: 12
@@ -33,6 +33,7 @@ MonoBehaviour:
   upgradeHeatDef: 3
   upgradeColdDef: 2
   upgradeHP: 5
+  idleIndex: 4
   attack: "Bast\xF3n de palomitas"
   actionDescription: "Lanza una palomita de su bast\xF3n hacia una direcci\xF3n y
     golpea a los enemigos que encuentra."

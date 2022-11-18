@@ -13,8 +13,7 @@ public class PlantType : ScriptableObject
 
     public int upgradeAttack, upgradeDeffense, upgradeAgility, upgradeMovement, upgradeHeatDef, upgradeColdDef, upgradeHP;
 
-
-    //TEMPORAL (DEBE SER OTRO SCRIPTABLEOBJECT PARA ALMACENAR DESCRIPCIÓN)
+    public int idleIndex;
     public string attack;
     [TextArea(3, 10)]
     public string actionDescription;

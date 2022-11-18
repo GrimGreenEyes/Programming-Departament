@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: e533b1340889e124e832cf2cd8ce79e9, type: 3}
+  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
   baseAttack: 30
   baseMovement: 4
   baseAgility: 5
@@ -33,5 +33,6 @@ MonoBehaviour:
   upgradeHeatDef: 6
   upgradeColdDef: 6
   upgradeHP: 10
+  idleIndex: 5
   attack: Lanza de junco
   actionDescription: "Golpea a un enemigo adyacente y se cura 50% del da\xF1o ocasionado."

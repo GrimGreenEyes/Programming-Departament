@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 8fc2e9dc20b18f3498e40cf0e229411d, type: 3}
+  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
   baseAttack: 65
   baseMovement: 4
   baseAgility: 5
@@ -33,5 +33,6 @@ MonoBehaviour:
   upgradeHeatDef: 2
   upgradeColdDef: 2
   upgradeHP: 5
+  idleIndex: 3
   attack: Mordisco
   actionDescription: Golpea a un objetivo adyacente.

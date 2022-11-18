@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 6cc7940c2279df04283d0c9eae760d1a, type: 3}
+  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
   baseAttack: 20
   baseMovement: 4
   baseAgility: 4
@@ -33,6 +33,7 @@ MonoBehaviour:
   upgradeHeatDef: 3
   upgradeColdDef: 1
   upgradeHP: 8
+  idleIndex: 1
   attack: Garras y espinas
   actionDescription: "Golpea a todos los enemigos adyacentes causando m\xE1s da\xF1o
     al objetivo central. "

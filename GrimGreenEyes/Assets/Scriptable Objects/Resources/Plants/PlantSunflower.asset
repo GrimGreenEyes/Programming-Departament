@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 2a762a18a32c87e4babb1259c995ba08, type: 3}
+  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
   baseAttack: 20
   baseMovement: 4
   baseAgility: 7
@@ -33,5 +33,6 @@ MonoBehaviour:
   upgradeHeatDef: 2
   upgradeColdDef: 1
   upgradeHP: 5
+  idleIndex: 2
   attack: Golpe de calor
   actionDescription: Aturde a un enemigo a 5 casillas durante un turno.
