@@ -11,10 +11,24 @@ public class OptionsPanel : MonoBehaviour
     public Inventory inventoryManager;
     [SerializeField] private TextMeshProUGUI nameLabel;
     private Item currentItem;
+    private RectTransform thisTransform, canvasTransform;
+    private Canvas myCanvas;
+
 
     private void Start()
     {
+        myCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        thisTransform = GetComponent<RectTransform>();
+        canvasTransform = myCanvas.GetComponent<RectTransform>();
         //HideOptionsPanel();
+    }
+
+    private void Update()
+    {
+        while (thisTransform.anchoredPosition.x + thisTransform.sizeDelta.x >= canvasTransform.sizeDelta.x / 2)
+        {
+            transform.position = transform.position - new Vector3(0.1f, 0, 0);
+        }
     }
 
     public void ShowOptionsPanel(Vector3 pos, Item item) //All the options displayed when clicking the item
@@ -22,14 +36,13 @@ public class OptionsPanel : MonoBehaviour
         currentItem = item;
         gameObject.SetActive(true);
         transform.position = pos;
-        /*if(transform.localPosition.y >= parentPanel.GetComponent<RectTransform>().sizeDelta.y / 2)
-        {
 
-        }*/
+        
 
-        foreach(GameObject button in OptionButtons)
+
+        foreach (GameObject button in OptionButtons)
         {
-            Destroy(button);
+          Destroy(button);
         }
         OptionButtons.Clear();
 

@@ -148,7 +148,7 @@ public class PlantsManager : MonoBehaviour
 
     private IEnumerator DelayWaterPlant(int index)
     {
-        yield return new WaitForSeconds(1.33f);
+        yield return new WaitForSeconds(1.2f);
         plantsList[index].ReceiveWater();
         tapsAnimatorsList[index].SetBool("openTab", false);
         waterdropsAnimatorsList[index].SetBool("dropWater", false);

@@ -11,10 +11,13 @@ public class FollowMouse : MonoBehaviour
     public GameObject text;
     public int baseWidth = 500;
     public int margin = 5;
+    private RectTransform thisTransform, canvasTransform;
 
     void Start()
     {
         myCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        thisTransform = GetComponent<RectTransform>();
+        canvasTransform = myCanvas.GetComponent<RectTransform>();
         HideText();
     }
 
@@ -23,6 +26,17 @@ public class FollowMouse : MonoBehaviour
         Vector2 pos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
         transform.position = myCanvas.transform.TransformPoint(new Vector2(pos.x + 25, pos.y));
+
+        if (thisTransform.anchoredPosition.x + thisTransform.sizeDelta.x >= canvasTransform.sizeDelta.x / 2)
+        {
+            //Debug.Log("OUT");
+            thisTransform.pivot = new Vector2(1.1f, 0.5f);
+        }
+        else
+        {
+            thisTransform.pivot = new Vector2(0f, 0.5f);
+        }
+
 
         /*if(text.GetComponent<RectTransform>().rect.width < baseWidth - (2 * margin))
         {
