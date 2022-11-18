@@ -403,9 +403,9 @@ MonoBehaviour:
   defense: 5
   heatResistance: 5
   freezeResistance: 5
-  agility: 1
+  agility: 200
   movement: 0
-  maxMovement: 10
+  maxMovement: 40
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -447,6 +447,10 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 1242710288575539286}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 005010aac9fdae84c9e42f7aa3cee0d7, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
@@ -524,6 +528,10 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 0}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 005010aac9fdae84c9e42f7aa3cee0d7, type: 3}
   HUDSpriteSize: 5
   HUDTurnSize: 11

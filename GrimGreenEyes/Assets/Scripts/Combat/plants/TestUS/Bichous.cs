@@ -34,7 +34,7 @@ public class Bichous : Entity
     public Carriage carro;
 
     bool isAttacking;
-    int selection;
+    public int selection;
 
     public bool isMoving;
 
@@ -171,7 +171,6 @@ public class Bichous : Entity
                 {
                     return;
                 }
-                Debug.Log("TURNOOO");
                 if (!optionPicked)
                 {
                     PickOption();
@@ -237,6 +236,16 @@ public class Bichous : Entity
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
                 attacked = true;
+                if (moveAndAttack)
+                {
+                    for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                    {
+                        if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                            mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                    }
+                    mainAttack.Effect(mainObjective, gameObject);
+                }
+                moveAndAttack = false;
                 if (attacked)
                 {
                     return;
@@ -347,7 +356,7 @@ public class Bichous : Entity
 
         options[0] = weightAtC.getValue();
 
-    //    options[0] += 0.5f;
+        options[0] -= 0.5f;
 
 
         //Imp Mov Carro
@@ -452,21 +461,25 @@ public class Bichous : Entity
                     //attacked = true;
 
                     // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-                    
-                    falseCarro.gridX = newX;
-                    falseCarro.gridY = newY;
+                    Carriage falseCarro2 = new Carriage();
 
-                    //  plantsInfo[indPlanta].GridX = newX;
-                    // plantsInfo[indPlanta].GridY = newY;
-                    //plantsInfo[indPlanta].UpdateRelevant();
-                    float a = distSmthToPlant(falseCarro);
-                    if (distSmthToPlant(falseCarro) <= 3) // 1 o range
+                    falseCarro2.gridX = newX;
+                    falseCarro2.gridY = newY;
+
+                    moveAndAttack = false;
+
+                    float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
+                    if (distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY) <= 3) // 1 o range
                     {
-                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
 
+                        //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = carro.gameObject;
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
-                        //mosquitoes?
-                        States();
+                       
+                        moveAndAttack = true;
+                     
+                       
 
                     }
                 }
@@ -520,37 +533,50 @@ public class Bichous : Entity
                     plantsInfo[indPlanta].GridX = newX;
                     plantsInfo[indPlanta].GridY = newY;
                     plantsInfo[indPlanta].UpdateRelevant();
-                    
-                }
-                if (plantsInfo[indPlanta].distToPlant <= 2) // 1 o range
+
+                    int a = distSmthToSmthVariables(newX, newY, plants[indPlanta].GetComponent<Plants>().gridX, plants[indPlanta].GetComponent<Plants>().gridY);
+                    if (a <= 3) // 1 o range
+                    {
+                        //Attack
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
+                                                                                                                                                                                                                                                                          //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+
+                        moveAndAttack = true;
+
+
+
+                    }
+                    /*
+                    if (plantsInfo[indPlanta].distToPlant <= 2) // 1 o range
                 {
                     //Attack
-                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
-                    //  attacked = true;
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
                     //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
                     GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
-                    //mosquitoes?
 
-                    attacked = true;
-                    for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
-                    {
-                        if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
-                            mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
-                    }
-                    mainAttack.Effect(mainObjective, gameObject);
+                    moveAndAttack = true;
 
-                    /* Debug.Log("ATTACK 3");
-                     Debug.Log("attacking");
-                     attacked = true;
-                     StartCoroutine(waitToMove());
+                    /* attacked = true;
                      for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                      {
                          if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
                              mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
                      }
                      mainAttack.Effect(mainObjective, gameObject);
-                    */
-                    States();
+
+                     /* Debug.Log("ATTACK 3");
+                      Debug.Log("attacking");
+                      attacked = true;
+                      StartCoroutine(waitToMove());
+                      for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
+                      {
+                          if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
+                              mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
+                      }
+                      mainAttack.Effect(mainObjective, gameObject);
+
+                     States();*/
                 }
             }
 
@@ -787,6 +813,18 @@ public class Bichous : Entity
         int distTo = (distX + distY);
         int distToPlant = distTo;
         Debug.Log(distToPlant + " " + who.name);
+
+        return distToPlant;
+    }
+
+    public int distSmthToSmthVariables(int gX, int gY, int gX1, int gY1)
+    {
+        int distX = Mathf.Abs(gX - gX1);
+        int distY = Mathf.Abs(gY - gY1);
+
+        int distTo = (distX + distY);
+        int distToPlant = distTo;
+      //  Debug.Log(distToPlant + " " + who.name);
 
         return distToPlant;
     }

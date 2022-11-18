@@ -99,6 +99,7 @@ public class Entity : MonoBehaviour
     private Animator animator;
 
     public bool isWalking;
+    public bool moveAndAttack;
 
 
     private void Awake()
@@ -206,7 +207,17 @@ public class Entity : MonoBehaviour
             moveing = true;
             Debug.Log("IS WALKING!!");
         }
-        if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
+        if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) && moveAndAttack)
+        {
+            animator.SetBool("walking", false);
+            GetComponent<Entity>().actualState = Entity.EntityState.ATTACKING;
+            //path.Clear();
+            //moveAndAttack = false;
+            moveing = false;
+            isWalking = false;
+        }
+
+        else if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) || movement == 0)
         {
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
