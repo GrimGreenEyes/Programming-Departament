@@ -65,6 +65,7 @@ public class Plant : MonoBehaviour
             sliderBar.value = (float)healthPoints / (float)statsDictionary[statMaxHealth];
             sliderBar.gameObject.SetActive(true);
             idles[plantType.idleIndex].SetActive(true);
+            GetComponent<RectTransform>().sizeDelta = new Vector2(130, GetComponent<RectTransform>().sizeDelta.y);
 
         }
         else

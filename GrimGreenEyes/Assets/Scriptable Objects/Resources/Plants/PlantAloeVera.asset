@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
+  - {fileID: 21300000, guid: e1137a3e1f6b9d947a9812bbc1814188, type: 3}
   baseAttack: 25
   baseMovement: 4
   baseAgility: 7
@@ -33,6 +33,7 @@ MonoBehaviour:
   upgradeHeatDef: 3
   upgradeColdDef: 3
   upgradeHP: 8
+  idleIndex: 0
   attack: "Savia m\xE1gica"
   actionDescription: "Cura al aliado seleccionado o a s\xED misma, tanto como su
     atributo de Ataque."

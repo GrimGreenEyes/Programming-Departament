@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
-  - {fileID: 21300000, guid: 693915996c73cdf409ab751f485fe3e7, type: 3}
+  - {fileID: 21300000, guid: 4578de34e304c9e46b896fd339eef10d, type: 3}
   baseAttack: 30
   baseMovement: 4
   baseAgility: 5
