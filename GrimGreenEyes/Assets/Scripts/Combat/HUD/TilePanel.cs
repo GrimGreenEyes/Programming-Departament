@@ -7,6 +7,7 @@ public class TilePanel : MonoBehaviour
 {
     public static TilePanel instance;
 
+    [SerializeField] private Image tileImage;
     [SerializeField] private new TMP_Text name;
     [SerializeField] private TMP_Text description;
 
@@ -28,6 +29,7 @@ public class TilePanel : MonoBehaviour
 
     public void Change(GameObject newTile)
     {
+        tileImage.sprite = newTile.GetComponent<SpriteRenderer>().sprite;
         name.SetText(newTile.GetComponent<Tile>().name);
         description.SetText(newTile.GetComponent<Tile>().effects);
     }

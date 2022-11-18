@@ -68,11 +68,17 @@ MonoBehaviour:
   spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
-  isWatered: 0
   isAcided: 0
-  dealsDamage: 0
+  addsWater: 0
+  dealsDamage: 1
+  buffsEntity: 1
+  healsEntity: 0
+  WATER: 0
+  DAMAGE: 5
+  BUFF: 2
+  HEAL: 0
   entity: {fileID: 0}
-  weight: 1
+  weight: 2
   seeds: []
 --- !u!114 &7385815841519035995
 MonoBehaviour:

@@ -67,9 +67,15 @@ MonoBehaviour:
   spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
-  isWatered: 0
   isAcided: 0
+  addsWater: 0
   dealsDamage: 0
+  buffsEntity: 0
+  healsEntity: 0
+  WATER: 0
+  DAMAGE: 0
+  BUFF: 0
+  HEAL: 0
   entity: {fileID: 0}
   weight: 1
   seeds: []
@@ -309,7 +315,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 11.31, y: 6.04}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

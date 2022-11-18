@@ -69,6 +69,7 @@ MonoBehaviour:
   isWatered: 0
   isAcided: 0
   dealsDamage: 0
+  DAMAGE: 0
   entity: {fileID: 0}
   weight: 1
   seeds:

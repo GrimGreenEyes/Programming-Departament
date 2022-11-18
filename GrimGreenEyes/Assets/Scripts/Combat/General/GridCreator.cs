@@ -80,6 +80,8 @@ public class GridCreator : MonoBehaviour
         GenerateDamagers();
         //GenerateEventTiles();
 
+
+        WateringTiles();
         GenerateEntitys(players);
         GenerateEntitys(enemys);
         GenerateEntitys(carriage);
@@ -923,6 +925,16 @@ public class GridCreator : MonoBehaviour
     public void GenerateSeed()
     {
         //tileMap[(int)Random.Range(1, width - 1), (int)Random.Range(1, height - 1)].GetComponent<Tile>().GenerateSeed();
+    }
+    private void WateringTiles()
+    {
+        for (int i = 0; i < sizeX; i++)
+        {
+            for (int j = 0; j < sizeY; j++)
+            {
+                tileMap[i, j].GetComponent<Tile>().GetWater();
+            }
+        }
     }
     private void Update()
     {

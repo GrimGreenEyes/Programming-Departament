@@ -67,11 +67,17 @@ MonoBehaviour:
   spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
-  isWatered: 0
   isAcided: 0
-  dealsDamage: 0
+  addsWater: 0
+  dealsDamage: 1
+  buffsEntity: 0
+  healsEntity: 0
+  WATER: 0
+  DAMAGE: 10
+  BUFF: 0
+  HEAL: 0
   entity: {fileID: 0}
-  weight: 1
+  weight: 6
   seeds: []
 --- !u!114 &2143673871519061227
 MonoBehaviour:
@@ -148,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f0cec3c84664b443b99f6a12f1fcdb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99d7f0ca1dfc79d42ad1ab3fe831b320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,7 +182,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3984375, y: 2.1953125}
+    oldSize: {x: 4.390625, y: 2.3632812}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -202,7 +208,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3984375, y: 2.1953125}
+    oldSize: {x: 4.390625, y: 2.3632812}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -304,12 +310,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f0cec3c84664b443b99f6a12f1fcdb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99d7f0ca1dfc79d42ad1ab3fe831b320, type: 3}
   m_Color: {r: 0.8330588, g: 1, b: 0.37254906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 4.390625, y: 2.3632812}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

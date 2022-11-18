@@ -23,10 +23,15 @@ public class Tile : MonoBehaviour
     private bool clickable = false;
     public bool isInRange = false;
     public bool isWalkable;
-    public bool isWatered;
     public bool isAcided;
+    public bool addsWater;
     public bool dealsDamage;
-    public const int DAMAGE = 3;
+    public bool buffsEntity;
+    public bool healsEntity;
+    [SerializeField] private int WATER = 0;
+    [SerializeField] private int DAMAGE = 0;
+    [SerializeField] private int BUFF = 0;
+    [SerializeField] private int HEAL = 0;
     public GameObject entity;
     public int weight;
 
@@ -41,19 +46,27 @@ public class Tile : MonoBehaviour
     {
         if (positionX + 1 < GridCreator.instance.x && GridCreator.instance.GetTile(positionX + 1, positionY).GetComponent<Tile>().type == "water")
         {
-            isWatered = true;
+            addsWater = true;
+            WATER++;
+            weight--;
         }
         if (positionX - 1 >= 0 && GridCreator.instance.GetTile(positionX - 1, positionY).GetComponent<Tile>().type == "water")
         {
-            isWatered = true;
+            addsWater = true;
+            WATER++;
+            weight--;
         }
         if (positionY + 1 < GridCreator.instance.y && GridCreator.instance.GetTile(positionX, positionY + 1).GetComponent<Tile>().type == "water")
         {
-            isWatered = true;
+            addsWater = true;
+            WATER++;
+            weight--;
         }
         if (positionY - 1 >= 0 && GridCreator.instance.GetTile(positionX, positionY - 1).GetComponent<Tile>().type == "water")
         {
-            isWatered = true;
+            addsWater = true;
+            WATER++;
+            weight--;
         }
     }
     public void Init(int color, int x, int y)
@@ -66,7 +79,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        GetWater();
+        //GetWater();
         StopShine();
         SetClickable(false);
         GameObject player = GameController.instance.SelectedPlayer();
@@ -203,13 +216,21 @@ public class Tile : MonoBehaviour
             isWalkable = false;
             entity.GetComponent<Entity>().SetTile(gameObject);
             isAcided = false;
-            if (isWatered)
+            if (addsWater && collision.transform.parent.tag == "Player")
             {
-                GameController.instance.AddWater();
+                GameController.instance.AddWater(WATER);
             }
             if (dealsDamage)
             {
                 collision.GetComponentInParent<Entity>().Damage(DAMAGE);
+            }
+            if (buffsEntity)
+            {
+                collision.GetComponentInParent<Entity>().AttackBust(BUFF);
+            }
+            if (healsEntity)
+            {
+                collision.GetComponentInParent<Entity>().Heal(HEAL);
             }
             if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
             {
@@ -232,7 +253,7 @@ public class Tile : MonoBehaviour
             }
             
             entity = null;
-        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.FINISHED)
+        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.ATTACKING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.FINISHED)
             {
                 isWalkable = true;
             }

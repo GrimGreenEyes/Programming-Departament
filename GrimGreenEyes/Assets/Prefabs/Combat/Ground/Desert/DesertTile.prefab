@@ -61,15 +61,21 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  name: Anera
+  name: Arena
   effects: Sin efectos
   type: ground
   spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
-  isWatered: 0
   isAcided: 0
+  addsWater: 0
   dealsDamage: 0
+  buffsEntity: 0
+  healsEntity: 0
+  WATER: 0
+  DAMAGE: 0
+  BUFF: 0
+  HEAL: 0
   entity: {fileID: 0}
   weight: 1
   seeds:

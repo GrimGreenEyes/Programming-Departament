@@ -125,6 +125,10 @@ public class GameController : MonoBehaviour
                         }
                         characterSelected = (characterSelected + 1) % characters.Count;
                         characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+                        if (PlayerPanel.instance.gameObject.activeSelf)
+                        {
+                            PlayerPanel.instance.gameObject.SetActive(false);
+                        }
                         break;
                     case "Carriage":
                         if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
@@ -259,8 +263,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void AddWater()
+    public void AddWater(int water)
     {
-        teamManager.AddWater(1);
+        teamManager.AddWater(water);
     }
 }

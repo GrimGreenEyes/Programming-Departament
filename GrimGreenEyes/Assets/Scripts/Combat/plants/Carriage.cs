@@ -59,4 +59,8 @@ public class Carriage : Entity
                 break;
         }
     }
+    private void OnDestroy()
+    {
+        GameController.instance.Finish(false);
+    }
 }

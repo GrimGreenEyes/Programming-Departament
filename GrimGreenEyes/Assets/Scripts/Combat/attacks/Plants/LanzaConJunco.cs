@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LanzaConJunco : Attack
 {
-    private float liveRegen = 0.5f;
+    [SerializeField] private float liveRegen = 0.5f;
     public override void Effect(GameObject enemy, GameObject player)
     {
         Debug.Log("Lanza");

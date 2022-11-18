@@ -67,9 +67,15 @@ MonoBehaviour:
   spawnBlocks: 0
   isInRange: 0
   isWalkable: 1
-  isWatered: 0
   isAcided: 0
+  addsWater: 0
   dealsDamage: 0
+  buffsEntity: 0
+  healsEntity: 1
+  WATER: 0
+  DAMAGE: 0
+  BUFF: 0
+  HEAL: 5
   entity: {fileID: 0}
   weight: 1
   seeds: []
