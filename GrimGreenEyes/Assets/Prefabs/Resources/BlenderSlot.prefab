@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5132849480522691091}
   - component: {fileID: 7103710886968197529}
   - component: {fileID: 4551783114059700668}
+  - component: {fileID: 3157851643165068618}
   m_Layer: 0
   m_Name: BlenderSlot
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3157851643165068618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384942791934884703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1edc36010f1438cda2b261281620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: 
 --- !u!1 &3098039175725467187
 GameObject:
   m_ObjectHideFlags: 0

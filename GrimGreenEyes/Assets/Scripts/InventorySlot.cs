@@ -41,6 +41,8 @@ public class InventorySlot : MonoBehaviour
 
     public void SetItemAndAmount(Item newItem, int amount) //Pone ambos tipo de item y cantidad.
     {
+        GetComponent<HoverElement>().enabled = true;
+        GetComponent<HoverElement>().displayText = newItem.name;
         SetItem(newItem);
         SetAmount(amount);
     }
@@ -54,6 +56,7 @@ public class InventorySlot : MonoBehaviour
     public void ResetSlot()
     {
         SetItemAndAmount(voidItem, 0);
+        GetComponent<HoverElement>().enabled = false;
     }
 
     public Item GetItem() //Devuelve el item en ese slot.

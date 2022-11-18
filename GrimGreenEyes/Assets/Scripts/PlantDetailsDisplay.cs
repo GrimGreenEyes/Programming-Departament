@@ -39,6 +39,7 @@ public class PlantDetailsDisplay : MonoBehaviour
     {
         plantName.text = currentPlant.plantType.name;
         plantAction.text = Strings.ACTION + currentPlant.plantType.attack;
+        plantAction.transform.parent.gameObject.GetComponent<HoverElement>().displayText = currentPlant.plantType.actionDescription;
         plantSkills.text = Strings.SKILLS + currentPlant.skillsList.Count.ToString() + " / 3";
 
         health.text = currentPlant.healthPoints + " / " + currentPlant.GetMaxHealth();
@@ -71,6 +72,7 @@ public class PlantDetailsDisplay : MonoBehaviour
         foreach(SkillRes skill in currentPlant.skillsList)
         {
             GameObject skillDis = Instantiate(skillDisplay);
+            skillDis.GetComponent<HoverElement>().displayText = skill.description;
             skillDis.transform.SetParent(skillsParent.transform);
             skillDis.transform.position = new Vector3(0, 0, 0);
             skillDis.transform.localScale = new Vector3(1, 1, 1);
