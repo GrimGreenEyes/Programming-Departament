@@ -48,6 +48,11 @@ public class UIManager : MonoBehaviour
         sceneElements.Add(button);
     }
 
+    public void RemoveButton(Button button)
+    {
+        sceneElements.Remove(button);
+    }
+
     public void ShowWarning(string msg, float time)
     {
         WarningMsg warning = Instantiate(warningMsgPrefab).GetComponent<WarningMsg>();

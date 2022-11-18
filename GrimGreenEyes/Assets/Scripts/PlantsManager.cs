@@ -183,4 +183,21 @@ public class PlantsManager : MonoBehaviour
         }
         return canBeUsed;
     }
+
+    public void RemovePlant(Plant plant)
+    {
+        potsList[IndexOf(plantsList, plant)].free = true;
+        plantsList[IndexOf(plantsList, plant)] = null;
+        uiManager.RemoveButton(plant.GetComponent<Button>());
+        Destroy(plant.gameObject);
+    }
+
+    private int IndexOf(Plant[] list, Plant item)
+    {
+        for(int i = 0; i < list.Length; i++)
+        {
+            if (list[i] == item) return i;
+        }
+        return -1;
+    }
 }

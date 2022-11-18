@@ -792,7 +792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.5}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460408129
@@ -1273,7 +1273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.5}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560264934
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     waterTile: {fileID: 4368756039915833080, guid: 4c31539839f68ff47b50b9e2cf4e9007, type: 3}
     mountainTile: {fileID: 4368756039915833080, guid: 1e122e431f4d0404980040a3af9ee403, type: 3}
     powerupTile: {fileID: 4368756039915833080, guid: 1f1ae57f315993e45b3c35a5f2d508b1, type: 3}
-    healerTile: {fileID: 4368756039915833080, guid: f6d0330ff41ce1a4f8f8b4cf818865b1, type: 3}
+    healerTile: {fileID: 4368756039915833080, guid: d2bc957c25386fc46bc6059273fa8551, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: 714e7178b56b72d4e85e42ce186abb98, type: 3}
     eventTile: {fileID: 0}
     lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
@@ -2472,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &812131976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5906,7 +5906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.999954, y: 0}
+  m_AnchoredPosition: {x: 125.99997, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706
@@ -6014,7 +6014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.5}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022778563

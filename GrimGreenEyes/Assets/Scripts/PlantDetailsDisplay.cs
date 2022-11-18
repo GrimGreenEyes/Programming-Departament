@@ -12,12 +12,16 @@ public class PlantDetailsDisplay : MonoBehaviour
     [SerializeField] private StatRes statMaxHealth, statAttack, statAgility, statMovement, statDeffense, statHeatRes, statColdRes;
     [SerializeField] private Image plantImage;
     [SerializeField] private GameObject skillDisplay, skillsParent;
+    [SerializeField] private GameObject removePlantPanel;
+    [SerializeField] private TextMeshProUGUI removeText;
     private List<GameObject> skillsList = new List<GameObject>();
     private UIManager uiManager;
     private FollowMouse elementNameDisplay;
+    private PlantsManager plantsManager;
 
     private void Start()
     {
+        plantsManager = GameObject.Find("FlowerPotsGroup").GetComponent<PlantsManager>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         elementNameDisplay = uiManager.followMouse;
         ClosePlantDetailsDisplay();
@@ -80,11 +84,30 @@ public class PlantDetailsDisplay : MonoBehaviour
         gameObject.SetActive(true);
         UpdateDetailsDisplay();
         GameObject.Find("UIManager").GetComponent<UIManager>().HideExitButton();
+        CloseRemovePanel();
     }
 
     public void ClosePlantDetailsDisplay()
     {
         gameObject.SetActive(false);
         GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
+    }
+
+    public void OpenRemovePanel()
+    {
+        
+        removeText.text = "¿Deseas eliminar permanentemente a " + currentPlant.plantType.name + "?";
+        removePlantPanel.SetActive(true);
+    }
+
+    public void CloseRemovePanel()
+    {
+        removePlantPanel.SetActive(false);
+    }
+
+    public void RemovePlant()
+    {
+        plantsManager.RemovePlant(currentPlant);
+        ClosePlantDetailsDisplay();
     }
 }
