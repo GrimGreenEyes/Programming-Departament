@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 545191990128615782}
   m_Layer: 0
   m_Name: Snow Mountain Tile
-  m_TagString: tile
+  m_TagString: NotWalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,8 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  description: groundTile
+  name: "Monta\xF1a de nieve"
+  effects: Sin efectos
   type: mountain
   spawnBlocks: 0
   isInRange: 0
@@ -164,7 +165,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4101562, y: 2.203125}
+    oldSize: {x: 4.4375, y: 2.3320312}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -190,7 +191,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4101562, y: 2.203125}
+    oldSize: {x: 4.4375, y: 2.3320312}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1

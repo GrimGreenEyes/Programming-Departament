@@ -61,7 +61,8 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  description: groundTile
+  name: Hierba
+  effects: Sin efectos
   type: ground
   spawnBlocks: 0
   isInRange: 0
@@ -178,7 +179,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3554688, y: 2.171875}
+    oldSize: {x: 4.359375, y: 2.3164062}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -204,7 +205,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3554688, y: 2.171875}
+    oldSize: {x: 4.359375, y: 2.3164062}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1

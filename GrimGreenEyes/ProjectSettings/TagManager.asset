@@ -12,6 +12,7 @@ TagManager:
   - Carriage
   - Undefined
   - PathTile
+  - NotWalkable
   layers:
   - Default
   - TransparentFX

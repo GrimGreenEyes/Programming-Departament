@@ -7,6 +7,7 @@ public class TilePanel : MonoBehaviour
 {
     public static TilePanel instance;
 
+    [SerializeField] private new TMP_Text name;
     [SerializeField] private TMP_Text description;
 
     private void Awake()
@@ -27,7 +28,8 @@ public class TilePanel : MonoBehaviour
 
     public void Change(GameObject newTile)
     {
-        description.SetText(newTile.GetComponent<Tile>().description);
+        name.SetText(newTile.GetComponent<Tile>().name);
+        description.SetText(newTile.GetComponent<Tile>().effects);
     }
     public void Hide()
     {

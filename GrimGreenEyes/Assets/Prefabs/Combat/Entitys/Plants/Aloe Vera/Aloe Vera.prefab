@@ -496,11 +496,19 @@ MonoBehaviour:
   gridY: 0
   thisTile: {fileID: 0}
   destination: {fileID: 0}
-  path: []
+  path:
+  - {fileID: 2816711334709974568}
+  - {fileID: 8405259753970536715}
+  - {fileID: 8754361764092804285}
+  - {fileID: 9018041159302748262}
+  - {fileID: 4870197205025726113}
   pathPosition: 0
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 8572305601528682411}
+  statusPositions: []
+  statusImage: {fileID: 892575773869923889, guid: 164eb178e38500e48b237826fd3192f5, type: 3}
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 7266a6ed63b08044c92d83ed36cd6202, type: 3}
   HUDSpriteSize: 5.3
   HUDTurnSize: 11

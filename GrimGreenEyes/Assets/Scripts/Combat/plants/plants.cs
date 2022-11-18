@@ -130,10 +130,19 @@ public class Plants : Entity
                 break;
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
+                if (attacked)
+                {
+                    actualState = EntityState.IDLE;
+                    return;
+                }
                 attacked = true;
                 for (int i = 0; i < GetComponent<Entity>().skills.Count; i++)
+                {
                     if (GetComponent<Entity>().skills[i].isDoingDamage)
+                    {
                         skills[i].Effect(mainObjective, gameObject);
+                    }
+                }
                 for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                 {
                     if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)

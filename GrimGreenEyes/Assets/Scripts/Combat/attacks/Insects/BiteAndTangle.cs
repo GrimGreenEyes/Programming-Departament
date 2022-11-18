@@ -14,6 +14,6 @@ public class BiteAndTangle : Attack
         }
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(4);
-        new WaitForSeconds(1f); ;
+        new WaitForSeconds(1f);
     }
 }

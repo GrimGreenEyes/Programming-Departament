@@ -80,6 +80,17 @@ public class Entity : MonoBehaviour
 
     public TMP_Text livePointsText;
 
+    public List<Transform> statusPositions;
+    public GameObject statusImage;
+    public int statusPosition;
+    public List<GameObject> Status;
+    private int boost1;
+    private int boost2;
+    private int boost3;
+    private int boost4;
+    private int boost5;
+
+
     public Sprite HUDSprite;
     public float HUDSpriteSize;
     public float HUDTurnSize;
@@ -244,5 +255,24 @@ public class Entity : MonoBehaviour
     {
         livePoints -= damage;
         CheckDead();
+    }
+    public void Poison()
+    {
+        poisoned = true;
+        //Status.Add(Instantiate(statusImage, statusPositions[statusPosition]));
+        //Status.Last().
+    }
+    public void Stun()
+    {
+        stuned = true;
+    }
+    public void AttackBust(int num)
+    {
+        attack += num;
+    }
+    public void DefenseBust(int num)
+    {
+        defense += num;
+        //Instantiate()
     }
 }

@@ -877,7 +877,7 @@ public class GridCreator : MonoBehaviour
                 }
                 break;
             case "Enemy":
-                for(int i = 1; i < sizeY; i++)
+                for(int i = 1; i < sizeX; i++)
                 {
                     if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, sizeY - 1].GetComponent<Tile>().entity == null && tileMap[i, sizeY - 1].GetComponent<Tile>().isWalkable)
                     {

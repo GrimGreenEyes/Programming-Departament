@@ -61,7 +61,8 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  description: groundTile
+  name: Camino de arena
+  effects: Sin efectos
   type: path
   spawnBlocks: 0
   isInRange: 0

@@ -237,6 +237,10 @@ public class Bichous : Entity
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
                 attacked = true;
+                if (attacked)
+                {
+                    return;
+                }
                 for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                 {
                     if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)

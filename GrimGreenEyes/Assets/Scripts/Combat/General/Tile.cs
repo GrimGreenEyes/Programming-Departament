@@ -13,7 +13,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private new BoxCollider2D collider;
 
     [Header("InGame")]
-    public string description;
+    public new string name;
+    public string effects;
 
     public string type;
     public bool spawnBlocks;
@@ -33,6 +34,27 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
+        
+    }
+
+    public void GetWater()
+    {
+        if (positionX + 1 < GridCreator.instance.x && GridCreator.instance.GetTile(positionX + 1, positionY).GetComponent<Tile>().type == "water")
+        {
+            isWatered = true;
+        }
+        if (positionX - 1 >= 0 && GridCreator.instance.GetTile(positionX - 1, positionY).GetComponent<Tile>().type == "water")
+        {
+            isWatered = true;
+        }
+        if (positionY + 1 < GridCreator.instance.y && GridCreator.instance.GetTile(positionX, positionY + 1).GetComponent<Tile>().type == "water")
+        {
+            isWatered = true;
+        }
+        if (positionY - 1 >= 0 && GridCreator.instance.GetTile(positionX, positionY - 1).GetComponent<Tile>().type == "water")
+        {
+            isWatered = true;
+        }
     }
     public void Init(int color, int x, int y)
     {
@@ -44,7 +66,7 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        
+        GetWater();
         StopShine();
         SetClickable(false);
         GameObject player = GameController.instance.SelectedPlayer();
@@ -167,7 +189,11 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(entity != null)
+        if (tag == "NotWalkable")
+        {
+            return;
+        }
+        if (entity != null)
         {
             return;
         }
@@ -194,6 +220,10 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(tag == "NotWalkable")
+        {
+            return;
+        }
         if(collision.tag == "Feet")
         {
             if (collision.gameObject.transform.parent.gameObject != entity)
@@ -202,7 +232,7 @@ public class Tile : MonoBehaviour
             }
             
             entity = null;
-        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING)
+        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.FINISHED)
             {
                 isWalkable = true;
             }

@@ -10,7 +10,7 @@ public class GreatShield : Skill
         {
             if (tile.entity.tag == "Player")
             {
-                tile.entity.GetComponent<Plants>().defenseMultiplayer = tile.entity.GetComponent<Plants>().defenseMultiplayer * 2;
+                tile.entity.GetComponent<Entity>().DefenseBust(20);
             }
         }
     }
