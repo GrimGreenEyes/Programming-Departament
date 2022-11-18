@@ -64,6 +64,11 @@ public class Navigation : MonoBehaviour
                     glovalVar.GetComponent<GlobalVar>().mapGenerated = Instantiate(mapPrefabs[3], mapPos, Quaternion.identity);
 
                     break;
+                case 4:
+                    PlayerPrefs.SetInt("level", 2);
+                    PlayerPrefs.Save();
+                    glovalVar.GetComponent<MainController>().loadScreen("MainScene");
+                    break;
             }
 
             glovalVar.GetComponent<GlobalVar>().mapGenerated.transform.parent = glovalVar.transform;

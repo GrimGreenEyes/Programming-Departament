@@ -336,9 +336,9 @@ public class Bichous : Entity
         // List<float> valuesCarro = new List<float>();
         //valuesCarro.Add(_healthCarro.getValue());
         List<float> weightsC = new List<float>();
-        weightsC.Add(0.34f);
-        weightsC.Add(0.34f);
-        weightsC.Add(0.34f);
+        weightsC.Add(0.30f);
+        weightsC.Add(0.45f);
+        weightsC.Add(0.25f);
 
         Factor weightAtC = new WeightedSumFusion(factorsAttackCarro, weightsC);
 
@@ -356,7 +356,7 @@ public class Bichous : Entity
 
         options[0] = weightAtC.getValue();
 
-        options[0] -= 0.5f;
+        options[0] += 0.1f;
 
 
         //Imp Mov Carro

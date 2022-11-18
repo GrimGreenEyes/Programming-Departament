@@ -403,9 +403,9 @@ MonoBehaviour:
   defense: 5
   heatResistance: 5
   freezeResistance: 5
-  agility: 200
+  agility: 3
   movement: 0
-  maxMovement: 40
+  maxMovement: 4
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -455,6 +455,7 @@ MonoBehaviour:
   HUDSpriteSize: 100
   HUDTurnSize: 0
   isWalking: 0
+  moveAndAttack: 0
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -465,6 +466,7 @@ MonoBehaviour:
   enemyPicked: {fileID: 0}
   gridCreator: {fileID: 0}
   carro: {fileID: 0}
+  selection: 0
   isMoving: 0
 --- !u!114 &1196673981667879080
 MonoBehaviour:
@@ -536,6 +538,7 @@ MonoBehaviour:
   HUDSpriteSize: 5
   HUDTurnSize: 11
   isWalking: 0
+  moveAndAttack: 0
   Att: 
   Def: 
   Agl: 
