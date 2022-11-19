@@ -18,6 +18,8 @@ public class GridCreator : MonoBehaviour
 
     System.Random random = new System.Random();
 
+    public Camera camera;
+
     //private Dictionary<string, GameObject> tilesDictionary = new Dictionary<string, GameObject>();
     //[SerializeField] private GameObject groundTile, pathTile, waterTile, mountainTile, powerupTile, healerTile, damagerTile, eventTile;
 
@@ -755,7 +757,8 @@ public class GridCreator : MonoBehaviour
                 currentBiome = snow;
             break;
         }
-        
+
+        camera.backgroundColor = currentBiome.backgroundColor;
 
         if (first)
         {
@@ -997,6 +1000,8 @@ public class GridCreator : MonoBehaviour
 public class Biome
 {
     public string name;
+
+    public Color backgroundColor;
 
     public Dictionary<string, GameObject> tilesDictionary = new Dictionary<string, GameObject>();
     [SerializeField] public GameObject groundTile, pathTile, waterTile, mountainTile, powerupTile, healerTile, damagerTile, eventTile, lPath1, lPath2, lPath3, lPath4;

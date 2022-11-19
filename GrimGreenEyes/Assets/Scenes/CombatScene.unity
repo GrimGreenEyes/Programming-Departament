@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 3.4999995}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66644239
@@ -793,7 +793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500002}
+  m_AnchoredPosition: {x: 0, y: 3.5000014}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460408129
@@ -1274,7 +1274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500002}
+  m_AnchoredPosition: {x: 0, y: 3.5000014}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560264934
@@ -1405,6 +1405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desert:
     name: desert
+    backgroundColor: {r: 0.69, g: 0.57, b: 0.59, a: 1}
     groundTile: {fileID: 4368756039915833080, guid: 8c0eb60924395254a8afb6e24ed382f8, type: 3}
     pathTile: {fileID: 4368756039915833080, guid: 08aa0b3c4a9703b4e982b09aa794ccd7, type: 3}
     waterTile: {fileID: 4368756039915833080, guid: 520f4a2ee5fb50d4b81ab94e7d86ecef, type: 3}
@@ -1442,6 +1443,7 @@ MonoBehaviour:
     eventChance: 0
   forest:
     name: forest
+    backgroundColor: {r: 0.49, g: 0.5, b: 0.3, a: 1}
     groundTile: {fileID: 4368756039915833080, guid: fe370d65b7244554f87ced15f6450467, type: 3}
     pathTile: {fileID: 4368756039915833080, guid: 1367a92185163d148a8922759edfe0df, type: 3}
     waterTile: {fileID: 4368756039915833080, guid: c3238de3cd8a4144fa18a9d7c56d6c4a, type: 3}
@@ -1479,6 +1481,7 @@ MonoBehaviour:
     eventChance: 0
   snow:
     name: snow
+    backgroundColor: {r: 0.57, g: 0.67, b: 0.68, a: 1}
     groundTile: {fileID: 4368756039915833080, guid: c18e0caca9442004f9259c9b3566b6b5, type: 3}
     pathTile: {fileID: 4368756039915833080, guid: b05bed33aaeaca4408b6d7c8f89cbb32, type: 3}
     waterTile: {fileID: 4368756039915833080, guid: 4c31539839f68ff47b50b9e2cf4e9007, type: 3}
@@ -1516,6 +1519,7 @@ MonoBehaviour:
     eventChance: 0
   plains:
     name: plains
+    backgroundColor: {r: 0.49, g: 0.69, b: 0.71, a: 1}
     groundTile: {fileID: 4368756039915833080, guid: 0b87b648ccb508043834525f4da277a0, type: 3}
     pathTile: {fileID: 4368756039915833080, guid: c54abb9b2ca2b65438077e5c5b649e56, type: 3}
     waterTile: {fileID: 4368756039915833080, guid: 32ec12b4ca86fa64e831cbedc9a366db, type: 3}
@@ -1553,6 +1557,7 @@ MonoBehaviour:
     eventChance: 0
   currentBiome:
     name: 
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
     groundTile: {fileID: 0}
     pathTile: {fileID: 0}
     waterTile: {fileID: 0}
@@ -1589,6 +1594,7 @@ MonoBehaviour:
     rainChance: 0
     eventChance: 0
   origin: {fileID: 580428636}
+  camera: {fileID: 1656361817}
   sizeX: 11
   sizeY: 14
   minPathOriginX: 4
@@ -5658,7 +5664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 3.4999995}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987505066
@@ -5907,7 +5913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.99994, y: 0}
+  m_AnchoredPosition: {x: 125.99995, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706
@@ -6015,7 +6021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500002}
+  m_AnchoredPosition: {x: 0, y: 3.5000014}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022778563
