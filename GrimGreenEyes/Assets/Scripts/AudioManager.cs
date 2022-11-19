@@ -6,40 +6,49 @@ public class AudioManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    public List<Songs> sources = new List<Songs>(); 
-    public AudioClip actualClip; 
+    public List<Songs> sources = new List<Songs>();
+    public AudioClip actualClip;
     public AudioSource audioSource;
 
-   /* public enum audioOptions
-    {
-        intro,
-        menu,
-        mapa, 
-        carro
-    }*/
+    public Songs pushB;
+
+    /* public enum audioOptions
+     {
+         intro,
+         menu,
+         mapa, 
+         carro
+     }*/
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void changeMusic(string music)
     {
-        actualClip = sources[audioIndex(music)].clip;
-        audioSource.clip = actualClip;
-       audioSource.Play();
-        if (music == "llanura1")
-            StartCoroutine(changeLlanuraSong());
-        else if (music == "jungla1")
-            StartCoroutine(changeJunglaSong());
 
+          actualClip = sources[audioIndex(music)].clip;
+          audioSource.clip = actualClip;
+         audioSource.Play();
+          if (music == "llanura1")
+              StartCoroutine(changeLlanuraSong());
+          else if (music == "jungla1")
+              StartCoroutine(changeJunglaSong());
+        
+       // StartCoroutine(WaitForSound(music));
     }
-
+    
+    public void clickAndChangeMusic(string music)
+    {
+        StartCoroutine(WaitForSound(music));
+    }
+    
     private int audioIndex(string song)
     {
         for (int i = 0; i < sources.Count; i++)
@@ -60,6 +69,41 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForSeconds(audioSource.clip.length);
         changeMusic("jungla2");
     }
+
+    public IEnumerator WaitForSound(string music)
+    {
+        audioSource.loop = false;
+        actualClip = pushB.clip;
+        audioSource.clip = actualClip;
+        audioSource.Play();
+        Debug.Log(pushB.name);
+        yield return new WaitUntil(() => audioSource.isPlaying == false);
+
+        audioSource.loop = true;
+        actualClip = sources[audioIndex(music)].clip;
+        audioSource.clip = actualClip;
+        audioSource.Play();
+        if (music == "llanura1")
+            StartCoroutine(changeLlanuraSong());
+        else if (music == "jungla1")
+            StartCoroutine(changeJunglaSong());
+    }
+
+    public IEnumerator JustClick()
+    {
+        Debug.Log("JustClick");
+        float songTime = audioSource.time;
+        audioSource.loop = false;
+        actualClip = pushB.clip;
+        audioSource.clip = actualClip;
+        audioSource.Play();
+        yield return new WaitUntil(() => audioSource.isPlaying == false);
+
+        audioSource.loop = true;
+        actualClip = sources[1].clip;
+     //   audioSource.time = songTime;
+        audioSource.Play();
+    }
 }
 
 
@@ -70,6 +114,4 @@ public class Songs
 {
    public string name;
    public AudioClip clip;
-
-
 }

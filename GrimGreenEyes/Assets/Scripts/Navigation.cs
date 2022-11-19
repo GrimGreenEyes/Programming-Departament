@@ -87,11 +87,14 @@ public class Navigation : MonoBehaviour
             // player.transform.rotation = Quaternion.LookRotation(Vector3.forward,  actualNode.GetComponent<PathOptions>().myArray[0].node.transform.rotation));
 
             Debug.Log("MAP GENERATION!!");
+            glovalVar.GetComponent<GlobalVar>().numNode = 0;
         }
         else
         {
             actualNode = glovalVar.GetComponent<GlobalVar>().actualNode;
-         }
+            //glovalVar.GetComponent<GlobalVar>().numNode = 0;
+
+        }
 
 
     }

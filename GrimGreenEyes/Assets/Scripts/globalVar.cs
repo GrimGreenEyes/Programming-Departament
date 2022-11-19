@@ -42,6 +42,11 @@ public class GlobalVar : MonoBehaviour
     public bool showLoad;
 
     public GameObject fadePrefab;
+
+    public float volumeEffects;
+
+    public int numNode;
+
     void Awake()
     {
         isMapUp = true;
@@ -97,6 +102,7 @@ public class GlobalVar : MonoBehaviour
     {
         if(created == 1)
         actualNode = actualNode.GetComponent<PathOptions>().myArray[0].node;
+        numNode++;
     }
 
     public IEnumerator waitForMapSceneLoad(EnumMapOptions.mapOptions advance)

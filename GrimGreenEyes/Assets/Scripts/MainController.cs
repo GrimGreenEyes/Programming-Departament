@@ -43,10 +43,16 @@ public class MainController : MonoBehaviour
       // GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
         Debug.Log(sceneName);
         Debug.Log(matchHasWon);
-       
-        if (string.Equals(sceneName, "MapScene"))
+
+        if (string.Equals(sceneName, "OptionsScene") || string.Equals(sceneName, "CreditsScene")){
+            audioManager.clickAndChangeMusic("menu");
+
+        }
+
+
+            if (string.Equals(sceneName, "MapScene"))
         {
-            audioManager.changeMusic("mapa");
+            audioManager.clickAndChangeMusic("mapa");
             if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().created == 1)
             {
                 movingCam = true;
@@ -88,7 +94,12 @@ public class MainController : MonoBehaviour
         {
           //  GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.matchLoose);
             GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(false);
-            audioManager.changeMusic("menu");
+            if (audioManager == null)
+                audioManager = GameObject.Find("GlobalAttributes").GetComponent<AudioManager>();
+            Debug.Log(audioManager.name);
+            // audioManager.changeMusic("menu");
+            audioManager.clickAndChangeMusic("menu");
+
 
         }
 
@@ -107,7 +118,9 @@ public class MainController : MonoBehaviour
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.loadGame);
                 GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
             }
-            audioManager.changeMusic("mapa");
+            // audioManager.changeMusic("mapa");
+            audioManager.clickAndChangeMusic("mapa");
+
 
         }
         if (string.Equals(sceneName, "CombatScene"))

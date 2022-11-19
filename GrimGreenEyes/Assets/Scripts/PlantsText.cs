@@ -29,7 +29,7 @@ public class PlantsText : MonoBehaviour
         int rand = Random.RandomRange(0, infos.Count);
         Info info = infos[rand];
 
-        text.GetComponent<TextMeshProUGUI>().text = info.msgEng;
+        text.GetComponent<TextMeshProUGUI>().text = info.msg;
         plantImg.GetComponent<Image>().sprite = info.image;
         plantName.GetComponent<TextMeshProUGUI>().text = info.name;
 
@@ -50,7 +50,7 @@ public class PlantsText : MonoBehaviour
         int rand = Random.RandomRange(0, infos.Count);
         Info info = infos[rand];
 
-        text.GetComponent<TextMeshProUGUI>().text = info.msgEng;
+        text.GetComponent<TextMeshProUGUI>().text = info.msg;
         plantImg.GetComponent<Image>().sprite = info.image;
         plantName.GetComponent<TextMeshProUGUI>().text = info.name;
 
