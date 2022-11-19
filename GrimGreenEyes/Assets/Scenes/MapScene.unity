@@ -485,6 +485,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 16c66f9af8d86634ab2c5477b20e8877, type: 3}
   actualClip: {fileID: 0}
   audioSource: {fileID: 0}
+  pushB:
+    name: 
+    clip: {fileID: 0}
 --- !u!82 &263275116
 AudioSource:
   m_ObjectHideFlags: 0
@@ -662,6 +665,8 @@ MonoBehaviour:
   biomsList: []
   showLoad: 0
   fadePrefab: {fileID: 0}
+  volumeEffects: 0
+  numNode: 0
 --- !u!4 &263275120
 Transform:
   m_ObjectHideFlags: 0
@@ -915,7 +920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &681463933
 RectTransform:
   m_ObjectHideFlags: 0

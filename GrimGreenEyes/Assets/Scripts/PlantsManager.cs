@@ -70,6 +70,7 @@ public class PlantsManager : MonoBehaviour
         potsList[pot].SetPlant(newPlant.GetComponent<Plant>());
         plantsList[potsList[pot].index] = newPlant.GetComponent<Plant>();
         potsList[pot].free = false;
+        newPlant.GetComponent<Plant>().UpdatePlantVisuals();
     }
 
     public void FertilizePlant()

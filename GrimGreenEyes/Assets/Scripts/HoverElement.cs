@@ -10,10 +10,17 @@ public class HoverElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private FollowMouse itemNameDisplay;
     private UIManager uiManager;
 
-    void Start()
+    private void Update()
     {
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        itemNameDisplay = uiManager.followMouse;
+        if(uiManager == null)
+        {
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        }
+
+        if (itemNameDisplay == null)
+        {
+            itemNameDisplay = uiManager.followMouse;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -28,6 +35,14 @@ public class HoverElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnDisable()
     {
+        if (uiManager == null)
+        {
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        }
+        if (itemNameDisplay == null)
+        {
+            itemNameDisplay = uiManager.followMouse;
+        }
         itemNameDisplay.HideText();
     }
 }

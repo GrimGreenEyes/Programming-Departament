@@ -84,6 +84,8 @@ public class ResourcesManager : MonoBehaviour
                 plant.plantState = teamInfo.plantsList[j].plantState;
                 plant.skillsList = teamInfo.plantsList[j].skillsInternal;
                 plant.statsDictionary = teamInfo.plantsList[j].statsDictionary;
+                plant.plantState = teamInfo.plantsList[j].plantState;
+                plant.UpdatePlantVisuals();
                 j++;
                 
             }

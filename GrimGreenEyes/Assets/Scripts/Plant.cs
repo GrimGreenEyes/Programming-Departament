@@ -24,6 +24,8 @@ public class Plant : MonoBehaviour
 
     public string TempAttack;
 
+    public GameObject healthBar;
+
     //SKILLS
     public List<SkillRes> skillsList = new List<SkillRes>();
     //
@@ -32,18 +34,27 @@ public class Plant : MonoBehaviour
     private string[] states = { "", "", "adult" };
     PlantDetailsDisplay detailsDisplay;
 
+    private void Update()
+    {
+        //UpdatePlantVisuals();
+    }
+
     private void Start()
     {
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         detailsDisplay = uiManager.plantDetailsDisplay;
         uiManager.AddButton(GetComponent<Button>());
-        sliderBar = GameObject.Find("HealthBar").GetComponent<Slider>();
+        sliderBar = healthBar.GetComponent<Slider>();
 
         UpdatePlantVisuals();
     }
 
-    private void UpdatePlantVisuals()
+    public void UpdatePlantVisuals()
     {
+        foreach(GameObject item in idles)
+        {
+            item.SetActive(false);
+        }
         GetComponent<Image>().sprite = plantType.spriteSheet[plantState];
         GetComponent<Image>().SetNativeSize();
         switch (plantState)
@@ -62,20 +73,20 @@ public class Plant : MonoBehaviour
             transform.localPosition = new Vector3(-6f, 42f, 0f);
             GetComponent<Image>().enabled = false;
             plantStatusText.text = healthPoints.ToString() + " / " + statsDictionary[statMaxHealth].ToString();
+            if(sliderBar == null) sliderBar = healthBar.GetComponent<Slider>();
             sliderBar.value = (float)healthPoints / (float)statsDictionary[statMaxHealth];
-            sliderBar.gameObject.SetActive(true);
+            ////sliderBar.gameObject.SetActive(true);
+            //Debug.Log("Hola");
+            sliderBar.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, -230f, 0f);
             idles[plantType.idleIndex].SetActive(true);
             GetComponent<RectTransform>().sizeDelta = new Vector2(130, GetComponent<RectTransform>().sizeDelta.y);
 
         }
         else
         {
-            foreach(GameObject item in idles)
-            {
-                item.SetActive(false);
-            }
-            plantStatusText.text = states[plantState];
-            sliderBar.gameObject.SetActive(false);
+            if (sliderBar == null) sliderBar = healthBar.GetComponent<Slider>();
+            sliderBar.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(999f, 999f, 999f);
+            //////sliderBar.gameObject.SetActive(false);
         }
     }
 
