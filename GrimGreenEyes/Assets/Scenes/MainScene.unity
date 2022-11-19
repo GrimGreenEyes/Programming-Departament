@@ -1990,6 +1990,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 16c66f9af8d86634ab2c5477b20e8877, type: 3}
   actualClip: {fileID: 0}
   audioSource: {fileID: 0}
+  pushB:
+    name: push
+    clip: {fileID: 8300000, guid: bd560c843b5cd9844951a911fb84a01d, type: 3}
 --- !u!1 &1822107490
 GameObject:
   m_ObjectHideFlags: 0
