@@ -238,6 +238,12 @@ public class Bichous : Entity
                // }
                 break;
             case EntityState.ATTACKING:
+                plants = GameController.instance.players;
+                if (plants.Count == 0)
+                {
+                    actualState = EntityState.FINISHED;
+                }
+                    
                 Debug.Log("attacking");
                 attacked = true;
                 if (moveAndAttack)
@@ -265,8 +271,13 @@ public class Bichous : Entity
                     actualState = EntityState.MOVEING;
                     isAttacking = false;
                 }
-               // States();
-              
+
+                plants = GameController.instance.players;
+                if(plants.Count == 0)
+                    actualState = EntityState.FINISHED;
+
+                // States();
+
                 break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
@@ -369,43 +380,48 @@ public class Bichous : Entity
         //Huir Planta
         options[2] = 0.05f;
 
-
+        int index = 0;
         //Atacar Planta X
-
-        float[] plantsAtt = new float[plants.Count];
-        //  float esRent = CalcRentable(plantsInfo[i]);
-        for (int i = 0; i < plants.Count; i++)
+        if (plants.Count != 0)
         {
-            List<Factor> factors = new List<Factor>();
-            Bichous test = gameObject.GetComponent<Bichous>();
-            Plants tes2 = plants[i].GetComponent<Plants>();
-            plantsInfo[i].Init(plants[i].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-            //plantsInfo[i].UpdateRelevant();
 
-            Factor _distToPlantsLeafHelper1 = new LeafVariable(() => plantsInfo[i].distToPlant, 1, 33);
-            //  Factor _distToPlantsLeafHelper2 = new LeafVariable(() => plantsInfo[1].distToPlant, 33, 1);
 
-            Factor esRent = new LeafVariable(() => CalcRentable(plantsInfo[i]), 33, 1);
+            float[] plantsAtt = new float[plants.Count];
+            //  float esRent = CalcRentable(plantsInfo[i]);
+            for (int i = 0; i < plants.Count; i++)
+            {
+                List<Factor> factors = new List<Factor>();
+                Bichous test = gameObject.GetComponent<Bichous>();
+                Plants tes2 = plants[i].GetComponent<Plants>();
+                plantsInfo[i].Init(plants[i].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
+                //plantsInfo[i].UpdateRelevant();
 
-            factors.Add(_distToPlantsLeafHelper1);
+                Factor _distToPlantsLeafHelper1 = new LeafVariable(() => plantsInfo[i].distToPlant, 1, 33);
+                //  Factor _distToPlantsLeafHelper2 = new LeafVariable(() => plantsInfo[1].distToPlant, 33, 1);
 
-            factors.Add(esRent);
-            // Pesos
-            List<float> weightsAP = new List<float>();
-            weightsAP.Add(0.4f);
-            weightsAP.Add(0.6f);
-            // Weighted Sum 2 opciones
-            Factor weightFactor = new WeightedSumFusion(factors, weightsAP);
-            plantsAtt[i] = weightFactor.getValue();
+                Factor esRent = new LeafVariable(() => CalcRentable(plantsInfo[i]), 33, 1);
 
-            Debug.Log(plantsAtt[i] + " " + plantsInfo[i].name);
+                factors.Add(_distToPlantsLeafHelper1);
+
+                factors.Add(esRent);
+                // Pesos
+                List<float> weightsAP = new List<float>();
+                weightsAP.Add(0.4f);
+                weightsAP.Add(0.6f);
+                // Weighted Sum 2 opciones
+                Factor weightFactor = new WeightedSumFusion(factors, weightsAP);
+                plantsAtt[i] = weightFactor.getValue();
+
+                Debug.Log(plantsAtt[i] + " " + plantsInfo[i].name);
+            }
+            index = Array.IndexOf(plantsAtt, plantsAtt.Max());
+
+            // options.Add(plantsAtt[index]);
+            options[3] = plantsAtt[index];
         }
-        int index = Array.IndexOf(plantsAtt, plantsAtt.Max());
+        else
+            options[3] = 0;
 
-       // options.Add(plantsAtt[index]);
-        options[3]= plantsAtt[index];
-
-        Debug.Log(plantsAtt[index]);
 
         float maxValue = options.Max();
         selection = options.ToList().IndexOf(maxValue);
@@ -422,8 +438,12 @@ public class Bichous : Entity
 
     public void ExecuteSelected(int decision, int indPlanta)
     {
-        enemyPicked = plants[indPlanta];
-        indexPicked = indPlanta;
+        plants = GameController.instance.players;
+        if (plants.Count != 0)
+        { 
+            enemyPicked = plants[indPlanta];
+            indexPicked = indPlanta;
+        }
 
         if (decision == 0)
         {
