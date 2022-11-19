@@ -515,6 +515,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 16c66f9af8d86634ab2c5477b20e8877, type: 3}
   actualClip: {fileID: 0}
   audioSource: {fileID: 0}
+  pushB:
+    name: 
+    clip: {fileID: 0}
 --- !u!82 &280091037
 AudioSource:
   m_ObjectHideFlags: 0
@@ -692,6 +695,8 @@ MonoBehaviour:
   biomsList: []
   showLoad: 0
   fadePrefab: {fileID: 0}
+  volumeEffects: 0
+  numNode: 0
 --- !u!4 &280091041
 Transform:
   m_ObjectHideFlags: 0
@@ -876,7 +881,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1046745645}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1224,11 +1229,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1046745645}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -742, y: 31}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 324, y: 31}
   m_SizeDelta: {x: 437.86, y: 441.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729131861
@@ -1585,9 +1590,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 505322949}
-  - {fileID: 414679731}
   - {fileID: 1160439640}
   - {fileID: 729131860}
+  - {fileID: 414679731}
   - {fileID: 65787262}
   - {fileID: 1088990433}
   - {fileID: 106802303}
@@ -1991,7 +1996,7 @@ RectTransform:
   m_Children:
   - {fileID: 1075891232}
   m_Father: {fileID: 1046745645}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
