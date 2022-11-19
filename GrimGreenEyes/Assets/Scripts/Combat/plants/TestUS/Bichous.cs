@@ -175,6 +175,10 @@ public class Bichous : Entity
                 {
                     PickOption();
                 }
+                else
+                {
+                    actualState = EntityState.FINISHED;
+                }
                 /*
                 else if (actualState != EntityState.MOVEING && !attacked)
                 {

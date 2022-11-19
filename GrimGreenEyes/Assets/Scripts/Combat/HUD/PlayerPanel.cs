@@ -42,14 +42,14 @@ public class PlayerPanel : MonoBehaviour
         }
     }
     private void Update()
-    {/*
+    {
         Att.text = plant.attack.ToString();
         Def.text = plant.defense.ToString();
         Agl.text = plant.agility.ToString();
         Hres.text = plant.heatResistance.ToString();
         CRes.text = plant.freezeResistance.ToString();
         steps.text = plant.movement.ToString();
-        PS.text = plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString();*/
+        PS.text = plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString();
         
     }
     public void ChangePlayer(GameObject newPlant)

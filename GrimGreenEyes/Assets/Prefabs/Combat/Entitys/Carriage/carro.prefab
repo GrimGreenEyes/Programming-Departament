@@ -103,10 +103,10 @@ MonoBehaviour:
   name: Carro
   livePoints: 10
   maxLivePoints: 10
-  attack: 3
-  defense: 3
-  heatResistance: 3
-  freezeResistance: 3
+  attack: 0
+  defense: 10
+  heatResistance: 10
+  freezeResistance: 10
   agility: 3
   movement: 0
   maxMovement: 4

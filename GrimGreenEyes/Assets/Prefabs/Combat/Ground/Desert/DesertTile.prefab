@@ -77,7 +77,7 @@ MonoBehaviour:
   BUFF: 0
   HEAL: 0
   entity: {fileID: 0}
-  weight: 1
+  weight: 3
   seeds:
   - {fileID: 645409376494869144, guid: 016dbfdd12703384ca09483d1ba54f6c, type: 3}
   - {fileID: 645409376494869144, guid: 2c36345fa1cb57e40a9b741d5d3f0981, type: 3}

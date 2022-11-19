@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e457593057d4e479c1010f6520fd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Aloe Vera
+  name: Vera
   livePoints: 80
   maxLivePoints: 80
   attack: 25
@@ -508,11 +508,13 @@ MonoBehaviour:
   livePointsText: {fileID: 8572305601528682411}
   statusPositions: []
   statusImage: {fileID: 892575773869923889, guid: 164eb178e38500e48b237826fd3192f5, type: 3}
+  statusPosition: 0
   Status: []
   HUDSprite: {fileID: 21300000, guid: 7266a6ed63b08044c92d83ed36cd6202, type: 3}
   HUDSpriteSize: 5.3
   HUDTurnSize: 11
   isWalking: 0
+  moveAndAttack: 0
 --- !u!95 &7948153811679935146
 Animator:
   serializedVersion: 4

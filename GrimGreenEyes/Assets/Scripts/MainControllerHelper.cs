@@ -11,9 +11,9 @@ public class MainControllerHelper : MonoBehaviour
     {
     }
     
-    public void clickWin()
+    public void clickWin(bool win)
     {
-        GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreenFromBattle(true);
+        GameObject.Find("GlobalAttributes").GetComponent<MainController>().loadScreenFromBattle(win);
     }
 
     public void loadScreen(string scena)

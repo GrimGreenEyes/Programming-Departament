@@ -16,12 +16,14 @@ public class BiteAndDrill : Attack
     {
         int positionX = enemy.gridX - player.gridX;
         int positionY = enemy.gridY - player.gridY;
-        Entity otherEnemy = (GridCreator.instance.GetTile(player.gridX - positionX, player.gridY - positionX).GetComponent<Tile>().entity != null) ? GridCreator.instance.GetTile(player.gridX - positionX, player.gridY - positionX).GetComponent<Tile>().entity.GetComponent<Entity>() : null;
+        Entity otherEnemy = (GridCreator.instance.GetTile(player.gridX - positionX, player.gridY - positionY).GetComponent<Tile>().entity != null) ? GridCreator.instance.GetTile(player.gridX - positionX, player.gridY - positionY).GetComponent<Tile>().entity.GetComponent<Entity>() : null;
         if (otherEnemy == null)
         {
             return;
         }
-        otherEnemy.GetComponent<Entity>().livePoints -= DamageCalculator(otherEnemy.GetComponent<Entity>(), player.GetComponent<Entity>());
+        otherEnemy.GetComponent<Entity>().Damage(DamageCalculator(otherEnemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(4);
         enemy.GetComponent<Entity>().CheckDead();
     }
 }

@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e457593057d4e479c1010f6520fd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Nenufar
+  name: Belator
   livePoints: 180
   maxLivePoints: 180
   attack: 30
@@ -649,11 +649,14 @@ MonoBehaviour:
   directionY: 0
   livePointsText: {fileID: 8156315579651209601}
   statusPositions: []
-  statusImages: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: b7238e05e7cf0154fa05cdb34664ad83, type: 3}
   HUDSpriteSize: 6.5
   HUDTurnSize: 14
   isWalking: 0
+  moveAndAttack: 0
 --- !u!95 &9082230222418526374
 Animator:
   serializedVersion: 4

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e353b02ea1d7b8d439707de66910e104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Caracol
+  name: Telix
   livePoints: 5
   maxLivePoints: 5
   attack: 30
@@ -191,10 +191,15 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 5581456808127308278}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 52c413d29e20f6247abcb296100b1ad9, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
   isWalking: 0
+  moveAndAttack: 0
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -205,6 +210,7 @@ MonoBehaviour:
   enemyPicked: {fileID: 0}
   gridCreator: {fileID: 0}
   carro: {fileID: 0}
+  selection: 0
   isMoving: 0
 --- !u!114 &4004619573126807341
 MonoBehaviour:
@@ -269,10 +275,15 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 5581456808127308278}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
   isWalking: 0
+  moveAndAttack: 0
   Att: 
   Def: 
   Agl: 

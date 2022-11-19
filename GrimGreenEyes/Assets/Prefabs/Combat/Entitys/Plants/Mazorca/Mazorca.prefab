@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e457593057d4e479c1010f6520fd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Mazorca
+  name: Zemays
   livePoints: 80
   maxLivePoints: 80
   attack: 50
@@ -232,11 +232,14 @@ MonoBehaviour:
   directionY: 0
   livePointsText: {fileID: 2362480325833250713}
   statusPositions: []
-  statusImages: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 7114dccb5eaaad244b9cf3164cdbbd23, type: 3}
   HUDSpriteSize: 4.6
   HUDTurnSize: 10
   isWalking: 0
+  moveAndAttack: 0
 --- !u!95 &-123000234893527775
 Animator:
   serializedVersion: 4

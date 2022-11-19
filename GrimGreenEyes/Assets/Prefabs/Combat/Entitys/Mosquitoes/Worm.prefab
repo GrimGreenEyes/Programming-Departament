@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 387276683, guid: 708ef4844d03b734f8ffab765dd26966, type: 3}
+  m_Sprite: {fileID: 1307052602, guid: e0a6e5e2f9376b247a5ab84d1c356e00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e353b02ea1d7b8d439707de66910e104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Gusano
+  name: Verpendex
   livePoints: 5
   maxLivePoints: 5
   attack: 30
@@ -191,10 +191,15 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 7296510475246959956}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 9bd6b94bd238431498091daad0183122, type: 3}
   HUDSpriteSize: 100
   HUDTurnSize: 0
   isWalking: 0
+  moveAndAttack: 0
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -205,6 +210,7 @@ MonoBehaviour:
   enemyPicked: {fileID: 0}
   gridCreator: {fileID: 0}
   carro: {fileID: 0}
+  selection: 0
   isMoving: 0
 --- !u!114 &4004619573126807341
 MonoBehaviour:
@@ -269,10 +275,15 @@ MonoBehaviour:
   directionX: 0
   directionY: 0
   livePointsText: {fileID: 7296510475246959956}
+  statusPositions: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 9bd6b94bd238431498091daad0183122, type: 3}
   HUDSpriteSize: 5
   HUDTurnSize: 3.28
   isWalking: 0
+  moveAndAttack: 0
   Att: 
   Def: 
   Agl: 

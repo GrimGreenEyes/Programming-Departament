@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e457593057d4e479c1010f6520fd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Planta rodadora
+  name: Rolay
   livePoints: 100
   maxLivePoints: 100
   attack: 20
@@ -335,11 +335,14 @@ MonoBehaviour:
   directionY: 0
   livePointsText: {fileID: 1722780138851623652}
   statusPositions: []
-  statusImages: []
+  statusImage: {fileID: 0}
+  statusPosition: 0
+  Status: []
   HUDSprite: {fileID: 21300000, guid: 7ef382924c2fd1d48a2f6a33dbb3dafa, type: 3}
   HUDSpriteSize: 5
   HUDTurnSize: 10.5
   isWalking: 0
+  moveAndAttack: 0
 --- !u!95 &434704436088723836
 Animator:
   serializedVersion: 4

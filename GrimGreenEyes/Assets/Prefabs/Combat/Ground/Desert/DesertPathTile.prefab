@@ -77,7 +77,7 @@ MonoBehaviour:
   BUFF: 0
   HEAL: 0
   entity: {fileID: 0}
-  weight: 1
+  weight: 3
   seeds: []
 --- !u!114 &7807549943224012861
 MonoBehaviour:
