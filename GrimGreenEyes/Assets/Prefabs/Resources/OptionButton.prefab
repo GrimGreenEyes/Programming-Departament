@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: djkasjakjk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ea37e8a7fffe8ae49b81c144af22634d, type: 2}
+  m_sharedMaterial: {fileID: -2745367940441729333, guid: ea37e8a7fffe8ae49b81c144af22634d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

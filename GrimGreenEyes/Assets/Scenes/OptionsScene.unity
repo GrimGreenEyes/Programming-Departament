@@ -1346,10 +1346,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu
+  m_text: "Men\xFA"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 1160439643}
   - component: {fileID: 1160439642}
   - component: {fileID: 1160439641}
+  - component: {fileID: 1160439644}
   m_Layer: 5
   m_Name: ExitGameButton
   m_TagString: Untagged
@@ -1641,6 +1642,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160439639}
   m_CullTransparentMesh: 1
+--- !u!114 &1160439644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160439639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1226215159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1666,7 @@ GameObject:
   - component: {fileID: 1226215163}
   - component: {fileID: 1226215162}
   - component: {fileID: 1226215161}
+  - component: {fileID: 1226215164}
   m_Layer: 5
   m_Name: ExitGameButton (1)
   m_TagString: Untagged
@@ -1775,6 +1789,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226215159}
   m_CullTransparentMesh: 1
+--- !u!114 &1226215164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226215159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1466746266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,10 +1859,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MUSICA
+  m_text: "M\xDASICA"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2073,13 +2099,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CUIDADO!!!!
-
-    AL PINCHAR ESTA OPCION VOLVERAS AL NIVEL 1 Y PERDERAS
-    TODO TU PROGRESO!'
+  m_text: "CUIDADO!!!!\nAL HACER CLICK EN ESTA OPCI\xD3N VOLVER\xC1S AL NIVEL 1 Y
+    PERDER\xC1S TODO TU PROGRESO!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -64,14 +64,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.8}
+  m_Color: {r: 1, g: 0.4198113, b: 0.4198113, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1830984700, guid: 889ac3a85d8460842baacc8dc91d9abc, type: 3}
+  m_Sprite: {fileID: -1723599287, guid: b259861836c40b2459b795b1721214d8, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -223,8 +223,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mensaje de error
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ea37e8a7fffe8ae49b81c144af22634d, type: 2}
+  m_sharedMaterial: {fileID: -2745367940441729333, guid: ea37e8a7fffe8ae49b81c144af22634d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

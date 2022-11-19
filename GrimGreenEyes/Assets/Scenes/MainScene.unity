@@ -200,8 +200,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Salir
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -335,8 +335,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continuar partida
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 793776208}
   - component: {fileID: 793776207}
   - component: {fileID: 793776206}
+  - component: {fileID: 793776209}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -892,6 +893,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793776204}
   m_CullTransparentMesh: 1
+--- !u!114 &793776209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793776204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &810016068
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +917,7 @@ GameObject:
   - component: {fileID: 810016072}
   - component: {fileID: 810016071}
   - component: {fileID: 810016070}
+  - component: {fileID: 810016073}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -929,8 +943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227, y: 128.11}
-  m_SizeDelta: {x: 143.38, y: 67.06}
+  m_AnchoredPosition: {x: 240.02, y: 128.11}
+  m_SizeDelta: {x: 169.41, y: 67.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810016070
 MonoBehaviour:
@@ -1026,6 +1040,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810016068}
   m_CullTransparentMesh: 1
+--- !u!114 &810016073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810016068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &942805084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,8 +1181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Empezar nuevo nivel: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1332,6 +1358,7 @@ GameObject:
   - component: {fileID: 1283922350}
   - component: {fileID: 1283922349}
   - component: {fileID: 1283922348}
+  - component: {fileID: 1283922351}
   m_Layer: 5
   m_Name: ExitGameButton
   m_TagString: Untagged
@@ -1454,6 +1481,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283922346}
   m_CullTransparentMesh: 1
+--- !u!114 &1283922351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283922346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450130017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,6 +1505,7 @@ GameObject:
   - component: {fileID: 1450130021}
   - component: {fileID: 1450130020}
   - component: {fileID: 1450130019}
+  - component: {fileID: 1450130022}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -1588,6 +1628,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450130017}
   m_CullTransparentMesh: 1
+--- !u!114 &1450130022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450130017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1485808098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1653,7 @@ GameObject:
   - component: {fileID: 1485808101}
   - component: {fileID: 1485808100}
   - component: {fileID: 1485808103}
+  - component: {fileID: 1485808104}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -1733,6 +1786,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea4a1e1e8c83eac469d13c3898f35b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1485808104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485808098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b70e22d5ea7b84cac91a4de72e1eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1715785739
@@ -2053,8 +2118,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Opciones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2267,10 +2332,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Creditos
+  m_text: "Cr\xE9ditos"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
-  m_sharedMaterial: {fileID: 826968313800120459, guid: 6ff660f61a0fbe34daca4de8eebf876f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
+  m_sharedMaterial: {fileID: -7072112795499137512, guid: 1283832f166d7454cb3e541e4904d6ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

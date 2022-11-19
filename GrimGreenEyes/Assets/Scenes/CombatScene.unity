@@ -793,7 +793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.500002}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460408129
@@ -928,7 +928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.5}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462992119
@@ -1274,7 +1274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.500002}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560264934
@@ -1417,7 +1417,7 @@ MonoBehaviour:
     lPath2: {fileID: 4368756039915833080, guid: fe24ca29b19bfb94e87c1086b51682cb, type: 3}
     lPath3: {fileID: 4368756039915833080, guid: af830ee9371125b4eae306b33fafd3cf, type: 3}
     lPath4: {fileID: 4368756039915833080, guid: 3135029a5a7f2474c9f00a8e201979a6, type: 3}
-    waterChance: 80
+    waterChance: 65
     minWaterY: 2
     averageStreamIntensity: 90
     averageStreamDecay: 40
@@ -1487,10 +1487,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: d2bc957c25386fc46bc6059273fa8551, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: 714e7178b56b72d4e85e42ce186abb98, type: 3}
     eventTile: {fileID: 0}
-    lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
-    lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
-    lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
-    lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
+    lPath1: {fileID: 4368756039915833080, guid: eabd9eef7f8fe484489171ac8e8221de, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: 2a774bf0d4d302c4da9a00265a86b88c, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: 095cf83b96ec1bd40972e3e121b0ffe4, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: d5fa8cd1fdf2b994b9ceb39c00100011, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1533,9 +1533,9 @@ MonoBehaviour:
     averageStreamIntensity: 90
     averageStreamDecay: 40
     maxStreamSize: 3
-    anyMountainChance: 100
-    minMountains: 3
-    maxMountains: 7
+    anyMountainChance: 90
+    minMountains: 2
+    maxMountains: 6
     mountainGrowthChance: 50
     anyPowerupChance: 50
     minPowerups: 2
@@ -5907,7 +5907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.999954, y: 0}
+  m_AnchoredPosition: {x: 125.99994, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706
@@ -6015,7 +6015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.500001}
+  m_AnchoredPosition: {x: 0, y: 3.500002}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022778563
