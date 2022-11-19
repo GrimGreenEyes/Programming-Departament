@@ -17,7 +17,9 @@ public class RecipesList : MonoBehaviour
 
     public void OpenRecipesList()
     {
+        
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        uiManager.PlaySoundBook();
         gameObject.SetActive(true);
         if (first)
         {

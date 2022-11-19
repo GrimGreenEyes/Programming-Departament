@@ -12,9 +12,42 @@ public class UIManager : MonoBehaviour
     public FollowMouse followMouse;
     public GameObject exitButton;
 
+    public AudioClip useTap, waterDrop, plantSeed, bookPage, useBlender;
+    public AudioSource audioSource, audioSourceAux;
+
     private void Start()
     {
         
+    }
+
+    public void PlaySoundTap()
+    {
+        audioSource.clip = useTap;
+        audioSource.Play();
+    }
+
+    public void PlaySoundBlender()
+    {
+        audioSource.clip = useBlender;
+        audioSource.Play();
+    }
+
+    public void PlaySoundWater()
+    {
+        audioSourceAux.clip = waterDrop;
+        audioSourceAux.Play();
+    }
+
+    public void PlaySoundSeed()
+    {
+        audioSource.clip = plantSeed;
+        audioSource.Play();
+    }
+
+    public void PlaySoundBook()
+    {
+        audioSource.clip = bookPage;
+        audioSource.Play();
     }
 
     public void HideExitButton()

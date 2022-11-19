@@ -76,6 +76,7 @@ public class PlantsManager : MonoBehaviour
     public void FertilizePlant()
     {
         uiManager.ActivateAllElements();
+        uiManager.PlaySoundSeed();
         foreach (FlowerPot pot in potsList)
         {
             pot.StopFertilizing();
@@ -140,6 +141,8 @@ public class PlantsManager : MonoBehaviour
             {
                 lockedTap[plantIndex] = true;
                 waterTank.RemoveWater();
+                uiManager.PlaySoundTap();
+                uiManager.PlaySoundWater();
                 tapsAnimatorsList[plantIndex].SetBool("openTab", true);
                 waterdropsAnimatorsList[plantIndex].SetBool("dropWater", true);
                 StartCoroutine(DelayWaterPlant(plantIndex));

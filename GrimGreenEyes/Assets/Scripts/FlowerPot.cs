@@ -63,6 +63,7 @@ public class FlowerPot : MonoBehaviour
         {
             case 1: //PLANTING
                 plantsManager.PlantSeedInPot(choosingPlant, this);
+                GameObject.Find("UIManager").GetComponent<UIManager>().PlaySoundSeed();
                 free = false;
                 break;
             case 2: //FERTILIZING

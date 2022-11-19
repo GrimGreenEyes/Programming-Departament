@@ -12,9 +12,12 @@ public class Book : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText, descriptionText;
     [SerializeField] private Image pageImage;
     private GlobalVar globalVar;
+    private UIManager uiManager;
 
     public void OpenBook()
     {
+        if (uiManager == null) uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        uiManager.PlaySoundBook();
         gameObject.SetActive(true);
         position = 0;
         UpdateVisuals();
@@ -23,18 +26,21 @@ public class Book : MonoBehaviour
 
     public void CloseBook()
     {
+        uiManager.PlaySoundBook();
         gameObject.SetActive(false);
         GameObject.Find("UIManager").GetComponent<UIManager>().ShowExitButton();
     }
 
     public void NextPage()
     {
+        uiManager.PlaySoundBook();
         position++;
         UpdateVisuals();
     }
 
     public void PrevPage()
     {
+        uiManager.PlaySoundBook();
         position--;
         UpdateVisuals();
     }

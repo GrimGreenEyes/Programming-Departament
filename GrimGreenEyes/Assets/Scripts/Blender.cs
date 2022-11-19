@@ -129,6 +129,7 @@ public class Blender : MonoBehaviour
 
     public void ClickBlend()
     {
+        GameObject.Find("UIManager").GetComponent<UIManager>().PlaySoundBlender();
         fertilizerManager.AddFertilizer(currentOutput);
         UseItemInSlot(0);
         UseItemInSlot(1);
