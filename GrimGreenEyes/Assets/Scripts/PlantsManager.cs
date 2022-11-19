@@ -191,6 +191,7 @@ public class PlantsManager : MonoBehaviour
     public void RemovePlant(Plant plant)
     {
         potsList[IndexOf(plantsList, plant)].free = true;
+        potsList[IndexOf(plantsList, plant)].RemovePlant();
         plantsList[IndexOf(plantsList, plant)] = null;
         uiManager.RemoveButton(plant.GetComponent<Button>());
         Destroy(plant.gameObject);

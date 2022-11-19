@@ -15,6 +15,8 @@ public class FlowerPot : MonoBehaviour
     private int mode = 0; //PLANTING = 1; FERTILIZING = 2;
     private Fertilizer currentFertilizer = null;
     private FertilizerManager fertilizerManager;
+    [SerializeField] private Sprite emptyPotSprite, usedPotSprite;
+    [SerializeField] private Image potImage;
 
     public void Start()
     {
@@ -49,11 +51,13 @@ public class FlowerPot : MonoBehaviour
 
     public void SetPlant(Plant plant)
     {
+        potImage.sprite = usedPotSprite;
         currentPlant = plant;
     }
 
     public void RemovePlant()
     {
+        potImage.sprite = emptyPotSprite;
         currentPlant = null;
     }
 

@@ -60,7 +60,7 @@ public class Plant : MonoBehaviour
         switch (plantState)
         {
             case 0:
-                transform.localPosition = new Vector3(5f, 50f, 0f);
+                transform.localPosition = new Vector3(5f, 40f, 0f);
                 break;
             case 1:
                 transform.localPosition = new Vector3(-6f, 35f, 0f);

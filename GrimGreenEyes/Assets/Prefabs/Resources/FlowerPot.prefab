@@ -305,6 +305,9 @@ MonoBehaviour:
   plantsManager: {fileID: 0}
   choosingBorder: {fileID: 6857512670945586919}
   free: 1
+  emptyPotSprite: {fileID: 21300000, guid: ca14786cc61109443bf0b4170a4a95d0, type: 3}
+  usedPotSprite: {fileID: 21300000, guid: d8a24e6b537cc6145ba860e3f5f0a41b, type: 3}
+  potImage: {fileID: 7826811063417730642}
 --- !u!1 &6857512670945586919
 GameObject:
   m_ObjectHideFlags: 0
