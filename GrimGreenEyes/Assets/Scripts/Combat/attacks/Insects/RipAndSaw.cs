@@ -10,6 +10,6 @@ public class RipAndSaw : Attack
         enemy.GetComponent<Entity>().CheckDead();
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(4);
-        new WaitForSeconds(1f);
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

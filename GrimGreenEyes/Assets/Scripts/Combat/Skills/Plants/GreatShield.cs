@@ -6,6 +6,10 @@ public class GreatShield : Skill
 {
     private void GiveBuff(Tile tile)
     {
+        if(tile == null)
+        {
+            return;
+        }
         if (tile.entity != null)
         {
             if (tile.entity.tag == "Player")
@@ -24,20 +28,19 @@ public class GreatShield : Skill
         Tile tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX, player.GetComponent<Plants>().gridY).GetComponent<Tile>();
         GiveBuff(tile);
 
-        tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX, player.GetComponent<Plants>().gridY + 1).GetComponent<Tile>();
+        tile = (player.GetComponent<Plants>().gridY + 1 < GridCreator.instance.height) ? GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX, player.GetComponent<Plants>().gridY + 1).GetComponent<Tile>() : null;
         GiveBuff(tile);
         
-        tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX, player.GetComponent<Plants>().gridY - 1).GetComponent<Tile>();
+        tile = (player.GetComponent<Plants>().gridY - 1 >= 0) ? GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX, player.GetComponent<Plants>().gridY - 1).GetComponent<Tile>() : null;
         GiveBuff(tile);
         
-        tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX + 1, player.GetComponent<Plants>().gridY).GetComponent<Tile>();
+        tile = (player.GetComponent<Plants>().gridX + 1 < GridCreator.instance.width) ? GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX + 1, player.GetComponent<Plants>().gridY).GetComponent<Tile>() : null;
         GiveBuff(tile);
         
-        tile = GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX - 1, player.GetComponent<Plants>().gridY).GetComponent<Tile>();
+        tile = (player.GetComponent<Plants>().gridX - 1 >= 0) ? GridCreator.instance.GetTile(player.GetComponent<Plants>().gridX - 1, player.GetComponent<Plants>().gridY).GetComponent<Tile>() : null;
         GiveBuff(tile);
         GameObject animation = Instantiate(attackAnimation, player.transform);
         animation.GetComponent<AttackAnimation>().Animate(3);
-        new WaitForSeconds(1f);
         DeactivateSkill(player.GetComponent<Plants>());
     }
 }

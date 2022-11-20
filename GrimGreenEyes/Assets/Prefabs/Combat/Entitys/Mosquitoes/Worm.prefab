@@ -141,15 +141,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Verpendex
-  livePoints: 5
-  maxLivePoints: 5
-  attack: 30
-  defense: 5
+  livePoints: 80
+  maxLivePoints: 80
+  attack: 60
+  defense: 40
   heatResistance: 5
   freezeResistance: 5
-  agility: 0
+  agility: 9
   movement: 0
-  maxMovement: 4
+  maxMovement: 5
+  att: 3c0000004100000055000000
+  def: 280000002a0000002d000000
+  ps: 50000000550000005a000000
+  mov: 050000000600000007000000
+  agt: 090000000a0000000d000000
+  hRes: 050000000600000009000000
+  fRes: 050000000600000009000000
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -234,6 +241,13 @@ MonoBehaviour:
   agility: 0
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1

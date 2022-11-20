@@ -20,6 +20,13 @@ public class Entity : MonoBehaviour
     public int movement;
     public int maxMovement;
 
+    [SerializeField] protected List<int> att;
+    [SerializeField] protected List<int> def;
+    [SerializeField] protected List<int> ps;
+    [SerializeField] protected List<int> mov;
+    [SerializeField] protected List<int> agt;
+    [SerializeField] protected List<int> hRes;
+    [SerializeField] protected List<int> fRes;
 
     public float attackMultiplayer;
     public float defenseMultiplayer;
@@ -32,13 +39,13 @@ public class Entity : MonoBehaviour
     public bool hidden = false;
     public bool attacked = false;
 
-    
 
+    protected GameObject startPanel;
     public Sprite timeLineSprite;
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
 
 
-    public enum EntityState { START, IDLE, MOVEING, ATTACKING, USINGSKILL, FINISHED }
+    public enum EntityState { START, IDLE, MOVEING, ATTACKING, USINGSKILL, FINISHED , WAITING}
     public EntityState actualState = EntityState.IDLE;
 
 
@@ -106,18 +113,19 @@ public class Entity : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
+        startPanel = GameObject.Find("GlobalAttributes").transform.GetChild(0).gameObject;
     }
     public void SetStats(int newLivePoints, int newMaxLivePoints, int newAttack, int newDefense, int newHeatResistance, int newFreezeResistance, int newAgility, int newMaxMovement)
     {
-        livePoints = newLivePoints;
-        maxLivePoints = newMaxLivePoints;
-        attack = newAttack;
-        defense = newDefense;
-        heatResistance = newHeatResistance;
-        freezeResistance = newFreezeResistance;
-        agility = newAgility;
-        movement = 0;
-        maxMovement = newMaxMovement;
+        this.livePoints = newLivePoints;
+        this.maxLivePoints = newMaxLivePoints;
+        this.attack = newAttack;
+        this.defense = newDefense;
+        this.heatResistance = newHeatResistance;
+        this.freezeResistance = newFreezeResistance;
+        this.agility = newAgility;
+        this.movement = 0;
+        this.maxMovement = newMaxMovement;
     }
     public void SetSkills(List<GameObject> skillList)
     {
@@ -248,7 +256,7 @@ public class Entity : MonoBehaviour
     }
     public void Heal(int quantity)
     {
-        GetComponent<Plants>().livePoints = (GetComponent<Plants>().livePoints + quantity < GetComponent<Plants>().maxLivePoints) ? GetComponent<Plants>().maxLivePoints + quantity : GetComponent<Plants>().maxLivePoints;
+        GetComponent<Entity>().livePoints = (GetComponent<Entity>().livePoints + quantity < GetComponent<Entity>().maxLivePoints) ? GetComponent<Entity>().maxLivePoints + quantity : GetComponent<Entity>().maxLivePoints;
     }
     public void EndTurn()
     {

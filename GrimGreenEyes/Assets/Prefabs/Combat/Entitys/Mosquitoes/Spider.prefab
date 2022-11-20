@@ -377,15 +377,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Vetrix
-  livePoints: 5
-  maxLivePoints: 5
+  livePoints: 70
+  maxLivePoints: 70
   attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
-  agility: 0
-  movement: 0
+  defense: 35
+  heatResistance: 9
+  freezeResistance: 9
+  agility: 10
+  movement: 4
   maxMovement: 4
+  att: 1e0000002300000028000000
+  def: 230000002500000029000000
+  ps: 46000000500000005a000000
+  mov: 040000000400000005000000
+  agt: 0a0000000b0000000c000000
+  hRes: 090000000b0000000e000000
+  fRes: 090000000b0000000e000000
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -470,6 +477,13 @@ MonoBehaviour:
   agility: 0
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1

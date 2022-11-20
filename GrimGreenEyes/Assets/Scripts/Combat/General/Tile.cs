@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     [SerializeField] Color baseColor1, baseColor2, borderColor, shineColor, enemyColor, allyColor;
 
     [SerializeField] private Sprite[] tileSprites;
+    [SerializeField] private GameObject popcornSprite;
     [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private GameObject onHover;
     [SerializeField] private new BoxCollider2D collider;
@@ -28,6 +29,8 @@ public class Tile : MonoBehaviour
     public bool dealsDamage;
     public bool buffsEntity;
     public bool healsEntity;
+    public bool isPopCorned;
+    public int initTurn;
     [SerializeField] private int WATER = 0;
     [SerializeField] private int DAMAGE = 0;
     [SerializeField] private int BUFF = 0;
@@ -39,7 +42,7 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
-        
+        popcornSprite = transform.GetChild(1).gameObject;
     }
 
     public void GetWater()
@@ -79,19 +82,44 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        //GetWater();
+        CheckTurn();
         StopShine();
         SetClickable(false);
-        GameObject player = GameController.instance.SelectedPlayer();
-        if(player.tag == "Enemy")
+        SelectShine(GameController.instance.SelectedPlayer());    
+    }
+    private void CheckTurn()
+    {
+        if (!isPopCorned)
+        {
+            popcornSprite.SetActive(false);
+            initTurn = -1;
+            return;
+        }
+        if(initTurn != -1)
+        {
+            if (GameController.instance.turn - initTurn > GameController.instance.CharacterCount())
+            {
+                isPopCorned = false;
+            }
+
+        }
+        else
+        {
+            popcornSprite.SetActive(true);
+            initTurn = GameController.instance.turn;
+        }
+    }
+    public void SelectShine(GameObject player)
+    {
+        if (player.tag == "Enemy")
         {
             return;
         }
-        if(entity != null && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE && player.tag == "Player" && Mathf.Abs(positionX  - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().mainAttack.range)
+        if (entity != null && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE && player.tag == "Player" && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().mainAttack.range)
         {
             ShineEntity();
         }
-        if(player.GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL )
+        if (player.GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL)
         {
             if (entity == null && player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].selectsStightTile && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().skills[player.GetComponent<Entity>().skillSelected].range)
             {
@@ -119,15 +147,13 @@ public class Tile : MonoBehaviour
             SetClickable(true);
             isInRange = false;
         }
-        if(isInRange && isWalkable && player.tag == "Carriage" && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE && tag == "PathTile" )
+        if (isInRange && isWalkable && player.tag == "Carriage" && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE && tag == "PathTile")
         {
             ShineTile();
             SetClickable(true);
             isInRange = false;
         }
-        
     }
-
     public void GenerateSeed()
     {
         if(seeds.Length == 0)
@@ -231,6 +257,11 @@ public class Tile : MonoBehaviour
             if (healsEntity)
             {
                 collision.GetComponentInParent<Entity>().Heal(HEAL);
+            }
+            if (isPopCorned)
+            {
+                collision.GetComponentInParent<Entity>().AttackBust(10);
+                collision.GetComponentInParent<Entity>().DefenseBust(10);
             }
             if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
             {

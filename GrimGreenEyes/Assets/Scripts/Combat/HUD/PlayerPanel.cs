@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerPanel : MonoBehaviour
 {
     public static PlayerPanel instance;
+    private GameObject startPanel;
 
     [SerializeField] private Sprite[] plants;
     [SerializeField] private GameObject buttonPref;
@@ -33,6 +34,10 @@ public class PlayerPanel : MonoBehaviour
             instance = this;
         }
     }
+    private void Start()
+    {
+        startPanel = GameObject.Find("GlobalAttributes").transform.GetChild(0).gameObject;
+    }
 
     private void OnDestroy()
     {
@@ -43,6 +48,10 @@ public class PlayerPanel : MonoBehaviour
     }
     private void Update()
     {
+        if (startPanel.activeSelf)
+        {
+            return;
+        }
         Att.text = plant.attack.ToString();
         Def.text = plant.defense.ToString();
         Agl.text = plant.agility.ToString();

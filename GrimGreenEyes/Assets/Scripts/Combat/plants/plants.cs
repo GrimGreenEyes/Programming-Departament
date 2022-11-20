@@ -25,16 +25,13 @@ public class Plants : Entity
         }
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == EntityState.USINGSKILL)
         {
-            Debug.Log("Skill use");
             if (GameController.instance.SelectedPlayer() == gameObject && !GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[skillSelected].isReflexive)
             {
-                Debug.LogError("Skill return");
                 return;
             }
             Debug.Log(GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing);
             if (GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].isbuffing)
             {
-                Debug.Log("skill buff");
                 GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
             }
         }
@@ -69,6 +66,10 @@ public class Plants : Entity
     }
     private void Update()
     {
+        if (startPanel.activeSelf)
+        {
+            return;
+        }
         States();
         livePointsText.text = livePoints.ToString() + "/" + maxLivePoints.ToString();
     }
@@ -167,6 +168,27 @@ public class Plants : Entity
                 else
                 {
                     GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
+                }
+                break;
+            case EntityState.WAITING:
+                if (skillSelected != -1 && skills[skillSelected].isOnOtherTurn && skills[skillSelected].currentCoolDown != 0)
+                {
+                    if (gridX + 1 < GridCreator.instance.width && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity != null && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag == "Enemy")
+                    {
+                        skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity, gameObject);
+                    }
+                    if (gridX - 1 >= 0 && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity != null && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag == "Enemy")
+                    {
+                        skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX - 1, gridY).GetComponent<Tile>().entity, gameObject);
+                    }
+                    if (gridY + 1 < GridCreator.instance.width && GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity != null && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag == "Enemy")
+                    {
+                        skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX, gridY + 1).GetComponent<Tile>().entity, gameObject);
+                    }
+                    if (gridY - 1 >= 0 && GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity != null && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag == "Enemy")
+                    {
+                        skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity, gameObject);
+                    }
                 }
                 break;
             case EntityState.FINISHED:

@@ -65,3 +65,4 @@ MonoBehaviour:
   alreadyUsed: 0
   coolDown: 3
   currentCoolDown: 0
+  attackAnimation: {fileID: 8801658638766239520, guid: 955088bb6d3aa9249a2eda0726e5e650, type: 3}

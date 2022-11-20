@@ -38,9 +38,24 @@ public class Bichous : Entity
 
     public bool isMoving;
 
+    public void SetStats(int level)
+    {
+        maxLivePoints = ps[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        livePoints = maxLivePoints;
+        attack = att[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        defense = def[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        heatResistance = hRes[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        freezeResistance = fRes[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        agility = agt[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
+        maxMovement = mov[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
 
+    }
     private void Update()
     {
+        if (startPanel.activeSelf)
+        {
+            return;
+        }
          States();
         livePointsText.text = livePoints.ToString() + "/" + maxLivePoints.ToString();
     }
@@ -759,7 +774,7 @@ public class Bichous : Entity
         return scaledValue;
     }
 
-    public void attack()
+    public void Attack()
     {
         Debug.Log("EJECUTA ATTAQUE");
     }
@@ -815,10 +830,6 @@ public class Bichous : Entity
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag != "Feet")
-        {
-            return;
-        }
         switch (collision.tag)
         {
             case "Proyectil":

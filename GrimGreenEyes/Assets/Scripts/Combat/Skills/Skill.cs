@@ -17,6 +17,7 @@ public class Skill : MonoBehaviour
     public bool selectsTile;
     public bool isOnSeed;
     public bool isOnDestination;
+    public bool isOnOtherTurn;
     public GameObject destinationTile;
     public int range;
     public int areaOfEffect;

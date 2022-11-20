@@ -110,6 +110,13 @@ MonoBehaviour:
   agility: 3
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 0
   defenseMultiplayer: 0
   heatResistanceMultiplayer: 0
@@ -154,8 +161,8 @@ MonoBehaviour:
   statusImage: {fileID: 0}
   statusPosition: 0
   Status: []
-  HUDSprite: {fileID: 21300000, guid: aeb97341a970b84498fdd6459f231c93, type: 3}
-  HUDSpriteSize: 5
+  HUDSprite: {fileID: 21300000, guid: 54da4e77cbc0c8a45b9aca69a011177d, type: 3}
+  HUDSpriteSize: 1.71
   HUDTurnSize: 5
   isWalking: 0
   moveAndAttack: 0

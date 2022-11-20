@@ -116,7 +116,6 @@ public class PathFinding : MonoBehaviour
                 }
                 if(thisTile.GetComponent<Tile>().GetX() + 1 < GridCreator.instance.width && GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<Tile>().isWalkable)
                 {
-                    Debug.Log("path " + i);
                     if (!GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().selected)
                     {
                         nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY()).GetComponent<PathTile>().Init(thisTile.GetComponent<Tile>().weight, openSet[0]);                  

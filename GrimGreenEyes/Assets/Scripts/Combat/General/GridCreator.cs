@@ -827,10 +827,13 @@ public class GridCreator : MonoBehaviour
         }
         TeamInfo teamManager = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
         for (int i = 0; i < teamManager.GetPlantsList().Count; i++)
-        {
-            players.Add(teamManager.GetPlantsList()[i].GetPlantType());
-            players[i].GetComponent<Plants>().SetStats(teamManager.GetPlantsList()[i].GetCurrentHP(), teamManager.GetPlantsList()[i].GetPlantHealth(), teamManager.GetPlantsList()[i].GetPlantAttack(), teamManager.GetPlantsList()[i].GetPlantDeffense(), teamManager.GetPlantsList()[i].GetPlantHeatRessistance(), teamManager.GetPlantsList()[i].GetPlantColdRessistance(), teamManager.GetPlantsList()[i].GetPlantAgility(), teamManager.GetPlantsList()[i].GetPlantMovement());
-            players[i].GetComponent<Plants>().SetSkills(teamManager.GetPlantsList()[i].GetPlantSkills());
+        {   
+            if(teamManager.GetPlantsList()[i].plantState == 2)
+            {
+                players.Add(teamManager.GetPlantsList()[i].GetPlantType());
+                players[i].GetComponent<Plants>().SetStats(teamManager.GetPlantsList()[i].GetCurrentHP(), teamManager.GetPlantsList()[i].GetPlantHealth(), teamManager.GetPlantsList()[i].GetPlantAttack(), teamManager.GetPlantsList()[i].GetPlantDeffense(), teamManager.GetPlantsList()[i].GetPlantHeatRessistance(), teamManager.GetPlantsList()[i].GetPlantColdRessistance(), teamManager.GetPlantsList()[i].GetPlantAgility(), teamManager.GetPlantsList()[i].GetPlantMovement());
+                players[i].GetComponent<Plants>().SetSkills(teamManager.GetPlantsList()[i].GetPlantSkills());
+            }
         }
     }
     

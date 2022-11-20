@@ -377,15 +377,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Nibus
-  livePoints: 5
-  maxLivePoints: 5
+  livePoints: 80
+  maxLivePoints: 80
   attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
-  agility: 200
+  defense: 35
+  heatResistance: 9
+  freezeResistance: 12
+  agility: 5
   movement: 0
   maxMovement: 4
+  att: 1e0000002100000028000000
+  def: 23000000250000002d000000
+  ps: 500000005500000058000000
+  mov: 040000000400000005000000
+  agt: 050000000500000005000000
+  hRes: 090000000a0000000d000000
+  fRes: 0c0000000d00000010000000
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -470,6 +477,13 @@ MonoBehaviour:
   agility: 12
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1

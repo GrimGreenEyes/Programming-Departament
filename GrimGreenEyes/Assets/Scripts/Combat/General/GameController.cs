@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public int characterSelected = -1;
+    public int turn;
     private List<GameObject> characters = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
     private List<int> playerLivePoints = new List<int>();
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour
     public GameObject winScreen;
     public GameObject looseScreen;
     public GameObject defaultWinButton;
+
+    [SerializeField] private GameObject nextTurnButton;
 
     private TeamInfo teamManager;
 
@@ -60,6 +63,10 @@ public class GameController : MonoBehaviour
             carriage = entity;
         }
     }
+    public int CharacterCount()
+    {
+        return characters.Count();
+    }
     public void AddEnemy(GameObject newEnemyPref, Transform position)
     {
         GameObject newEnemy = Instantiate(newEnemyPref, position);
@@ -68,102 +75,116 @@ public class GameController : MonoBehaviour
     public void OrderCharacters()
     {
         characters = characters.OrderByDescending(x => x.GetComponent<Entity>().agility).ToList();
-        characterSelected = characters.Count - 1;
-        NextPlayer();
+        characterSelected = 0;
+        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        PlayerPanel.instance.ChangePlayer(characters[characterSelected]);
     }
     public void NextPlayer()
     {
         playerTurn = characters[characterSelected];
-        switch (characters[characterSelected].tag)
+        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
         {
-            case "Player":
-                switch (characters[(characterSelected + 1) % characters.Count].tag)
-                {
-                    case "Player":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        break;
-                    case "Enemy":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        PlayerPanel.instance.gameObject.SetActive(false);
-                        break;
-                    case "Carriage":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        break;
-                }
-                break;
-            case "Enemy":
-                switch (characters[(characterSelected + 1) % characters.Count].tag)
-                {
-                    case "Player":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        PlayerPanel.instance.gameObject.SetActive(true);
-                        break;
-                    case "Enemy":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        if (PlayerPanel.instance.gameObject.activeSelf)
-                        {
-                            PlayerPanel.instance.gameObject.SetActive(false);
-                        }
-                        break;
-                    case "Carriage":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        PlayerPanel.instance.gameObject.SetActive(true);
-                        break;
-                }
-                break;
-            case "Carriage": 
-                switch(characters[(characterSelected + 1) % characters.Count].tag)
-                {
-                    case "Player":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        break;
-                    case "Enemy":
-                        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
-                        {
-                            return;
-                        }
-                        characterSelected = (characterSelected + 1) % characters.Count;
-                        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
-                        PlayerPanel.instance.gameObject.SetActive(false);
-                        break;
-                }
-                break;
+            return;
         }
+        characterSelected = (characterSelected + 1) % characters.Count;
+        characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        nextTurnButton.SetActive(true);
+        if (characters[characterSelected].tag == "Enemy")
+        {
+            nextTurnButton.SetActive(false);
+        }
+
+        turn++;
+        //switch (characters[characterSelected].tag)
+        //{
+        //    case "Player":
+        //        switch (characters[(characterSelected + 1) % characters.Count].tag)
+        //        {
+        //            case "Player":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                break;
+        //            case "Enemy":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                PlayerPanel.instance.gameObject.SetActive(false);
+        //                break;
+        //            case "Carriage":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                break;
+        //        }
+        //        break;
+        //    case "Enemy":
+        //        switch (characters[(characterSelected + 1) % characters.Count].tag)
+        //        {
+        //            case "Player":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                PlayerPanel.instance.gameObject.SetActive(true);
+        //                break;
+        //            case "Enemy":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                if (PlayerPanel.instance.gameObject.activeSelf)
+        //                {
+        //                    PlayerPanel.instance.gameObject.SetActive(false);
+        //                }
+        //                break;
+        //            case "Carriage":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                PlayerPanel.instance.gameObject.SetActive(true);
+        //                break;
+        //        }
+        //        break;
+        //    case "Carriage": 
+        //        switch(characters[(characterSelected + 1) % characters.Count].tag)
+        //        {
+        //            case "Player":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                break;
+        //            case "Enemy":
+        //                if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        //                {
+        //                    return;
+        //                }
+        //                characterSelected = (characterSelected + 1) % characters.Count;
+        //                characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
+        //                PlayerPanel.instance.gameObject.SetActive(false);
+        //                break;
+        //        }
+        //        break;
+        //}
         TurnPanel.instance.SetTurns();
     }
     public GameObject SelectedPlayer(int addPosition = 0)

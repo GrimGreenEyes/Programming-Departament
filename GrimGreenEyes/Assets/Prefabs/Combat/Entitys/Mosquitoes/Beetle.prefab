@@ -397,15 +397,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Orlaw
-  livePoints: 5
-  maxLivePoints: 5
-  attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
+  livePoints: 100
+  maxLivePoints: 100
+  attack: 20
+  defense: 60
+  heatResistance: 15
+  freezeResistance: 10
   agility: 3
   movement: 0
   maxMovement: 4
+  att: 14000000170000001c000000
+  def: 3c000000420000004b000000
+  ps: 640000006a00000078000000
+  mov: 040000000400000005000000
+  agt: 030000000300000004000000
+  hRes: 0f0000001100000015000000
+  fRes: 0a0000000b0000000e000000
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -418,7 +425,7 @@ MonoBehaviour:
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
   actualState: 1
-  mainAttack: {fileID: 805721938524684691, guid: 150c722a4a1f4574db477f9ab2989eab, type: 3}
+  mainAttack: {fileID: 1139857387330724877, guid: f4dcf0e2c72b16e409f5c40e034d73b3, type: 3}
   skillPrefabs:
   - {fileID: 5540276384327767973, guid: 0376f000ed06a4642be47e16b4135ee1, type: 3}
   skillObjects: []
@@ -490,6 +497,13 @@ MonoBehaviour:
   agility: 0
   movement: 0
   maxMovement: 0
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 0
   defenseMultiplayer: 0
   heatResistanceMultiplayer: 0

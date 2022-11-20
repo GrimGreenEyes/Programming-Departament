@@ -141,15 +141,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Telix
-  livePoints: 5
-  maxLivePoints: 5
-  attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
-  agility: 0
+  livePoints: 100
+  maxLivePoints: 100
+  attack: 20
+  defense: 60
+  heatResistance: 9
+  freezeResistance: 12
+  agility: 8
   movement: 0
   maxMovement: 4
+  att: 14000000190000001a000000
+  def: 3c0000003e00000050000000
+  ps: 640000006e00000073000000
+  mov: 040000000400000005000000
+  agt: 080000000800000008000000
+  hRes: 090000000a0000000d000000
+  fRes: 0c0000000d00000010000000
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -234,6 +241,13 @@ MonoBehaviour:
   agility: 0
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
