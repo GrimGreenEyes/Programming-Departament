@@ -695,6 +695,8 @@ Esta pantalla tiene las opciones de:
 - Botón Salir del juego 
 - Botón Créditos 
 
+<img src="https://user-images.githubusercontent.com/92206944/202899490-65f66a0d-f959-4cf3-855a-699cf1fc21c2.jpeg">
+
 ##### 4.1.2 Pantallas In Game
 
 ##### 4.1.2.1 Pantalla de combate
@@ -714,7 +716,7 @@ Esta pantalla tiene las opciones de:
     - Opción de atacar/usar habilidad sobre otra unidad si esta se encuentra dentro de su rango.   
 - Información sobre la casilla a la que te quieres mover 
 
-<kdb><img src="https://user-images.githubusercontent.com/92206944/197804081-32608cfc-11c7-4ad3-a813-88073fc72134.png" width= 50%/></kdb>
+<kdb><img src="https://user-images.githubusercontent.com/92206944/202899368-db354894-4791-45fb-a2dc-ea322899a385.jpeg"/></kdb>
 
 ##### 4.1.2.2 Mapamundi
 Esta pantalla tiene las opciones de: 
@@ -723,6 +725,8 @@ Esta pantalla tiene las opciones de:
 - Botón para acceder a la pantalla de gestión del carro-invernadero 
 - Desplazar la cámara para ver el mapa completo 
 - Volver al menú principal 
+
+<img src="https://user-images.githubusercontent.com/92206944/202899450-5e75700c-f306-4714-9031-45a705e3d642.jpeg">
 
 ###### 4.1.2.3 Gestión del carro-invernadero
 
@@ -736,7 +740,7 @@ Esta pantalla tiene las opciones de:
 6. Obtener información sobre las Metaplantas 
 7. Volver al menú principal 
 
-<img src="https://user-images.githubusercontent.com/92206944/198880224-2a49ecc8-d68b-4ee2-905f-c9cfc6a9db2e.jpeg">
+<img src="https://user-images.githubusercontent.com/92206944/202899470-e7396477-a6be-4458-9421-a1051c9f9d95.jpeg">
 
 ##### 4.1.2.4 Tutorial
 
