@@ -53,12 +53,12 @@ MonoBehaviour:
   isReciveingDamage: 0
   isDoingDamage: 0
   isReflexive: 0
-  actilveOnClick: 0
+  actilveOnClick: 1
   selectsStightTile: 0
   selectsTile: 0
   isOnSeed: 0
   isOnDestination: 0
-  isOnOtherTurn: 1
+  isOnOtherTurn: 0
   destinationTile: {fileID: 0}
   range: 0
   areaOfEffect: 1

@@ -82,9 +82,13 @@ public class GameController : MonoBehaviour
     public void NextPlayer()
     {
         playerTurn = characters[characterSelected];
-        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED)
+        if (characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.FINISHED && characters[characterSelected].GetComponent<Entity>().actualState != Entity.EntityState.WAITING)
         {
             return;
+        }
+        if(playerTurn.tag == "Carriage" && playerTurn.GetComponent<Entity>().thisTile.GetComponent<Tile>().addsWater)
+        {
+            AddWater(5);
         }
         characterSelected = (characterSelected + 1) % characters.Count;
         characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;
@@ -194,11 +198,7 @@ public class GameController : MonoBehaviour
     public void NextTurn()
     {
         SelectedPlayer().GetComponent<Entity>().EndTurn();
-        if(characterSelected != 0)
-        {
-            return;
-        }
-        GridCreator.instance.GenerateSeed();
+        
     }
     public void Died(GameObject entity)
     {

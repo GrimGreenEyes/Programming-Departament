@@ -12,11 +12,8 @@ public class LanzaConJunco : Attack
         enemy.GetComponent<Bichous>().livePoints -= damage;
         player.GetComponent<Plants>().Heal((int)(damage * liveRegen));
         enemy.GetComponent<Entity>().CheckDead();
-        if(enemy.transform.childCount < 3)
-        {
-            GameObject animation = Instantiate(attackAnimation, enemy.transform);
-            animation.GetComponent<AttackAnimation>().Animate(6);
-            new WaitForSeconds(1f);
-        }
+        GameObject animation = Instantiate(attackAnimation, enemy.transform);
+        animation.GetComponent<AttackAnimation>().Animate(6);
+        GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

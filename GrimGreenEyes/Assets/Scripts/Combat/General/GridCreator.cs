@@ -61,6 +61,7 @@ public class GridCreator : MonoBehaviour
         width = (x);
         height = (y);
         tileMap = new GameObject[x, y];
+        CreateEnemyList();
         GenerateGrid();
         //Create();
     }
@@ -82,10 +83,10 @@ public class GridCreator : MonoBehaviour
         GenerateDamagers();
         //GenerateEventTiles();
 
-
+        SpawnSeeds();
         WateringTiles();
         GenerateEntitys(players);
-        GenerateEntitys(enemys);
+        GenerateEntitys(enemys[GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().numNode]);
         GenerateEntitys(carriage);
         GameController.instance.OrderCharacters();
     }
@@ -709,6 +710,18 @@ public class GridCreator : MonoBehaviour
         }
     }
 
+    private void CreateEnemyList()
+    {
+        enemys.Add(enemys1);
+        enemys.Add(enemys2);
+        enemys.Add(enemys3);
+        enemys.Add(enemys4);
+        enemys.Add(enemys5);
+        enemys.Add(enemys6);
+        enemys.Add(enemys7);
+        enemys.Add(enemys8);
+        enemys.Add(enemys9);
+    }
     private void GenerateEventTiles()
     {
         if (!specialEvent) return;
@@ -812,7 +825,16 @@ public class GridCreator : MonoBehaviour
     [SerializeField] private GameObject pathTilePrefab;
     [SerializeField] private List<GameObject> carriage;
     [SerializeField] private List<GameObject> players;
-    [SerializeField] private List<GameObject> enemys;
+    public List<GameObject> enemys1 = new List<GameObject>();
+    public List<GameObject> enemys2 = new List<GameObject>();
+    public List<GameObject> enemys3 = new List<GameObject>();
+    public List<GameObject> enemys4 = new List<GameObject>();
+    public List<GameObject> enemys5 = new List<GameObject>();
+    public List<GameObject> enemys6 = new List<GameObject>();
+    public List<GameObject> enemys7 = new List<GameObject>();
+    public List<GameObject> enemys8 = new List<GameObject>();
+    public List<GameObject> enemys9 = new List<GameObject>();
+    public List<List<GameObject>> enemys = new List<List<GameObject>>();
     public float width, height;
     public int x, y;
 
@@ -844,7 +866,16 @@ public class GridCreator : MonoBehaviour
             instance = null;
         }
     }
-
+    private void SpawnSeeds()
+    {
+        for (int i = 1; i < width; i++)
+        {
+            for (int j = 1; j < height; j++)
+            {
+                tileMap[i, j].GetComponent<Tile>().GenerateSeed();
+            }
+        }
+    }
     private void Create()
     {
         int arrayPos = 0;
@@ -885,13 +916,16 @@ public class GridCreator : MonoBehaviour
                 }
                 break;
             case "Enemy":
-                for(int i = 1; i < sizeX; i++)
+                for (int j = sizeY - 1; j > sizeY/2 || entitys.Count() > playerArrayPos; j--)
                 {
-                    if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, sizeY - 1].GetComponent<Tile>().entity == null && tileMap[i, sizeY - 1].GetComponent<Tile>().isWalkable)
+                    for (int i = 0; i < sizeX || entitys.Count() > playerArrayPos; i++)
                     {
-                        player = Instantiate(entitys[playerArrayPos], tileMap[i, sizeY - 1].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
-                        playerArrayPos++;
-                        GameController.instance.Init(player);
+                        if (i % 2 == 0 && playerArrayPos < entitys.Count() && tileMap[i, j].GetComponent<Tile>().entity == null && tileMap[i, j].GetComponent<Tile>().isWalkable)
+                        {
+                            player = Instantiate(entitys[playerArrayPos], tileMap[i, j].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                            playerArrayPos++;
+                            GameController.instance.Init(player);
+                        }
                     }
                 }
                 break;
@@ -901,7 +935,7 @@ public class GridCreator : MonoBehaviour
                     if(tileMap[i, 0].tag == "PathTile")
                     {
                         player = Instantiate(entitys[playerArrayPos], tileMap[i, 0].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
-                        playerArrayPos++;
+                        
                         GameController.instance.Init(player);
                     }
                 }
@@ -928,10 +962,6 @@ public class GridCreator : MonoBehaviour
         return tileMap[x, y];
     }
     
-    public void GenerateSeed()
-    {
-        //tileMap[(int)Random.Range(1, width - 1), (int)Random.Range(1, height - 1)].GetComponent<Tile>().GenerateSeed();
-    }
     private void WateringTiles()
     {
         for (int i = 0; i < sizeX; i++)

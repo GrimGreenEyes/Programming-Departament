@@ -317,7 +317,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -316563158, guid: abea6770aaa40704d8dd15b8e4e0e54b, type: 3}
+  m_Sprite: {fileID: -986402202, guid: 9d99795c0a58b5c4f91ada1cf2d95633, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -439,9 +439,9 @@ MonoBehaviour:
   statusImage: {fileID: 0}
   statusPosition: 0
   Status: []
-  HUDSprite: {fileID: 0}
-  HUDSpriteSize: 100
-  HUDTurnSize: 0
+  HUDSprite: {fileID: 21300000, guid: 28610bda8f690e3448df7ee141fac40f, type: 3}
+  HUDSpriteSize: 5
+  HUDTurnSize: 11
   isWalking: 0
   moveAndAttack: 0
   global: {fileID: 0}
@@ -531,8 +531,8 @@ MonoBehaviour:
   statusPosition: 0
   Status: []
   HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
-  HUDSpriteSize: 100
-  HUDTurnSize: 0
+  HUDSpriteSize: 1
+  HUDTurnSize: 2
   isWalking: 0
   moveAndAttack: 0
   Att: 

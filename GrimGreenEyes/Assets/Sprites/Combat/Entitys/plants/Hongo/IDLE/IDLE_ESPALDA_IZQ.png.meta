@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b4a5e33cae0bbb4ab233f2f53ec4869
+guid: 74d01f73131cd61478d314684f7ce216
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDLE_CARA_IZQ_0
+      name: IDLE_ESPALDA_IZQ_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1000
-        height: 938
+        height: 1237
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4da3785ac5e9684d973b9d4feef3b7a
-      internalID: 2074874749
+      spriteID: 8056ba3d7b96e21488203bceb64d5271
+      internalID: 1095615604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_CARA_IZQ_1
+      name: IDLE_ESPALDA_IZQ_1
       rect:
         serializedVersion: 2
         x: 1000
         y: 0
         width: 1000
-        height: 938
+        height: 1237
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0003205ee49d37b4a83de5cfde8a64b9
-      internalID: -378327391
+      spriteID: f3259389ce887c84bbc72be08a46e15f
+      internalID: 1598919008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_CARA_IZQ_2
+      name: IDLE_ESPALDA_IZQ_2
       rect:
         serializedVersion: 2
         x: 2000
         y: 0
         width: 1000
-        height: 938
+        height: 1237
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,155 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66f8bf6f0365fce4aa073064d3c654bc
-      internalID: -1734388479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0947e566ac1fcb14383887c1541bbd85
-      internalID: -1115550248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be58240dec88b53478fa37492c5dabed
-      internalID: 1505617888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_5
-      rect:
-        serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9514dfbfe88da4142ab1f05ee519719e
-      internalID: -584662121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_6
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b385615fa2a2dcf4ea34f240b88b1ef9
-      internalID: -506295432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95e1a3573c2e4be4e9e63ba1b4642600
-      internalID: 1903300635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_8
-      rect:
-        serializedVersion: 2
-        x: 8000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08d810a0dfeb6ae4cbe3553d68e0985c
-      internalID: -713559513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IDLE_CARA_IZQ_9
-      rect:
-        serializedVersion: 2
-        x: 9000
-        y: 0
-        width: 1000
-        height: 938
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b832b5fceee45b4db8f906fbb0d0582
-      internalID: 1645621775
+      spriteID: d573bf93daee9fb439fc8742648a17af
+      internalID: -111869715
       vertices: []
       indices: 
       edges: []
@@ -337,16 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE_CARA_IZQ_4: 1505617888
-      IDLE_CARA_IZQ_3: -1115550248
-      IDLE_CARA_IZQ_1: -378327391
-      IDLE_CARA_IZQ_6: -506295432
-      IDLE_CARA_IZQ_0: 2074874749
-      IDLE_CARA_IZQ_8: -713559513
-      IDLE_CARA_IZQ_9: 1645621775
-      IDLE_CARA_IZQ_5: -584662121
-      IDLE_CARA_IZQ_7: 1903300635
-      IDLE_CARA_IZQ_2: -1734388479
+      IDLE_ESPALDA_IZQ_1: 1598919008
+      IDLE_ESPALDA_IZQ_0: 1095615604
+      IDLE_ESPALDA_IZQ_2: -111869715
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

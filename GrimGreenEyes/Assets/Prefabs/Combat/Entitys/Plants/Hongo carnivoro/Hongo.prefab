@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 2640658683023329125}
   - component: {fileID: 4634130352655546740}
   - component: {fileID: 4412222667517775485}
+  - component: {fileID: 2509590855461015885}
   m_Layer: 0
   m_Name: Hongo
   m_TagString: Player
@@ -236,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 2640658683023329112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7266904164575331900}
@@ -285,12 +286,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.47767162, a: 1}
+  m_Sprite: {fileID: 502158945, guid: 98d18746a002bc54ebe5eff303806c78, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -331,7 +332,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.46, y: 0.67}
   m_Direction: 0
 --- !u!114 &4412222667517775485
 MonoBehaviour:
@@ -346,15 +347,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Toxkill
-  livePoints: 100
-  maxLivePoints: 100
-  attack: 20
-  defense: 80
-  heatResistance: 70
-  freezeResistance: 10
-  agility: 100
+  livePoints: 85
+  maxLivePoints: 85
+  attack: 65
+  defense: 20
+  heatResistance: 15
+  freezeResistance: 15
+  agility: 5
   movement: 0
   maxMovement: 4
+  att: 
+  def: 
+  ps: 
+  mov: 
+  agt: 
+  hRes: 
+  fRes: 
   attackMultiplayer: 1
   defenseMultiplayer: 1
   heatResistanceMultiplayer: 1
@@ -368,7 +376,8 @@ MonoBehaviour:
   renderer: {fileID: 0}
   actualState: 5
   mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
-  skillPrefabs: []
+  skillPrefabs:
+  - {fileID: 7789007643247914104, guid: 433b637c6ee392947ae17029f383ed8e, type: 3}
   skillObjects: []
   skills: []
   skillSelected: 3
@@ -399,11 +408,31 @@ MonoBehaviour:
   statusImage: {fileID: 0}
   statusPosition: 0
   Status: []
-  HUDSprite: {fileID: 21300000, guid: dd2167cd7d5e21b4c8b323ad37ab2664, type: 3}
-  HUDSpriteSize: 0
-  HUDTurnSize: 0
+  HUDSprite: {fileID: 21300000, guid: 3e1088ebf3b0ae74eb5a4d1d181561df, type: 3}
+  HUDSpriteSize: 11
+  HUDTurnSize: 25
   isWalking: 0
   moveAndAttack: 0
+--- !u!95 &2509590855461015885
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640658683023329112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d90f9ba1ec5704e42ae0e42d86995183, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2648131333251354314
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,12 +696,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.z

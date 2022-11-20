@@ -50,26 +50,18 @@ public class Tile : MonoBehaviour
         if (positionX + 1 < GridCreator.instance.x && GridCreator.instance.GetTile(positionX + 1, positionY).GetComponent<Tile>().type == "water")
         {
             addsWater = true;
-            WATER++;
-            weight--;
         }
         if (positionX - 1 >= 0 && GridCreator.instance.GetTile(positionX - 1, positionY).GetComponent<Tile>().type == "water")
         {
             addsWater = true;
-            WATER++;
-            weight--;
         }
         if (positionY + 1 < GridCreator.instance.y && GridCreator.instance.GetTile(positionX, positionY + 1).GetComponent<Tile>().type == "water")
         {
             addsWater = true;
-            WATER++;
-            weight--;
         }
         if (positionY - 1 >= 0 && GridCreator.instance.GetTile(positionX, positionY - 1).GetComponent<Tile>().type == "water")
         {
             addsWater = true;
-            WATER++;
-            weight--;
         }
     }
     public void Init(int color, int x, int y)
@@ -107,6 +99,17 @@ public class Tile : MonoBehaviour
         {
             popcornSprite.SetActive(true);
             initTurn = GameController.instance.turn;
+        }
+    }
+    public void GenerateSeed()
+    {
+        if(seeds.Length == 0)
+        {
+            return;
+        }
+        if(Random.Range(0f, 100f) < 5f)
+        {
+            Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false);
         }
     }
     public void SelectShine(GameObject player)
@@ -153,18 +156,6 @@ public class Tile : MonoBehaviour
             SetClickable(true);
             isInRange = false;
         }
-    }
-    public void GenerateSeed()
-    {
-        if(seeds.Length == 0)
-        {
-            return;
-        }
-        if(entity != null)
-        {
-            return;
-        }
-        Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false);
     }
     public void ShineTile()
     {
@@ -242,10 +233,6 @@ public class Tile : MonoBehaviour
             isWalkable = false;
             entity.GetComponent<Entity>().SetTile(gameObject);
             isAcided = false;
-            if (addsWater && collision.transform.parent.tag == "Player")
-            {
-                GameController.instance.AddWater(WATER);
-            }
             if (dealsDamage)
             {
                 collision.GetComponentInParent<Entity>().Damage(DAMAGE);
@@ -284,7 +271,7 @@ public class Tile : MonoBehaviour
             }
             
             entity = null;
-        if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.ATTACKING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.FINISHED)
+            if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.MOVEING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.ATTACKING || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL || collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.FINISHED)
             {
                 isWalkable = true;
             }

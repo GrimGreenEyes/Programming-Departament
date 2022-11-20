@@ -171,8 +171,8 @@ public class Plants : Entity
                 }
                 break;
             case EntityState.WAITING:
-                if (skillSelected != -1 && skills[skillSelected].isOnOtherTurn && skills[skillSelected].currentCoolDown != 0)
-                {
+                GameController.instance.NextPlayer();
+                
                     if (gridX + 1 < GridCreator.instance.width && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity != null && GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity.tag == "Enemy")
                     {
                         skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX + 1, gridY).GetComponent<Tile>().entity, gameObject);
@@ -189,7 +189,7 @@ public class Plants : Entity
                     {
                         skills[skillSelected].Effect(GridCreator.instance.GetTile(gridX, gridY - 1).GetComponent<Tile>().entity, gameObject);
                     }
-                }
+                
                 break;
             case EntityState.FINISHED:
                 GameController.instance.NextPlayer();

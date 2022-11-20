@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abea6770aaa40704d8dd15b8e4e0e54b
+guid: 8a42f6c42a9749c4c9f4915f3cbef20f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4536d149198008448444419e87f1188
-      internalID: -316563158
+      spriteID: c2953ec5d1e397442a5518248c67d576
+      internalID: 1269250571
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9e76297f9a5f144ba198cc4b2f32743
-      internalID: 402094055
+      spriteID: 7b3cb3b0f5e12af49b08764552cf6985
+      internalID: 1480853436
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b79c9e073bbe5242932c9108938972c
-      internalID: -176964755
+      spriteID: e6296320b541f68419c2e10147f150d1
+      internalID: 653592684
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: accaef8ded9b54a46b7f0f74ed3f3777
-      internalID: -875590068
+      spriteID: 1489deb9230bfa2499fb4d7f535b9d8a
+      internalID: -518146089
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fe033b12e17a0641a5a9f21ae38f634
-      internalID: -618393981
+      spriteID: 2af22234e6c787b42939b33a3f85a2ed
+      internalID: 1669166637
       vertices: []
       indices: 
       edges: []
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf2b1f0cc3f4bbd4cbad8bc310ef070d
-      internalID: -489926178
+      spriteID: fb0b0e4d3dfb7d742b895ed58f257156
+      internalID: -900208302
       vertices: []
       indices: 
       edges: []
@@ -257,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb32aeaa9a9c6ed458f4648db2249bc7
-      internalID: 797818816
+      spriteID: e8e0077bffd02114dbabb1d92b007c67
+      internalID: 2030746842
       vertices: []
       indices: 
       edges: []
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 256b39c38284c954f8855cbc270f58a4
-      internalID: 1719489379
+      spriteID: 21d3c5753ec01b548a6f9d21144f6275
+      internalID: 1900245880
       vertices: []
       indices: 
       edges: []
@@ -299,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06da34fb525660c4e8cd3bbcaa2a279f
-      internalID: -1837282583
+      spriteID: 982cd6183a8764842bce8c8f44f3a20a
+      internalID: 2018055992
       vertices: []
       indices: 
       edges: []
@@ -320,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45c73146e01e8b945bbb3276218fe3aa
-      internalID: 1449801369
+      spriteID: 686fc39004ed4f04cbdb365888775805
+      internalID: -1228596342
       vertices: []
       indices: 
       edges: []
@@ -337,16 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE_CARA_DER_6: 797818816
-      IDLE_CARA_DER_0: -316563158
-      IDLE_CARA_DER_5: -489926178
-      IDLE_CARA_DER_1: 402094055
-      IDLE_CARA_DER_7: 1719489379
-      IDLE_CARA_DER_9: 1449801369
-      IDLE_CARA_DER_2: -176964755
-      IDLE_CARA_DER_3: -875590068
-      IDLE_CARA_DER_4: -618393981
-      IDLE_CARA_DER_8: -1837282583
+      IDLE_CARA_DER_6: 2030746842
+      IDLE_CARA_DER_0: 1269250571
+      IDLE_CARA_DER_5: -900208302
+      IDLE_CARA_DER_1: 1480853436
+      IDLE_CARA_DER_7: 1900245880
+      IDLE_CARA_DER_9: -1228596342
+      IDLE_CARA_DER_2: 653592684
+      IDLE_CARA_DER_3: -518146089
+      IDLE_CARA_DER_4: 1669166637
+      IDLE_CARA_DER_8: 2018055992
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

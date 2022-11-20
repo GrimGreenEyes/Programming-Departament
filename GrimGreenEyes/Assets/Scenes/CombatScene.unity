@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 3.499999}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66644239
@@ -1609,12 +1609,40 @@ MonoBehaviour:
   carriage:
   - {fileID: 4535999862920829099, guid: d733ae73d7021ca4aa776f7aa055fc86, type: 3}
   players: []
-  enemys:
+  enemys1:
   - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
-  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  enemys2:
   - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  enemys3:
+  - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
+  - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  enemys4:
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
+  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  enemys5:
+  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  enemys6:
   - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
   - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  enemys7:
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
+  enemys8:
+  - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
+  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  enemys9:
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
+  - {fileID: 8563503210063929809, guid: 306e855237e6bee4181b66f22fdd5449, type: 3}
+  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
   width: 0
   height: 0
   x: 11
@@ -3286,6 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSelected: -1
+  turn: 0
   players: []
   enemys: []
   winScreen: {fileID: 1060572743}
@@ -5366,7 +5395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 3.499999}
   m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987505066

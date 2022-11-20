@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 7249653124844612510}
   - component: {fileID: 6551616114734240808}
   - component: {fileID: 5445683156145639636}
-  - component: {fileID: 5882702141229113375}
   - component: {fileID: 6801036089218073932}
   m_Layer: 0
   m_Name: Spider
@@ -523,9 +522,9 @@ MonoBehaviour:
   statusImage: {fileID: 0}
   statusPosition: 0
   Status: []
-  HUDSprite: {fileID: 0}
-  HUDSpriteSize: 100
-  HUDTurnSize: 0
+  HUDSprite: {fileID: 21300000, guid: a651602ab0778c54c927828daa9b9da8, type: 3}
+  HUDSpriteSize: 5
+  HUDTurnSize: 11
   isWalking: 0
   moveAndAttack: 0
   global: {fileID: 0}
@@ -540,90 +539,6 @@ MonoBehaviour:
   carro: {fileID: 0}
   selection: 0
   isMoving: 0
---- !u!114 &5882702141229113375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7249653124844612577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08bbf6c675c237d49b8ff66fed04b340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: "Ara\xF1a"
-  livePoints: 5
-  maxLivePoints: 5
-  attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
-  agility: 0
-  movement: 0
-  maxMovement: 4
-  att: 
-  def: 
-  ps: 
-  mov: 
-  agt: 
-  hRes: 
-  fRes: 
-  attackMultiplayer: 1
-  defenseMultiplayer: 1
-  heatResistanceMultiplayer: 1
-  freezeResistanceMultiplayer: 1
-  bleeding: 0
-  poisoned: 0
-  stuned: 0
-  hidden: 0
-  attacked: 0
-  timeLineSprite: {fileID: 0}
-  renderer: {fileID: 0}
-  actualState: 5
-  mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
-  skillPrefabs:
-  - {fileID: 2012598686898675213, guid: d4360ecde46eade40b5deed55096fb7f, type: 3}
-  skillObjects: []
-  skills: []
-  skillSelected: 3
-  charges: 0
-  mainObjective: {fileID: 0}
-  MovementSpeed: 2
-  MovementPoint: {x: 0, y: 0, z: 0}
-  tileScale: {x: 0.7, y: 0.35}
-  angle: {x: 0, y: 0, z: 0}
-  offsetMovePoint: {x: 0.559017, y: 0.559017}
-  obstacles:
-    serializedVersion: 2
-    m_Bits: 0
-  radious: 0
-  moveing: 0
-  input: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  gridX: 0
-  gridY: 0
-  thisTile: {fileID: 0}
-  destination: {fileID: 0}
-  path: []
-  pathPosition: 0
-  directionX: 0
-  directionY: 0
-  livePointsText: {fileID: 248440954534126182}
-  statusPositions: []
-  statusImage: {fileID: 0}
-  statusPosition: 0
-  Status: []
-  HUDSprite: {fileID: 21300000, guid: ba1e39573cf5c684dbc8b6ae4f8c7afb, type: 3}
-  HUDSpriteSize: 100
-  HUDTurnSize: 0
-  isWalking: 0
-  moveAndAttack: 0
-  Att: 
-  Def: 
-  Agl: 
-  Hres: 
-  Cres: 
 --- !u!95 &6801036089218073932
 Animator:
   serializedVersion: 4
