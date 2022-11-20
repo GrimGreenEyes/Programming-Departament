@@ -88,7 +88,7 @@ public class GameController : MonoBehaviour
         }
         if(playerTurn.tag == "Carriage" && playerTurn.GetComponent<Entity>().thisTile.GetComponent<Tile>().addsWater)
         {
-            AddWater(5);
+            AddWater(2);
         }
         characterSelected = (characterSelected + 1) % characters.Count;
         characters[characterSelected].GetComponent<Entity>().actualState = Entity.EntityState.START;

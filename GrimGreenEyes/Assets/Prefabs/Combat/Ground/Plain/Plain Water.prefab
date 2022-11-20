@@ -63,7 +63,7 @@ MonoBehaviour:
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
   name: Agua
-  effects: Pasando por una casiya adyacente recoge 1 de agua
+  effects: Pasando por una casiya adyacente recoge 2 de agua
   type: water
   spawnBlocks: 0
   isInRange: 0
