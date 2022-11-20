@@ -242,12 +242,22 @@ public class GameController : MonoBehaviour
             players.Remove(entity);
             
         }
+        else if (entity.tag == "Carriage")
+        {
+            Finish(false);
+        }
         Destroy(entity);
         if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
     public void Finish(bool victory)
     {
+        if (!victory)
+        {
+            looseScreen.SetActive(true);
+            looseScreen.GetComponent<AudioSource>().Play();
+            return;
+        }
         //int j = 0;
         //for (int i = 0; j < playerLivePoints.Count; i++, j++) 
         //{
@@ -263,6 +273,7 @@ public class GameController : MonoBehaviour
         //        //break;
         //    }
         //}
+        playerLivePoints.Clear();
         for (int i = 0; i < players.Count; i++)
         {
             playerLivePoints.Add(players[i].GetComponent<Plants>().livePoints);
@@ -271,16 +282,11 @@ public class GameController : MonoBehaviour
         {
             teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
         }
-        if (victory)
-        {
-            winScreen.SetActive(true);
-            winScreen.GetComponent<AudioSource>().Play();
-        }       
-        else
-        {
-            looseScreen.SetActive(true);
-            looseScreen.GetComponent<AudioSource>().Play();
-        }
+        
+        winScreen.SetActive(true);
+        winScreen.GetComponent<AudioSource>().Play();
+               
+        
     }
 
     public void AddWater(int water)
