@@ -303,7 +303,8 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de arena| Todos| Ninguno|Camino|
-|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 10pt de agua|condicionada/ baja|
+|Montaña|Ninguno|Ninguno|Baja|
+|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/ baja|
 |Arena| Plantas e Insectos|Ninguno| Alta|
 |Arena con plameras|Plantas e Insectos|Recupera 5pt de vida|condicionada/baja|
 |Arenas movedizas| Plantas e Insectos|Pierde 5pt de vida|condicionada/ baja|
@@ -318,7 +319,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de nieve|Todos|Ninguno|Camino|
 |Montaña|Ninguno|Ninguno|Baja|
-|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 5pt de agua|condicionada/Media|
+|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/Media|
 |Nieve|Plantas e Insectos|Ninguno|Alta|
 |Flor Invernal| Plantas e Insectos| Recupera 5pt de vida| condiconada/ Baja|
 |Estalagmita de hielo| Plantas e Insectos| Pierde 1pt de vida| Baja|
@@ -332,7 +333,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de hierba alta| Todods| Ninguno| Camino|
 |Montaña| Ninguno| Ninguno| Baja|
-|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 20pt de agua| Media|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 2pt de agua| Media|
 |Hierba alta| Plantas e Insectos| Recupera 5pt de vida| Baja|
 |Charco| Plantas e insectos| Ninguno| Alta|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque|condicionada/ Baja|
@@ -346,7 +347,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de hierba| Todos| Ninguno| Camino|
 |Montaña| Ninguno| NInguno| Baja|
-|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 30pt de agua|condicionada/Baja|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/Baja|
 |Hierba| Plantas e Insectos| Ninguno| Alta|
 |Charco| Planntas e Insectos| Recupera 5pt de vida|condicionada/ Baja|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 5pt de vida. Gana 2pt de ataque| Baja|
@@ -561,6 +562,32 @@ Las animaciones de cada personaje del juego serán realizadas frame a frame y se
 - Habilidad. 
 - Recibir daño. 
 - Morir. 
+
+##### 3.1.1 Sprites de acciones en combate
+
+
+###### 3.1.1.1 Mordisco
+<img src="https://user-images.githubusercontent.com/92206944/202895307-0e9acce1-f4d0-432e-8218-46fc5081b62e.png" width ="70%">
+###### 3.1.1.2 Punzada
+<img src="https://user-images.githubusercontent.com/92206944/202895335-996f1516-0268-4415-9834-21884419db78.png" width ="70%">
+###### 3.1.1.3 Golpe
+<img src="https://user-images.githubusercontent.com/92206944/202895347-f77ab434-099f-4dc9-b261-95add1bad5d2.png" width ="70%">
+###### 3.1.1.4 Curación
+<img src="https://user-images.githubusercontent.com/92206944/202895352-a4e37e5f-24ee-45e1-be9d-079d0c2ca53f.png" width ="70%">
+###### 3.1.1.5 Brote
+<img src="https://user-images.githubusercontent.com/92206944/202895356-8af5134e-18f1-40c6-99eb-401689f0f759.png" width ="70%">
+###### 3.1.1.6 Escudo Potenciador
+<img src="https://user-images.githubusercontent.com/92206944/202895357-fd6f4115-438f-464d-b780-974692b7e539.png" width ="70%">
+###### 3.1.1.7 Palomita
+<img src="https://user-images.githubusercontent.com/92206944/202895358-fbb0b9a9-47c2-46cf-a9f9-a4e9984b5554.png" width ="70%">
+###### 3.1.1.8 Área de efecto
+<img src="https://user-images.githubusercontent.com/92206944/202895361-4b116ec6-9887-41fa-9e72-039e47266c02.png" width ="70%">
+###### 3.1.1.9 Rayo Solar
+###### 3.1.1.9.1 Aturdidor
+<img src="https://user-images.githubusercontent.com/92206944/202895401-40741c4d-ffa3-439c-b906-11068383e66e.png" width ="70%">
+###### 3.1.1.9.2 Potenciador
+<img src="https://user-images.githubusercontent.com/92206944/202895376-a7b69a91-e20d-46e8-aede-f1248db6727d.png" width ="70%">
+
 
 <a name="3.2"></a>
 ### 3.2 Música
