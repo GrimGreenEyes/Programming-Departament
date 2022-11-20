@@ -61,6 +61,14 @@ public class Carriage : Entity
     }
     private void OnDestroy()
     {
-        GameController.instance.Finish(false);
+        try
+        {
+            GameController.instance.Finish(false);
+        }
+        catch
+        {
+            Debug.Log("Unsolved bug");
+        }
+        
     }
 }

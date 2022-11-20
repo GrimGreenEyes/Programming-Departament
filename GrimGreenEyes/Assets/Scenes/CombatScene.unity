@@ -1452,10 +1452,10 @@ MonoBehaviour:
     healerTile: {fileID: 4368756039915833080, guid: 1dc68d12b5ed40040b4a97c0075545bd, type: 3}
     damagerTile: {fileID: 4368756039915833080, guid: bbd9829f212a69a48ae34b2fb2689abf, type: 3}
     eventTile: {fileID: 0}
-    lPath1: {fileID: 4368756039915833080, guid: 64ec4ff0fc375a64fb89ba6c33a61235, type: 3}
-    lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
-    lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
-    lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
+    lPath1: {fileID: 4368756039915833080, guid: 7e1ba73b87c0881459912f5016b76779, type: 3}
+    lPath2: {fileID: 4368756039915833080, guid: 6b1f7e3215e0f5d40937743a57958926, type: 3}
+    lPath3: {fileID: 4368756039915833080, guid: 7fb197b4b91365d42bd70da67e9b5f28, type: 3}
+    lPath4: {fileID: 4368756039915833080, guid: 6dcf1fa806499164a88d3b627c651e8b, type: 3}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -5644,7 +5644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.99995, y: 0}
+  m_AnchoredPosition: {x: 125.999954, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706
