@@ -82,6 +82,10 @@ public class Tile : MonoBehaviour
         {
             isWalkable = true;
         }
+        else
+        {
+            isWalkable = false;
+        }
     }
     private void CheckTurn()
     {
