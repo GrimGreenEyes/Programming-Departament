@@ -21407,44 +21407,44 @@ MonoBehaviour:
   - title: "Gu\xEDa del invernadero"
     description: "\xA1Bienvenid@ al invernadero! Aqu\xED podr\xE1s mejorar tus metaplantas,
       as\xED como curar a aquellas que est\xE9n heridas o plantar nuevas semillas."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: c6e3cdfefdcc00d42a3f622ae43c080d, type: 3}
   - title: Semillas y mortero
     description: "En el mueble de la derecha podr\xE1s acceder a tus recursos b\xE1sicos,
-      as\xED como fabricar fertilizantes en el mortero. Puedes consultar todas las
-      recetas pulsando el bot\xF3n '?'."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+      as\xED como fabricar fertilizantes en el mortero. <i>Puedes consultar todas
+      las recetas pulsando el bot\xF3n '?'.</i>"
+    image: {fileID: 21300000, guid: 38a67e5469c107640bcb7171e6e5c7dc, type: 3}
   - title: "Fertilizantes de estad\xEDstica"
     description: "Recuerda que acabar con insectos enemigos har\xE1 que consigas
       partes de su cuerpo. Uti\xEDzalas para fabricar fertilizantes que mejoren las
       estad\xEDsticas de tus metaplantas."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: a0dd3235ccd5e8248a65c9cd94ef6dda, type: 3}
   - title: Semillas
     description: "Durante el combate, podr\xE1s recoger semillas. Util\xEDzalas para
       plantar nuevas metaplantas o para fabricar fertilizante, \xA1esto les dar\xE1
       nuevas habilidades a tus metaplantas!"
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: 5c38b11a8862df44585fccd7215c3e3c, type: 3}
   - title: Fertilizantes
     description: "En el saco podr\xE1s acceder a los fertilizantes que hayas fabricado
       y aplicarlos a las plantas que desees mejorar."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: 50b0f91565b35914f804caa1ade2b7f8, type: 3}
   - title: Agua
     description: "Utiliza los grifos para hacer crecer las metaplantas que plantes
       o para curar las que est\xE9n heridas. Siempre y cuando tengas agua en el dep\xF3sito,
       claro. Recuerda que puedes llenar tu dep\xF3sito durante el combate pasando
       cerca de agua con tu carro."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: cef9b963e647797498ce8235898d6df3, type: 3}
   - title: Mapa
     description: "Puedes utilizar el mapa para ver tu ubicaci\xF3n actual y para
       avanzar al siguiente punto del camino cuando est\xE9s list@ para el combate."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: 9876deefd65ce0d48a82049b93e57130, type: 3}
   - title: Metaplantas
     description: "Y lo m\xE1s importante, \xA1las metaplantas! Haz click en cualquiera
       de ellas para ver sus estad\xEDsticas y habilidades."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: 090db61327e73544eb307dd24472b2e0, type: 3}
   - title: "Gu\xEDa"
     description: "Puedes consultar esta gu\xEDa siempre que quieras haciendo click
       en el libro de la mesa."
-    image: {fileID: 21300000, guid: dd7183904c21e9a489abeaec76f9852f, type: 3}
+    image: {fileID: 21300000, guid: 515ddf6374b05c446b86893eab6ded22, type: 3}
   position: 0
   nextButton: {fileID: 761507388}
   prevButton: {fileID: 788356722}
