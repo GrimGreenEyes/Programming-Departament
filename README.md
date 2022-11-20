@@ -48,8 +48,9 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
     - 2.6 [Cotroles](#2.6)
 - 3. [Arte](#3)
     - 3.1 [Estética general](#3.1)
-    - 3.2 [Música](#3.2)
-    - 3.3 [Moodboard](#3.3) 
+    - 3.2 [Efectos de sonido](#3.2)
+    - 3.3 [Música](#3.3)
+    - 3.4 [Moodboard](#3.4) 
 - 4. [Interfaz](#4)
     - 4.1 [Diseños básicos de las pantallas](#4.1)
     - 4.2 [Diagrama de flujo](#4.2) 
@@ -303,7 +304,8 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |Loseta|Permite el desplazamiento de|Efectos de terreno|Frecuencia de aparición|
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de arena| Todos| Ninguno|Camino|
-|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 10pt de agua|condicionada/ baja|
+|Montaña|Ninguno|Ninguno|Baja|
+|Agua|Ninguno|Situar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/ baja|
 |Arena| Plantas e Insectos|Ninguno| Alta|
 |Arena con plameras|Plantas e Insectos|Recupera 5pt de vida|condicionada/baja|
 |Arenas movedizas| Plantas e Insectos|Pierde 5pt de vida|condicionada/ baja|
@@ -318,7 +320,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de nieve|Todos|Ninguno|Camino|
 |Montaña|Ninguno|Ninguno|Baja|
-|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 5pt de agua|condicionada/Media|
+|Agua helada|Ninguno|Colocar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/Media|
 |Nieve|Plantas e Insectos|Ninguno|Alta|
 |Flor Invernal| Plantas e Insectos| Recupera 5pt de vida| condiconada/ Baja|
 |Estalagmita de hielo| Plantas e Insectos| Pierde 1pt de vida| Baja|
@@ -332,7 +334,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de hierba alta| Todods| Ninguno| Camino|
 |Montaña| Ninguno| Ninguno| Baja|
-|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 20pt de agua| Media|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 2pt de agua| Media|
 |Hierba alta| Plantas e Insectos| Recupera 5pt de vida| Baja|
 |Charco| Plantas e insectos| Ninguno| Alta|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 2pt de vida. Gana 2pt de ataque|condicionada/ Baja|
@@ -346,7 +348,7 @@ A continuación una lista de las losetas de cada bioma y sus siguientes caracter
 |:----:|:--------------------------:|:----------------:|:---------------------:|
 |Camino de hierba| Todos| Ninguno| Camino|
 |Montaña| Ninguno| NInguno| Baja|
-|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 30pt de agua|condicionada/Baja|
+|Agua| Ninguno| Colocar el carro en casillas adyacentes proporciona 2pt de agua|condicionada/Baja|
 |Hierba| Plantas e Insectos| Ninguno| Alta|
 |Charco| Planntas e Insectos| Recupera 5pt de vida|condicionada/ Baja|
 |Mala-hierba| Plantas e Insectos| Las plantas pierden 5pt de vida. Gana 2pt de ataque| Baja|
@@ -457,27 +459,52 @@ El daño recibido será la cantidad de vida que pierde el objetivo.
 __Lista de METAPLANTAS en función de sus roles:__
 
 - Apoyo
-<img src="https://user-images.githubusercontent.com/92206944/198828521-a477d474-f204-4779-ab03-c68f5260e456.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198828544-97760733-cd54-418c-8aa7-10fe5cae6cfa.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198828570-071d218d-6994-4219-b7cb-34c55f218ca0.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896580-104ece66-3784-4cc0-8c4a-fcff64412f45.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896585-0ae0249e-2c84-4ef2-95a2-6e476a918913.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896595-90a08693-d739-47ab-b28e-1f1c37c2c6f3.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896600-b5bfb89f-fe32-4f9f-b747-6afceaf8fdbc.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896607-df1459c7-7fc6-429c-a43c-ae77c9feb05c.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896608-d99b95c3-b4fc-47f5-a462-6ed5d7678ed3.jpeg" width ="70%">
+
 - Tanque
-<img src="https://user-images.githubusercontent.com/92206944/198828595-4b2f6ec7-e2ad-403e-a65b-3586a100e90e.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198828625-9a70be90-ccf6-4053-a29a-6f9a6c6baa3f.png" c>
+<img src="https://user-images.githubusercontent.com/92206944/202896691-9eee217e-3d77-4424-9fe3-5949215f1ac5.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896694-740ad289-0e87-4c2a-b532-4659fb457763.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896700-46595cc4-30e4-4642-b03a-ef78a88168ee.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896706-5ae6a71d-9ff5-4c89-ac16-26c273403a98.jpeg" width ="70%">
+
+
 - Atacante
-<img src="https://user-images.githubusercontent.com/92206944/198876852-a77b2558-55e4-4991-8ed2-a6ec040a8fed.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198876871-cd390f59-448b-4d75-a8d7-8b1ab18021ae.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198876889-4591fe23-bb3a-412f-ad0c-56bbed6f7442.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896739-4afd81e6-00d9-45fd-a78e-9f33289e82ab.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896741-431eb80a-1c11-48b8-9ce8-de927800151e.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896746-a4dbe04a-ac39-4349-b795-a90a12476785.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896749-bc33e1c2-30e5-4667-998f-c2b5db0a0263.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896753-358bc056-f07e-4d1b-a39f-5b68af201361.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896758-d680ace1-d3a2-40e5-b085-0c9f71f3582f.jpeg" width ="70%">
 
 __Lista de INSECTOS en función de sus roles__
 
 - Apoyo
-<img src="https://user-images.githubusercontent.com/92206944/198877149-230200a8-792b-418d-81fd-79cf4dc65752.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896830-28c33460-f274-4c3f-a8cb-152ef2226138.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896834-7bc43cdc-ba8c-4a87-a4ff-f60cbf987b5d.jpeg" width ="70%">
+
 - Tanque
-<img src="https://user-images.githubusercontent.com/92206944/198877920-1584c5f0-c2e4-42fb-a60f-2c28b6dd12bd.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198877962-e3772591-3d88-4942-a0f6-7a2816399739.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896852-17b30fd4-c1b6-4ddb-b4d4-3e03b00b7c05.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896855-4e71de1a-8a36-4ba9-9a36-d2a2c3007979.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896858-389492b5-5a09-4e45-ada2-8c191747ec83.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896860-a19eddbc-1279-47f3-b065-44dd6db7a3bd.jpeg" width ="70%">
+
 - Atacante
-<img src="https://user-images.githubusercontent.com/92206944/198877989-dd4699dc-521d-40e8-96c5-1cb9c51d694a.png" width ="70%">
-<img src="https://user-images.githubusercontent.com/92206944/198878011-f207254a-74fe-44b2-a0e2-a94d861ee2b4.png" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896895-df99bbf8-11f0-4bde-9340-bb2c0b2e1c80.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896902-4db52896-5693-4e32-9a15-b5b42717b347.jpeg" width ="70%">
+
+<img src="https://user-images.githubusercontent.com/92206944/202896908-0b882459-4025-48bc-801b-6e78a8fc73c5.jpeg" width ="70%">
+<img src="https://user-images.githubusercontent.com/92206944/202896916-91d9cc6e-eda9-4161-b88c-b9e793160bbc.jpeg" width ="70%">
 
 __Incremento de atributos por nodo__
 
@@ -562,8 +589,44 @@ Las animaciones de cada personaje del juego serán realizadas frame a frame y se
 - Recibir daño. 
 - Morir. 
 
+##### 3.1.1 Sprites de acciones en combate
+
+
+###### 3.1.1.1 Mordisco
+<img src="https://user-images.githubusercontent.com/92206944/202895307-0e9acce1-f4d0-432e-8218-46fc5081b62e.png" width ="70%">
+###### 3.1.1.2 Punzada
+<img src="https://user-images.githubusercontent.com/92206944/202895335-996f1516-0268-4415-9834-21884419db78.png" width ="70%">
+###### 3.1.1.3 Golpe
+<img src="https://user-images.githubusercontent.com/92206944/202895347-f77ab434-099f-4dc9-b261-95add1bad5d2.png" width ="70%">
+###### 3.1.1.4 Curación
+<img src="https://user-images.githubusercontent.com/92206944/202895352-a4e37e5f-24ee-45e1-be9d-079d0c2ca53f.png" width ="70%">
+###### 3.1.1.5 Brote
+<img src="https://user-images.githubusercontent.com/92206944/202895356-8af5134e-18f1-40c6-99eb-401689f0f759.png" width ="70%">
+###### 3.1.1.6 Escudo Potenciador
+<img src="https://user-images.githubusercontent.com/92206944/202895357-fd6f4115-438f-464d-b780-974692b7e539.png" width ="70%">
+###### 3.1.1.7 Palomita
+<img src="https://user-images.githubusercontent.com/92206944/202895358-fbb0b9a9-47c2-46cf-a9f9-a4e9984b5554.png" width ="70%">
+###### 3.1.1.8 Área de efecto
+<img src="https://user-images.githubusercontent.com/92206944/202895361-4b116ec6-9887-41fa-9e72-039e47266c02.png" width ="70%">
+###### 3.1.1.9 Rayo Solar
+###### 3.1.1.9.1 Aturdidor
+<img src="https://user-images.githubusercontent.com/92206944/202895401-40741c4d-ffa3-439c-b906-11068383e66e.png" width ="70%">
+###### 3.1.1.9.2 Potenciador
+<img src="https://user-images.githubusercontent.com/92206944/202895376-a7b69a91-e20d-46e8-aede-f1248db6727d.png" width ="70%">
+
+
 <a name="3.2"></a>
-### 3.2 Música
+### 3.2 Efectos de sonido
+#### 3.2.1 Menú
+- Efecto de sonido de clic en los botones. 
+#### 3.2.2 Invernadero 
+- Abrir grifo y caer agua, para acompañar a la animación de regar las plantas. 
+- Pasar página, para utilizar el libro y la hoja de recetas. 
+- Plantar plantas / aplicar fertilizante para dar feedback del progreso. 
+- Utilizar el mortero, para dar feedback de que se ha fabricado un objeto. 
+
+<a name="3.3"></a>
+### 3.3 Música
 Diferentes canciones: 
 
 - Canción para inicio del juego. 
@@ -576,12 +639,40 @@ Diferentes canciones:
 - Canción para el mapa 
 - Música de victoria. 
 - Música de derrota. 
-- Música cundo se está dentro del Invernadero-Carro 
-- … 
+- Música cuando se está dentro del Invernadero-Carro 
+
+A continuación, se hará una breve explicación sobre la banda sonora del videojuego. 
+
+**Last Groove – Música** 
+
+La banda sonora, en adelante BSO, está compuesta para un conjunto instrumental sinfónico y solistas. Se divide en una introducción y 5 segmentos musicales; uno para cada uno de los cuatro biomas, cada uno con instrumentación, ritmos y/o escalas relacionadas con el entorno que el jugador pueda asociar fácilmente; y uno más para la música de “el vehículo” que desarrolla el tema principal, el cual aparece en varios momentos del juego aportando cohesión a la BSO en todo momento. 
 
 
-<a name="3.3"></a>
-### 3.3 Moodboard
+**Tema principal - Last Groove**
+
+Los motivos del tema principal aparecen por primera vez en la introducción en el piano y los solistas. A demás se presenta la instrumentación general del resto de la BSO. Ya en el menú de juego aparece el tema completo y dentro del juego en la música de “el vehículo” se desarrolla completamente.  
+
+Consta de dos semifrases. La primera representa la sensación de seguridad que aporta el vehículo al personaje mediante elementos musicales que transmiten sensación de solidez y estabilidad, cadencia perfecta de acordes en estado fundamental y saltos de 5 Justa. La segunda representa el peligro al que se ve expuesto y la fragilidad del oasis que supone en medio de un entorno hostil, para lo cual se utilizan dos recursos: un bajo descendente por cromatismo y acordes fuertemente disonantes. 
+
+Parte del material rítmico y armónico del segmento musical del vehículo se utiliza como hilo musical para “el mapa”, que incluye elementos comunes a todos los segmentos musicales aumentando así la cohesión al evitar cambios abruptos en la transición entre los biomas/mapas y el vehículo.  
+
+Por último, el motivo principal, y más recurrente, del tema se utiliza como sintonía para victoria o derrota al terminar de jugar cada batalla. 
+
+**Segmentos musicales de los biomas/mapas** 
+
+Todos ellos utilizan como elemento común las secciones de cuerda, metales, el piano y la percusión. Para aportar identidad diferenciada a cada segmento se recure a temas propios para cada uno y también instrumentos, ritmos y escalas vinculados a cada uno.  
+
+En el de la llanura/pradera tiene más relevancia la cuerda y como solista el fagot. El tempo es más lento que el del resto de segmentos, las texturas más suaves y compas ternario. 
+
+El dedicado a la jungla da más relevancia a los metales, introduce como solista a la marimba, instrumento que históricamente se ha relacionados en los videojuegos a este tipo de entornos y percusión y ritmos propios de la música tribal. 
+
+En La música del desierto se utiliza el malfuf, ritmos tradicionales de la música árabe, escalas exóticas orientales, menor armónica y doble armónica, y como solistas el oboe y el arpa. 
+
+En el segmento de la tundra/nieve se crea una sensación completamente distinta del resto cambiando la estructura formal y la forma de desarrollar el material melódico manteniendo, sin embargo, la misma instrumentación. Se juega con los silencios para generar sensación de vacío, propia de una región menos fértil y con disonancias muy marcadas para transmitir la sensación de inestabilidad/peligro. 
+
+
+<a name="3.4"></a>
+### 3.4 Moodboard
 <img src="https://user-images.githubusercontent.com/92206944/197797750-9dcf3333-283c-46c6-88c9-db8f465953c2.png">
 <img src="https://user-images.githubusercontent.com/92206944/197797901-8d950b57-eb17-4fb3-8e88-e6fbf645485b.png">
 <img src="https://user-images.githubusercontent.com/92206944/197798048-26118c33-a8f1-420b-b80c-dfc9fe4673ef.png">
