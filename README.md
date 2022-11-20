@@ -48,8 +48,9 @@ __Carlos Villa Blanco__ : CarlosVillaBlanco
     - 2.6 [Cotroles](#2.6)
 - 3. [Arte](#3)
     - 3.1 [Estética general](#3.1)
-    - 3.2 [Música](#3.2)
-    - 3.3 [Moodboard](#3.3) 
+    - 3.2 [Efectos de sonido](#3.2)
+    - 3.3 [Música](#3.3)
+    - 3.4 [Moodboard](#3.4) 
 - 4. [Interfaz](#4)
     - 4.1 [Diseños básicos de las pantallas](#4.1)
     - 4.2 [Diagrama de flujo](#4.2) 
@@ -590,7 +591,17 @@ Las animaciones de cada personaje del juego serán realizadas frame a frame y se
 
 
 <a name="3.2"></a>
-### 3.2 Música
+### 3.2 Efectos de sonido
+#### 3.2.1 Menú
+- Efecto de sonido de clic en los botones. 
+#### 3.2.2 Invernadero 
+- Abrir grifo y caer agua, para acompañar a la animación de regar las plantas. 
+- Pasar página, para utilizar el libro y la hoja de recetas. 
+- Plantar plantas / aplicar fertilizante para dar feedback del progreso. 
+- Utilizar el mortero, para dar feedback de que se ha fabricado un objeto. 
+
+<a name="3.3"></a>
+### 3.3 Música
 Diferentes canciones: 
 
 - Canción para inicio del juego. 
@@ -603,12 +614,40 @@ Diferentes canciones:
 - Canción para el mapa 
 - Música de victoria. 
 - Música de derrota. 
-- Música cundo se está dentro del Invernadero-Carro 
-- … 
+- Música cuando se está dentro del Invernadero-Carro 
+
+A continuación, se hará una breve explicación sobre la banda sonora del videojuego. 
+
+**Last Groove – Música** 
+
+La banda sonora, en adelante BSO, está compuesta para un conjunto instrumental sinfónico y solistas. Se divide en una introducción y 5 segmentos musicales; uno para cada uno de los cuatro biomas, cada uno con instrumentación, ritmos y/o escalas relacionadas con el entorno que el jugador pueda asociar fácilmente; y uno más para la música de “el vehículo” que desarrolla el tema principal, el cual aparece en varios momentos del juego aportando cohesión a la BSO en todo momento. 
 
 
-<a name="3.3"></a>
-### 3.3 Moodboard
+**Tema principal - Last Groove**
+
+Los motivos del tema principal aparecen por primera vez en la introducción en el piano y los solistas. A demás se presenta la instrumentación general del resto de la BSO. Ya en el menú de juego aparece el tema completo y dentro del juego en la música de “el vehículo” se desarrolla completamente.  
+
+Consta de dos semifrases. La primera representa la sensación de seguridad que aporta el vehículo al personaje mediante elementos musicales que transmiten sensación de solidez y estabilidad, cadencia perfecta de acordes en estado fundamental y saltos de 5 Justa. La segunda representa el peligro al que se ve expuesto y la fragilidad del oasis que supone en medio de un entorno hostil, para lo cual se utilizan dos recursos: un bajo descendente por cromatismo y acordes fuertemente disonantes. 
+
+Parte del material rítmico y armónico del segmento musical del vehículo se utiliza como hilo musical para “el mapa”, que incluye elementos comunes a todos los segmentos musicales aumentando así la cohesión al evitar cambios abruptos en la transición entre los biomas/mapas y el vehículo.  
+
+Por último, el motivo principal, y más recurrente, del tema se utiliza como sintonía para victoria o derrota al terminar de jugar cada batalla. 
+
+**Segmentos musicales de los biomas/mapas** 
+
+Todos ellos utilizan como elemento común las secciones de cuerda, metales, el piano y la percusión. Para aportar identidad diferenciada a cada segmento se recure a temas propios para cada uno y también instrumentos, ritmos y escalas vinculados a cada uno.  
+
+En el de la llanura/pradera tiene más relevancia la cuerda y como solista el fagot. El tempo es más lento que el del resto de segmentos, las texturas más suaves y compas ternario. 
+
+El dedicado a la jungla da más relevancia a los metales, introduce como solista a la marimba, instrumento que históricamente se ha relacionados en los videojuegos a este tipo de entornos y percusión y ritmos propios de la música tribal. 
+
+En La música del desierto se utiliza el malfuf, ritmos tradicionales de la música árabe, escalas exóticas orientales, menor armónica y doble armónica, y como solistas el oboe y el arpa. 
+
+En el segmento de la tundra/nieve se crea una sensación completamente distinta del resto cambiando la estructura formal y la forma de desarrollar el material melódico manteniendo, sin embargo, la misma instrumentación. Se juega con los silencios para generar sensación de vacío, propia de una región menos fértil y con disonancias muy marcadas para transmitir la sensación de inestabilidad/peligro. 
+
+
+<a name="3.4"></a>
+### 3.4 Moodboard
 <img src="https://user-images.githubusercontent.com/92206944/197797750-9dcf3333-283c-46c6-88c9-db8f465953c2.png">
 <img src="https://user-images.githubusercontent.com/92206944/197797901-8d950b57-eb17-4fb3-8e88-e6fbf645485b.png">
 <img src="https://user-images.githubusercontent.com/92206944/197798048-26118c33-a8f1-420b-b80c-dfc9fe4673ef.png">
