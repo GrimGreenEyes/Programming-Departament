@@ -179,7 +179,7 @@ public class PlantsManager : MonoBehaviour
         {
             if(plant != null)
             {
-                if(!plant.skillsList.Contains(fertilizer.skill) && plant.skillsList.Count < 3)
+                if(!plant.skillsList.Contains(fertilizer.skill) && (plant.skillsList.Count < 3 || fertilizer.type == 0))
                 {
                     canBeUsed = true;
                 }
