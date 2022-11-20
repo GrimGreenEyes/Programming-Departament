@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 192312548320703660}
   - component: {fileID: 4385606644279347994}
   - component: {fileID: 3675912291809563977}
-  - component: {fileID: 4004619573126807341}
   - component: {fileID: -4600822438082363797}
+  - component: {fileID: 7343423097648571974}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Enemy
@@ -169,6 +169,8 @@ MonoBehaviour:
   attacked: 0
   timeLineSprite: {fileID: 0}
   renderer: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: 2c235718b59f5c743a9a37f40f0bdbd7, type: 3}
   actualState: 1
   mainAttack: {fileID: 805721938524684691, guid: 150c722a4a1f4574db477f9ab2989eab, type: 3}
   skillPrefabs:
@@ -220,90 +222,6 @@ MonoBehaviour:
   carro: {fileID: 0}
   selection: 0
   isMoving: 0
---- !u!114 &4004619573126807341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192312548320703699}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08bbf6c675c237d49b8ff66fed04b340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Gusano
-  livePoints: 5
-  maxLivePoints: 5
-  attack: 30
-  defense: 5
-  heatResistance: 5
-  freezeResistance: 5
-  agility: 0
-  movement: 0
-  maxMovement: 4
-  att: 
-  def: 
-  ps: 
-  mov: 
-  agt: 
-  hRes: 
-  fRes: 
-  attackMultiplayer: 1
-  defenseMultiplayer: 1
-  heatResistanceMultiplayer: 1
-  freezeResistanceMultiplayer: 1
-  bleeding: 0
-  poisoned: 0
-  stuned: 0
-  hidden: 0
-  attacked: 0
-  timeLineSprite: {fileID: 0}
-  renderer: {fileID: 0}
-  actualState: 5
-  mainAttack: {fileID: 805721938524684691, guid: 150c722a4a1f4574db477f9ab2989eab, type: 3}
-  skillPrefabs:
-  - {fileID: 1003371160015502217, guid: c9a93168c89fea24a86a15d29cb7973d, type: 3}
-  skillObjects: []
-  skills: []
-  skillSelected: 3
-  charges: 0
-  mainObjective: {fileID: 0}
-  MovementSpeed: 2
-  MovementPoint: {x: 0, y: 0, z: 0}
-  tileScale: {x: 0.7, y: 0.35}
-  angle: {x: 0, y: 0, z: 0}
-  offsetMovePoint: {x: 0.559017, y: 0.559017}
-  obstacles:
-    serializedVersion: 2
-    m_Bits: 0
-  radious: 0
-  moveing: 0
-  input: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  gridX: 0
-  gridY: 0
-  thisTile: {fileID: 0}
-  destination: {fileID: 0}
-  path: []
-  pathPosition: 0
-  directionX: 0
-  directionY: 0
-  livePointsText: {fileID: 7296510475246959956}
-  statusPositions: []
-  statusImage: {fileID: 0}
-  statusPosition: 0
-  Status: []
-  HUDSprite: {fileID: 21300000, guid: 9bd6b94bd238431498091daad0183122, type: 3}
-  HUDSpriteSize: 5
-  HUDTurnSize: 3.28
-  isWalking: 0
-  moveAndAttack: 0
-  Att: 
-  Def: 
-  Agl: 
-  Hres: 
-  Cres: 
 --- !u!95 &-4600822438082363797
 Animator:
   serializedVersion: 4
@@ -324,6 +242,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &7343423097648571974
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192312548320703699}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.348
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2984948592565511550
 GameObject:
   m_ObjectHideFlags: 0

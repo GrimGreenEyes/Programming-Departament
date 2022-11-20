@@ -22,6 +22,10 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.touchCount > 1)
+        {
+            return;
+        }
         Vector3 direction;
         if (Input.GetMouseButtonDown(mouseButton))
         {
@@ -42,7 +46,11 @@ public class CameraController : MonoBehaviour
         {
             camera.orthographicSize = ((camera.orthographicSize > minSize && input > 0) || (camera.orthographicSize < maxSize && input < 0)) ? camera.orthographicSize - (speed * input) : camera.orthographicSize;
         }
-        if(Input.touchCount == 2)
+       
+    }
+    private void FixedUpdate()
+    {
+        if (Input.touchCount == 2)
         {
             Touch firstTouch = Input.GetTouch(0);
             Touch secondTouch = Input.GetTouch(1);
@@ -55,13 +63,13 @@ public class CameraController : MonoBehaviour
 
             zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomModifierSpeed;
 
-            if(touchesPrevPosDifference > touchesCurPosDifference)
+            if (touchesPrevPosDifference > touchesCurPosDifference)
             {
-                camera.orthographicSize += zoomModifier;
+                camera.orthographicSize = (camera.orthographicSize + zoomModifier < maxSize) ? camera.orthographicSize + zoomModifier : camera.orthographicSize;
             }
-            if(touchesPrevPosDifference < touchesCurPosDifference)
+            if (touchesPrevPosDifference < touchesCurPosDifference)
             {
-                camera.orthographicSize -= zoomModifier;
+                camera.orthographicSize = (camera.orthographicSize - zoomModifier < maxSize) ? camera.orthographicSize - zoomModifier : camera.orthographicSize;
             }
         }
     }

@@ -77,7 +77,11 @@ public class Tile : MonoBehaviour
         CheckTurn();
         StopShine();
         SetClickable(false);
-        SelectShine(GameController.instance.SelectedPlayer());    
+        SelectShine(GameController.instance.SelectedPlayer()); 
+        if(entity == null && tag != "NotWalkable")
+        {
+            isWalkable = true;
+        }
     }
     private void CheckTurn()
     {
@@ -230,7 +234,7 @@ public class Tile : MonoBehaviour
         if (collision.tag == "Feet")
         {
             entity = collision.gameObject.transform.parent.gameObject;
-            isWalkable = false;
+
             entity.GetComponent<Entity>().SetTile(gameObject);
             isAcided = false;
             if (dealsDamage)

@@ -14,6 +14,8 @@ public class Attack : MonoBehaviour
 
     private const int chargeDamage = 5;
 
+    [SerializeField] private AudioSource audioSource;
+    
     [SerializeField] protected GameObject attackAnimation;
     public int DamageCalculator(Entity enemy, Entity player, int charges = 0)
     {
@@ -25,6 +27,7 @@ public class Attack : MonoBehaviour
             enemy.freezeResistance * freezeDamage
             );
         float damage =  (player.attack + chargeDamage * charges) * totalDefense / 100f;
+        audioSource.Play();
         return (int)damage;
     }
     

@@ -60,8 +60,15 @@ public class Bichous : Entity
         livePointsText.text = livePoints.ToString() + "/" + maxLivePoints.ToString();
     }
     //ESCARABAJO
-    private void Start()
+    private new void Start()
     {
+        MovementPoint = transform.position;
+        for (int i = 0; i < skillPrefabs.Count; i++)
+        {
+            skillObjects.Add(GameObject.Instantiate(skillPrefabs[i], gameObject.transform));
+            skills.Add(skillObjects[i].GetComponent<Skill>());
+        }
+
         isMoving = false;
         isAttacking = false;
         gridCreator = GameObject.Find("Grid").GetComponent<GridCreator>();
@@ -929,12 +936,6 @@ public class Bichous : Entity
         return (movedX, movedY);
 
     }
-
-
-
-
-
-
 }
 
     

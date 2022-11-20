@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
         if(entity.tag == "Player")
         {
             players.Add(entity);
-            //playerLivePoints.Add(0);
+            playerLivePoints.Add(0);
         }
         else if(entity.tag == "Enemy")
         {
@@ -205,11 +205,8 @@ public class GameController : MonoBehaviour
         if (entity.tag == "Enemy")
         {
             enemys.Remove(entity);
-            switch (Random.Range(0, 6))
+            switch (Random.Range(1, 6))
             {
-                case 0:
-                    teamManager.AddItemAbdomen();
-                    break;
                 case 1:
                     teamManager.AddItemShell();
                     break;
@@ -226,7 +223,7 @@ public class GameController : MonoBehaviour
                     teamManager.AddItemChest();
                     break;
             }
-            
+            teamManager.AddItemAbdomen();
         }
         else if (entity.tag == "Player")
         {
@@ -272,15 +269,17 @@ public class GameController : MonoBehaviour
         }
         for(int i = 0; i < playerLivePoints.Count; i++)
         {
-            //teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
+            teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
         }
         if (victory)
         {
             winScreen.SetActive(true);
+            winScreen.GetComponent<AudioSource>().Play();
         }       
         else
         {
             looseScreen.SetActive(true);
+            looseScreen.GetComponent<AudioSource>().Play();
         }
     }
 

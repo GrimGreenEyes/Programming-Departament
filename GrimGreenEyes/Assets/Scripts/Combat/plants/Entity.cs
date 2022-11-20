@@ -43,7 +43,8 @@ public class Entity : MonoBehaviour
     protected GameObject startPanel;
     public Sprite timeLineSprite;
     public new SpriteRenderer renderer;
-
+    private AudioSource audioSource;
+    public List<AudioClip> audioClips = new List<AudioClip>(); //0 = perder vida ; 1 = 
 
     public enum EntityState { START, IDLE, MOVEING, ATTACKING, USINGSKILL, FINISHED , WAITING}
     public EntityState actualState = EntityState.IDLE;
@@ -114,6 +115,7 @@ public class Entity : MonoBehaviour
         animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
         startPanel = GameObject.Find("GlobalAttributes").transform.GetChild(0).gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
     public void SetStats(int newLivePoints, int newMaxLivePoints, int newAttack, int newDefense, int newHeatResistance, int newFreezeResistance, int newAgility, int newMaxMovement)
     {
@@ -148,9 +150,17 @@ public class Entity : MonoBehaviour
     }
     public void Move()
     {
+        if(audioClips.Count > 1 && !audioSource.isPlaying)
+        {
+            audioSource.clip = audioClips[1];
+            audioSource.Play();
+            audioSource.loop = true;
+        }
         if (path.Count() == 0)
         {
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+            audioSource.Stop();
+            audioSource.loop = false;
             return;
         }
         //input.x = gridX - destination.GetComponent<Tile>().GetX();
@@ -219,6 +229,7 @@ public class Entity : MonoBehaviour
         {
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.ATTACKING;
+            audioSource.Stop();
             //path.Clear();
             //moveAndAttack = false;
             moveing = false;
@@ -229,6 +240,7 @@ public class Entity : MonoBehaviour
         {
             animator.SetBool("walking", false);
             GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+            audioSource.Stop();
             //path.Clear();
             moveing = false;
             isWalking = false;
@@ -273,6 +285,8 @@ public class Entity : MonoBehaviour
     public void Damage(int damage)
     {
         livePoints -= damage;
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         CheckDead();
     }
     public void Poison()
