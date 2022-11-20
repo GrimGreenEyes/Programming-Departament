@@ -65,11 +65,11 @@ public class CameraController : MonoBehaviour
 
             if (touchesPrevPosDifference > touchesCurPosDifference)
             {
-                camera.orthographicSize = (camera.orthographicSize + zoomModifier < maxSize) ? camera.orthographicSize + zoomModifier : camera.orthographicSize;
+                camera.orthographicSize = (camera.orthographicSize - zoomModifier > minSize) ? camera.orthographicSize - zoomModifier : camera.orthographicSize;
             }
             if (touchesPrevPosDifference < touchesCurPosDifference)
             {
-                camera.orthographicSize = (camera.orthographicSize - zoomModifier < maxSize) ? camera.orthographicSize - zoomModifier : camera.orthographicSize;
+                camera.orthographicSize = (camera.orthographicSize + zoomModifier < maxSize) ? camera.orthographicSize + zoomModifier : camera.orthographicSize;
             }
         }
     }
