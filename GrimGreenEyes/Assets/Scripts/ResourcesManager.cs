@@ -39,6 +39,8 @@ public class ResourcesManager : MonoBehaviour
     {
         inventoryManager.inventoryItems = teamInfo.itemsDictionary;
         fertilizerManager.storedFertilizers = teamInfo.fertilizersDictionary;
+        if (teamInfo.waterAmount > waterTank.maxWater) teamInfo.waterAmount = waterTank.maxWater;
+        
         waterTank.waterAmount = teamInfo.waterAmount;
 
         waterTank.UpdateWater();

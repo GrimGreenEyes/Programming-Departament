@@ -10,7 +10,15 @@ public class OnHoverGlow : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Start()
     {
-        text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        try
+        {
+            text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        }
+        catch
+        {
+            Debug.Log("Unsolved bug");
+        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)

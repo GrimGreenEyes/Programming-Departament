@@ -109,9 +109,16 @@ public class Navigation : MonoBehaviour
         else
             camera.transform.position = new Vector3(actualNode.transform.position.x, actualNode.transform.position.y, camera.transform.position.z);
 
-
-        Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.x) / 2), ((actualNode.transform.position.y + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.y) / 2), -1.0f);
-        player.transform.position = Vector3.Lerp(player.transform.position, mediumPos, Time.deltaTime * playerSpeed);
+        try
+        {
+            Vector3 mediumPos = new Vector3(((actualNode.transform.position.x + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.x) / 2), ((actualNode.transform.position.y + glovalVar.GetComponent<GlobalVar>().actualNode.transform.position.y) / 2), -1.0f);
+            player.transform.position = Vector3.Lerp(player.transform.position, mediumPos, Time.deltaTime * playerSpeed);
+        }
+        catch
+        {
+            Debug.Log("Unsolved bug");
+        }
+        
 
         //Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, mediumPos);
        // player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, toRotation, Time.deltaTime * playerSpeed);

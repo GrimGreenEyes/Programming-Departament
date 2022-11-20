@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaterTank : MonoBehaviour
 {
     public int waterAmount;
-    [SerializeField] private int maxWater = 13;
+    [SerializeField] public int maxWater = 13;
     private float sizeOfTank;
     [SerializeField] private GameObject waterObject;
     public float waterDistance;
