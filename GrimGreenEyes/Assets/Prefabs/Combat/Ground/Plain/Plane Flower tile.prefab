@@ -156,7 +156,7 @@ MonoBehaviour:
   isAcided: 0
   addsWater: 0
   dealsDamage: 0
-  buffsEntity: 0
+  buffsEntity: 1
   healsEntity: 0
   isPopCorned: 0
   initTurn: -1

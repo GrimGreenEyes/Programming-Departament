@@ -241,7 +241,6 @@ public class Bichous : Entity
                 Debug.Log("BUCLE MOVEING");
                 //if (!isMoving)
               //  {//
-                    //if (path == null || path.Count == 0)
                     if (path == null)
 
                     {
