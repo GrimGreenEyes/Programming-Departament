@@ -240,8 +240,10 @@ public class Bichous : Entity
             case EntityState.MOVEING:
                 Debug.Log("BUCLE MOVEING");
                 //if (!isMoving)
-              //  {
-                    if (path == null || path.Count == 0)
+              //  {//
+                    //if (path == null || path.Count == 0)
+                    if (path == null)
+
                     {
                         Debug.Log(thisTile.name);
                         Debug.Log(destination.name);
