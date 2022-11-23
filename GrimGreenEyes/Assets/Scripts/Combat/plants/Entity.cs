@@ -268,7 +268,7 @@ public class Entity : MonoBehaviour
     }
     public void Heal(int quantity)
     {
-        GetComponent<Entity>().livePoints = (GetComponent<Entity>().livePoints + quantity < GetComponent<Entity>().maxLivePoints) ? GetComponent<Entity>().maxLivePoints + quantity : GetComponent<Entity>().maxLivePoints;
+        GetComponent<Entity>().livePoints = (GetComponent<Entity>().livePoints + quantity < GetComponent<Entity>().maxLivePoints) ? GetComponent<Entity>().livePoints + quantity : GetComponent<Entity>().maxLivePoints;
     }
     public void EndTurn()
     {

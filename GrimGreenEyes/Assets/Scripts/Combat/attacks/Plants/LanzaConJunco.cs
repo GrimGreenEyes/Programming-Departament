@@ -9,9 +9,8 @@ public class LanzaConJunco : Attack
     {
         Debug.Log("Lanza");
         int damage = DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>());
-        enemy.GetComponent<Bichous>().livePoints -= damage;
+        enemy.GetComponent<Bichous>().Damage(damage);
         player.GetComponent<Plants>().Heal((int)(damage * liveRegen));
-        enemy.GetComponent<Entity>().CheckDead();
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(6);
         GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
