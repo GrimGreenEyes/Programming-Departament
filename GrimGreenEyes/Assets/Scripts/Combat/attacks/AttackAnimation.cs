@@ -11,7 +11,7 @@ public class AttackAnimation : MonoBehaviour
     }
     public void Animate(int animation)
     {
-
+        gameObject.transform.parent = null;
         animator.SetInteger("Attack", animation);
     }
     public void Destroy()

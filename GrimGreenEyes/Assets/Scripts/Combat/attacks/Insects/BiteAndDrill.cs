@@ -6,10 +6,10 @@ public class BiteAndDrill : Attack
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
-        SearchBack(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(4);
+        SearchBack(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
+        enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
         new WaitForSeconds(1f);
     }
     private void SearchBack(Entity enemy, Entity player)
@@ -21,9 +21,8 @@ public class BiteAndDrill : Attack
         {
             return;
         }
-        otherEnemy.GetComponent<Entity>().Damage(DamageCalculator(otherEnemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(4);
-        enemy.GetComponent<Entity>().CheckDead();
+        otherEnemy.GetComponent<Entity>().Damage(DamageCalculator(otherEnemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
     }
 }

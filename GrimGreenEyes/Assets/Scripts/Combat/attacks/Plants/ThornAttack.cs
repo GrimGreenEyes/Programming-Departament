@@ -7,10 +7,8 @@ public class ThornAttack : Attack
     
     public override void Effect(GameObject enemy, GameObject player)
     {
-        Debug.Log("Ataque cactus");
+
         GetEnemys(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        GameObject animation = Instantiate(attackAnimation, enemy.transform);
-        animation.GetComponent<AttackAnimation>().Animate(6);
         new WaitForSeconds(1f);
     }
     private void GetEnemys(Entity enemy, Entity player)
@@ -20,60 +18,62 @@ public class ThornAttack : Attack
         int distanceY = enemy.gridY - player.gridY;
         Debug.Log(distanceX);
         Debug.Log(distanceY);
+        GameObject animation1 = Instantiate(attackAnimation, enemy.transform);
+        animation1.GetComponent<AttackAnimation>().Animate(6);
         enemy.GetComponent<Bichous>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
         GameObject newEnemy;
         if (distanceX != 0)
         {
-            if ((newEnemy = GridCreator.instance.GetTile(player.gridX, player.gridY + 1).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(player.gridX, player.gridY + 1).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(player.gridX, player.gridY - 1).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(player.gridX, player.gridY - 1).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX, enemy.gridY + 1).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX, enemy.gridY + 1).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX, enemy.gridY - 1).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX, enemy.gridY - 1).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
         }
         else if (distanceY != 0)
         {
-            if ((newEnemy = GridCreator.instance.GetTile(player.gridX + 1, player.gridY).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(player.gridX + 1, player.gridY).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(player.gridX - 1, player.gridY).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(player.gridX - 1, player.gridY).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX + 1, enemy.gridY).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX + 1, enemy.gridY).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
-            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX - 1, enemy.gridY).GetComponent<Tile>().entity) != null)
+            if ((newEnemy = GridCreator.instance.GetTile(enemy.gridX - 1, enemy.gridY).GetComponent<Tile>().entity) != null && newEnemy.tag == "Enemy")
             {
-                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
                 GameObject animation = Instantiate(attackAnimation, newEnemy.transform);
                 animation.GetComponent<AttackAnimation>().Animate(6);
+                newEnemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
             }
         }
     }

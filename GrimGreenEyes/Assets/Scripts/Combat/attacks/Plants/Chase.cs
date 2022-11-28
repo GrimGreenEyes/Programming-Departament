@@ -18,10 +18,9 @@ public class Chase : Attack
     }
     private void DoDamage(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Bichous>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(1);
-        new WaitForSeconds(1f);
+        enemy.GetComponent<Bichous>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
 
     }
     private void CalculatePosition(int distanceX, int distanceY, GameObject enemy, GameObject player)
@@ -29,7 +28,6 @@ public class Chase : Attack
         if (((distanceX == 1 && distanceY == 0) || (distanceX == -1 && distanceY == 0)) ^ ((distanceY == 1 && distanceX == 0) || (distanceX == 0 && distanceY == -1)) || (Mathf.Abs(distanceX) == 1 && Mathf.Abs(distanceY) == 1))
         {
             player.transform.position = tile.transform.position + new Vector3(0, 0.25f, 0);
-            Debug.Log(tile);
             DoDamage(enemy, player);
             return; 
         }
