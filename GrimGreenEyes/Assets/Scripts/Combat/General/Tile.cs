@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     public string type;
     public bool spawnBlocks;
 
-    private int positionX, positionY;
+    public int positionX, positionY;
     private bool clickable = false;
     public bool isInRange = false;
     public bool isWalkable;

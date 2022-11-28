@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bichous : Entity
@@ -342,6 +344,19 @@ public class Bichous : Entity
             return null;
     }
 
+    public GameObject CustomSetDestinationC(GameObject tile)
+    {
+        Debug.Log("Bucle CUSTOM");
+        GetComponent<Entity>().actualState = Entity.EntityState.MOVEING;
+        destination = tile;
+        if (destination.GetComponent<Tile>() == null)
+            return null;
+        if (destination.GetComponent<Tile>().isWalkable)
+            return tile;
+        else
+            return null;
+    }
+
     public void PickOption()
     {
         carro = GameObject.Find("carro(Clone)").GetComponent<Carriage>();
@@ -523,7 +538,7 @@ public class Bichous : Entity
                     moveAndAttack = false;
 
                     float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
-                    if (distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY) <= 3) // 1 o range
+                    if (distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY) <= 2) // 1 o range
                     {
 
                         //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
@@ -589,7 +604,7 @@ public class Bichous : Entity
                     plantsInfo[indPlanta].UpdateRelevant();
 
                     int a = distSmthToSmthVariables(newX, newY, plants[indPlanta].GetComponent<Plants>().gridX, plants[indPlanta].GetComponent<Plants>().gridY);
-                    if (a <= 3) // 1 o range
+                    if (a <= 2) // 1 o range
                     {
                         //Attack
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
@@ -640,7 +655,7 @@ public class Bichous : Entity
 
 
     }
-
+    
     public (int, int) MoveToClosePosition(RelevantInfoPlantInsect plantaObj)
     {
         GameObject dest = null;
@@ -697,45 +712,98 @@ public class Bichous : Entity
         Debug.Log(movedX + ", " + movedY);
         Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
         /*
-                if (xNeeded <= movement)
-                {
-                    destX = xNeeded;
-                    movement -= xNeeded;
-                }
-                else if (yNeeded <= movement)
-                {
-                    destX = xNeeded;
-                    movement -= xNeeded;
-                }
-                else
-                {
-                    destX = xNeeded - movement;
 
-                }
-                   */
+         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+             dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+         int movedXi = movedX;
+         int movedYi = movedY;
+         int bucles = 0;
+         while (dest != null)
+         {
+             bucles++;
+             movedXi++;
+             movedYi--;
+             if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+                 dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
 
-        if (CustomSetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
-            dest = CustomSetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+             if (bucles == 30)
+             {
+                 while (dest != null)
+                 {
+                     movedXi--;
+                     movedYi++;
+                     if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
+                         dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                 }
+             }
+         }
+         MovementPoint = transform.position;
+         moveing = false;
+         path = null;
+         return (movedX, movedY);
+        */
+    
+        if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
         int movedXi = movedX;
         int movedYi = movedY;
         int bucles = 0;
-        while (dest != null)
+        while (dest == null)
         {
             bucles++;
             movedXi++;
             movedYi--;
-            if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
-                dest = CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
-
+            try
+            {
+                if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+                    dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                if(dest != null)
+                {
+                    movedX = movedXi;
+                    movedY = movedYi;
+                }
+            }
+            catch
+            {
+                break;
+            }
             if (bucles == 30)
             {
-                while (dest != null)
-                {
-                    movedXi--;
-                    movedYi++;
-                    if (CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
-                        dest = CustomSetDestination(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
-                }
+               
+                    for (int i = 0; i < 100; i++)
+                    {
+                        movedXi--;
+                        movedYi++;
+                        try
+                        {
+                            if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
+                                dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                            if (dest != null)
+                            {
+                                movedX = movedXi;
+                                movedY = movedYi;
+                            }
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                        if (i == 100)
+                        {
+                            break;
+
+                        }
+                    }
+            }
+            if(bucles == 200)
+            {
+                MovementPoint = transform.position;
+                moveing = false;
+                path = null;
+                return (gridX, gridY);
+                Debug.Log("EMERGENCY BREAK");
+                break;
+
             }
         }
         MovementPoint = transform.position;
@@ -743,7 +811,131 @@ public class Bichous : Entity
         path = null;
         return (movedX, movedY);
 
+
+
     }
+    /*
+    public (int, int) MoveToClosePosition(Entity End)
+    {
+        GameObject dest = null;
+        //PriorityQueue<float, float> OpenList = new PriorityQueue<float, float>();
+        int destX = 0;
+        int destY = 0;
+
+        //int xNeeded = gridX - (int)plantaObj.distX;
+        // yNeeded = gridY - (int)plantaObj.distY;
+
+        int movedX = 0;
+        int movedY = 0;
+
+        bool contX = false;
+        bool contY = false;
+
+        movementH = maxMovement;
+
+        List<GameObject> posNodes = new List<GameObject>();
+
+
+    }
+    
+    public void FindTilesInRange()
+    {
+        List<NodePos> temp = new List<NodePos>();
+
+        int row = gridX;
+        int col = gridY;
+
+        int temp1Row = gridX;
+        int temp2Row = gridX;
+
+        int temp1Col = gridX;
+        int temp2Col = gridX;
+
+        for (int i = 0; i < maxMovement; i++)
+        {
+            if (temp1Row + 1 < gridCreator.y)
+            {
+                // temp.Add(Grid[col][row + 1]);
+                int tempX = GridCreator.instance.GetTile(col, temp1Row + 1).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(col, temp1Row + 1).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+                temp1Row++;
+            }
+        }
+            if (temp2Row - 1 >= 0)
+            {
+                int tempX = GridCreator.instance.GetTile(col, temp2Row - 1).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(col, temp2Row - 1).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+            temp2Row--;
+            }
+            if (temp1Col - 1 >= 0)
+            {
+                int tempX = GridCreator.instance.GetTile(temp1Col - 1, row).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(temp1Col - 1, row).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+            }
+            if (temp2Col + 1 < gridCreator.x)
+            {
+                int tempX = GridCreator.instance.GetTile(temp2Col + 1, row).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(temp2Col + 1, row).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+            }
+
+        for (int i = 0; i < maxMovement-1; i++)
+        {
+            if (temp1Row + 1 < gridCreator.y)
+            {
+                // temp.Add(Grid[col][row + 1]);
+                int tempX = GridCreator.instance.GetTile(col-1, temp1Row + 1).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(col-1, temp1Row + 1).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+                temp1Row++;
+            }
+        }
+        for (int i = 0; i < maxMovement - 1; i++)
+        {
+            if (temp2Row - 1 >= 0)
+            {
+                // temp.Add(Grid[col][row + 1]);
+                int tempX = GridCreator.instance.GetTile(temp1Col - 1, row-1).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(temp1Col - 1, row-1).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+                temp1Row++;
+            }
+        }
+        for (int i = 0; i < maxMovement - 1; i++)
+        {
+            if (temp1Row + 1 < gridCreator.y)
+            {
+                // temp.Add(Grid[col][row + 1]);
+                int tempX = GridCreator.instance.GetTile(temp1Col - 1, row - 1).GetComponent<Tile>().positionX;
+                int tempY = GridCreator.instance.GetTile(temp1Col - 1, row - 1).GetComponent<Tile>().positionY;
+                NodePos tempNode = new NodePos(tempX, tempY);
+
+                temp.Add(tempNode);
+                temp1Row++;
+            }
+        }
+
+
+
+        return temp;
+
+    }
+    */
 
     public Tuple<int, int> GetMultipleValue()
     {
@@ -885,6 +1077,8 @@ public class Bichous : Entity
 
     public (int, int) MoveToClosePositionC(Carriage plantaObj)
     {
+        GameObject dest = null;
+
         //TO DO
         int destX = 0;
         int destY = 0;
@@ -928,6 +1122,8 @@ public class Bichous : Entity
                 movementH -= 1;
             }
         }
+
+        /*
         Debug.Log(movedX + ", " + movedY);
         Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
 
@@ -938,6 +1134,79 @@ public class Bichous : Entity
         }
 
         SetDestination(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        MovementPoint = transform.position;
+        moveing = false;
+        path = null;
+        return (movedX, movedY);
+        */
+
+        if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        int movedXi = movedX;
+        int movedYi = movedY;
+        int bucles = 0;
+        while (dest == null)
+        {
+            bucles++;
+            movedXi++;
+            movedYi--;
+            try
+            {
+                if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+                    dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                if (dest != null)
+                {
+                    movedX = movedXi;
+                    movedY = movedYi;
+                }
+            }
+            catch 
+            {
+                break;
+            }
+                
+            
+                if (bucles == 30)
+                {
+
+                    for (int i = 0; i < 100; i++)
+                    {
+                        movedXi--;
+                        movedYi++;
+                        try
+                        {
+                            if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
+                                dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                            if (dest != null)
+                            {
+                                movedX = movedXi;
+                                movedY = movedYi;
+                            }
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                        if (i == 100)
+                        {
+                            break;
+
+                        }
+                    }
+                }
+                if (bucles == 200)
+                {
+                    MovementPoint = transform.position;
+                    moveing = false;
+                    path = null;
+                    return (gridX, gridY);
+                    Debug.Log("EMERGENCY BREAK");
+
+                    break;
+
+                }
+            }
+        
         MovementPoint = transform.position;
         moveing = false;
         path = null;
@@ -1033,4 +1302,18 @@ public class RelevantInfoPlantInsect : MonoBehaviour
         distToPlant = ((int)distTo);
         Debug.Log(distToPlant + " " + name);
     }
+}
+
+public class NodePos
+{
+    int y;
+    int x;
+
+    public NodePos(int nX, int nY)
+    {
+        x = nX;
+        y = nY;
+        
+    }
+
 }
