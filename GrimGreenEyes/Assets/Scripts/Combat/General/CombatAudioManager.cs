@@ -41,9 +41,17 @@ public class CombatAudioManager : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            audioSource.clip = music[1];
-            audioSource.Play();
-            audioSource.loop = true;
+            try
+            {
+                audioSource.clip = music[1];
+                audioSource.Play();
+                audioSource.loop = true;
+            }
+            catch
+            {
+                Debug.Log("Unsolved bug");
+            }
+            
         }
     }
 }

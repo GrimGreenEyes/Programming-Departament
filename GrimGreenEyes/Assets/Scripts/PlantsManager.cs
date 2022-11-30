@@ -159,6 +159,19 @@ public class PlantsManager : MonoBehaviour
         lockedTap[index] = false;
     }
 
+    public int GetPlantCount()
+    {
+        int count = 0;
+        for(int i = 0; i < 5; i++)
+        {
+            if( plantsList[i] != null)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public bool AnyFreePot()
     {
         bool freePot = false;

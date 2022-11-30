@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private Item voidItem;
     private OptionsPanel optionsPanel;
     private Inventory inventoryManager;
+    [SerializeField] private GameObject selectedSlot;
 
     private void Start()
     {
@@ -64,15 +65,27 @@ public class InventorySlot : MonoBehaviour
         return item;
     }
 
+    public void SelectedSlot()
+    {
+        inventoryManager.UnselectAllSlots();
+        selectedSlot.SetActive(true);
+    }
+
+    public void DefaultSlot()
+    {
+        selectedSlot.SetActive(false);
+    }
+
     public void ClickSlot() 
     {
         if (item.name == voidItem.name || item == null)
         {
+            inventoryManager.UnselectAllSlots();
             optionsPanel.HideOptionsPanel();
             return;
         }
-            
 
+        SelectedSlot();
         inventoryManager.OpenOptionsPanel(this.transform.position, item);
     }
 

@@ -97,7 +97,11 @@ public class PlantDetailsDisplay : MonoBehaviour
 
     public void OpenRemovePanel()
     {
-        
+        if(plantsManager.GetPlantCount() <= 1)
+        {
+            uiManager.ShowWarning("No puedes eliminar tu única planta", 2);
+            return;
+        }
         removeText.text = "¿Deseas eliminar permanentemente a " + currentPlant.plantType.name + "?";
         removePlantPanel.SetActive(true);
     }

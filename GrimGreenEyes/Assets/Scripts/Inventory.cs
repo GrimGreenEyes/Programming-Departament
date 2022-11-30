@@ -121,6 +121,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void UnselectAllSlots()
+    {
+        foreach(InventorySlot slot in slotsList)
+        {
+            slot.DefaultSlot();
+        }
+    }
+
     public void PlantSeed(Item item)
     {
         if (!plantsManager.AnyFreePot())

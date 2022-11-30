@@ -15,15 +15,23 @@ public class ResourcesManager : MonoBehaviour
 
     public void Start()
     {
-        teamInfo = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
-        LoadResources();
-
-        globalVar = GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>();
-        if (globalVar.firstTimeResources)
+        try
         {
-            book.OpenBook();
-            globalVar.firstTimeResources = false;
+            teamInfo = GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>();
+            LoadResources();
+
+            globalVar = GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>();
+            if (globalVar.firstTimeResources)
+            {
+                book.OpenBook();
+                globalVar.firstTimeResources = false;
+            }
         }
+        catch
+        {
+            Debug.Log("GLOBAL ATTRIBUTES NOT FOUND");
+        }
+        
     }
 
     public void StoreResources()

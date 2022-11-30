@@ -57,6 +57,7 @@ public class OptionsPanel : MonoBehaviour
     public void HideOptionsPanel()
     {
         gameObject.SetActive(false);
+        inventoryManager.UnselectAllSlots();
     }
 
     private void SetLabel(string name)
@@ -66,20 +67,20 @@ public class OptionsPanel : MonoBehaviour
 
     private void AddOption(string option)
     {
-        GameObject newButton = Instantiate(optionButtonPrefab);
-        OptionButtons.Add(newButton);
-        newButton.transform.SetParent(this.transform);
-        newButton.transform.localScale = new Vector3(1, 1, 1);
-        newButton.GetComponent<OptionButton>().SetName(option);
-        switch (option)
-        {
-            case Strings.ADD_TO_BLENDER:
-                newButton.GetComponent<Button>().onClick.AddListener(ClickAddToBlender);
-                break;
+            GameObject newButton = Instantiate(optionButtonPrefab);
+            OptionButtons.Add(newButton);
+            newButton.transform.SetParent(this.transform);
+            newButton.transform.localScale = new Vector3(1, 1, 1);
+            newButton.GetComponent<OptionButton>().SetName(option);
+            switch (option)
+            {
+                case Strings.ADD_TO_BLENDER:
+                    newButton.GetComponent<Button>().onClick.AddListener(ClickAddToBlender);
+                    break;
                 case Strings.PLANT:
-                newButton.GetComponent<Button>().onClick.AddListener(ClickPlant);
-                break;
-        }
+                    newButton.GetComponent<Button>().onClick.AddListener(ClickPlant);
+                    break;
+            }
     }
 
     public void ClickAddToBlender()
