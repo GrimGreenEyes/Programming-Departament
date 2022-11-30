@@ -17,6 +17,7 @@ public class FlowerPot : MonoBehaviour
     private FertilizerManager fertilizerManager;
     [SerializeField] private Sprite emptyPotSprite, usedPotSprite;
     [SerializeField] private Image potImage;
+    public FlowerPotCollider potCollider;
 
     public void Start()
     {
@@ -32,7 +33,9 @@ public class FlowerPot : MonoBehaviour
 
         GetComponent<Button>().interactable = true;
         choosingBorder.SetActive(true);
+        potCollider.gameObject.SetActive(true);
         choosingPlant = plantType;
+        
     }
 
     public void StopPlanting()
@@ -40,6 +43,7 @@ public class FlowerPot : MonoBehaviour
         mode = 0;
         GetComponent<Button>().interactable = false;
         choosingBorder.SetActive(false);
+        potCollider.gameObject.SetActive(false);
     }
 
     public void StopFertilizing()
@@ -47,6 +51,7 @@ public class FlowerPot : MonoBehaviour
         mode = 0;
         GetComponent<Button>().interactable = false;
         choosingBorder.SetActive(false);
+        potCollider.gameObject.SetActive(false);
     }
 
     public void SetPlant(Plant plant)
@@ -90,6 +95,7 @@ public class FlowerPot : MonoBehaviour
 
                 GetComponent<Button>().interactable = true;
                 choosingBorder.SetActive(true);
+                potCollider.gameObject.SetActive(true);
                 currentFertilizer = fertilizer;
                 break;
 
@@ -100,6 +106,7 @@ public class FlowerPot : MonoBehaviour
 
                 GetComponent<Button>().interactable = true;
                 choosingBorder.SetActive(true);
+                potCollider.gameObject.SetActive(true);
                 currentFertilizer = fertilizer;
                 break;
 

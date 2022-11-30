@@ -39,6 +39,7 @@ public class MainControllerHelper : MonoBehaviour
 
             Debug.Log(PlayerPrefs.GetInt("level"));
         }
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().firstTimeResources = true;
     }
 
 
