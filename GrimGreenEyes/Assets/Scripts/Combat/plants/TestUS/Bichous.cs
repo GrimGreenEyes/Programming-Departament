@@ -78,7 +78,7 @@ public class Bichous : Entity
         carro = GameObject.Find("carro(Clone)").GetComponent<Carriage>();
         isWalking = false;
         int movementH = maxMovement;
-        options = new float[4];
+        options = new float[5];
 
         if (_PesoDP == 0)
             _PesoDP = 0.5f;
@@ -306,14 +306,38 @@ public class Bichous : Entity
                 break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
-                if (skills[skillSelected].actilveOnClick)
+
+                //
+                if (plants.Count == 0)
+                {
+                    actualState = EntityState.FINISHED;
+                }
+                if (moveAndAttack)
+                {
+                    if (skills[skillSelected].actilveOnClick)
+                    {
+                        attacked = true;
+                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                        actualState = EntityState.FINISHED;
+                    }
+                    else
+                    {
+                        GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
+                        actualState = EntityState.ATTACKING;
+                    }
+                    break;
+                }
+
+                    //
+
+                   /* if (skills[skillSelected].actilveOnClick)
                 {
                     skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
                 }
                 else
                 {
                     GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                }
+                }*/
                 break;
             case EntityState.FINISHED:
                 GameController.instance.NextPlayer();
@@ -462,9 +486,28 @@ public class Bichous : Entity
             options[3] = 0;
 
         //HABILIDADES
+
+        //tenemos el enemigo mas cercano que tiene al lado a otro enemigo
+        //el numero de enemigos que estan cercanos entre ellos
+        //la distancia a el enemigo
+    //    List<GameObject> plantsCarro = new List<GameObject>(plants);
+
         if (name == "Telix")
         {
-            InsectHability();
+            int numP = InsectHability();
+            float pesoNumP = 0;
+            if (numP == 0)
+                pesoNumP = 0.3f;
+            if (numP == 1)
+                pesoNumP = 0.7f;
+            if (numP == 2)
+                pesoNumP = 1f;
+            Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY) , 33, 1);
+            Debug.Log(numP);
+            Debug.Log(mainObjective.name);
+            Debug.Log(_distToPlant.getValue());
+            Debug.Log(distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY));
+            options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
         }
 
 
@@ -650,7 +693,66 @@ public class Bichous : Entity
             }
 
         }
+        else if (decision == 4)
+        {
 
+            if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
+            {
+                // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
+                if (distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY) <= 2) // 1 o range
+                {
+                    //USE HABILITY
+                    if (skills[skillSelected].actilveOnClick)
+                    {
+                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                    }
+                    else
+                    {
+                        GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
+                    }
+                }
+
+                else
+                {
+                    (int newX, int newY) = MoveToClosePositionC(carro);
+                    //attacked = true;
+
+                    // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
+
+
+                    moveAndAttack = false;
+
+                    float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
+                    if (distSmthToSmthVariables(newX, newY, mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY) <= 2) // 1 o range
+                    {
+
+                        //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+
+                        moveAndAttack = true;
+
+                        /*
+                         * 
+                         * if (skills[skillSelected].actilveOnClick)
+                        {
+                            skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                        }
+                        else
+                        {
+                            GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
+                        }
+                         * 
+                         * */
+
+
+
+                    }
+                }
+
+            }
+        }
 
 
 
@@ -1014,7 +1116,7 @@ public class Bichous : Entity
             }
             Debug.Log("effect");
 
-            GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+            GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(mainObjective, GameController.instance.SelectedPlayer());
         }
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == EntityState.IDLE)
         {
@@ -1218,13 +1320,17 @@ public class Bichous : Entity
 
     //Habilidades insecto
 
-    public void InsectHability()
+    public int InsectHability()
     {
         List<GameObject> plantsCarro = new List<GameObject>(plants);
         plantsCarro.Add(carro.gameObject);
         int[,] cercania = new int[plantsCarro.Count, plantsCarro.Count];
+        int closeEnemies = 0;
+        GameObject closer = null;
+        int[] distPlant = new int[plantsCarro.Count];
         for (int i = 0; i < plantsCarro.Count; i++)
         {
+            distPlant[i] = distSmthToSmthVariables(gridX, gridY, plantsCarro[i].GetComponent<Entity>().gridX, plantsCarro[i].GetComponent<Entity>().gridX);
             for (int j = 0; j < plantsCarro.Count; j++)
             {
                 Bichous test = gameObject.GetComponent<Bichous>();
@@ -1237,8 +1343,35 @@ public class Bichous : Entity
                 Debug.ClearDeveloperConsole();
                 Debug.Log("DISTANCIA " + planta1.name + " " + planta2.name + " " + cercania[i, j] );
                 Debug.Log(cercania[i, j]);
+                if (cercania[i, j] == 1)
+                {
+                    closeEnemies++;
+                }
+
             }
         }
+        int helper = 99;
+        for (int i = 0; i < plantsCarro.Count; i++)
+        {
+            for (int j = 0; j < plantsCarro.Count; j++)
+            {
+                if (cercania[i, j] == 2)
+                    closer = plantsCarro[i];
+                if (cercania[i, j] == 1 && distPlant[i] < helper)
+                {
+                    closer = plantsCarro[i];
+                    helper = cercania[i, j];
+                }
+             }
+        }
+       
+
+
+            //PathFinding.instance.CustomPathShine(GridCreator.instance.GetTile(gridX, gridY));
+        if(closer != null)
+            mainObjective = closer.gameObject;
+        closeEnemies = (int)closeEnemies / 2;
+        return closeEnemies;
     }
 
     public int distSmthToSmthTelix(int gX, int gY, int gX1, int gY1)

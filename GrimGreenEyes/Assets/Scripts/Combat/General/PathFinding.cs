@@ -214,7 +214,7 @@ public class PathFinding : MonoBehaviour
     //    return;
     }
 
-    private void ShinePath(GameObject thisTile, int position)
+    public void ShinePath(GameObject thisTile, int position)
     {
         thisTile.GetComponent<Tile>().isInRange = true;
         GameObject nextTile;
@@ -303,6 +303,117 @@ public class PathFinding : MonoBehaviour
         return; 
         
     }
-    
+
+    public List<GameObject> CustomPathShine(GameObject start)
+    {
+        openSet.Clear();
+        openSetGO.Clear();
+        closeSet.Clear();
+        closeSetGO.Clear();
+        openSetDictionary.Clear();
+        road.Clear();
+        openSetDictionary.Add(start, 0);
+        //openSet.Add(new Node(start, start.GetComponent<Tile>().weight));
+        openSetGO.Add(start);
+        List<GameObject> rangeTyles = CustomShinePath(start, -1);
+        this.start = start;
+        return rangeTyles;
+    }
+
+    public List<GameObject> CustomShinePath(GameObject thisTile, int position)
+    {
+
+        List<GameObject> customOpenSet = openSetGO;
+      
+
+        //Debug.Log(openSetDictionary.);
+        thisTile.GetComponent<Tile>().isInRange = true;
+        GameObject nextTile;
+        if (openSetDictionary[thisTile] < GameController.instance.SelectedPlayer().GetComponent<Entity>().movement)
+        {
+            if (thisTile.GetComponent<Tile>().GetX() + 1 <= GridCreator.instance.width - 1)
+            {
+                nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() + 1, thisTile.GetComponent<Tile>().GetY());
+                if ((!closeSetGO.Contains(nextTile) && !openSetDictionary.ContainsKey(nextTile)) && nextTile.GetComponent<Tile>().isWalkable)
+                {
+                    if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.tag == "PathTile")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+                    else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+                }
+            }
+
+            if (thisTile.GetComponent<Tile>().GetX() - 1 >= 0)
+            {
+                nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX() - 1, thisTile.GetComponent<Tile>().GetY());
+                if ((!closeSetGO.Contains(nextTile) && !openSetDictionary.ContainsKey(nextTile)) && nextTile.GetComponent<Tile>().isWalkable)
+                {
+                    if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.tag == "PathTile")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+                    else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+
+                }
+            }
+
+            if (thisTile.GetComponent<Tile>().GetY() + 1 <= GridCreator.instance.height - 1)
+            {
+                nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() + 1);
+                if ((!closeSetGO.Contains(nextTile) && !openSetDictionary.ContainsKey(nextTile)) && nextTile.GetComponent<Tile>().isWalkable)
+                {
+                    if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.tag == "PathTile")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+                    else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+
+                }
+            }
+
+            if (thisTile.GetComponent<Tile>().GetY() - 1 >= 0)
+            {
+                nextTile = GridCreator.instance.GetTile(thisTile.GetComponent<Tile>().GetX(), thisTile.GetComponent<Tile>().GetY() - 1);
+                if ((!closeSetGO.Contains(nextTile) && !openSetDictionary.ContainsKey(nextTile)) && nextTile.GetComponent<Tile>().isWalkable)
+                {
+                    if (GameController.instance.SelectedPlayer().tag == "Carriage" && nextTile.tag == "PathTile")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+                    else if (GameController.instance.SelectedPlayer().tag != "Carriage")
+                    {
+                        openSetDictionary.Add(nextTile, openSetDictionary[thisTile] + 1);
+                        customOpenSet.Add(nextTile);
+                    }
+
+                }
+            }
+        }
+        customOpenSet.Remove(thisTile);
+        if (customOpenSet.Count != 0)
+        {
+            ShinePath(customOpenSet[0], position++);
+        }
+        return customOpenSet;
+
+    }
+
 }
 
