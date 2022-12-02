@@ -40,6 +40,9 @@ public class Bichous : Entity
 
     public bool isMoving;
 
+    public GameObject telixFirst;
+    public GameObject telixSecond;
+
     public void SetStats(int level)
     {
         maxLivePoints = ps[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
@@ -306,25 +309,27 @@ public class Bichous : Entity
                 break;
             case EntityState.USINGSKILL:
                 //GridCreator.instance.ShineTiles(gridX, gridY, skills[skillSelected].radious, false);
-
+                //OPCION PARA VER SI EL INSECTO PUEDE USAR HABILIDAD
+                //OPCION PARA VER EL COOLDWON
                 //
                 if (plants.Count == 0)
                 {
                     actualState = EntityState.FINISHED;
                 }
-                if (moveAndAttack)
+                if (moveAndHability)
                 {
-                    if (skills[skillSelected].actilveOnClick)
-                    {
+                  //  if (skills[skillSelected].actilveOnClick)
+                    //{
                         attacked = true;
-                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
-                        actualState = EntityState.FINISHED;
-                    }
-                    else
+                    skillSelected = 0;
+                        skills[skillSelected].Effect(telixSecond, GameController.instance.SelectedPlayer());
+                    //    actualState = EntityState.FINISHED;
+                    //}
+                  /*  else
                     {
                         GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
                         actualState = EntityState.ATTACKING;
-                    }
+                    }*/
                     break;
                 }
 
@@ -496,18 +501,27 @@ public class Bichous : Entity
         {
             int numP = InsectHability();
             float pesoNumP = 0;
+            if(numP == -1)
+            {
+                options[4] = 0;
+            }
             if (numP == 0)
                 pesoNumP = 0.3f;
             if (numP == 1)
                 pesoNumP = 0.7f;
             if (numP == 2)
                 pesoNumP = 1f;
-            Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY) , 33, 1);
-            Debug.Log(numP);
-            Debug.Log(mainObjective.name);
-            Debug.Log(_distToPlant.getValue());
-            Debug.Log(distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY));
-            options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
+            if (telixFirst != null && telixSecond != null)
+            {
+                Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 33, 1);
+                Debug.Log(numP);
+                //   Debug.Log(mainObjective.name);
+                //  Debug.Log(_distToPlant.getValue());
+                //  Debug.Log(distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY));
+                options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
+            }
+            else
+                options[4] = 0;
         }
 
 
@@ -652,6 +666,8 @@ public class Bichous : Entity
                         //Attack
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
                                                                                                                                                                                                                                                                           //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
+
+                        destination = telixFirst;
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
                         moveAndAttack = true;
@@ -699,22 +715,24 @@ public class Bichous : Entity
             if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
             {
                 // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-                if (distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY) <= 2) // 1 o range
+                if (distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY) <= 2) // 1 o range
                 {
                     //USE HABILITY
-                    if (skills[skillSelected].actilveOnClick)
-                    {
-                        skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
-                    }
-                    else
+
+                    // skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+                //    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+
+
+                    /*else
                     {
                         GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                    }
+                    }*/
                 }
 
                 else
                 {
-                    (int newX, int newY) = MoveToClosePositionC(carro);
+                    (int newX, int newY) = MoveToClosePositionH(telixFirst.GetComponent<Tile>());
                     //attacked = true;
 
                     // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
@@ -723,15 +741,15 @@ public class Bichous : Entity
                     moveAndAttack = false;
 
                     float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
-                    if (distSmthToSmthVariables(newX, newY, mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY) <= 2) // 1 o range
+                    if (distSmthToSmthVariables(newX, newY, telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY) <= 2) // 1 o range
                     {
 
                         //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
 
-                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
+                       // GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
 
-                        moveAndAttack = true;
+                        moveAndHability = true;
 
                         /*
                          * 
@@ -898,6 +916,166 @@ public class Bichous : Entity
                     }
             }
             if(bucles == 200)
+            {
+                MovementPoint = transform.position;
+                moveing = false;
+                path = null;
+                return (gridX, gridY);
+                Debug.Log("EMERGENCY BREAK");
+                break;
+
+            }
+        }
+        MovementPoint = transform.position;
+        moveing = false;
+        path = null;
+        return (movedX, movedY);
+
+
+
+    }
+
+
+    public (int, int) MoveToClosePositionH(Tile plantaObj)
+    {
+        GameObject dest = null;
+
+        //TO DO
+        int destX = 0;
+        int destY = 0;
+
+        //int xNeeded = gridX - (int)plantaObj.distX;
+        // yNeeded = gridY - (int)plantaObj.distY;
+
+        int movedX = 0;
+        int movedY = 0;
+
+        bool contX = false;
+        bool contY = false;
+
+        movementH = maxMovement;
+
+        movedX = gridX + destX;
+        movedY = gridY + destY;
+
+        while (movementH > 0 && (contX && contY) == false)
+        {
+            if (Mathf.Abs(movedX - plantaObj.positionX) < 2)
+                contX = true;
+            if (!contX)
+            {
+                //destX =  -Mathf.Clamp(Mathf.RoundToInt((int)plantaObj.GridX), -1, 1);
+                if (plantaObj.positionX > movedX)
+                    destX = 1;
+                else
+                    destX = -1;
+                movedX += destX;
+                movementH -= 1;
+                // movement -= 1;
+
+
+            }
+            if (Mathf.Abs(movedY - plantaObj.positionY) < 2)
+                contY = true;
+            if (!contY)
+            {
+                //destY = -Mathf.Clamp(Mathf.RoundToInt((int)plantaObj.GridY), -1, 1);
+                if (plantaObj.positionX > movedY)
+                    destY = 1;
+                else
+                    destY = -1;
+                movedY += destY;
+                movementH -= 1;
+                // movement -= 1;
+            }
+        }
+        Debug.Log(movedX + ", " + movedY);
+        Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        /*
+
+         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+             dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+         int movedXi = movedX;
+         int movedYi = movedY;
+         int bucles = 0;
+         while (dest != null)
+         {
+             bucles++;
+             movedXi++;
+             movedYi--;
+             if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+                 dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+
+             if (bucles == 30)
+             {
+                 while (dest != null)
+                 {
+                     movedXi--;
+                     movedYi++;
+                     if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
+                         dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                 }
+             }
+         }
+         MovementPoint = transform.position;
+         moveing = false;
+         path = null;
+         return (movedX, movedY);
+        */
+
+        if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        int movedXi = movedX;
+        int movedYi = movedY;
+        int bucles = 0;
+        while (dest == null)
+        {
+            bucles++;
+            movedXi++;
+            movedYi--;
+            try
+            {
+                if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
+                    dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                if (dest != null)
+                {
+                    movedX = movedXi;
+                    movedY = movedYi;
+                }
+            }
+            catch
+            {
+                break;
+            }
+            if (bucles == 30)
+            {
+
+                for (int i = 0; i < 100; i++)
+                {
+                    movedXi--;
+                    movedYi++;
+                    try
+                    {
+                        if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
+                            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
+                        if (dest != null)
+                        {
+                            movedX = movedXi;
+                            movedY = movedYi;
+                        }
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                    if (i == 100)
+                    {
+                        break;
+
+                    }
+                }
+            }
+            if (bucles == 200)
             {
                 MovementPoint = transform.position;
                 moveing = false;
@@ -1327,6 +1505,7 @@ public class Bichous : Entity
         int[,] cercania = new int[plantsCarro.Count, plantsCarro.Count];
         int closeEnemies = 0;
         GameObject closer = null;
+        GameObject last = null;
         int[] distPlant = new int[plantsCarro.Count];
         for (int i = 0; i < plantsCarro.Count; i++)
         {
@@ -1351,6 +1530,7 @@ public class Bichous : Entity
             }
         }
         int helper = 99;
+        int notI = 0;
         for (int i = 0; i < plantsCarro.Count; i++)
         {
             for (int j = 0; j < plantsCarro.Count; j++)
@@ -1360,16 +1540,79 @@ public class Bichous : Entity
                 if (cercania[i, j] == 1 && distPlant[i] < helper)
                 {
                     closer = plantsCarro[i];
+                    notI = i;
                     helper = cercania[i, j];
-                }
-             }
-        }
-       
+                    if (closeEnemies == 6)
+                    {
+                        for (int m = 0; m < plantsCarro.Count; m++)
+                        {
+                            if (cercania[j, m] == 1)
+                                last = plantsCarro[m];
 
+                        }
+                    }
+                    if (closeEnemies == 2)
+                    {
+                        if (notI == 0)
+                            last = plantsCarro[1];
+                        else
+                            last = plantsCarro[0];
+                    }
+                /*    if (closeEnemies == 4)
+                    {
+                        if (notI == 0)
+                            last = plantsCarro[1];
+                        else
+                            last = plantsCarro[0];
+                    }*/
+                }
+            }
+        }
+
+        try
+        {
+            if(closer.GetComponent<Entity>().gridX == last.GetComponent<Entity>().gridX)
+            {
+                //x es igual
+                //y es distinto (mayor o menor?)
+                if (closer.GetComponent<Entity>().gridY - last.GetComponent<Entity>().gridY < 0)
+                {
+                    telixFirst = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX, closer.GetComponent<Entity>().gridY - 1);
+                    telixSecond = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX, last.GetComponent<Entity>().gridY + 1);
+                }
+                else
+                {
+                    telixFirst = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX, closer.GetComponent<Entity>().gridY + 1);
+                    telixSecond = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX, last.GetComponent<Entity>().gridY - 1);
+
+                }
+            }
+            else if(closer.GetComponent<Entity>().gridY == last.GetComponent<Entity>().gridY)
+            {
+                if (closer.GetComponent<Entity>().gridX - last.GetComponent<Entity>().gridX < 0)
+                {
+                    telixFirst = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX - 1, closer.GetComponent<Entity>().gridY);
+                    telixSecond = GridCreator.instance.GetTile(last.GetComponent<Entity>().gridX + 1, closer.GetComponent<Entity>().gridY);
+
+                }
+                else
+                {
+                    telixFirst = GridCreator.instance.GetTile(closer.GetComponent<Entity>().gridX + 1, closer.GetComponent<Entity>().gridY);
+                    telixSecond = GridCreator.instance.GetTile(last.GetComponent<Entity>().gridX - 1, closer.GetComponent<Entity>().gridY);
+
+                }
+            }
+        //    if(!telixFirst.GetComponent<Tile>().isWalkable || !telixSecond.GetComponent<Tile>().isWalkable)
+          //      return -1
+        }
+        catch
+        {
+            return -1;
+        }
 
             //PathFinding.instance.CustomPathShine(GridCreator.instance.GetTile(gridX, gridY));
-        if(closer != null)
-            mainObjective = closer.gameObject;
+       // if(closer != null)
+         //   telixFirst = closer.gameObject;
         closeEnemies = (int)closeEnemies / 2;
         return closeEnemies;
     }

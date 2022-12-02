@@ -109,6 +109,9 @@ public class Entity : MonoBehaviour
     public bool isWalking;
     public bool moveAndAttack;
 
+    public bool moveAndHability;
+
+
 
     private void Awake()
     {
@@ -246,6 +249,17 @@ public class Entity : MonoBehaviour
             isWalking = false;
             Debug.Log("IS not :( WALKING!!");
 
+        }
+
+        if (transform.position == destination.transform.position + new Vector3(0, 0.25f, 0) && moveAndHability)
+        {
+            animator.SetBool("walking", false);
+            GetComponent<Entity>().actualState = Entity.EntityState.USINGSKILL;
+            audioSource.Stop();
+            //path.Clear();
+            //moveAndAttack = false;
+            moveing = false;
+            isWalking = false;
         }
     }
     public void SetTile(GameObject tile)

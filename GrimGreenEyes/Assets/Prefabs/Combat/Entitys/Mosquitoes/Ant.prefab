@@ -415,7 +415,7 @@ MonoBehaviour:
   - {fileID: 5860293171188052277, guid: 985f431dcb41a9b44a3820294714e1fa, type: 3}
   skillObjects: []
   skills: []
-  skillSelected: 3
+  skillSelected: 0
   charges: 0
   mainObjective: {fileID: 0}
   MovementSpeed: 2
