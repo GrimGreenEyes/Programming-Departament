@@ -631,7 +631,6 @@ public class Bichous : Entity
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
                                                                                                                                                                                                                                                                           //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
 
-                        destination = telixFirst;
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
                         moveAndAttack = true;
@@ -794,40 +793,44 @@ public class Bichous : Entity
             }
         }
      
-        /*
-
-         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
-             dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
-         int movedXi = movedX;
-         int movedYi = movedY;
-         int bucles = 0;
-         while (dest != null)
-         {
-             bucles++;
-             movedXi++;
-             movedYi--;
-             if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
-                 dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
-
-             if (bucles == 30)
-             {
-                 while (dest != null)
-                 {
-                     movedXi--;
-                     movedYi++;
-                     if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
-                         dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
-                 }
-             }
-         }
-         MovementPoint = transform.position;
-         moveing = false;
-         path = null;
-         return (movedX, movedY);
-        */
     
         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
             dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+
+      /*  else if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (plantaObj.GridY + 1 < 0 || plantaObj.GridY + 1> GridCreator.instance.height) ? plantaObj.GridY + 1 : plantaObj.GridY + 1)) != null)
+        {
+            try
+            {
+                dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (plantaObj.GridY + 1 < 0 || plantaObj.GridY + 1 > GridCreator.instance.height) ? plantaObj.GridY + 1 : plantaObj.GridY + 1));
+                movedY = plantaObj.GridY + 1;
+            }
+            catch { }
+        }
+        else if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (plantaObj.GridY - 1 < 0 || plantaObj.GridY - 1 > GridCreator.instance.height) ? plantaObj.GridY - 1 : plantaObj.GridY - 1)) != null)
+        {
+            try { 
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (plantaObj.GridY - 1 < 0 || plantaObj.GridY - 1 > GridCreator.instance.height) ? plantaObj.GridY - 1 : plantaObj.GridY - 1));
+            movedY = plantaObj.GridY - 1;
+            }
+            catch { }
+        }
+        else if (CustomSetDestinationC(GridCreator.instance.GetTile((plantaObj.GridX + 1 < 0 || plantaObj.GridX + 1 > GridCreator.instance.width) ? plantaObj.GridX + 1 : plantaObj.GridX + 1, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+        {
+            try { 
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((plantaObj.GridX + 1 < 0 || plantaObj.GridX + 1 > GridCreator.instance.width) ? plantaObj.GridX + 1 : plantaObj.GridX + 1, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+            movedX = plantaObj.GridX + 1;
+            }
+            catch { }
+        }
+        else if (CustomSetDestinationC(GridCreator.instance.GetTile((plantaObj.GridX - 1 < 0 || plantaObj.GridX - 1 > GridCreator.instance.width) ? plantaObj.GridX - 1 : plantaObj.GridX - 1, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+        {
+            try { 
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((plantaObj.GridX - 1 < 0 || plantaObj.GridX - 1 > GridCreator.instance.width) ? plantaObj.GridX - 1 : plantaObj.GridX - 1, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+            movedX = plantaObj.GridX - 1;
+                }
+            catch { }
+        }
+      */
         int movedXi = movedX;
         int movedYi = movedY;
         int bucles = 0;
