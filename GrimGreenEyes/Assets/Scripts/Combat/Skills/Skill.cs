@@ -52,6 +52,7 @@ public class Skill : MonoBehaviour
         PlayerPanel.instance.SetButtonsToInactive();
         player.skillSelected = player.skills.Count;
         player.actualState = Entity.EntityState.IDLE;
+        player.moveAndHability = false;
     }
     public int DamageCalculator(Entity enemy, Entity player)
     {

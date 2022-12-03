@@ -1039,6 +1039,7 @@ public class Biome
     public Dictionary<string, GameObject> tilesDictionary = new Dictionary<string, GameObject>();
     [SerializeField] public GameObject groundTile, pathTile, waterTile, mountainTile, powerupTile, healerTile, damagerTile, eventTile, lPath1, lPath2, lPath3, lPath4;
 
+    [SerializeField] public Sprite acidSprite;
     [Header("WATER")]
     [Range(0, 100)] public float waterChance = 80;
     public int minWaterY = 2;

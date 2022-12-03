@@ -1569,6 +1569,7 @@ MonoBehaviour:
     lPath2: {fileID: 4368756039915833080, guid: fe24ca29b19bfb94e87c1086b51682cb, type: 3}
     lPath3: {fileID: 4368756039915833080, guid: af830ee9371125b4eae306b33fafd3cf, type: 3}
     lPath4: {fileID: 4368756039915833080, guid: 3135029a5a7f2474c9f00a8e201979a6, type: 3}
+    acidSprite: {fileID: 21300000, guid: 92901020045eb0f4f81fabc613e47ba3, type: 3}
     waterChance: 65
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1607,6 +1608,7 @@ MonoBehaviour:
     lPath2: {fileID: 4368756039915833080, guid: 6b1f7e3215e0f5d40937743a57958926, type: 3}
     lPath3: {fileID: 4368756039915833080, guid: 7fb197b4b91365d42bd70da67e9b5f28, type: 3}
     lPath4: {fileID: 4368756039915833080, guid: 6dcf1fa806499164a88d3b627c651e8b, type: 3}
+    acidSprite: {fileID: 0}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1645,6 +1647,7 @@ MonoBehaviour:
     lPath2: {fileID: 4368756039915833080, guid: 2a774bf0d4d302c4da9a00265a86b88c, type: 3}
     lPath3: {fileID: 4368756039915833080, guid: 095cf83b96ec1bd40972e3e121b0ffe4, type: 3}
     lPath4: {fileID: 4368756039915833080, guid: d5fa8cd1fdf2b994b9ceb39c00100011, type: 3}
+    acidSprite: {fileID: 0}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1683,6 +1686,7 @@ MonoBehaviour:
     lPath2: {fileID: 4368756039915833080, guid: d97362bc4a11c084aae3980c4209bfe3, type: 3}
     lPath3: {fileID: 4368756039915833080, guid: 27a293cf895b59a4784aea98eb97dd6d, type: 3}
     lPath4: {fileID: 4368756039915833080, guid: 9d2b9d1bb10bf0e43a0a85e9e53520dd, type: 3}
+    acidSprite: {fileID: 0}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -1721,6 +1725,7 @@ MonoBehaviour:
     lPath2: {fileID: 0}
     lPath3: {fileID: 0}
     lPath4: {fileID: 0}
+    acidSprite: {fileID: 0}
     waterChance: 80
     minWaterY: 2
     averageStreamIntensity: 90
@@ -5989,7 +5994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.999954, y: 0}
+  m_AnchoredPosition: {x: 125.99997, y: 0}
   m_SizeDelta: {x: 232.29, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2008232706

@@ -206,40 +206,6 @@ public class Bichous : Entity
                 {
                     actualState = EntityState.FINISHED;
                 }
-                /*
-                else if (actualState != EntityState.MOVEING && !attacked)
-                {
-                    float dist = 999;
-                    if (selection == 0)
-                    {
-                        dist = distSmthToPlant(carro);
-
-                    }
-                    else dist = plantsInfo[indexPicked].distToPlant;
-                    //float a = distSmthToPlant(falseCarro);
-
-                    if (dist <= 2)
-                    {
-                        if (!attacked)
-                        {
-                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
-
-                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
-                            //Mosquitoes?
-                            Debug.Log("attacking");
-                            attacked = true;
-                            for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
-                            {
-                                if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
-                                    mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
-                            }
-                            mainAttack.Effect(mainObjective, gameObject);
-                            Debug.Log("ATTACK!!");
-                            //optionPicked = true;
-                        }
-                    }
-                
-                }*/
 
                 break;
             case EntityState.MOVEING:
@@ -312,24 +278,19 @@ public class Bichous : Entity
                 //OPCION PARA VER SI EL INSECTO PUEDE USAR HABILIDAD
                 //OPCION PARA VER EL COOLDWON
                 //
+
+
                 if (plants.Count == 0)
                 {
                     actualState = EntityState.FINISHED;
                 }
-                if (moveAndHability)
+                if (moveAndHability && skills[0].currentCoolDown == 0)
                 {
                   //  if (skills[skillSelected].actilveOnClick)
                     //{
                         attacked = true;
                     skillSelected = 0;
-                        skills[skillSelected].Effect(telixSecond, GameController.instance.SelectedPlayer());
-                    //    actualState = EntityState.FINISHED;
-                    //}
-                  /*  else
-                    {
-                        GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                        actualState = EntityState.ATTACKING;
-                    }*/
+                    skills[0].Effect(telixSecond, GameController.instance.SelectedPlayer());
                     break;
                 }
 
@@ -495,34 +456,39 @@ public class Bichous : Entity
         //tenemos el enemigo mas cercano que tiene al lado a otro enemigo
         //el numero de enemigos que estan cercanos entre ellos
         //la distancia a el enemigo
-    //    List<GameObject> plantsCarro = new List<GameObject>(plants);
+        //    List<GameObject> plantsCarro = new List<GameObject>(plants);
+        Debug.Log(skills[0].currentCoolDown);
 
-        if (name == "Telix")
+        if (skills[0].currentCoolDown == 0)
         {
-            int numP = InsectHability();
-            float pesoNumP = 0;
-            if(numP == -1)
+
+
+            if (name == "Telix")
             {
-                options[4] = 0;
+                int numP = InsectHability();
+                float pesoNumP = 0;
+                if (numP == -1)
+                {
+                    options[4] = 0;
+                }
+                if (numP == 0)
+                    pesoNumP = 0.3f;
+                if (numP == 1)
+                    pesoNumP = 0.7f;
+                if (numP == 2)
+                    pesoNumP = 1f;
+                if (telixFirst != null && telixSecond != null)
+                {
+                    Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 33, 1);
+                  
+                    options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
+                }
+                else
+                    options[4] = 0;
             }
-            if (numP == 0)
-                pesoNumP = 0.3f;
-            if (numP == 1)
-                pesoNumP = 0.7f;
-            if (numP == 2)
-                pesoNumP = 1f;
-            if (telixFirst != null && telixSecond != null)
-            {
-                Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 33, 1);
-                Debug.Log(numP);
-                //   Debug.Log(mainObjective.name);
-                //  Debug.Log(_distToPlant.getValue());
-                //  Debug.Log(distSmthToSmthVariables(mainObjective.GetComponent<Entity>().gridX, mainObjective.GetComponent<Entity>().gridY, gridX, gridY));
-                options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
-            }
-            else
-                options[4] = 0;
         }
+        else
+            options[4] = 0;
 
 
         float maxValue = options.Max();
@@ -570,8 +536,7 @@ public class Bichous : Entity
 
                         //Mosquitoes?
                         // attacked = true;
-                        Debug.Log("ATTACK 1");
-                        Debug.Log("attacking");
+                        
                         attacked = true;
                         for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                         {
@@ -639,8 +604,7 @@ public class Bichous : Entity
                     GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.ATTACKING;
                     //mosquitoes?
                     // attacked = true;
-                    Debug.Log("ATTACK 2");
-                    Debug.Log("attacking");
+                  
                     attacked = true;
                     for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                     {
@@ -715,23 +679,23 @@ public class Bichous : Entity
             if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
             {
                 // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-                if (distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY) <= 2) // 1 o range
-                {
+              //  if (distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY) <= 2) // 1 o range
+               // {
                     //USE HABILITY
 
                     // skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
                 //    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
-                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+                   // GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
 
 
                     /*else
                     {
                         GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
                     }*/
-                }
+             //   }
 
-                else
-                {
+             ///   else
+              //  {
                     (int newX, int newY) = MoveToClosePositionH(telixFirst.GetComponent<Tile>());
                     //attacked = true;
 
@@ -747,7 +711,7 @@ public class Bichous : Entity
                         //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
 
                        // GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
-                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
                         moveAndHability = true;
 
@@ -766,7 +730,7 @@ public class Bichous : Entity
 
 
 
-                    }
+                   // }
                 }
 
             }
@@ -829,8 +793,7 @@ public class Bichous : Entity
                 // movement -= 1;
             }
         }
-        Debug.Log(movedX + ", " + movedY);
-        Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+     
         /*
 
          if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
@@ -960,7 +923,7 @@ public class Bichous : Entity
 
         while (movementH > 0 && (contX && contY) == false)
         {
-            if (Mathf.Abs(movedX - plantaObj.positionX) < 2)
+            if (Mathf.Abs(movedX - plantaObj.positionX) == 0)
                 contX = true;
             if (!contX)
             {
@@ -975,7 +938,7 @@ public class Bichous : Entity
 
 
             }
-            if (Mathf.Abs(movedY - plantaObj.positionY) < 2)
+            if (Mathf.Abs(movedY - plantaObj.positionY) == 0)
                 contY = true;
             if (!contY)
             {
@@ -989,42 +952,19 @@ public class Bichous : Entity
                 // movement -= 1;
             }
         }
-        Debug.Log(movedX + ", " + movedY);
-        Debug.Log(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
-        /*
 
-         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
-             dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
-         int movedXi = movedX;
-         int movedYi = movedY;
-         int bucles = 0;
-         while (dest != null)
-         {
-             bucles++;
-             movedXi++;
-             movedYi--;
-             if (GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi) != null)
-                 dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
 
-             if (bucles == 30)
-             {
-                 while (dest != null)
-                 {
-                     movedXi--;
-                     movedYi++;
-                     if (CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi)) != null)
-                         dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedXi < 0 || movedXi > GridCreator.instance.width) ? movedXi : movedXi, (movedYi < 0 || movedYi > GridCreator.instance.height) ? movedYi : movedYi));
-                 }
-             }
-         }
-         MovementPoint = transform.position;
-         moveing = false;
-         path = null;
-         return (movedX, movedY);
-        */
 
-        if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
-            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        // if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+        //dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+        try
+        {
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile(movedX,movedY));
+        }
+        catch
+        {
+            dest = null;
+        }
         int movedXi = movedX;
         int movedYi = movedY;
         int bucles = 0;
@@ -1334,7 +1274,6 @@ public class Bichous : Entity
 
         int distTo = (distX + distY);
         int distToPlant = distTo;
-        Debug.Log(distToPlant + " " + who.name);
 
         return distToPlant;
     }
@@ -1346,7 +1285,6 @@ public class Bichous : Entity
 
         int distTo = (distX + distY);
         int distToPlant = distTo;
-        //  Debug.Log(distToPlant + " " + who.name);
 
         return distToPlant;
     }
@@ -1613,6 +1551,10 @@ public class Bichous : Entity
             //PathFinding.instance.CustomPathShine(GridCreator.instance.GetTile(gridX, gridY));
        // if(closer != null)
          //   telixFirst = closer.gameObject;
+         if(!telixFirst.GetComponent<Tile>().isWalkable || !telixSecond.GetComponent<Tile>().isWalkable)
+        {
+            return -1;
+        }
         closeEnemies = (int)closeEnemies / 2;
         return closeEnemies;
     }

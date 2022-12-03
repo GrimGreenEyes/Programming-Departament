@@ -240,7 +240,7 @@ public class Tile : MonoBehaviour
             entity = collision.gameObject.transform.parent.gameObject;
 
             entity.GetComponent<Entity>().SetTile(gameObject);
-            isAcided = false;
+            //isAcided = false;
             if (dealsDamage)
             {
                 collision.GetComponentInParent<Entity>().Damage(DAMAGE);
@@ -262,6 +262,8 @@ public class Tile : MonoBehaviour
             {
                 isAcided = true;
                 weight = 3;
+                Debug.Log("ACID :  " + gameObject.name);
+                renderer.sprite = GridCreator.instance.currentBiome.acidSprite;
             }
         }
     }
