@@ -63,10 +63,12 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  name: Camino de hierva alta
+  name: Camino de hierba alta
   effects: Sin efectos
   type: path
   spawnBlocks: 0
+  positionX: 0
+  positionY: 0
   isInRange: 0
   isWalkable: 1
   isAcided: 0
@@ -319,7 +321,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14d7d1a7b8f0a8e46a4b95d4a4ce6fc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f872c7ae354ec3449b1beded8f2f2ade, type: 3}
   m_Color: {r: 0.8330588, g: 1, b: 0.37254906, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -63,10 +63,12 @@ MonoBehaviour:
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
-  name: Mala hierva
+  name: Mala hierba
   effects: "Pierden 5 puntos de vida pero ganan 2 de da\xF1o hasta el final de combate"
   type: damager
   spawnBlocks: 0
+  positionX: 0
+  positionY: 0
   isInRange: 0
   isWalkable: 1
   isAcided: 0
