@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
     public int characterSelected = -1;
     public int turn;
-    private List<GameObject> characters = new List<GameObject>();
+    public List<GameObject> characters = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
     private List<int> playerLivePoints = new List<int>();
     public List<GameObject> enemys = new List<GameObject>();
@@ -70,6 +70,10 @@ public class GameController : MonoBehaviour
     public void AddEnemy(GameObject newEnemyPref, Transform position)
     {
         GameObject newEnemy = Instantiate(newEnemyPref, position);
+        newEnemy.transform.parent = null;
+        newEnemy.transform.position = position.position;
+        Debug.Log(position);
+
         Init(newEnemy);
     }
     public void OrderCharacters()

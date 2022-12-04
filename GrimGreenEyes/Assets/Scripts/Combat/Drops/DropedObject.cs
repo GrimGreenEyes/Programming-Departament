@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DropedObject : MonoBehaviour
@@ -18,6 +19,7 @@ public class DropedObject : MonoBehaviour
         if (thisEntity.tag == "Player")
         {
             PickUpObject();
+            GridCreator.instance.seeds.Remove(gameObject);
             Destroy(gameObject);
         }else
             for (int i = 0; i <  thisEntity.GetComponent<Entity>().skills.Count; i++)
@@ -26,6 +28,11 @@ public class DropedObject : MonoBehaviour
                 {
                     thisEntity.GetComponent<Entity>().skillSelected = i;
                     thisEntity.GetComponent<Entity>().actualState = Entity.EntityState.USINGSKILL;
+                }
+                if (thisEntity.GetComponent<Entity>().name == "Nibus")
+                {
+                    GridCreator.instance.seeds.Remove(gameObject);
+                    Destroy(gameObject);
                 }
             }
     }

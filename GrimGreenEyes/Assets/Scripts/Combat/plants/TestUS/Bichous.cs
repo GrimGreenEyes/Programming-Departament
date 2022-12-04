@@ -42,6 +42,9 @@ public class Bichous : Entity
 
     public GameObject telixFirst;
     public GameObject telixSecond;
+    public GameObject vetrixObjective;
+    public GameObject nibusSeed;
+
 
     public void SetStats(int level)
     {
@@ -166,6 +169,7 @@ public class Bichous : Entity
 
                 movement = maxMovement;
                 attacked = false;
+                gottenSeed = false;
                 if (bleeding) livePoints -= 5;
                 if (livePoints <= 0)
                 {
@@ -212,11 +216,10 @@ public class Bichous : Entity
                 Debug.Log("BUCLE MOVEING");
                 //if (!isMoving)
                 //  {//
+                if (gottenSeed)
+                    actualState = EntityState.FINISHED;
                 if (path == null)
-
                 {
-                    Debug.Log(thisTile.name);
-                    Debug.Log(destination.name);
 
                     path = PathFinding.instance.PathFind(thisTile, destination);
                     pathPosition = path.Count() - 1;
@@ -228,6 +231,8 @@ public class Bichous : Entity
                     isMoving = false;
                     Move();
                 }
+                
+
 
                 // }
                 break;
@@ -284,26 +289,52 @@ public class Bichous : Entity
                 {
                     actualState = EntityState.FINISHED;
                 }
-                if (moveAndHability && skills[0].currentCoolDown == 0)
+                if (name == "Telix")
                 {
-                  //  if (skills[skillSelected].actilveOnClick)
-                    //{
+
+                    if (moveAndHability && skills[0].currentCoolDown == 0)
+                    {
+                        //  if (skills[skillSelected].actilveOnClick)
+                        //{
                         attacked = true;
-                    skillSelected = 0;
-                    skills[0].Effect(telixSecond, GameController.instance.SelectedPlayer());
-                    break;
+                        skillSelected = 0;
+                        skills[0].Effect(telixSecond, GameController.instance.SelectedPlayer());
+                        break;
+                    }
+                }
+                else if (name == "Vetrix")
+                {
+                    if (skills[0].currentCoolDown == 0)
+                    {
+                        attacked = true;
+                        skillSelected = 0;
+                        skills[0].Effect(vetrixObjective, GameController.instance.SelectedPlayer());
+                        break;
+                    }
+                }
+                else if (name == "Nibus")
+                {
+                    if (gottenSeed)
+                    {
+                        actualState = EntityState.FINISHED;
+                    }
+                    else
+                    {
+                        attacked = true;
+                        skills[0].Effect(nibusSeed, GameController.instance.SelectedPlayer());
+                    }
                 }
 
-                    //
+                //
 
-                   /* if (skills[skillSelected].actilveOnClick)
-                {
-                    skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
-                }
-                else
-                {
-                    GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                }*/
+                /* if (skills[skillSelected].actilveOnClick)
+             {
+                 skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
+             }
+             else
+             {
+                 GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
+             }*/
                 break;
             case EntityState.FINISHED:
                 GameController.instance.NextPlayer();
@@ -457,15 +488,13 @@ public class Bichous : Entity
         //el numero de enemigos que estan cercanos entre ellos
         //la distancia a el enemigo
         //    List<GameObject> plantsCarro = new List<GameObject>(plants);
-        Debug.Log(skills[0].currentCoolDown);
 
         if (skills[0].currentCoolDown == 0)
         {
 
-
             if (name == "Telix")
             {
-                int numP = InsectHability();
+                int numP = TelixHability();
                 float pesoNumP = 0;
                 if (numP == -1)
                 {
@@ -485,6 +514,17 @@ public class Bichous : Entity
                 }
                 else
                     options[4] = 0;
+            }
+            else if(name == "Vetrix")
+            {
+                Debug.Log(skills[0].currentCoolDown);
+                (float pesoVetrix,int indiceVetrix) = VetrixHability();
+                options[4] = pesoVetrix;
+            }
+            else if(name == "Nibus")
+            {
+                float pesoNibus = NibusHability();
+                options[4] = pesoNibus;
             }
         }
         else
@@ -677,59 +717,32 @@ public class Bichous : Entity
 
             if (gameObject.GetComponent<Bichous>().movementH != 0 && !attacked)
             {
-                // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-              //  if (distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY) <= 2) // 1 o range
-               // {
-                    //USE HABILITY
-
-                    // skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
-                //    GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
-                   // GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
-
-
-                    /*else
-                    {
-                        GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                    }*/
-             //   }
-
-             ///   else
-              //  {
+                if (name == "Telix")
+                {
                     (int newX, int newY) = MoveToClosePositionH(telixFirst.GetComponent<Tile>());
-                    //attacked = true;
-
-                    // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
-
-
                     moveAndAttack = false;
 
                     float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
                     if (distSmthToSmthVariables(newX, newY, telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY) <= 2) // 1 o range
                     {
 
-                        //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
 
-                       // GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = mainObjective;
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
                         moveAndHability = true;
 
-                        /*
-                         * 
-                         * if (skills[skillSelected].actilveOnClick)
-                        {
-                            skills[skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
-                        }
-                        else
-                        {
-                            GridCreator.instance.SearchObjective(gridX, gridY, skills[skillSelected].range, false);
-                        }
-                         * 
-                         * */
+                    }
+                }else if(name == "Vetrix")
+                {
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+                }
+                else if(name == "Nibus")
+                {
+                    // SetDestination(nibusSeed);
+                    (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
 
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
-
-                   // }
                 }
 
             }
@@ -1435,11 +1448,91 @@ public class Bichous : Entity
 
     }
 
-
+    public float NibusHability()
+    {
+        List<GameObject> seeds = new List<GameObject>();
+       
+        for (int i = 0; i < GridCreator.instance.seeds.Count; i++)
+        {
+            if(GridCreator.instance.seeds[i] != null)
+            seeds.Add(GridCreator.instance.seeds[i].transform.parent.gameObject);
+        }
+        float[] SeedsWeights = new float[seeds.Count];
+        if (seeds.Count == 0)
+            return 0;
+        for (int i = 0; i < seeds.Count; i++)
+        {
+            Factor _distSeedsToPlants = new LeafVariable(() => distSmthToSmthVariables(seeds[i].GetComponent<Tile>().positionX, seeds[i].GetComponent<Tile>().positionY, gridX, gridY), 1, 26);
+            SeedsWeights[i] = _distSeedsToPlants.getValue();
+        }
+        int indexRes = Array.IndexOf(SeedsWeights, SeedsWeights.Max());
+        float result = SeedsWeights[indexRes];
+        nibusSeed = seeds[indexRes];
+        return result;
+    }
 
     //Habilidades insecto
+    public (float,int) VetrixHability()
+    {
+        List<GameObject> plantsInsects = new List<GameObject>(plants);
+        
 
-    public int InsectHability()
+        for (int i = 0; i< GameController.instance.enemys.Count; i++)
+        {
+            if (GameController.instance.enemys[i].name != "Vetrix") ;
+                plantsInsects.Add(GameController.instance.enemys[i]);
+        }
+        float[] plantsInsectsWeights = new float[plantsInsects.Count];
+        
+        //PLANTAS
+        for(int i = 0; i < plants.Count; i++)
+        {
+            List<Factor> factors = new List<Factor>();
+
+            Factor _distToPlantsLeafHelper1 = new LeafVariable(() => distSmthToSmthVariables(plantsInsects[i].GetComponent<Entity>().gridX, plantsInsects[i].GetComponent<Entity>().gridX, gridX, gridY), 33, 1);
+
+            Factor _healthInsect = new LeafVariable(() => plantsInsects[i].GetComponent<Entity>().livePoints, 1, plantsInsects[i].GetComponent<Entity>().maxLivePoints);
+
+
+            factors.Add(_distToPlantsLeafHelper1);
+            factors.Add(_healthInsect);
+            List<float> weightsInsects = new List<float>();
+
+            weightsInsects.Add(0.5f);
+            weightsInsects.Add(0.5f);
+
+            Factor weightFactor = new WeightedSumFusion(factors, weightsInsects);
+
+            plantsInsectsWeights[i] = weightFactor.getValue();
+        }
+        //INSECTOS
+        for (int i = plants.Count; i < plantsInsects.Count; i++)
+        {
+            List<Factor> factors = new List<Factor>();
+
+            Factor _distToPlantsLeafHelper1 = new LeafVariable(() => distSmthToSmthVariables(plantsInsects[i].GetComponent<Entity>().gridX, plantsInsects[i].GetComponent<Entity>().gridX, gridX, gridY), 33, 1);
+            Factor _healthInsect = new LeafVariable(() => plantsInsects[i].GetComponent<Entity>().livePoints, 1, plantsInsects[i].GetComponent<Entity>().maxLivePoints);
+
+            factors.Add(_distToPlantsLeafHelper1);
+            factors.Add(_healthInsect);
+            List<float> weightsInsects = new List<float>();
+
+            weightsInsects.Add(0.5f);
+            weightsInsects.Add(0.5f);
+
+            Factor weightFactor = new WeightedSumFusion(factors, weightsInsects);
+
+            plantsInsectsWeights[i] = weightFactor.getValue();
+        }
+        int indexRes = Array.IndexOf(plantsInsectsWeights, plantsInsectsWeights.Max());
+        float result = plantsInsectsWeights[indexRes];
+        vetrixObjective = plantsInsects[indexRes];
+        return (result, indexRes);
+
+    }
+
+
+    public int TelixHability()
     {
         List<GameObject> plantsCarro = new List<GameObject>(plants);
         plantsCarro.Add(carro.gameObject);

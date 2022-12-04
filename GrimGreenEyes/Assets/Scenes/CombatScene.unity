@@ -1759,6 +1759,7 @@ MonoBehaviour:
   maxPathEndX: 9
   minPathDistanceX: 2
   maxPathDistanceX: 5
+  seeds: []
   tilePrefab: {fileID: 4368756039915833080, guid: 8c0eb60924395254a8afb6e24ed382f8, type: 3}
   ObstaclePrefab: {fileID: 5419867194575542065, guid: 97fda6422c6666942a0cf0d0f05837ad, type: 3}
   pathTilePrefab: {fileID: 4368756039915833080, guid: 08aa0b3c4a9703b4e982b09aa794ccd7, type: 3}
@@ -1766,7 +1767,7 @@ MonoBehaviour:
   - {fileID: 4535999862920829099, guid: d733ae73d7021ca4aa776f7aa055fc86, type: 3}
   players: []
   enemys1:
-  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  - {fileID: 6782853898566395305, guid: f814e40fa6d07e246ae8afe88754573d, type: 3}
   enemys2:
   - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
   enemys3:

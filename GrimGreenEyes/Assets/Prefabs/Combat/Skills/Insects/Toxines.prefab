@@ -57,11 +57,13 @@ MonoBehaviour:
   selectsTile: 0
   isOnSeed: 0
   isOnDestination: 0
+  isOnOtherTurn: 0
   destinationTile: {fileID: 0}
   range: 4
   areaOfEffect: 0
   turnsActive: 0
   maxTurnsActive: 0
   alreadyUsed: 0
-  coolDown: 0
+  coolDown: 3
   currentCoolDown: 0
+  attackAnimation: {fileID: 0}

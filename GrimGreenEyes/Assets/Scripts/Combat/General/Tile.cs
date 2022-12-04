@@ -117,7 +117,8 @@ public class Tile : MonoBehaviour
         }
         if(Random.Range(0f, 100f) < 5f)
         {
-            Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false);
+            GridCreator.instance.seeds.Add(Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false));
+           // Instantiate(seeds[Random.Range(0, seeds.Length)], transform, false);
         }
     }
     public void SelectShine(GameObject player)

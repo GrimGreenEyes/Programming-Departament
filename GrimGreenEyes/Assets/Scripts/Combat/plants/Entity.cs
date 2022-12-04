@@ -110,6 +110,7 @@ public class Entity : MonoBehaviour
     public bool moveAndAttack;
 
     public bool moveAndHability;
+    public bool gottenSeed;
 
 
 
@@ -261,6 +262,7 @@ public class Entity : MonoBehaviour
             moveing = false;
             isWalking = false;
         }
+
     }
     public void SetTile(GameObject tile)
     {

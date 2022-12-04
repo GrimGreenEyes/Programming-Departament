@@ -41,6 +41,7 @@ public class GridCreator : MonoBehaviour
     private bool specialEvent = false;
     private bool itsRaining = false;
 
+    public List<GameObject> seeds = new List<GameObject>();
     /*private void Start()
     {
         squaresArray = new GameObject[sizeX, sizeY];
