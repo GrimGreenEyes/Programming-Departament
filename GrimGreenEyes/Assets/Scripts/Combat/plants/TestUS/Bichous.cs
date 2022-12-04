@@ -242,6 +242,16 @@ public class Bichous : Entity
                 {
                     actualState = EntityState.FINISHED;
                 }
+                if(name == "Orlaw" && moveAndAttack && skills[0].coolDown == 0)
+                {
+                    attacked = true;
+                    skillSelected = 0;
+                    skills[0].Effect(vetrixObjective, GameController.instance.SelectedPlayer());
+                    Debug.Log("ORLAW HABILITY");
+                    Debug.Log("ORLAW " + attack);
+                    //actualState = EntityState.FINISHED;
+                    //return;
+                }
 
                 Debug.Log("attacking");
                 attacked = true;
