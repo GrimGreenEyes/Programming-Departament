@@ -1233,6 +1233,10 @@ public class Bichous : Entity
         {
             return;
         }
+        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().attacked)
+        {
+            return;
+        }
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)
         {
             Debug.Log("skill");

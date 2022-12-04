@@ -23,6 +23,10 @@ public class Plants : Entity
         {
             return;
         }
+        if (GameController.instance.SelectedPlayer().GetComponent<Plants>().attacked)
+        {
+            return;
+        }
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == EntityState.USINGSKILL)
         {
             if (GameController.instance.SelectedPlayer() == gameObject && !GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[skillSelected].isReflexive)
@@ -131,9 +135,13 @@ public class Plants : Entity
                 break;
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
-                if (attacked)
+                //if (attacked)
+                //{
+                //    actualState = EntityState.IDLE;
+                //    return;
+                //}
+                if(mainObjective == null)
                 {
-                    actualState = EntityState.IDLE;
                     return;
                 }
                 attacked = true;
