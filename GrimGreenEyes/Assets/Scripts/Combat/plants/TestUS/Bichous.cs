@@ -537,6 +537,11 @@ public class Bichous : Entity
                 float pesoNibus = NibusHability();
                 options[4] = pesoNibus;
             }
+            else if(name == "Verpendex")
+            {
+                float pesoVerpendex = VerpendexHability()
+;               options[4] = pesoVerpendex;
+            }
         }
         else
             options[4] = 0;
@@ -1559,6 +1564,10 @@ public class Bichous : Entity
 
     }
 
+    public int VerpendexHability()
+    {
+        return 1;
+    }
 
     public int TelixHability()
     {
