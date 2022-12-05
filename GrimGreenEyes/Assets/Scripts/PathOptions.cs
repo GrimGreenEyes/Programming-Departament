@@ -141,10 +141,13 @@ public class PathOptions : MonoBehaviour
 		{
             navigationController = GameObject.Find("NavigationController");
         }
-        navigationController.GetComponent<Navigation>().moveToNode(thisNode);
-		if(glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().getGameobjects(thisNode))
-		StartCoroutine(goMatch());
-	}
+		if (glovalVar.GetComponent<GlobalVar>().actualNode.GetComponent<PathOptions>().getGameobjects(thisNode))
+		{
+            navigationController.GetComponent<Navigation>().moveToNode(thisNode);
+            StartCoroutine(goMatch());
+
+        }
+    }
 
 
 	public IEnumerator goMatch()
