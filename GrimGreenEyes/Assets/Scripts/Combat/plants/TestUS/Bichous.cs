@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using TMPro;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -39,11 +40,17 @@ public class Bichous : Entity
     public int selection;
 
     public bool isMoving;
+    GameObject closer = null;
+    GameObject last = null;
+
 
     public GameObject telixFirst;
     public GameObject telixSecond;
     public GameObject vetrixObjective;
     public GameObject nibusSeed;
+
+    public GameObject msg;
+    public String msgText;
 
 
     public void SetStats(int level)
@@ -204,6 +211,7 @@ public class Bichous : Entity
                 }
                 if (!optionPicked)
                 {
+                    msg.GetComponent<TextMeshProUGUI>().text = "Pensando...";
                     PickOption();
                 }
                 else
@@ -249,6 +257,8 @@ public class Bichous : Entity
                     skills[0].Effect(vetrixObjective, GameController.instance.SelectedPlayer());
                     Debug.Log("ORLAW HABILITY");
                     Debug.Log("ORLAW " + attack);
+                    msg.GetComponent<TextMeshProUGUI>().text = "Incremento de daño";
+
                     //actualState = EntityState.FINISHED;
                     //return;
                 }
@@ -257,6 +267,9 @@ public class Bichous : Entity
                 attacked = true;
                 if (moveAndAttack)
                 {
+                    msg.GetComponent<TextMeshProUGUI>().text = "Atacando a " + mainObjective.GetComponent<Entity>().name;
+
+
                     for (int i = 0; i < mainObjective.GetComponent<Entity>().skills.Count; i++)
                     {
                         if (mainObjective.GetComponent<Entity>().skills[i].isReciveingDamage)
@@ -348,6 +361,7 @@ public class Bichous : Entity
              }*/
                 break;
             case EntityState.FINISHED:
+                msg.GetComponent<TextMeshProUGUI>().text = "Esperando turno...";
                 GameController.instance.NextPlayer();
                 optionPicked = false;
 
@@ -585,6 +599,8 @@ public class Bichous : Entity
                 {
                     //Attack
                     //  GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(carro.GetComponent<Entity>().gridX, carro.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;
+                    msg.GetComponent<TextMeshProUGUI>().text = "Atacando carro";
+
                     if (!attacked)
                     {
                         mainObjective = carro.gameObject;
@@ -606,6 +622,7 @@ public class Bichous : Entity
                 {
                     (int newX, int newY) = MoveToClosePositionC(carro);
                     //attacked = true;
+                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para atacar al carro";
 
                     // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
                     Carriage falseCarro2 = new Carriage();
@@ -668,6 +685,7 @@ public class Bichous : Entity
                             mainObjective.GetComponent<Entity>().skills[i].Effect(gameObject, mainObjective);
                     }
                     mainAttack.Effect(mainObjective, gameObject);
+                    msg.GetComponent<TextMeshProUGUI>().text = "Atacando a " + plants[indPlanta].GetComponent<Entity>().name;
 
                 }
                 else
@@ -679,10 +697,14 @@ public class Bichous : Entity
                     plantsInfo[indPlanta].GridX = newX;
                     plantsInfo[indPlanta].GridY = newY;
                     plantsInfo[indPlanta].UpdateRelevant();
+                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para atacar a " + plants[indPlanta].GetComponent<Entity>().name;
+
 
                     int a = distSmthToSmthVariables(newX, newY, plants[indPlanta].GetComponent<Plants>().gridX, plants[indPlanta].GetComponent<Plants>().gridY);
                     if (a <= 2) // 1 o range
                     {
+                       // msg.GetComponent<TextMeshProUGUI>().text = "Atacando a " + plants[indPlanta].GetComponent<Entity>().name;
+
                         //Attack
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().mainObjective = GridCreator.instance.GetTile(enemyPicked.GetComponent<Entity>().gridX, enemyPicked.GetComponent<Entity>().gridY).GetComponent<Tile>().entity;                    //  attacked = true;
                                                                                                                                                                                                                                                                           //GameController.instance.SelectedPlayer().GetComponent<Mosquitoes>().actualState = Entity.EntityState.ATTACKING;
@@ -737,6 +759,11 @@ public class Bichous : Entity
                 {
                     (int newX, int newY) = MoveToClosePositionH(telixFirst.GetComponent<Tile>());
                     moveAndAttack = false;
+                    try
+                    {
+                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utlizar habilidad sobre " + closer.GetComponent<Entity>().name + last.GetComponent<Entity>().name;
+                    }
+                    catch { }
 
                     float a = distSmthToSmthVariables(newX, newY, carro.gridX, carro.gridY);
                     if (distSmthToSmthVariables(newX, newY, telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY) <= 2) // 1 o range
@@ -755,10 +782,13 @@ public class Bichous : Entity
                     Tile vetrixTile = GridCreator.instance.GetTile(vetrixObjective.GetComponent<Entity>().gridX, vetrixObjective.GetComponent<Entity>().gridY).GetComponent<Tile>();
                     (int newX, int newY) = MoveToClosePositionH(vetrixTile);
 
+                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utilizar habilidad sobre " + vetrixObjective.GetComponent<Entity>().name;
 
                     moveAndHability = false;
                     if (distSmthToSmthVariables(newX, newY, vetrixTile.positionX, vetrixTile.positionY) <= 2)
                     {
+                        msg.GetComponent<TextMeshProUGUI>().text = "Usando habilidad sobre" + vetrixObjective.GetComponent<Entity>().name;
+
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
                         moveAndHability = true;
                     }// 1 o range
@@ -768,10 +798,31 @@ public class Bichous : Entity
                 else if(name == "Nibus")
                 {
                     // SetDestination(nibusSeed);
-                    (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
+                /*    if (distSmthToSmthVariables(nibusSeed.GetComponent<Tile>().positionX, nibusSeed.GetComponent<Tile>().positionY, gridX, gridY) < maxMovement)
+                    {
+                        try
+                        {
+                            SetDestination(nibusSeed);
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                            msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
 
-                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                        }
+                        catch
+                        {
+                            Debug.Log("Nibus movemente error");
+                            (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
+                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
+                        }
+                    }
+                    else
+                    {*/
+                        (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
+
+                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
+
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                   // }
                 }
 
             }
@@ -998,10 +1049,11 @@ public class Bichous : Entity
             }
         }
 
+        if (name == "Nibus")
+            Debug.Log("nibus");
 
-
-        // if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
-        //dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
+         if (CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY)) != null)
+            dest = CustomSetDestinationC(GridCreator.instance.GetTile((movedX < 0 || movedX > GridCreator.instance.width) ? movedX : movedX, (movedY < 0 || movedY > GridCreator.instance.height) ? movedY : movedY));
         try
         {
             dest = CustomSetDestinationC(GridCreator.instance.GetTile(movedX,movedY));
@@ -1575,8 +1627,7 @@ public class Bichous : Entity
         plantsCarro.Add(carro.gameObject);
         int[,] cercania = new int[plantsCarro.Count, plantsCarro.Count];
         int closeEnemies = 0;
-        GameObject closer = null;
-        GameObject last = null;
+       
         int[] distPlant = new int[plantsCarro.Count];
         for (int i = 0; i < plantsCarro.Count; i++)
         {
