@@ -314,8 +314,9 @@ public class Bichous : Entity
                 }
                 else if (name == "Vetrix")
                 {
-                    if (skills[0].currentCoolDown == 0)
+                    if (skills[0].currentCoolDown == 0 && moveAndHability)
                     {
+                        Debug.Log("VETRIX");
                         attacked = true;
                         skillSelected = 0;
                         skills[0].Effect(vetrixObjective, GameController.instance.SelectedPlayer());
@@ -529,7 +530,7 @@ public class Bichous : Entity
             {
                 Debug.Log(skills[0].currentCoolDown);
                 (float pesoVetrix,int indiceVetrix) = VetrixHability();
-                options[4] = pesoVetrix;
+                options[4] = pesoVetrix + 0.2f;
             }
             else if(name == "Nibus")
             {
@@ -744,7 +745,20 @@ public class Bichous : Entity
                     }
                 }else if(name == "Vetrix")
                 {
-                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+
+                    // GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
+                    Tile vetrixTile = GridCreator.instance.GetTile(vetrixObjective.GetComponent<Entity>().gridX, vetrixObjective.GetComponent<Entity>().gridY).GetComponent<Tile>();
+                    (int newX, int newY) = MoveToClosePositionH(vetrixTile);
+
+
+                    moveAndHability = false;
+                    if (distSmthToSmthVariables(newX, newY, vetrixTile.positionX, vetrixTile.positionY) <= 2)
+                    {
+                        GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+                        moveAndHability = true;
+                    }// 1 o range
+
+
                 }
                 else if(name == "Nibus")
                 {
