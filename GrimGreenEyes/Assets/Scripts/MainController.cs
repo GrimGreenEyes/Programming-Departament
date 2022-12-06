@@ -36,7 +36,9 @@ public class MainController : MonoBehaviour
     public void loadScreen(string sceneName)
     {
         if (sceneName == "LoadMapScene")
+        {
             SceneManager.LoadScene("MapScene");
+        }
         else
             SceneManager.LoadScene(sceneName);
 
@@ -62,6 +64,8 @@ public class MainController : MonoBehaviour
 
                 if (matchHasWon == false)
                 {
+                    GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
+
                     GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().MapSceneUp(EnumMapOptions.mapOptions.returnMap);
                     GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().mapGenerated.SetActive(true);
                 }
@@ -139,6 +143,8 @@ public class MainController : MonoBehaviour
         if (string.Equals(sceneName, "ResourcesScene"))
         {
             audioManager.changeMusic("carro");
+            GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().doShowLoad();
+
         }
 
 

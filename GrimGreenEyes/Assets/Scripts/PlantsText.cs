@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class PlantsText : MonoBehaviour
 {
@@ -15,9 +18,18 @@ public class PlantsText : MonoBehaviour
     public GameObject plantImg;
     public GameObject plantName;
 
+    public GameObject cont;
+
     void Start()
     {
-        GameObject.Find("Continue").GetComponent<Button>().interactable = false;
+        try
+        {
+            GameObject.Find("Continue").GetComponent<Button>().interactable = false;
+        }
+        catch
+        {
+            cont.GetComponent<Button>().interactable = false;
+        }
 
         blcImg = transform.GetChild(0).gameObject;
         text = blcImg.transform.GetChild(0).gameObject;
@@ -33,28 +45,45 @@ public class PlantsText : MonoBehaviour
         plantImg.GetComponent<Image>().sprite = info.image;
         plantName.GetComponent<TextMeshProUGUI>().text = info.name;
 
-        StartCoroutine(loadingScene());
+        StartCoroutine(loadingScene(1,4));
 
     }
     private void OnEnable()
     {
-        GameObject.Find("Continue").GetComponent<Button>().interactable = false;
+        try
+        {
+            GameObject.Find("Continue").GetComponent<Button>().interactable = false;
+        }
+        catch { cont.GetComponent<Button>().interactable = false; }
+
+            blcImg = transform.GetChild(0).gameObject;
+            text = blcImg.transform.GetChild(0).gameObject;
+            plantImg = blcImg.transform.GetChild(1).gameObject;
+            plantName = blcImg.transform.GetChild(2).gameObject;
 
 
-        blcImg = transform.GetChild(0).gameObject;
-        text = blcImg.transform.GetChild(0).gameObject;
-        plantImg = blcImg.transform.GetChild(1).gameObject;
-        plantName = blcImg.transform.GetChild(2).gameObject;
+            int rand = Random.RandomRange(0, infos.Count);
+            Info info = infos[rand];
 
+            text.GetComponent<TextMeshProUGUI>().text = info.msg;
+            plantImg.GetComponent<Image>().sprite = info.image;
+            plantName.GetComponent<TextMeshProUGUI>().text = info.name;
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.name == "ResourcesScene" || scene.name == "MapScene")
+        {
+            Debug.Log("Resources or map");
+            Debug.Log("SHORT LOAD");
 
-        int rand = Random.RandomRange(0, infos.Count);
-        Info info = infos[rand];
+            StartCoroutine(loadingScene(0, 2));
+        }
+        else
+        {
+            Debug.Log(scene.name);
+            Debug.Log("LONG LOAD");
 
-        text.GetComponent<TextMeshProUGUI>().text = info.msg;
-        plantImg.GetComponent<Image>().sprite = info.image;
-        plantName.GetComponent<TextMeshProUGUI>().text = info.name;
+            StartCoroutine(loadingScene(2, 6));
 
-        StartCoroutine(loadingScene());
+        }
 
     }
 
@@ -81,15 +110,34 @@ public class PlantsText : MonoBehaviour
     }
 
 
-    IEnumerator loadingScene()
+    IEnumerator loadingScene(int min, int max)
     {
-        GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
+        int rand = 0;
+        try
+        {
+            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
 
-        int rand = Random.RandomRange(2, 10);
+            rand = Random.RandomRange(min, max);
+        }
+        catch
+        {
+            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
+
+            rand = Random.RandomRange(min, max);
+        }
         yield return new WaitForSeconds(rand);
-        GameObject.Find("Continue").GetComponent<Button>().interactable = true;
+        try
+        {
+            GameObject.Find("Continue").GetComponent<Button>().interactable = true;
 
-        GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
+            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
+        }
+        catch
+        {
+            cont.GetComponent<Button>().interactable = true;
+
+            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
+        }
     }
 }
 [System.Serializable]

@@ -2469,6 +2469,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299172147226378861, guid: a8ce514931bfd204296ec5afec3f7f00, type: 3}
+      propertyPath: cont
+      value: 
+      objectReference: {fileID: 77050051}
+    - target: {fileID: 4299172147226378861, guid: a8ce514931bfd204296ec5afec3f7f00, type: 3}
       propertyPath: infos.Array.data[3].msg
       value: "Se cree el gobernador de cualquier ser que considere inferior, nunca
         le veras mal vestido, adem\xE1s, para \xE9l no hay mayor pecado que dirigirle
