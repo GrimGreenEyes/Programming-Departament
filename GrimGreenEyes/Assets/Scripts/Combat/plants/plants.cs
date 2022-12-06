@@ -66,7 +66,15 @@ public class Plants : Entity
         //    return;
         //}
         skillSelected = position;
-        actualState = EntityState.USINGSKILL;
+        if(actualState == EntityState.IDLE)
+        {
+
+            actualState = EntityState.USINGSKILL;
+        }
+        else if(actualState == EntityState.USINGSKILL)
+        {
+            actualState = EntityState.IDLE;
+        }
     }
     private void Update()
     {

@@ -51,9 +51,11 @@ public class Entity : MonoBehaviour
 
 
     [Header("Combat")]
+    [SerializeField] protected GameObject attackPrefab;
+    protected GameObject attackObject;
     public Attack mainAttack;
     [SerializeField] protected List<GameObject> skillPrefabs = new List<GameObject>();
-    [SerializeField] protected List<GameObject> skillObjects = new List<GameObject>();
+    protected List<GameObject> skillObjects = new List<GameObject>();
     public List<Skill> skills = new List<Skill>();
     public int skillSelected = 3;
     public int charges = 0;
@@ -141,6 +143,8 @@ public class Entity : MonoBehaviour
     public void Start()
     {
         MovementPoint = transform.position;
+        attackObject = GameObject.Instantiate(attackPrefab, gameObject.transform);
+        mainAttack = attackObject.GetComponent<Attack>();
         for (int i = 0; i < skillPrefabs.Count; i++)
         {
             skillObjects.Add(GameObject.Instantiate(skillPrefabs[i], gameObject.transform));

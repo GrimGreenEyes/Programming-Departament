@@ -86,7 +86,6 @@ public class PlayerPanel : MonoBehaviour
                 return;
             }
             
-            if (plant.skills[i].isActiveSkill)
             {
                 GameObject button = Instantiate(buttonPref, butonPositions[x], false);
                 skillButtons.Add(button);

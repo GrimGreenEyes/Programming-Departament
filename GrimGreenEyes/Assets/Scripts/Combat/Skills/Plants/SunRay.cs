@@ -12,7 +12,7 @@ public class SunRay : Skill
             DeactivateSkill(player.GetComponent<Plants>());
             return;
         }
-        ally.GetComponent<Plants>().defenseMultiplayer = ally.GetComponent<Plants>().defenseMultiplayer * 2f;
+        ally.GetComponent<Plants>().defense += 10;
         GameObject animation = Instantiate(attackAnimation, ally.transform);
         animation.GetComponent<AttackAnimation>().Animate(2);
         DeactivateSkill(player.GetComponent<Plants>());

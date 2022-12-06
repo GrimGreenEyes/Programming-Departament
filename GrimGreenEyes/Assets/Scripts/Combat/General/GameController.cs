@@ -17,9 +17,11 @@ public class GameController : MonoBehaviour
     public List<GameObject> enemys = new List<GameObject>();
     private GameObject carriage;
 
-    public GameObject winScreen;
-    public GameObject looseScreen;
-    public GameObject defaultWinButton;
+    
+    [SerializeField] private GameObject UI;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject looseScreen;
+    [SerializeField] private GameObject defaultWinButton;
 
     [SerializeField] private GameObject nextTurnButton;
 
@@ -256,6 +258,7 @@ public class GameController : MonoBehaviour
     }
     public void Finish(bool victory)
     {
+        UI.SetActive(false);
         if (!victory)
         {
             looseScreen.SetActive(true);
@@ -286,7 +289,6 @@ public class GameController : MonoBehaviour
         {
             teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
         }
-        
         winScreen.SetActive(true);
         winScreen.GetComponent<AudioSource>().Play();
                
