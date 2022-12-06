@@ -1767,7 +1767,7 @@ MonoBehaviour:
   - {fileID: 4535999862920829099, guid: d733ae73d7021ca4aa776f7aa055fc86, type: 3}
   players: []
   enemys1:
-  - {fileID: 192312548320703699, guid: 29fbcbde63bd49d46b76d7f51cca0de2, type: 3}
+  - {fileID: 192312548320703699, guid: 90ff9d2fda365df4c9c0aa7f110d61e5, type: 3}
   enemys2:
   - {fileID: 7249653124844612577, guid: 620496272fadddb46baf3053033d6b7e, type: 3}
   enemys3:

@@ -52,6 +52,7 @@ public class Bichous : Entity
     public GameObject msg;
     public String msgText;
 
+    public GameObject verpendexTile;
 
     public void SetStats(int level)
     {
@@ -346,6 +347,16 @@ public class Bichous : Entity
                     {
                         attacked = true;
                         skills[0].Effect(nibusSeed, GameController.instance.SelectedPlayer());
+                    }
+                }else if(name == "Verpendex")
+                {
+                    if (skills[0].currentCoolDown == 0 && moveAndHability)
+                    {
+                        Debug.Log("VERPENDEX");
+                        attacked = true;
+                        skillSelected = 0;
+                        skills[0].Effect(verpendexTile, GameController.instance.SelectedPlayer());
+                        break;
                     }
                 }
 
@@ -775,7 +786,8 @@ public class Bichous : Entity
                         moveAndHability = true;
 
                     }
-                }else if(name == "Vetrix")
+                }
+                else if (name == "Vetrix")
                 {
 
                     // GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.USINGSKILL;
@@ -795,34 +807,32 @@ public class Bichous : Entity
 
 
                 }
-                else if(name == "Nibus")
+                else if (name == "Nibus")
                 {
-                    // SetDestination(nibusSeed);
-                /*    if (distSmthToSmthVariables(nibusSeed.GetComponent<Tile>().positionX, nibusSeed.GetComponent<Tile>().positionY, gridX, gridY) < maxMovement)
+                    (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
+
+                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
+
+                    GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
+
+                }
+                else if (name == "Verpendex")
+                {
+                    (int newX, int newY) = MoveToClosePositionH(verpendexTile.GetComponent<Tile>());
+                    moveAndAttack = false;
+                    try
                     {
-                        try
-                        {
-                            SetDestination(nibusSeed);
-                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
-                            msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
-
-                        }
-                        catch
-                        {
-                            Debug.Log("Nibus movemente error");
-                            (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
-                            GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
-
-                        }
+                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utlizar habilidad";
                     }
-                    else
-                    {*/
-                        (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
+                    catch { }
 
-                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
-
+                    if (distSmthToSmthVariables(newX, newY, verpendexTile.GetComponent<Tile>().positionX, verpendexTile.GetComponent<Tile>().positionY) <= 4) // 1 o range
+                    {
                         GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
-                   // }
+
+                        moveAndHability = true;
+                        msg.GetComponent<TextMeshProUGUI>().text = "Usando habilidad";
+                    }
                 }
 
             }
@@ -1616,9 +1626,113 @@ public class Bichous : Entity
 
     }
 
-    public int VerpendexHability()
+    public float VerpendexHability()
     {
-        return 1;
+        List<GameObject> plantsCarro = new List<GameObject>(plants);
+        plantsCarro.Add(carro.gameObject);
+        List<GameObject> tilesProx = new List<GameObject>();
+        float maxValue = 0;
+        bool sharedTiles = false;
+
+        for (int i = 0; i < plantsCarro.Count; i++)
+        {
+            GameObject enemyTile = GridCreator.instance.GetTile(plantsCarro[i].GetComponent<Entity>().gridX, plantsCarro[i].GetComponent<Entity>().gridY);
+
+            GameObject northTile = null;
+            GameObject southTile = null;
+
+            GameObject eastTile = null;
+            GameObject westTile = null;
+            try
+            {
+                northTile = GridCreator.instance.GetTile(enemyTile.GetComponent<Tile>().positionX + 1, enemyTile.GetComponent<Tile>().positionY);
+            }
+            catch
+            {
+                northTile = null;
+            }
+            if (northTile != null && northTile.GetComponent<Tile>().isWalkable)
+            {
+                tilesProx.Add(northTile);
+            }
+
+            try
+            {
+                southTile = GridCreator.instance.GetTile(enemyTile.GetComponent<Tile>().positionX - 1, enemyTile.GetComponent<Tile>().positionY);
+            }
+            catch
+            {
+                southTile = null;
+            }
+            if (southTile != null && southTile.GetComponent<Tile>().isWalkable)
+            {
+                tilesProx.Add(southTile);
+            }
+
+            try
+            {
+                eastTile = GridCreator.instance.GetTile(enemyTile.GetComponent<Tile>().positionX, enemyTile.GetComponent<Tile>().positionY + 1);
+            }
+            catch
+            {
+                eastTile = null;
+            }
+            if (eastTile != null && eastTile.GetComponent<Tile>().isWalkable)
+            {
+                tilesProx.Add(eastTile);
+            }
+
+            try
+            {
+                westTile = GridCreator.instance.GetTile(enemyTile.GetComponent<Tile>().positionX, enemyTile.GetComponent<Tile>().positionY - 1);
+            }
+            catch
+            {
+                westTile = null;
+            }
+            if (westTile != null && westTile.GetComponent<Tile>().isWalkable)
+            {
+                tilesProx.Add(westTile);
+            }
+        }
+        int[] values = new int[tilesProx.Count];
+        
+        for(int i = 0; i<tilesProx.Count; i++)
+        {
+            for(int j = 0; j < tilesProx.Count; j++)
+            {
+                if (i != j)
+                {
+                    if (tilesProx[i].GetComponent<Tile>().positionX == tilesProx[j].GetComponent<Tile>().positionX && tilesProx[i].GetComponent<Tile>().positionY == tilesProx[j].GetComponent<Tile>().positionY)
+                    {
+                        values[i] += 1;
+                        Debug.Log("Verpendex " + tilesProx[i]);
+                        sharedTiles = true;
+                    }
+                }
+            }
+        }
+        try
+        {
+            if (sharedTiles)
+            {
+                maxValue = values.Max();
+                int maxIndex = values.ToList().IndexOf((int)maxValue);
+                verpendexTile = tilesProx[maxIndex];
+                Factor _tileValue = new LeafVariable(() => maxValue, 0, 6);
+                maxValue = _tileValue.getValue();
+            }
+            else
+            {
+                maxValue = 0;
+                verpendexTile = null;
+            }
+
+        }
+        catch {
+            maxValue = 0;
+        }
+        return maxValue;
     }
 
     public int TelixHability()
