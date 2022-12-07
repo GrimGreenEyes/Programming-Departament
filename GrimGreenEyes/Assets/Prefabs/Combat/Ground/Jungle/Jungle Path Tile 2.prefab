@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 7168629836084590436}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
-  - component: {fileID: 5254859341999245058}
-  - component: {fileID: 304746618382022825}
+  - component: {fileID: 8237918583247972380}
   m_Layer: 0
   m_Name: Jungle Path Tile 2
   m_TagString: PathTile
@@ -160,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b4eb1e8e37ff1d45ac9973fc2403f71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f872c7ae354ec3449b1beded8f2f2ade, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,33 +170,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5254859341999245058
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368756039915833080}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0065042377, y: 0.00030860305}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.359375, y: 2.3359375}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45220554, y: 0.20825917}
-  m_EdgeRadius: 0
---- !u!60 &304746618382022825
+--- !u!60 &8237918583247972380
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +187,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.359375, y: 2.3359375}
+    oldSize: {x: 11.13, y: 6.3}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -222,32 +195,32 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 2.1796875, y: -0.109375}
-      - {x: 2.1796875, y: 0.046875}
-      - {x: 2.1757812, y: 0.0546875}
-      - {x: 1.9179688, y: 0.1875}
-      - {x: 1.5117188, y: 0.39453125}
-      - {x: 1.3046875, y: 0.5}
-      - {x: 0.28515625, y: 1.0195312}
-      - {x: -0.01171875, y: 1.1679688}
-      - {x: -0.05078125, y: 1.1679688}
-      - {x: -0.22265625, y: 1.078125}
-      - {x: -0.5546875, y: 0.90625}
-      - {x: -0.89453125, y: 0.734375}
-      - {x: -1.1210938, y: 0.6171875}
-      - {x: -1.7929688, y: 0.265625}
-      - {x: -2.1757812, y: 0.06640625}
-      - {x: -2.1796875, y: 0.0625}
-      - {x: -2.1796875, y: -0.10546875}
-      - {x: -1.5039062, y: -0.44140625}
-      - {x: -1.4960938, y: -0.44140625}
-      - {x: -0.7734375, y: -0.8046875}
-      - {x: -0.765625, y: -0.8046875}
-      - {x: -0.04296875, y: -1.1679688}
-      - {x: 0, y: -1.1679688}
-      - {x: 0.2421875, y: -1.0546875}
-      - {x: 0.91796875, y: -0.72265625}
-      - {x: 2.171875, y: -0.1171875}
+    - - {x: 5.565, y: -0.44}
+      - {x: 5.565, y: 0.31}
+      - {x: 5.555, y: 0.32999998}
+      - {x: 4.955, y: 0.64}
+      - {x: 1.305, y: 2.5}
+      - {x: 0.775, y: 2.77}
+      - {x: 0.015, y: 3.1499999}
+      - {x: -0.085, y: 3.1499999}
+      - {x: -0.525, y: 2.9199998}
+      - {x: -2.825, y: 1.73}
+      - {x: -3.095, y: 1.5899999}
+      - {x: -3.965, y: 1.14}
+      - {x: -5.375, y: 0.41}
+      - {x: -5.535, y: 0.34}
+      - {x: -5.565, y: 0.26}
+      - {x: -5.565, y: -0.42999998}
+      - {x: -4.515, y: -0.96}
+      - {x: -4.495, y: -0.96}
+      - {x: -3.0649998, y: -1.68}
+      - {x: -3.0449998, y: -1.68}
+      - {x: -1.655, y: -2.3799999}
+      - {x: -1.635, y: -2.3799999}
+      - {x: -0.095, y: -3.1499999}
+      - {x: -0.024999999, y: -3.1499999}
+      - {x: 4.745, y: -0.84999996}
+      - {x: 5.555, y: -0.45999998}
 --- !u!1 &4368756041002471843
 GameObject:
   m_ObjectHideFlags: 0

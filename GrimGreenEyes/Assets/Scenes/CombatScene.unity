@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.6000004}
+  m_AnchoredPosition: {x: 0, y: 4.6000013}
   m_SizeDelta: {x: 0, y: -4.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66644239
@@ -1641,7 +1641,7 @@ MonoBehaviour:
     mountainTile: {fileID: 4368756039915833080, guid: 1e122e431f4d0404980040a3af9ee403, type: 3}
     powerupTile: {fileID: 4368756039915833080, guid: 1f1ae57f315993e45b3c35a5f2d508b1, type: 3}
     healerTile: {fileID: 4368756039915833080, guid: d2bc957c25386fc46bc6059273fa8551, type: 3}
-    damagerTile: {fileID: 4368756039915833080, guid: 714e7178b56b72d4e85e42ce186abb98, type: 3}
+    damagerTile: {fileID: 4368756039915833080, guid: f6d0330ff41ce1a4f8f8b4cf818865b1, type: 3}
     eventTile: {fileID: 0}
     lPath1: {fileID: 4368756039915833080, guid: eabd9eef7f8fe484489171ac8e8221de, type: 3}
     lPath2: {fileID: 4368756039915833080, guid: 2a774bf0d4d302c4da9a00265a86b88c, type: 3}
@@ -5785,7 +5785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.72919077}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.450001}
+  m_AnchoredPosition: {x: 0, y: 4.45}
   m_SizeDelta: {x: 0, y: -7.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987505066

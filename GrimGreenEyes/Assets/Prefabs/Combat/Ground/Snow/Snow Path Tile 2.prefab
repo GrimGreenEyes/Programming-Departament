@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 5337598819633858076}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
-  - component: {fileID: 5254859341999245058}
-  - component: {fileID: 6074741726536009316}
+  - component: {fileID: 6889342029827518510}
   m_Layer: 0
   m_Name: Snow Path Tile 2
   m_TagString: PathTile
@@ -67,6 +66,8 @@ MonoBehaviour:
   effects: Sin efectos
   type: path
   spawnBlocks: 0
+  positionX: 0
+  positionY: 0
   isInRange: 0
   isWalkable: 1
   isAcided: 0
@@ -158,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66f706eabc3fc1c49a9569b3dedc579a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afbc651af0c239545be6c17732c5a391, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,33 +170,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5254859341999245058
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368756039915833080}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0065042377, y: 0.00030860305}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3398438, y: 2.3242188}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45220554, y: 0.20825917}
-  m_EdgeRadius: 0
---- !u!60 &6074741726536009316
+--- !u!60 &6889342029827518510
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,36 +187,20 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3398438, y: 2.3242188}
+    oldSize: {x: 11.16, y: 6.34}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.1953125, y: -0.01953125}
-      - {x: 1.90625, y: 0.12890625}
-      - {x: 0.78125, y: 0.69921875}
-      - {x: 0.50390625, y: 0.83984375}
-      - {x: -0.0078125, y: 1.0976562}
-      - {x: -0.05078125, y: 1.0976562}
-      - {x: -0.29296875, y: 0.97265625}
-      - {x: -0.6953125, y: 0.765625}
-      - {x: -1.6523438, y: 0.2734375}
-      - {x: -2.1757812, y: 0.00390625}
-      - {x: -2.1992188, y: -0.01171875}
-      - {x: -2.1992188, y: -0.02734375}
-      - {x: -1.6992188, y: -0.28125}
-      - {x: -1.6914062, y: -0.27734375}
-      - {x: -1.1640625, y: -0.54296875}
-      - {x: -0.62109375, y: -0.8125}
-      - {x: -0.61328125, y: -0.8125}
-      - {x: -0.04296875, y: -1.0976562}
-      - {x: -0.0078125, y: -1.0976562}
-      - {x: 2.0234375, y: -0.125}
-      - {x: 2.1992188, y: -0.0390625}
-      - {x: 2.1992188, y: -0.02734375}
+    - - {x: -0.4986016, y: 0.022840828}
+      - {x: -0.500426, y: -0.034620762}
+      - {x: -0.007950336, y: -0.25029737}
+      - {x: 0.49761006, y: -0.03311053}
+      - {x: 0.4985898, y: 0.020619124}
+      - {x: -0.004646197, y: 0.24886465}
 --- !u!1 &4368756041002471843
 GameObject:
   m_ObjectHideFlags: 0

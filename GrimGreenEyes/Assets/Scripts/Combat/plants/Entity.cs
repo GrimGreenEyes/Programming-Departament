@@ -143,8 +143,11 @@ public class Entity : MonoBehaviour
     public void Start()
     {
         MovementPoint = transform.position;
-        attackObject = GameObject.Instantiate(attackPrefab, gameObject.transform);
-        mainAttack = attackObject.GetComponent<Attack>();
+        if(attackPrefab != null)
+        {
+            attackObject = GameObject.Instantiate(attackPrefab, gameObject.transform);
+            mainAttack = attackObject.GetComponent<Attack>();
+        }
         for (int i = 0; i < skillPrefabs.Count; i++)
         {
             skillObjects.Add(GameObject.Instantiate(skillPrefabs[i], gameObject.transform));

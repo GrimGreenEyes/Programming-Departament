@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4368756039915833079}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
-  - component: {fileID: 5254859341999245058}
-  - component: {fileID: 5109858941677897790}
+  - component: {fileID: 5329304541942146012}
   m_Layer: 0
   m_Name: Plain Water
   m_TagString: NotWalkable
@@ -66,6 +65,8 @@ MonoBehaviour:
   effects: Pasando por una casiya adyacente recoge 2 de agua
   type: water
   spawnBlocks: 0
+  positionX: 0
+  positionY: 0
   isInRange: 0
   isWalkable: 0
   isAcided: 0
@@ -155,33 +156,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5254859341999245058
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368756039915833080}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0065042377, y: 0.00030860305}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3984375, y: 2.3359375}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45220554, y: 0.20825917}
-  m_EdgeRadius: 0
---- !u!60 &5109858941677897790
+--- !u!60 &5329304541942146012
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,7 +173,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.3984375, y: 2.3359375}
+    oldSize: {x: 11.15, y: 6.27}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -206,29 +181,24 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 2.1953125, y: -0.01953125}
-      - {x: 1.8984375, y: 0.1328125}
-      - {x: 1.34375, y: 0.4140625}
-      - {x: 1.0585938, y: 0.55859375}
-      - {x: 0.2265625, y: 0.98046875}
-      - {x: -0.01171875, y: 1.0976562}
-      - {x: -0.05078125, y: 1.0976562}
-      - {x: -1.2421875, y: 0.48828125}
-      - {x: -2.0546875, y: 0.06640625}
-      - {x: -2.1914062, y: 0}
-      - {x: -2.1992188, y: -0.015625}
-      - {x: -2.1992188, y: -0.03125}
-      - {x: -1.7070312, y: -0.2734375}
-      - {x: -1.6992188, y: -0.2734375}
-      - {x: -1.1640625, y: -0.54296875}
-      - {x: -1.15625, y: -0.54296875}
-      - {x: -0.62109375, y: -0.8125}
-      - {x: -0.61328125, y: -0.8125}
-      - {x: -0.04296875, y: -1.0976562}
-      - {x: -0.0078125, y: -1.0976562}
-      - {x: 2.03125, y: -0.12109375}
-      - {x: 2.1992188, y: -0.0390625}
-      - {x: 2.1992188, y: -0.02734375}
+    - - {x: 5.565, y: -0.445}
+      - {x: 5.575, y: -0.435}
+      - {x: 5.575, y: 0.295}
+      - {x: 5.525, y: 0.325}
+      - {x: 3.145, y: 1.525}
+      - {x: 0.265, y: 2.985}
+      - {x: -0.044999998, y: 3.135}
+      - {x: -0.13499999, y: 3.135}
+      - {x: -0.655, y: 2.865}
+      - {x: -5.565, y: 0.33499998}
+      - {x: -5.575, y: 0.325}
+      - {x: -5.575, y: -0.415}
+      - {x: -1.4449999, y: -2.475}
+      - {x: -0.114999995, y: -3.135}
+      - {x: -0.035, y: -3.135}
+      - {x: 0.865, y: -2.715}
+      - {x: 2.175, y: -2.085}
+      - {x: 3.475, y: -1.4449999}
 --- !u!1 &4368756041002471843
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 2272407394278070315}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
-  - component: {fileID: 5254859341999245058}
-  - component: {fileID: 81492905227669407}
+  - component: {fileID: 7509353556472109021}
   m_Layer: 0
   m_Name: Snow Flowers
   m_TagString: tile
@@ -67,6 +66,8 @@ MonoBehaviour:
   effects: Cura 5 puntos de vida
   type: healer
   spawnBlocks: 0
+  positionX: 0
+  positionY: 0
   isInRange: 0
   isWalkable: 1
   isAcided: 0
@@ -169,33 +170,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5254859341999245058
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368756039915833080}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0065042377, y: 0.00030860305}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4101562, y: 2.359375}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45220554, y: 0.20825917}
-  m_EdgeRadius: 0
---- !u!60 &81492905227669407
+--- !u!60 &7509353556472109021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,7 +187,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4101562, y: 2.359375}
+    oldSize: {x: 11.29, y: 6.42}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -220,27 +195,31 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 2.1953125, y: -0.01953125}
-      - {x: 1.90625, y: 0.12890625}
-      - {x: 0.7890625, y: 0.6953125}
-      - {x: 0.51171875, y: 0.8359375}
-      - {x: -0.0078125, y: 1.0976562}
-      - {x: -0.05078125, y: 1.0976562}
-      - {x: -0.29296875, y: 0.97265625}
-      - {x: -0.6953125, y: 0.765625}
-      - {x: -1.6523438, y: 0.2734375}
-      - {x: -1.78125, y: 0.20703125}
-      - {x: -2.0546875, y: 0.06640625}
-      - {x: -2.1914062, y: 0}
-      - {x: -2.1992188, y: -0.015625}
-      - {x: -2.1992188, y: -0.03125}
-      - {x: -1.6992188, y: -0.27734375}
-      - {x: -0.61328125, y: -0.81640625}
-      - {x: -0.04296875, y: -1.0976562}
-      - {x: -0.0078125, y: -1.0976562}
-      - {x: 2.0234375, y: -0.125}
-      - {x: 2.1992188, y: -0.0390625}
-      - {x: 2.1992188, y: -0.02734375}
+    - - {x: 4.075, y: -1.23}
+      - {x: 5.1349998, y: -0.71999997}
+      - {x: 5.415, y: -0.59999996}
+      - {x: 5.645, y: -0.47}
+      - {x: 5.645, y: 0.32}
+      - {x: 5.6349998, y: 0.32999998}
+      - {x: 4.6749997, y: 0.82}
+      - {x: 4.065, y: 1.13}
+      - {x: 2.865, y: 1.74}
+      - {x: 1.035, y: 2.6699998}
+      - {x: -0.044999998, y: 3.21}
+      - {x: -0.105, y: 3.21}
+      - {x: -0.325, y: 3.1}
+      - {x: -5.4249997, y: 0.47}
+      - {x: -5.645, y: 0.35}
+      - {x: -5.645, y: -0.45999998}
+      - {x: -4.265, y: -1.15}
+      - {x: -4.1949997, y: -1.18}
+      - {x: -2.065, y: -2.25}
+      - {x: -0.375, y: -3.1}
+      - {x: -0.125, y: -3.21}
+      - {x: -0.024999999, y: -3.21}
+      - {x: 0.875, y: -2.77}
+      - {x: 3.0149999, y: -1.74}
+      - {x: 3.5349998, y: -1.49}
 --- !u!1 &4368756041002471843
 GameObject:
   m_ObjectHideFlags: 0

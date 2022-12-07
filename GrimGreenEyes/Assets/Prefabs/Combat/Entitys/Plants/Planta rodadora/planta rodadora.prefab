@@ -400,10 +400,10 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 2c235718b59f5c743a9a37f40f0bdbd7, type: 3}
   actualState: 5
-  mainAttack: {fileID: 9116143611145766701, guid: 86290c968c8f87b49bf4cd6879c33002, type: 3}
+  attackPrefab: {fileID: 9116143611145766702, guid: 86290c968c8f87b49bf4cd6879c33002, type: 3}
+  mainAttack: {fileID: 0}
   skillPrefabs:
   - {fileID: 1276064010140777734, guid: 5fc7237288e32654f98613f252d7b97d, type: 3}
-  skillObjects: []
   skills: []
   skillSelected: 3
   charges: 0
@@ -438,6 +438,8 @@ MonoBehaviour:
   HUDTurnSize: 10.5
   isWalking: 0
   moveAndAttack: 0
+  moveAndHability: 0
+  gottenSeed: 0
 --- !u!95 &434704436088723836
 Animator:
   serializedVersion: 4

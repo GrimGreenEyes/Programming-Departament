@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 7791123712677800833}
   - component: {fileID: 7840423886552744799}
   - component: {fileID: 1429487160200484323}
-  - component: {fileID: 5254859341999245058}
-  - component: {fileID: 4608225006904889017}
+  - component: {fileID: 8562118395754331636}
   m_Layer: 0
   m_Name: Jungle Bad
   m_TagString: tile
@@ -171,33 +170,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5254859341999245058
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4368756039915833080}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0065042377, y: 0.00030860305}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4023438, y: 2.3632812}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45220554, y: 0.20825917}
-  m_EdgeRadius: 0
---- !u!60 &4608225006904889017
+--- !u!60 &8562118395754331636
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +187,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4023438, y: 2.3632812}
+    oldSize: {x: 11.28, y: 6.41}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -222,28 +195,30 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 2.1953125, y: -0.01953125}
-      - {x: 1.90625, y: 0.12890625}
-      - {x: 1.34375, y: 0.4140625}
-      - {x: 0.51171875, y: 0.8359375}
-      - {x: -0.0078125, y: 1.0976562}
-      - {x: -0.05078125, y: 1.0976562}
-      - {x: -0.29296875, y: 0.97265625}
-      - {x: -0.6953125, y: 0.765625}
-      - {x: -1.3789062, y: 0.4140625}
-      - {x: -2.1835938, y: 0}
-      - {x: -2.1992188, y: -0.015625}
-      - {x: -2.1992188, y: -0.02734375}
-      - {x: -1.6992188, y: -0.28125}
-      - {x: -1.6914062, y: -0.27734375}
-      - {x: -1.15625, y: -0.546875}
-      - {x: -0.61328125, y: -0.81640625}
-      - {x: -0.60546875, y: -0.81640625}
-      - {x: -0.04296875, y: -1.0976562}
-      - {x: -0.0078125, y: -1.0976562}
-      - {x: 2.0234375, y: -0.125}
-      - {x: 2.1992188, y: -0.0390625}
-      - {x: 2.1992188, y: -0.02734375}
+    - - {x: 5.64, y: 0.325}
+      - {x: 4.66, y: 0.825}
+      - {x: 2.95, y: 1.6949999}
+      - {x: 1.22, y: 2.575}
+      - {x: 0.099999994, y: 3.135}
+      - {x: 0.089999996, y: 3.165}
+      - {x: -0.02, y: 3.205}
+      - {x: -0.14999999, y: 3.205}
+      - {x: -0.7, y: 2.905}
+      - {x: -1.5899999, y: 2.445}
+      - {x: -2.19, y: 2.145}
+      - {x: -4.5699997, y: 0.905}
+      - {x: -5.15, y: 0.60499996}
+      - {x: -5.64, y: 0.345}
+      - {x: -5.64, y: -0.45499998}
+      - {x: -5.6, y: -0.48499998}
+      - {x: -4.15, y: -1.2049999}
+      - {x: -2.72, y: -1.915}
+      - {x: -2.7, y: -1.915}
+      - {x: -0.12, y: -3.205}
+      - {x: -0.04, y: -3.205}
+      - {x: 1.87, y: -2.2849998}
+      - {x: 5.6299996, y: -0.475}
+      - {x: 5.64, y: -0.45499998}
 --- !u!1 &4368756041002471843
 GameObject:
   m_ObjectHideFlags: 0
