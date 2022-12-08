@@ -54,6 +54,21 @@ public class Bichous : Entity
 
     public GameObject verpendexTile;
 
+    [Header("WEIGHTS")]
+
+    public float weightLifeCarro;
+    public float weightDistToInsectCarro;
+    public float weightDistToEndCarro;
+
+    public float weightEsRentAttack;
+    public float weightDistToInsectAttack;
+
+    public float weightTelixEnemiesTogether;
+    public float weightTelixDistance;
+
+    public float vetrixHabilityDistance;
+    public float vetrixPlantsInsectsLife;
+
     public void SetStats(int level)
     {
         maxLivePoints = ps[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
@@ -124,7 +139,24 @@ public class Bichous : Entity
         utilEngine = new UtilitySystemEngine(false, 1.0f);
 
 
-
+        if (weightLifeCarro == 0.0f)
+            weightLifeCarro = 0.3f;
+        if (weightDistToEndCarro == 0.0f)
+            weightDistToEndCarro = 0.45f;
+        if (weightDistToInsectCarro == 0.0f)
+            weightDistToInsectCarro = 0.25f;
+        if (weightDistToInsectAttack == 0.0f)
+            weightDistToInsectAttack = 0.4f;
+        if (weightEsRentAttack == 0.0f)
+            weightEsRentAttack = 0.6f;
+        if (weightTelixDistance == 0.0f)
+            weightTelixDistance = 0.3f;
+        if (weightTelixEnemiesTogether == 0.0f)
+            weightTelixEnemiesTogether = 0.7f;
+        if (vetrixHabilityDistance == 0.0f)
+            vetrixHabilityDistance = 0.5f;
+        if (vetrixPlantsInsectsLife == 0.0f)
+            vetrixPlantsInsectsLife = 0.5f;
         //Factor vidaCarro = new LeafVariable(() => vidaCarroActual, vidaCarroMax, vidaCarroMin);
         // Igual pero con distancias
         //
@@ -446,9 +478,9 @@ public class Bichous : Entity
         // List<float> valuesCarro = new List<float>();
         //valuesCarro.Add(_healthCarro.getValue());
         List<float> weightsC = new List<float>();
-        weightsC.Add(0.30f);
-        weightsC.Add(0.45f);
-        weightsC.Add(0.25f);
+        weightsC.Add(weightLifeCarro); //weightLifeCarro  //0.3
+        weightsC.Add(weightDistToEndCarro); //weightDistToEndCarro .45
+        weightsC.Add(weightDistToInsectCarro); //weightDistToInsectCarro .25
 
         Factor weightAtC = new WeightedSumFusion(factorsAttackCarro, weightsC);
 
@@ -473,7 +505,7 @@ public class Bichous : Entity
         options[1] = 0;
 
         //Huir Planta
-        options[2] = 0.05f;
+        options[2] = 0.00f;
 
         int index = 0;
         //Atacar Planta X
@@ -497,13 +529,16 @@ public class Bichous : Entity
 
                 Factor esRent = new LeafVariable(() => CalcRentable(plantsInfo[i]), 33, 1);
 
+      //          public float weightEsRentAttack;
+    //public float weightDistToInsectAttack;
+
                 factors.Add(_distToPlantsLeafHelper1);
 
                 factors.Add(esRent);
                 // Pesos
                 List<float> weightsAP = new List<float>();
-                weightsAP.Add(0.4f);
-                weightsAP.Add(0.6f);
+                weightsAP.Add(weightDistToInsectAttack);
+                weightsAP.Add(weightEsRentAttack);
                 // Weighted Sum 2 opciones
                 Factor weightFactor = new WeightedSumFusion(factors, weightsAP);
                 plantsAtt[i] = weightFactor.getValue();
@@ -546,7 +581,9 @@ public class Bichous : Entity
                 {
                     Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 33, 1);
                   
-                    options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
+                   // options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
+                    options[4] = ((float)(weightTelixDistance * _distToPlant.getValue() + weightTelixEnemiesTogether * pesoNumP));
+
                 }
                 else
                     options[4] = 0;
@@ -597,7 +634,6 @@ public class Bichous : Entity
         if (decision == 0)
         {
             //Atack Carro
-            //IGUAL QUE ATACAR A PLANTA PERO AL CARRO
 
             Carriage falseCarro = new Carriage();
             falseCarro.gridX = carro.gridX;
@@ -1593,8 +1629,11 @@ public class Bichous : Entity
             factors.Add(_healthInsect);
             List<float> weightsInsects = new List<float>();
 
-            weightsInsects.Add(0.5f);
-            weightsInsects.Add(0.5f);
+            //public float vetrixHabilityDistance
+            //public float vetrixPlantsInsectsLife
+            weightsInsects.Add(vetrixHabilityDistance);
+            weightsInsects.Add(vetrixPlantsInsectsLife);
+
 
             Factor weightFactor = new WeightedSumFusion(factors, weightsInsects);
 
@@ -1612,8 +1651,8 @@ public class Bichous : Entity
             factors.Add(_healthInsect);
             List<float> weightsInsects = new List<float>();
 
-            weightsInsects.Add(0.5f);
-            weightsInsects.Add(0.5f);
+            weightsInsects.Add(vetrixHabilityDistance);
+            weightsInsects.Add(vetrixPlantsInsectsLife);
 
             Factor weightFactor = new WeightedSumFusion(factors, weightsInsects);
 
@@ -1846,13 +1885,17 @@ public class Bichous : Entity
             return -1;
         }
 
-            //PathFinding.instance.CustomPathShine(GridCreator.instance.GetTile(gridX, gridY));
-       // if(closer != null)
-         //   telixFirst = closer.gameObject;
-         if(!telixFirst.GetComponent<Tile>().isWalkable || !telixSecond.GetComponent<Tile>().isWalkable)
+        //PathFinding.instance.CustomPathShine(GridCreator.instance.GetTile(gridX, gridY));
+        // if(closer != null)
+        //   telixFirst = closer.gameObject;
+        try
         {
-            return -1;
+            if (!telixFirst.GetComponent<Tile>().isWalkable || !telixSecond.GetComponent<Tile>().isWalkable)
+            {
+                return -1;
+            }
         }
+        catch { return -1; }
         closeEnemies = (int)closeEnemies / 2;
         return closeEnemies;
     }
