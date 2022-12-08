@@ -935,7 +935,7 @@ public class GridCreator : MonoBehaviour
                 {
                     if(tileMap[i, 0].tag == "PathTile")
                     {
-                        player = Instantiate(entitys[playerArrayPos], tileMap[i, 0].transform.position + new Vector3(0, 0.25f, 0), new Quaternion(0, 0, 0, 0));
+                        player = Instantiate(entitys[playerArrayPos], tileMap[i, 0].transform.position + new Vector3(0, 0.15f, 0), new Quaternion(0, 0, 0, 0));
                         
                         GameController.instance.Init(player);
                     }

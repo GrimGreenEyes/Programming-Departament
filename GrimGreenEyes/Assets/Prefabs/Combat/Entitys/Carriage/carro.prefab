@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3385955056863250853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.005, y: -0.286, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.171, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,9 +217,9 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 9d6df7c345b9d294db3e9cd74ec5df70, type: 3}
   actualState: 0
+  attackPrefab: {fileID: 0}
   mainAttack: {fileID: 0}
   skillPrefabs: []
-  skillObjects: []
   skills: []
   skillSelected: 3
   charges: 0
@@ -254,6 +254,8 @@ MonoBehaviour:
   HUDTurnSize: 5
   isWalking: 0
   moveAndAttack: 0
+  moveAndHability: 0
+  gottenSeed: 0
 --- !u!95 &1106284797
 Animator:
   serializedVersion: 4
@@ -623,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.093
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044474705555380954, guid: c850c3d7602cd6d4399fd5ac7f3412fe, type: 3}
       propertyPath: m_LocalPosition.z

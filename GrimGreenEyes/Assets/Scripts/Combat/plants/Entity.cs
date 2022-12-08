@@ -232,7 +232,11 @@ public class Entity : MonoBehaviour
             //    MovementPoint += new Vector3((Quaternion.Euler(angle) * direction).x * offsetMovePoint.x, (Quaternion.Euler(angle) * direction).y * offsetMovePoint.y, 0);
             //}
             animator.SetBool("walking", true);
-            MovementPoint = path[pathPosition].transform.position + new Vector3(0, 0.25f, 0);
+            if (name != "Carro")
+                MovementPoint = path[pathPosition].transform.position + new Vector3(0, 0.25f, 0);
+            else
+                MovementPoint = path[pathPosition].transform.position + new Vector3(0, 0.1f, 0);
+
             moveing = true;
             Debug.Log("IS WALKING!!");
         }
