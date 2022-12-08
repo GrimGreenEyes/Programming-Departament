@@ -2416,6 +2416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1715785743}
     m_Modifications:
+    - target: {fileID: 4299172146805007228, guid: a8ce514931bfd204296ec5afec3f7f00, type: 3}
+      propertyPath: m_text
+      value: CONTINUAR
+      objectReference: {fileID: 0}
     - target: {fileID: 4299172146974969489, guid: a8ce514931bfd204296ec5afec3f7f00, type: 3}
       propertyPath: m_Name
       value: Fade

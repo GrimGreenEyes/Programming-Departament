@@ -114,13 +114,13 @@ public class PlantsText : MonoBehaviour
         int rand = 0;
         try
         {
-            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
+            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Cargando...";
 
             rand = Random.RandomRange(min, max);
         }
         catch
         {
-            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loading...";
+            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Cargando...";
 
             rand = Random.RandomRange(min, max);
         }
@@ -129,13 +129,13 @@ public class PlantsText : MonoBehaviour
         {
             GameObject.Find("Continue").GetComponent<Button>().interactable = true;
 
-            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
+            GameObject.Find("Continue").GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "CONTINUAR";
         }
         catch
         {
             cont.GetComponent<Button>().interactable = true;
 
-            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "PLAY";
+            cont.GetComponent<Button>().gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "CONTINUAR";
         }
     }
 }
