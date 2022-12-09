@@ -172,10 +172,10 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 2c235718b59f5c743a9a37f40f0bdbd7, type: 3}
   actualState: 1
+  attackPrefab: {fileID: 0}
   mainAttack: {fileID: 805721938524684691, guid: 150c722a4a1f4574db477f9ab2989eab, type: 3}
   skillPrefabs:
   - {fileID: 1003371160015502217, guid: c9a93168c89fea24a86a15d29cb7973d, type: 3}
-  skillObjects: []
   skills: []
   skillSelected: 0
   charges: 0
@@ -207,11 +207,12 @@ MonoBehaviour:
   Status: []
   HUDSprite: {fileID: 21300000, guid: 9bd6b94bd238431498091daad0183122, type: 3}
   HUDSpriteSize: 1.7
-  HUDTurnSize: 3
+  HUDTurnSize: 3.5
   isWalking: 0
   moveAndAttack: 0
   moveAndHability: 0
   gottenSeed: 0
+  defaultSprite: {fileID: 1307052602, guid: e0a6e5e2f9376b247a5ab84d1c356e00, type: 3}
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -230,6 +231,16 @@ MonoBehaviour:
   nibusSeed: {fileID: 0}
   msg: {fileID: 1193617261576444874}
   msgText: 
+  verpendexTile: {fileID: 0}
+  weightLifeCarro: 0
+  weightDistToInsectCarro: 0
+  weightDistToEndCarro: 0
+  weightEsRentAttack: 0
+  weightDistToInsectAttack: 0
+  weightTelixEnemiesTogether: 0
+  weightTelixDistance: 0
+  vetrixHabilityDistance: 0
+  vetrixPlantsInsectsLife: 0
 --- !u!95 &-4600822438082363797
 Animator:
   serializedVersion: 4

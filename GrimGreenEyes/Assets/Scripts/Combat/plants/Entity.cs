@@ -113,7 +113,8 @@ public class Entity : MonoBehaviour
 
     public bool moveAndHability;
     public bool gottenSeed;
-
+    [Header("UI")]
+    public Sprite defaultSprite;
 
 
     private void Awake()
@@ -334,5 +335,14 @@ public class Entity : MonoBehaviour
     {
         defense += num;
         //Instantiate()
+    }
+
+    private void OnMouseEnter()
+    {
+        thisTile.GetComponent<Tile>().ShowTile();
+    }
+    private void OnMouseExit()
+    {
+        thisTile.GetComponent<Tile>().HideTile();
     }
 }

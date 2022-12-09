@@ -411,10 +411,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2c235718b59f5c743a9a37f40f0bdbd7, type: 3}
   - {fileID: 8300000, guid: b7f54036e2ad53748b8afcb2dc14ff8b, type: 3}
   actualState: 1
+  attackPrefab: {fileID: 0}
   mainAttack: {fileID: 4306914176357002771, guid: 6c192b7c8566cdf40a2024b4215786be, type: 3}
   skillPrefabs:
   - {fileID: 5860293171188052277, guid: 985f431dcb41a9b44a3820294714e1fa, type: 3}
-  skillObjects: []
   skills: []
   skillSelected: 0
   charges: 0
@@ -446,11 +446,12 @@ MonoBehaviour:
   Status: []
   HUDSprite: {fileID: 21300000, guid: 28610bda8f690e3448df7ee141fac40f, type: 3}
   HUDSpriteSize: 5
-  HUDTurnSize: 11
+  HUDTurnSize: 12
   isWalking: 0
   moveAndAttack: 0
   moveAndHability: 0
   gottenSeed: 0
+  defaultSprite: {fileID: 1269250571, guid: 8a42f6c42a9749c4c9f4915f3cbef20f, type: 3}
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -469,6 +470,16 @@ MonoBehaviour:
   nibusSeed: {fileID: 0}
   msg: {fileID: 8240614709390207010}
   msgText: 
+  verpendexTile: {fileID: 0}
+  weightLifeCarro: 0
+  weightDistToInsectCarro: 0
+  weightDistToEndCarro: 0
+  weightEsRentAttack: 0
+  weightDistToInsectAttack: 0
+  weightTelixEnemiesTogether: 0
+  weightTelixDistance: 0
+  vetrixHabilityDistance: 0
+  vetrixPlantsInsectsLife: 0
 --- !u!95 &7266658047780522756
 Animator:
   serializedVersion: 4

@@ -649,10 +649,10 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 2c235718b59f5c743a9a37f40f0bdbd7, type: 3}
   actualState: 1
+  attackPrefab: {fileID: 0}
   mainAttack: {fileID: 1139857387330724877, guid: f4dcf0e2c72b16e409f5c40e034d73b3, type: 3}
   skillPrefabs:
   - {fileID: 5540276384327767973, guid: 0376f000ed06a4642be47e16b4135ee1, type: 3}
-  skillObjects: []
   skills: []
   skillSelected: 0
   charges: 0
@@ -689,6 +689,7 @@ MonoBehaviour:
   moveAndAttack: 0
   moveAndHability: 0
   gottenSeed: 0
+  defaultSprite: {fileID: 701653236, guid: 6687e9e96c2eb6c44817bbc0e5740db3, type: 3}
   global: {fileID: 0}
   plants: []
   plantsInfo: []
@@ -707,6 +708,16 @@ MonoBehaviour:
   nibusSeed: {fileID: 0}
   msg: {fileID: 6323109093849403687}
   msgText: 
+  verpendexTile: {fileID: 0}
+  weightLifeCarro: 0
+  weightDistToInsectCarro: 0
+  weightDistToEndCarro: 0
+  weightEsRentAttack: 0
+  weightDistToInsectAttack: 0
+  weightTelixEnemiesTogether: 0
+  weightTelixDistance: 0
+  vetrixHabilityDistance: 0
+  vetrixPlantsInsectsLife: 0
 --- !u!114 &1196673981667879080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,9 +760,9 @@ MonoBehaviour:
   renderer: {fileID: 0}
   audioClips: []
   actualState: 1
+  attackPrefab: {fileID: 0}
   mainAttack: {fileID: 0}
   skillPrefabs: []
-  skillObjects: []
   skills: []
   skillSelected: 3
   charges: 0
@@ -783,11 +794,12 @@ MonoBehaviour:
   Status: []
   HUDSprite: {fileID: 21300000, guid: 005010aac9fdae84c9e42f7aa3cee0d7, type: 3}
   HUDSpriteSize: 5
-  HUDTurnSize: 11
+  HUDTurnSize: 12
   isWalking: 0
   moveAndAttack: 0
   moveAndHability: 0
   gottenSeed: 0
+  defaultSprite: {fileID: 0}
   Att: 
   Def: 
   Agl: 

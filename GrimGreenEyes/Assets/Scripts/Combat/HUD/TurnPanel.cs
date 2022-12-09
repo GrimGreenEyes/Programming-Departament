@@ -12,7 +12,8 @@ public class TurnPanel : MonoBehaviour
     [SerializeField] private Transform secondNextPanel;
     [SerializeField] private Transform thirdNextPanel;
     [SerializeField] private Transform fourthNextPanel;
-    [SerializeField] private GameObject thisTurnPanel;
+    [SerializeField] private GameObject thisPlantTurnPanel;
+    [SerializeField] private GameObject thisEnemyTurnPanel;
     [SerializeField] private GameObject plantTurnPanel;
     [SerializeField] private GameObject enemyTurnPanel;
     private GameObject[] panels = new GameObject[5];
@@ -37,7 +38,7 @@ public class TurnPanel : MonoBehaviour
         {
             Destroy(panels[i]);
         }
-        panels[0] = Instantiate(thisTurnPanel, turnPanel);
+        panels[0] = Instantiate((GameController.instance.SelectedPlayer(0).tag == "Player") ? thisPlantTurnPanel : thisEnemyTurnPanel, turnPanel);
         panels[0].transform.GetChild(0).GetComponent<Image>().sprite = GameController.instance.SelectedPlayer().GetComponent<Entity>().HUDSprite;
         panels[0].transform.GetChild(0).GetComponent<Image>().type = Image.Type.Tiled;
         panels[0].transform.GetChild(0).GetComponent<Image>().pixelsPerUnitMultiplier = GameController.instance.SelectedPlayer().GetComponent<Entity>().HUDTurnSize;

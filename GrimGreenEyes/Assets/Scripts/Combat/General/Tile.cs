@@ -290,11 +290,19 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+        ShowTile();
+    }
+    private void OnMouseExit()
+    {
+        HideTile();
+    }
+    public void ShowTile()
+    {
         TilePanel.instance.Hide();
         TilePanel.instance.Change(gameObject);
         onHover.SetActive(true);
     }
-    private void OnMouseExit()
+    public void HideTile()
     {
         TilePanel.instance.Hide();
         onHover.SetActive(false);

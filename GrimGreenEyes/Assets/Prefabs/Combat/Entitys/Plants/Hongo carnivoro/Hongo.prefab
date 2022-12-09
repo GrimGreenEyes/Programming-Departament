@@ -413,11 +413,12 @@ MonoBehaviour:
   Status: []
   HUDSprite: {fileID: 21300000, guid: 3e1088ebf3b0ae74eb5a4d1d181561df, type: 3}
   HUDSpriteSize: 11
-  HUDTurnSize: 25
+  HUDTurnSize: 27
   isWalking: 0
   moveAndAttack: 0
   moveAndHability: 0
   gottenSeed: 0
+  defaultSprite: {fileID: 502158945, guid: 98d18746a002bc54ebe5eff303806c78, type: 3}
 --- !u!95 &2509590855461015885
 Animator:
   serializedVersion: 4
