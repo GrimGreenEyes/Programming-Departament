@@ -68,6 +68,9 @@ public class Bichous : Entity
     public float vetrixHabilityDistance;
     public float vetrixPlantsInsectsLife;
 
+    public float profit = 0f;
+
+
     public void SetStats(int level)
     {
         maxLivePoints = ps[(level % 3 != 0) ? (level / 3) + 1 : level / 3];
@@ -497,7 +500,7 @@ public class Bichous : Entity
 
         options[0] = weightAtC.getValue();
 
-        options[0] += 0.1f;
+        options[0] += 0.15f;
 
 
         //Imp Mov Carro
@@ -526,10 +529,10 @@ public class Bichous : Entity
                 Factor _distToPlantsLeafHelper1 = new LeafVariable(() => plantsInfo[i].distToPlant, 1, 33);
                 //  Factor _distToPlantsLeafHelper2 = new LeafVariable(() => plantsInfo[1].distToPlant, 33, 1);
 
-                Factor esRent = new LeafVariable(() => CalcRentable(plantsInfo[i]), 33, 1);
+                Factor esRent = new LeafVariable(() => CalcRentable(plants[i].GetComponent<Plants>(), gameObject.GetComponent<Bichous>()), 1, 0);
 
-      //          public float weightEsRentAttack;
-    //public float weightDistToInsectAttack;
+                //          public float weightEsRentAttack;
+                //public float weightDistToInsectAttack;
 
                 factors.Add(_distToPlantsLeafHelper1);
 
@@ -668,7 +671,7 @@ public class Bichous : Entity
                 {
                     (int newX, int newY) = MoveToClosePositionC(carro);
                     //attacked = true;
-                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para atacar al carro";
+                    msg.GetComponent<TextMeshProUGUI>().text = "Voy a atacar al carro";
 
                     // plantsInfo[indPlanta].Init(plants[indPlanta].GetComponent<Plants>(), gameObject.GetComponent<Bichous>());
                     Carriage falseCarro2 = new Carriage();
@@ -743,7 +746,7 @@ public class Bichous : Entity
                     plantsInfo[indPlanta].GridX = newX;
                     plantsInfo[indPlanta].GridY = newY;
                     plantsInfo[indPlanta].UpdateRelevant();
-                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para atacar a " + plants[indPlanta].GetComponent<Entity>().name;
+                    msg.GetComponent<TextMeshProUGUI>().text = "Voy a atacar a " + plants[indPlanta].GetComponent<Entity>().name;
 
 
                     int a = distSmthToSmthVariables(newX, newY, plants[indPlanta].GetComponent<Plants>().gridX, plants[indPlanta].GetComponent<Plants>().gridY);
@@ -807,7 +810,7 @@ public class Bichous : Entity
                     moveAndAttack = false;
                     try
                     {
-                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utlizar habilidad sobre " + closer.GetComponent<Entity>().name + last.GetComponent<Entity>().name;
+                        msg.GetComponent<TextMeshProUGUI>().text = "Voy a usar mi habilidad sobre " + closer.GetComponent<Entity>().name + last.GetComponent<Entity>().name;
                     }
                     catch { }
 
@@ -829,7 +832,7 @@ public class Bichous : Entity
                     Tile vetrixTile = GridCreator.instance.GetTile(vetrixObjective.GetComponent<Entity>().gridX, vetrixObjective.GetComponent<Entity>().gridY).GetComponent<Tile>();
                     (int newX, int newY) = MoveToClosePositionH(vetrixTile);
 
-                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utilizar habilidad sobre " + vetrixObjective.GetComponent<Entity>().name;
+                    msg.GetComponent<TextMeshProUGUI>().text = "Voy a usar habilidad sobre " + vetrixObjective.GetComponent<Entity>().name;
 
                     moveAndHability = false;
                     if (distSmthToSmthVariables(newX, newY, vetrixTile.positionX, vetrixTile.positionY) <= 2)
@@ -846,7 +849,7 @@ public class Bichous : Entity
                 {
                     (int newX, int newY) = MoveToClosePositionH(nibusSeed.GetComponent<Tile>());
 
-                    msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para coger semillas";
+                    msg.GetComponent<TextMeshProUGUI>().text = "Voy a coger semillas";
 
                     GameController.instance.SelectedPlayer().GetComponent<Bichous>().actualState = Entity.EntityState.MOVEING;
 
@@ -857,7 +860,7 @@ public class Bichous : Entity
                     moveAndAttack = false;
                     try
                     {
-                        msg.GetComponent<TextMeshProUGUI>().text = "Moviendose para utlizar habilidad";
+                        msg.GetComponent<TextMeshProUGUI>().text = "Voy a usar habilidad";
                     }
                     catch { }
 
@@ -1330,9 +1333,57 @@ public class Bichous : Entity
 
 
 
-    public float CalcRentable(RelevantInfoPlantInsect planta)
+    public float CalcRentable(Plants plant, Bichous insect)
     {
-        return 1;
+
+
+        profit = 0f;
+
+        int posibleInsectDamage = plant.mainAttack.DamageCalculator(insect, plant);
+        Debug.Log("En un posible combate " + plant.name + " me quitaría " + posibleInsectDamage + " puntos de vida");
+        int posiblePlantDamage = insect.mainAttack.DamageCalculator(plant, insect);
+        Debug.Log("En un posible combate le quitaría " + posiblePlantDamage + " puntos de vida a " + plant.name);
+
+
+        //Firat Branch (Sequence): If the plant dies, then the attacking profit will be high
+
+        if (plant.livePoints - posiblePlantDamage > 0)
+            profit = 0.9f;
+
+        //Second Branch (Sequence): If the insect dies, then the attacking profit will be 0
+
+
+        if (insect.livePoints - posibleInsectDamage < 0)
+            profit = 0f;
+
+
+        //Third Branch : Which has lost more life?
+
+
+        if (insect.livePoints - posibleInsectDamage > plant.livePoints - posiblePlantDamage)  // if insect has more life than plant
+        {
+
+
+            if (plant.name == "Sartiry" && plant.skills[0].currentCoolDown == 0 && plant.livePoints > plant.maxLivePoints / 2)
+                profit = 0.4f;
+            else if (plant.name == "Girasol")
+                profit = 0.4f;
+            else //no changed state
+            {
+                profit = 0.7f;
+            }
+
+        }
+        else
+        {
+            profit = 0.1f;//se ejecuta si el insecto se queda con menos vida
+        }
+
+
+        Debug.Log("El porcentaje de rentabilidad para atacar a " + plant.name + " es " + profit);
+
+
+        return profit;
     }
 
 

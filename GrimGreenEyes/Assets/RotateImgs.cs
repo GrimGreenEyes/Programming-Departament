@@ -13,6 +13,6 @@ public class RotateImgs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(gameObject.transform.position, new Vector3(0,0,1), 20 *Time.deltaTime);
+        transform.RotateAround(gameObject.transform.position, new Vector3(0,0,1), 5 *Time.deltaTime);
     }
 }
