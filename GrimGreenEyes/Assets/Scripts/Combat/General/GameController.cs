@@ -230,6 +230,7 @@ public class GameController : MonoBehaviour
                     break;
             }
             teamManager.AddItemAbdomen();
+            if(enemys.Count == 0) { Finish(true); }
         }
         else if (entity.tag == "Player")
         {
