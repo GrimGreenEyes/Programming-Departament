@@ -20,7 +20,7 @@ public class PopcornExplosion : Skill
     }
     private void SetPopcorn(Tile tile)
     {
-        tile.initTurn = -1;
+        tile.initTurnPop = -1;
         tile.isPopCorned = true;
     }
 }

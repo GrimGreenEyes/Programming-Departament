@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] private Sprite[] tileSprites;
     [SerializeField] private GameObject popcornSprite;
+    [SerializeField] private GameObject acidSprite;
     [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private GameObject onHover;
     [SerializeField] private new BoxCollider2D collider;
@@ -30,7 +31,8 @@ public class Tile : MonoBehaviour
     public bool buffsEntity;
     public bool healsEntity;
     public bool isPopCorned;
-    public int initTurn;
+    public int initTurnPop;
+    public int initTurnAcid;
     [SerializeField] private int WATER = 0;
     [SerializeField] private int DAMAGE = 0;
     [SerializeField] private int BUFF = 0;
@@ -43,6 +45,8 @@ public class Tile : MonoBehaviour
     {
         renderer = GetComponent<SpriteRenderer>();
         popcornSprite = transform.GetChild(1).gameObject;
+        if(tag == "NotWalkable") { return; }
+        acidSprite = transform.GetChild(2).gameObject;
     }
 
     public void GetWater()
@@ -74,7 +78,8 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        CheckTurn();
+        CheckTurnPop();
+        CheckTurnAcid();
         StopShine();
         SetClickable(false);
         SelectShine(GameController.instance.SelectedPlayer()); 
@@ -87,18 +92,19 @@ public class Tile : MonoBehaviour
             isWalkable = false;
         }
     }
-    private void CheckTurn()
+    private void CheckTurnPop()
     {
         if (!isPopCorned)
         {
             popcornSprite.SetActive(false);
-            initTurn = -1;
+            initTurnPop = -1;
             return;
         }
-        if(initTurn != -1)
+        if(initTurnPop != -1)
         {
-            if (GameController.instance.turn - initTurn > GameController.instance.CharacterCount())
+            if (GameController.instance.turn - initTurnPop > GameController.instance.CharacterCount())
             {
+
                 isPopCorned = false;
             }
 
@@ -106,7 +112,34 @@ public class Tile : MonoBehaviour
         else
         {
             popcornSprite.SetActive(true);
-            initTurn = GameController.instance.turn;
+            initTurnPop = GameController.instance.turn;
+        }
+    }
+    private void CheckTurnAcid()
+    {
+        if(acidSprite == null)
+        {
+            return;
+        }
+        if (!isAcided)
+        {
+            acidSprite.SetActive(false);
+            initTurnAcid = -1;
+            return;
+        }
+        if (initTurnAcid != -1)
+        {
+            if (GameController.instance.turn - initTurnAcid > GameController.instance.CharacterCount())
+            {
+
+                isAcided = false;
+            }
+
+        }
+        else
+        {
+            acidSprite.SetActive(true);
+            initTurnAcid = GameController.instance.turn;
         }
     }
     public void GenerateSeed()
@@ -262,10 +295,9 @@ public class Tile : MonoBehaviour
             }
             if(collision.GetComponentInParent<Entity>().actualState == Entity.EntityState.USINGSKILL && collision.GetComponentInParent<Entity>().skills[collision.GetComponentInParent<Entity>().skillSelected].name == "Acid")
             {
-                isAcided = true;
-                weight = 3;
+                SetAcid();
+                weight = 4;
                 Debug.Log("ACID :  " + gameObject.name);
-                renderer.sprite = GridCreator.instance.currentBiome.acidSprite;
             }
         }
     }
@@ -343,6 +375,12 @@ public class Tile : MonoBehaviour
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = gameObject;
                 return;
             }
+    }
+
+    private void SetAcid()
+    {
+        initTurnAcid = -1;
+        isAcided = true;
     }
     public int GetX()
     {
