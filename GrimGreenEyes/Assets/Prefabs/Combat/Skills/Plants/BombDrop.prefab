@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Bombardeo
-  description: "La planta atraviesa el campo en una direcci\xF3n t bombardea el campo
-    de batalla."
+  description: "La planta atraviesa el campo en una direcci\xF3n y bombardea las
+    casillas por las que pasa.."
   isActiveSkill: 1
+  isAttacking: 0
   isbuffing: 0
   isReciveingDamage: 0
   isDoingDamage: 0
@@ -57,6 +58,7 @@ MonoBehaviour:
   selectsTile: 0
   isOnSeed: 0
   isOnDestination: 1
+  isOnOtherTurn: 0
   destinationTile: {fileID: 0}
   range: 100
   areaOfEffect: 0
@@ -65,3 +67,4 @@ MonoBehaviour:
   alreadyUsed: 0
   coolDown: 3
   currentCoolDown: 0
+  attackAnimation: {fileID: 0}
