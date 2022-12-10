@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,8 +23,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject looseScreen;
     [SerializeField] private GameObject defaultWinButton;
+    private Dictionary<string, int> obtainedResources = new Dictionary<string, int>();
 
     [SerializeField] private GameObject nextTurnButton;
+    [SerializeField] private TextMeshProUGUI victoryResourcesText;
 
     private TeamInfo teamManager;
 
@@ -215,27 +218,33 @@ public class GameController : MonoBehaviour
             {
                 case 1:
                     GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Caparazón", Color.cyan, 2.3f);
+                    GameObject.Find("GameController").GetComponent<GameController>().AddResource("Caparazón de insecto");
                     teamManager.AddItemShell();
                     break;
                 case 2:
-                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Ala", Color.cyan, 2.3f);                    //teamManager.AddItemLeg();
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Ala", Color.cyan, 2.3f);
+                    GameObject.Find("GameController").GetComponent<GameController>().AddResource("Ala de insecto");
                     teamManager.AddItemWing();
                     break;
                 case 3:
                     GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Cuerno", Color.cyan, 2.3f);
+                    GameObject.Find("GameController").GetComponent<GameController>().AddResource("Cuerno de insecto");
                     teamManager.AddItemHorn();
                     break;
                 case 4:
                     GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Ala", Color.cyan, 2.3f);
+                    GameObject.Find("GameController").GetComponent<GameController>().AddResource("Ala de insecto");
                     teamManager.AddItemWing();
                     break;
                 case 5:
                     GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Tórax", Color.cyan, 2.3f);
+                    GameObject.Find("GameController").GetComponent<GameController>().AddResource("Tórax de insecto");
                     teamManager.AddItemChest();
                     break;
             }
             teamManager.AddItemAbdomen();
-            if(enemys.Count == 0) { Finish(true); }
+            GameObject.Find("GameController").GetComponent<GameController>().AddResource("Abdomen de insecto");
+            if (enemys.Count == 0) { Finish(true); }
         }
         else if (entity.tag == "Player")
         {
@@ -262,6 +271,29 @@ public class GameController : MonoBehaviour
         if(characterSelected > characters.IndexOf(entity)) { characterSelected -= 1; }
         characters.Remove(entity);
     }
+
+    public void AddResource(string resource) //Añade un item al diccionario (inventario). Si ese item ya existía, aumenta su cantidad en 1 unidad.
+    {
+        if (obtainedResources.ContainsKey(resource))
+        {
+            obtainedResources[resource] = obtainedResources[resource] + 1;
+        }
+        else
+        {
+            obtainedResources.Add(resource, 1);
+        }
+    }
+
+    public void ShowResources()
+    {
+        string text = "<b>En la batalla\nhas conseguido:</b>";
+        foreach (KeyValuePair<string, int> entry in obtainedResources)
+        {
+            text += "\n+ " + entry.Value + " " + entry.Key;
+        }
+        victoryResourcesText.text = text;
+    }
+
     public void Finish(bool victory)
     {
         UI.SetActive(false);
@@ -296,6 +328,7 @@ public class GameController : MonoBehaviour
             teamManager.GetPlantsList()[i].SetCurrentHP(playerLivePoints[i]);
         }
         winScreen.SetActive(true);
+        ShowResources();
         winScreen.GetComponent<AudioSource>().Play();
                
         
@@ -304,5 +337,7 @@ public class GameController : MonoBehaviour
     public void AddWater(int water)
     {
         teamManager.AddWater(water);
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(carriage.GetComponent<Entity>(), "+1 Agua", Color.blue, 2f);
+        GameObject.Find("GameController").GetComponent<GameController>().AddResource("Agua");
     }
 }

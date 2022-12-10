@@ -45,34 +45,42 @@ public class DropedObject : MonoBehaviour
             case Seeds.VERA:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedAloeVera();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Vera", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Vera");
                 break;
             case Seeds.LILY:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedLily();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Belator", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Belator");
                 break;
             case Seeds.SUNFLOWER:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedSunflower();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Lumendus", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Lumendus");
                 break;
             case Seeds.ROSE:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedRose();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Sartiry", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Sartiry");
                 break;
             case Seeds.FUNGUS:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedCarnivorousFungus();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Toxkill", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Toxkill");
                 break;
             case Seeds.CACTUS:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedCactus();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Skarkmor", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Skarkmor");
                 break;
             case Seeds.CORN:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedCorn();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Zemays", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Zemays");
                 break;
             case Seeds.TUMBLEWEED:
                 GameObject.Find("GlobalAttributes").GetComponent<TeamInfo>().AddSeedTumbleweed();
                 GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(picker.GetComponent<Entity>(), "+1 Semilla de Rolay", Color.cyan, 2.3f);
+                GameObject.Find("GameController").GetComponent<GameController>().AddResource("Semilla de Rolay");
                 break;
         }
     }
