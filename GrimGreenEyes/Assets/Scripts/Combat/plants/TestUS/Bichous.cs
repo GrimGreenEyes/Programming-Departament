@@ -292,7 +292,7 @@ public class Bichous : Entity
                     skills[0].Effect(vetrixObjective, GameController.instance.SelectedPlayer());
                     Debug.Log("ORLAW HABILITY");
                     Debug.Log("ORLAW " + attack);
-                    msg.GetComponent<TextMeshProUGUI>().text = "Incremento de daño";
+                    msg.GetComponent<TextMeshProUGUI>().text = "Incremento de daï¿½o";
 
                     //actualState = EntityState.FINISHED;
                     //return;
@@ -1340,9 +1340,9 @@ public class Bichous : Entity
         profit = 0f;
 
         int posibleInsectDamage = plant.mainAttack.DamageCalculator(insect, plant);
-        Debug.Log("En un posible combate " + plant.name + " me quitaría " + posibleInsectDamage + " puntos de vida");
+        Debug.Log("En un posible combate " + plant.name + " me quitarï¿½a " + posibleInsectDamage + " puntos de vida");
         int posiblePlantDamage = insect.mainAttack.DamageCalculator(plant, insect);
-        Debug.Log("En un posible combate le quitaría " + posiblePlantDamage + " puntos de vida a " + plant.name);
+        Debug.Log("En un posible combate le quitarï¿½a " + posiblePlantDamage + " puntos de vida a " + plant.name);
 
 
         //Firat Branch (Sequence): If the plant dies, then the attacking profit will be high

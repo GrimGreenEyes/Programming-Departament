@@ -296,6 +296,7 @@ public class Entity : MonoBehaviour
     }
     public void Heal(int quantity)
     {
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "+" + quantity + " HP", Color.green, 1.2f);
         GetComponent<Entity>().livePoints = (GetComponent<Entity>().livePoints + quantity < GetComponent<Entity>().maxLivePoints) ? GetComponent<Entity>().livePoints + quantity : GetComponent<Entity>().maxLivePoints;
     }
     public void EndTurn()
@@ -313,26 +314,31 @@ public class Entity : MonoBehaviour
     public void Damage(int damage)
     {
         livePoints -= damage;
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "-" + damage + " HP", new Color(255 / 255, 34 / 255, 34 / 255), 1.2f);
         audioSource.clip = audioClips[0];
         audioSource.Play();
         CheckDead();
     }
     public void Poison()
     {
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "¡ENVENENADO!" , new Color(255 / 255, 34 / 255, 34 / 255), 1.2f);
         poisoned = true;
         //Status.Add(Instantiate(statusImage, statusPositions[statusPosition]));
         //Status.Last().
     }
     public void Stun()
     {
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "¡ATURDIDO!", new Color(255 / 255, 34 / 255, 34 / 255), 1.2f);
         stuned = true;
     }
     public void AttackBust(int num)
     {
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "+" + num + " FUERZA", Color.cyan, 1.2f);
         attack += num;
     }
     public void DefenseBust(int num)
     {
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(this, "+" + num + " DEFENSA", Color.cyan, 1.2f);
         defense += num;
         //Instantiate()
     }

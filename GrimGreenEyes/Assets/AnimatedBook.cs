@@ -21,7 +21,7 @@ public class AnimatedBook : MonoBehaviour
 
     private void Start()
     {
-        CloseBook();
+        //CloseBook();
         foreach(Transform child in bookmarks.transform)
         {
             bookmarksList.Add(child.gameObject);

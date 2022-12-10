@@ -214,18 +214,23 @@ public class GameController : MonoBehaviour
             switch (Random.Range(1, 6))
             {
                 case 1:
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Caparazón", Color.cyan, 2.3f);
                     teamManager.AddItemShell();
                     break;
                 case 2:
-                    teamManager.AddItemLeg();
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Ala", Color.cyan, 2.3f);                    //teamManager.AddItemLeg();
+                    teamManager.AddItemWing();
                     break;
                 case 3:
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Cuerno", Color.cyan, 2.3f);
                     teamManager.AddItemHorn();
                     break;
                 case 4:
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Ala", Color.cyan, 2.3f);
                     teamManager.AddItemWing();
                     break;
                 case 5:
+                    GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(entity.GetComponent<Entity>(), "+1 Abdomen, +1 Tórax", Color.cyan, 2.3f);
                     teamManager.AddItemChest();
                     break;
             }
