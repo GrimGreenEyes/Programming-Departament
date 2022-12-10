@@ -586,8 +586,8 @@ MonoBehaviour:
   statusPosition: 0
   Status: []
   HUDSprite: {fileID: 21300000, guid: 7e13a4856d60d5c47bb1566f60cbc2c0, type: 3}
-  HUDSpriteSize: 1.5
-  HUDTurnSize: 3.5
+  HUDSpriteSize: 3.5
+  HUDTurnSize: 8.8
   isWalking: 0
   moveAndAttack: 0
   moveAndHability: 0
