@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Plaga de rosas
-  description: "Al golpear a un enemigo se infesta con p\xE9talos que pasan parte
+  description: "Al atacar a un enemigo se infesta con p\xE9talos que pasan parte
     de la vida quitada al usuario."
   isActiveSkill: 0
   isAttacking: 0

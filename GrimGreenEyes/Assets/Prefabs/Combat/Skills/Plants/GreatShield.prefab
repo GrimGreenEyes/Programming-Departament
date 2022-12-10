@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Gran escudo
-  description: La planta levanta su escudo y protege a las que haya a su alrededor.
+  description: La planta levanta su escudo y aumenta la defensa a las que haya a
+    su alrededor.
   isActiveSkill: 1
   isAttacking: 0
   isbuffing: 0
@@ -57,6 +58,7 @@ MonoBehaviour:
   selectsTile: 0
   isOnSeed: 0
   isOnDestination: 0
+  isOnOtherTurn: 0
   destinationTile: {fileID: 0}
   range: 0
   areaOfEffect: 1
