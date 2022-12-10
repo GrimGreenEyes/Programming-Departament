@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Cebo
-  description: "La planta se camufla con el ambiente y ataca a los enemigos que pasen
-    cerca, aturdi\xE9ndolo 1 turno."
+  description: "La planta ataca, con la mitad de si da\xF1o, a un enemigo y le hace
+    pensar que tiene a su v\xEDctima atrapada, aturdiendolo."
   isActiveSkill: 1
   isAttacking: 0
   isbuffing: 0
@@ -60,8 +60,8 @@ MonoBehaviour:
   isOnDestination: 0
   isOnOtherTurn: 0
   destinationTile: {fileID: 0}
-  range: 0
-  areaOfEffect: 1
+  range: 1
+  areaOfEffect: 0
   turnsActive: 0
   maxTurnsActive: 0
   alreadyUsed: 0
