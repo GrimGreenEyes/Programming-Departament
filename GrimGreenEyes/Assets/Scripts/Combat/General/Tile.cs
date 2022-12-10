@@ -127,9 +127,10 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (entity != null && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE && player.tag == "Player" && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().mainAttack.range)
+        if (entity != null && player.GetComponent<Entity>().actualState == Entity.EntityState.READYTOATTACK && player.tag == "Player" && Mathf.Abs(positionX - player.GetComponent<Entity>().gridX) + Mathf.Abs(positionY - player.GetComponent<Entity>().gridY) <= player.GetComponent<Entity>().mainAttack.range)
         {
             ShineEntity();
+            SetClickable(true);
         }
         if (player.GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL)
         {
@@ -153,13 +154,13 @@ public class Tile : MonoBehaviour
                 ShineEntity();
             }
         }
-        if (isInRange && isWalkable && player.tag == "Player" && player.GetComponent<Entity>().actualState == Entity.EntityState.IDLE)
+        if (isInRange && isWalkable && player.tag == "Player" && player.GetComponent<Entity>().actualState == Entity.EntityState.READYTOMOVE)
         {
             ShineTile();
             SetClickable(true);
             isInRange = false;
         }
-        if (isInRange && isWalkable && player.tag == "Carriage" && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE && tag == "PathTile")
+        if (isInRange && isWalkable && player.tag == "Carriage" && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.READYTOMOVE && tag == "PathTile")
         {
             ShineTile();
             SetClickable(true);
@@ -180,7 +181,7 @@ public class Tile : MonoBehaviour
         }
         switch (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState)
         {
-            case Entity.EntityState.IDLE:
+            case Entity.EntityState.READYTOATTACK:
                 if (GameController.instance.SelectedPlayer().GetComponent<Plants>().attacked)
                 {
                     return;
@@ -321,15 +322,18 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE)
+        if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.READYTOMOVE)
+        {
             GameController.instance.SelectedPlayer().GetComponent<Entity>().SetDestination(gameObject);
+            return;
+        }
         if(entity != null)
         {
-            if (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE &&  (GameController.instance.SelectedPlayer().GetComponent<Entity>().mainAttack.directedToAlly) ? ((entity.tag == "Player") ? true: false) : ((entity.tag == "Enemy") ? false : true))
+            if (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.READYTOATTACK &&  (GameController.instance.SelectedPlayer().GetComponent<Entity>().mainAttack.directedToAlly) ? ((entity.tag == "Player") ? true: false) : ((entity.tag == "Enemy") ? true : false))
             {
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = entity;
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = Entity.EntityState.ATTACKING;
-
+                return;
             }
         }
         if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL)
@@ -337,6 +341,7 @@ public class Tile : MonoBehaviour
             {
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[GameController.instance.SelectedPlayer().GetComponent<Entity>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
                 GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = gameObject;
+                return;
             }
     }
     public int GetX()

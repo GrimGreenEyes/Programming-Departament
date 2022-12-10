@@ -7,7 +7,7 @@ using UnityEngine;
 public class Plants : Entity
 {
     private bool pathShined = false;
-
+    
     public void SetAttack(Attack newAttack)
     {
         mainAttack = newAttack;
@@ -125,13 +125,16 @@ public class Plants : Entity
                 }
                 break;
             case EntityState.IDLE:
+                
+                MovementPoint = transform.position;
+                moveing = false;
+                path = null;
+                break;
+            case EntityState.READYTOMOVE:
                 if (gameObject == GameController.instance.SelectedPlayer())
                 {
                     PathFinding.instance.PathShine(thisTile);
                 }
-                MovementPoint = transform.position;
-                moveing = false;
-                path = null;
                 break;
             case EntityState.MOVEING:
                 if (path == null)
@@ -140,6 +143,9 @@ public class Plants : Entity
                     pathPosition = path.Count() - 1;
                 }
                 Move();
+                break;
+            case EntityState.READYTOATTACK:
+
                 break;
             case EntityState.ATTACKING:
                 Debug.Log("attacking");
