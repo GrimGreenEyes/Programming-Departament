@@ -53,7 +53,7 @@ MonoBehaviour:
   heatDamage: 0.3
   audioSource: {fileID: 6498959666498874219}
   attackAnimation: {fileID: 8801658638766239520, guid: 955088bb6d3aa9249a2eda0726e5e650, type: 3}
-  liveRegen: 0.5
+  liveRegen: 0.25
 --- !u!82 &6498959666498874219
 AudioSource:
   m_ObjectHideFlags: 0

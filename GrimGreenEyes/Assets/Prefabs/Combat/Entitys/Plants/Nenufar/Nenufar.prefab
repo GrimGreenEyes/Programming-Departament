@@ -684,8 +684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Belator
-  livePoints: 180
-  maxLivePoints: 180
+  livePoints: 90
+  maxLivePoints: 90
   attack: 30
   defense: 20
   heatResistance: 10
