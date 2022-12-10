@@ -107,5 +107,20 @@ public class PlayerPanel : MonoBehaviour
             }
         }
     }
-
+    public void SetAttack()
+    {
+        if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.IDLE && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.READYTOMOVE && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.READYTOATTACK)
+        {
+            return;
+        }
+        GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE || GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.READYTOMOVE) ?  Entity.EntityState.READYTOATTACK : Entity.EntityState.IDLE;
+    }
+    public void SetMovement()
+    {
+        if (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.IDLE && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.READYTOMOVE && GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState != Entity.EntityState.READYTOATTACK)
+        {
+            return;
+        }
+        GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE || GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.READYTOATTACK) ? Entity.EntityState.READYTOMOVE : Entity.EntityState.IDLE;
+    }
 }

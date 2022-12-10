@@ -46,7 +46,7 @@ public class Entity : MonoBehaviour
     private AudioSource audioSource;
     public List<AudioClip> audioClips = new List<AudioClip>(); //0 = perder vida ; 1 = 
 
-    public enum EntityState { START, IDLE, MOVEING, ATTACKING, USINGSKILL, FINISHED , WAITING}
+    public enum EntityState { START, IDLE, READYTOMOVE, MOVEING, READYTOATTACK, ATTACKING, USINGSKILL, FINISHED , WAITING}
     public EntityState actualState = EntityState.IDLE;
 
 
@@ -301,7 +301,7 @@ public class Entity : MonoBehaviour
     }
     public void EndTurn()
     {
-        if(actualState != EntityState.IDLE) { return; }
+        if(actualState != EntityState.IDLE && actualState != EntityState.READYTOMOVE && actualState != EntityState.READYTOATTACK) { return; }
         actualState = EntityState.FINISHED;
     }
     public void CheckDead()

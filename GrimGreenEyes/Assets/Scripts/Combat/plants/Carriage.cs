@@ -38,13 +38,16 @@ public class Carriage : Entity
                 }
                 break;
             case EntityState.IDLE:
+                
+                MovementPoint = transform.position;
+                moveing = false;
+                path = null;
+                break;
+            case EntityState.READYTOMOVE:
                 if (gameObject == GameController.instance.SelectedPlayer())
                 {
                     PathFinding.instance.PathShine(thisTile);
                 }
-                MovementPoint = transform.position;
-                moveing = false;
-                path = null;
                 break;
             case EntityState.MOVEING:
                 if (path == null)
