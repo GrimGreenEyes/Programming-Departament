@@ -48,15 +48,23 @@ MonoBehaviour:
   description: "Al golpear a un enemigo se infesta con p\xE9talos que pasan parte
     de la vida quitada al usuario."
   isActiveSkill: 0
+  isAttacking: 0
   isbuffing: 0
   isReciveingDamage: 0
   isDoingDamage: 1
   isReflexive: 0
   actilveOnClick: 0
-  radious: 0
+  selectsStightTile: 0
+  selectsTile: 0
+  isOnSeed: 0
+  isOnDestination: 0
+  isOnOtherTurn: 0
+  destinationTile: {fileID: 0}
+  range: 0
   areaOfEffect: 0
   turnsActive: 0
   maxTurnsActive: 0
   alreadyUsed: 0
   coolDown: 3
   currentCoolDown: 0
+  attackAnimation: {fileID: 8801658638766239520, guid: 955088bb6d3aa9249a2eda0726e5e650, type: 3}

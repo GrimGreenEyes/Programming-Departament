@@ -10,5 +10,6 @@ public class Thorns : Attack
         animation.GetComponent<AttackAnimation>().Animate(6);
         enemy.GetComponent<Entity>().bleeding = true;
         enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

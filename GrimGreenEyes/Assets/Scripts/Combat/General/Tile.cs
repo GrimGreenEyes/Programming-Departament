@@ -323,6 +323,12 @@ public class Tile : MonoBehaviour
         }
         if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE)
             GameController.instance.SelectedPlayer().GetComponent<Entity>().SetDestination(gameObject);
+        if (GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.IDLE && entity != null && (GameController.instance.SelectedPlayer().GetComponent<Entity>().mainAttack.directedToAlly) ? ((entity.tag == "Player") ? true: false) : ((entity.tag == "Enemy") ? false : true))
+        {
+            GameController.instance.SelectedPlayer().GetComponent<Entity>().mainObjective = entity;
+            GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState = Entity.EntityState.ATTACKING;
+
+        }
         if(GameController.instance.SelectedPlayer().GetComponent<Entity>().actualState == Entity.EntityState.USINGSKILL)
             if (GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[GameController.instance.SelectedPlayer().GetComponent<Entity>().skillSelected].selectsTile || GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[GameController.instance.SelectedPlayer().GetComponent<Entity>().skillSelected].selectsStightTile)
             {
