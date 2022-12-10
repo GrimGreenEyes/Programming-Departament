@@ -1,0 +1,16 @@
+Bientre:
+e4b16f
+Armor:
+6d300f
+Brazos:
+6f661c 
+
+--nieve
+Bientre:
+c4f4de
+Armor:
+628987
+Brazos:
+306947
+
+
