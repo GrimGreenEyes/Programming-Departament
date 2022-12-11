@@ -144,6 +144,7 @@ MonoBehaviour:
   tileSprites:
   - {fileID: 21300000, guid: b0cad27c55daa9c409f5fd0390777467, type: 3}
   popcornSprite: {fileID: 6894682602723057169}
+  acidSprite: {fileID: 0}
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
@@ -161,7 +162,8 @@ MonoBehaviour:
   buffsEntity: 0
   healsEntity: 1
   isPopCorned: 0
-  initTurn: -1
+  initTurnPop: 0
+  initTurnAcid: 0
   WATER: 0
   DAMAGE: 0
   BUFF: 0
