@@ -10,6 +10,8 @@ public class PlayerPanel : MonoBehaviour
 
     [SerializeField] private Sprite[] plants;
     [SerializeField] private GameObject buttonPref;
+    [SerializeField] private GameObject attackButton;
+    [SerializeField] private GameObject moveButton;
     [SerializeField] private Image image;
     [SerializeField] private TMP_Text livePointsText;
     [SerializeField] private TMP_Text nameText;
@@ -75,6 +77,16 @@ public class PlayerPanel : MonoBehaviour
     }
     public void ChangePlayer(GameObject newPlant)
     {
+        attackButton.SetActive(true);
+        moveButton.SetActive(true);
+        if(newPlant.tag != "Player")
+        {
+            attackButton.SetActive(false);
+            if(newPlant.tag != "Carriage")
+            {
+                moveButton.SetActive(false);
+            }
+        }
         plant = newPlant.GetComponent<Entity>();
         moveBtn.GetComponent<Button>().interactable = true;
         attackBtn.GetComponent<Button>().interactable = true;

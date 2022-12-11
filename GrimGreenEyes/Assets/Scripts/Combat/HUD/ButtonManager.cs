@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] public Color onButtonDownColor, onButtonUpColor;
     [SerializeField] private Image image;
+    [SerializeField] private TMP_Text CD;
     public int skillPosition;
     public bool isActive;
 
@@ -16,6 +18,11 @@ public class ButtonManager : MonoBehaviour
     }
     public void Init(int pos)
     {
+        CD.text = GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].currentCoolDown.ToString();
+        if (!GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].isActiveSkill)
+        {
+            CD.text = "P";
+        }
         skillPosition = pos;
         if (!GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].isActiveSkill)
         {

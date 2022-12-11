@@ -8805,6 +8805,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plants: []
   buttonPref: {fileID: 8936404198641210660, guid: 7eeef1a71f276fb4ba4a891075cbe8be, type: 3}
+  attackButton: {fileID: 797533783}
+  moveButton: {fileID: 665153508}
   image: {fileID: 1821028745}
   livePointsText: {fileID: 1097582645}
   nameText: {fileID: 516926439}
