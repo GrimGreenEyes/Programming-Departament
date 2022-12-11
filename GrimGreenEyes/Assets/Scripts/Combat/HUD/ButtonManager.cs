@@ -18,6 +18,13 @@ public class ButtonManager : MonoBehaviour
     }
     public void Init(int pos)
     {
+        if (!GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].isActiveSkill)
+        {
+            GetComponent<Button>().interactable = false;
+            return;
+
+        }
+
         CD.text = GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].currentCoolDown.ToString();
         if (!GameController.instance.SelectedPlayer().GetComponent<Entity>().skills[pos].isActiveSkill)
         {
@@ -35,6 +42,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void SelectSkill()
     {
+        
+
         bool wasActive = isActive;
         PlayerPanel.instance.SetButtonsToInactive();
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.IDLE || GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == Entity.EntityState.USINGSKILL)

@@ -6,7 +6,7 @@ public class BookManager : MonoBehaviour
 {
     [SerializeField] private GlobalVar globalVar;
     [SerializeField] private AnimatedBook book;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject canvas;
     bool first = true;
 
     private void Start()
@@ -23,20 +23,30 @@ public class BookManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (canvas == null)
+        {
+            try
+            {
+                canvas = GameObject.Find("CanvasNodes").gameObject;
+            }
+            catch { }
+        }
+
         if (first && globalVar.firstTimeMap)
         {
             try
             {
-                globalVar.firstTimeMap = false;
-                GameObject canvas;
-                canvas = GameObject.Find("CanvasNodes");
+
                 canvas.SetActive(false);
+                globalVar.firstTimeMap = false;
                 book.player = GameObject.Find("PLAYER");
                 GameObject.Find("PLAYER").GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 255f);
                 first = false;
                 book.canvas = canvas;
             }
             catch { }
+            
         }
     }
 }

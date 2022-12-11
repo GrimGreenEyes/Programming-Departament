@@ -142,6 +142,7 @@ MonoBehaviour:
   tileSprites:
   - {fileID: 0}
   popcornSprite: {fileID: 1236989288346385836}
+  acidSprite: {fileID: 0}
   renderer: {fileID: 0}
   onHover: {fileID: 4368756041002471843}
   collider: {fileID: 0}
@@ -159,17 +160,15 @@ MonoBehaviour:
   buffsEntity: 0
   healsEntity: 0
   isPopCorned: 0
-  initTurn: -1
+  initTurnPop: 0
+  initTurnAcid: 0
   WATER: 0
   DAMAGE: 0
   BUFF: 0
   HEAL: 0
   entity: {fileID: 0}
   weight: 1
-  seeds:
-  - {fileID: 645409376494869144, guid: 016dbfdd12703384ca09483d1ba54f6c, type: 3}
-  - {fileID: 645409376494869144, guid: 2c36345fa1cb57e40a9b741d5d3f0981, type: 3}
-  - {fileID: 645409376494869144, guid: 0b14dfbab9f3ef54db238f10f84b89ad, type: 3}
+  seeds: []
 --- !u!50 &7840423886552744799
 Rigidbody2D:
   serializedVersion: 4

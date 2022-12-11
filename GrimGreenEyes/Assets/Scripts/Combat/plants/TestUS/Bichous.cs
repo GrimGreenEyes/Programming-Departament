@@ -1457,8 +1457,7 @@ public class Bichous : Entity
         switch (collision.tag)
         {
             case "Proyectil":
-                livePoints -= collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Bichous>(), collision.gameObject.GetComponentInParent<Plants>());
-                //mosquitoes?
+                Damage(collision.gameObject.GetComponentInParent<Plants>().mainAttack.DamageCalculator(gameObject.GetComponent<Bichous>(), collision.gameObject.GetComponentInParent<Plants>()));                //mosquitoes?
                 print(livePoints);
                 break;
         }

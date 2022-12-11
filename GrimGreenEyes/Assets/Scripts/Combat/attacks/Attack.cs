@@ -19,7 +19,8 @@ public class Attack : MonoBehaviour
     [SerializeField] protected GameObject attackAnimation;
     public int DamageCalculator(Entity enemy, Entity player, int charges = 0)
     {
-        
+        Debug.Log(player.attack);
+        Debug.Log("****");
         float totalDefense = enemy.defense +
             (
             enemy.heatResistance * heatDamage
