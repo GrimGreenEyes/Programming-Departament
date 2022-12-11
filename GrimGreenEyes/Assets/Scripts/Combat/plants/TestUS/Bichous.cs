@@ -810,7 +810,7 @@ public class Bichous : Entity
                     moveAndAttack = false;
                     try
                     {
-                        msg.GetComponent<TextMeshProUGUI>().text = "Voy a usar mi habilidad sobre " + closer.GetComponent<Entity>().name + last.GetComponent<Entity>().name;
+                        msg.GetComponent<TextMeshProUGUI>().text = "Voy a usar mi habilidad sobre " + closer.GetComponent<Entity>().name + " " + last.GetComponent<Entity>().name;
                     }
                     catch { }
 
