@@ -29,6 +29,8 @@ public class GlobalVar : MonoBehaviour
     public List<Transform> biomCont;
 
     public bool firstTimeResources = true;
+    public bool firstTimeCombat = true;
+    public bool firstTimeMap = true;
 
     public static GlobalVar VarInstance;
 
@@ -135,7 +137,7 @@ public class GlobalVar : MonoBehaviour
        
         else if (advance == EnumMapOptions.mapOptions.returnMap || advance == EnumMapOptions.mapOptions.loadGame)
         {
-            player.transform.position = actualNode.transform.position;
+                player.transform.position = actualNode.transform.position;
             Vector3 vectorToTarget = actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(1) - actualNode.GetComponent<PathOptions>().myArray[0].node.GetComponent<PathOptions>().line.GetPosition(0);
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 

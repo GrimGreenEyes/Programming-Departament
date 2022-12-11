@@ -16,27 +16,39 @@ public class AnimatedBook : MonoBehaviour
     [SerializeField] private Button nextPageR, prevPageR, closeBookR, nextPageL, prevPageL, closeBookL, nextPageRAnim, prevPageRAnim, closeBookRAnim, nextPageLAnim, prevPageLAnim, closeBookLAnim;
     [SerializeField] private GameObject bookmarks;
     [SerializeField] private Sprite normalBookmarkSprite, currentBookmarkSprite;
+    [SerializeField] private Image rightImage, leftImage, rightImageAnim, leftImageAnim;
     private List<GameObject> bookmarksList = new List<GameObject>();
+    public bool map = false;
     bool next;
+    //[SerializeField] private UIManager uiManager;
 
     private void Start()
     {
         //CloseBook();
-        foreach(Transform child in bookmarks.transform)
-        {
-            bookmarksList.Add(child.gameObject);
-        }
+        //foreach (Transform child in bookmarks.transform)
+        //{
+        //    bookmarksList.Add(child.gameObject);
+        //}
     }
 
     public void OpenBook()
     {
+        foreach (Transform child in bookmarks.transform)
+        {
+            bookmarksList.Add(child.gameObject);
+        }
+        PlaySoundBook();
         bookPanel.SetActive(true);
         pageIndex = 0;
 
         rightTitle.text = pageList[pageIndex + 1].title;
         rightDescription.text = pageList[pageIndex + 1].description;
+        rightImage.sprite = pageList[pageIndex + 1].image;
+
         leftTitle.text = pageList[pageIndex].title;
         leftDescription.text = pageList[pageIndex].description;
+        leftImage.sprite = pageList[pageIndex].image;
+
 
         nextPageR.gameObject.SetActive(pageIndex <= pageList.Count - 3);
         closeBookR.gameObject.SetActive(pageIndex == pageList.Count - 2);
@@ -47,13 +59,26 @@ public class AnimatedBook : MonoBehaviour
         ChooseBookmark();
     }
 
+    public void PlaySoundBook()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
+    public GameObject canvas, player;
     public void CloseBook()
     {
+        if (map)
+        {
+            canvas.SetActive(true);
+            GameObject.Find("PLAYER").GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, 255f);
+        }
+        PlaySoundBook();
         bookPanel.SetActive(false);
     }
 
     public void NextPage()
     {
+        PlaySoundBook();
         next = true;
         leftObjectAnim.SetActive(true);
         rightObjectAnim.SetActive(true);
@@ -70,12 +95,15 @@ public class AnimatedBook : MonoBehaviour
 
         rightTitleAnim.text = pageList[pageIndex + 1].title;
         rightDescriptionAnim.text = pageList[pageIndex + 1].description;
+        rightImageAnim.sprite = pageList[pageIndex + 1].image;
 
         leftTitleAnim.text = pageList[pageIndex + 2].title;
         leftDescriptionAnim.text = pageList[pageIndex + 2].description;
+        leftImageAnim.sprite = pageList[pageIndex + 2].image;
 
         rightTitle.text = pageList[pageIndex + 3].title;
         rightDescription.text = pageList[pageIndex + 3].description;
+        rightImage.sprite = pageList[pageIndex + 3].image;
 
         nextPageR.gameObject.SetActive(pageIndexAux <= pageList.Count - 3);
         closeBookR.gameObject.SetActive(pageIndexAux == pageList.Count - 2);
@@ -91,6 +119,7 @@ public class AnimatedBook : MonoBehaviour
 
     public void PrevPage()
     {
+        PlaySoundBook();
         next = false;
         leftObjectAnim.SetActive(true);
         rightObjectAnim.SetActive(true);
@@ -110,6 +139,7 @@ public class AnimatedBook : MonoBehaviour
 
         leftTitleAnim.text = pageList[pageIndex - 2].title;
         leftDescriptionAnim.text = pageList[pageIndex - 2].description;
+        leftImageAnim.sprite = pageList[pageIndex - 2].image;
 
         //rightTitle.text = pageList[pageIndex - 1].title;
         //rightDescription.text = pageList[pageIndex - 1].description;
@@ -153,11 +183,13 @@ public class AnimatedBook : MonoBehaviour
         {
             leftTitle.text = pageList[pageIndex + 2].title;
             leftDescription.text = pageList[pageIndex + 2].description;
+            leftImage.sprite = pageList[pageIndex + 2].image;
         }
         else
         {
             leftTitle.text = pageList[pageIndex - 2].title;
             leftDescription.text = pageList[pageIndex - 2].description;
+            leftImage.sprite = pageList[pageIndex - 2].image;
         }
         
 
@@ -171,9 +203,11 @@ public class AnimatedBook : MonoBehaviour
         int pageIndexAux = pageIndex - 2;
         rightTitleAnim.text = pageList[pageIndex - 1].title;
         rightDescriptionAnim.text = pageList[pageIndex - 1].description;
+        rightImageAnim.sprite = pageList[pageIndex - 1].image;
 
         rightTitle.text = pageList[pageIndex - 1].title;
         rightDescription.text = pageList[pageIndex - 1].description;
+        rightImage.sprite = pageList[pageIndex - 1].image;
 
         nextPageR.gameObject.SetActive(pageIndexAux <= pageList.Count - 3);
         closeBookR.gameObject.SetActive(pageIndexAux == pageList.Count - 2);
