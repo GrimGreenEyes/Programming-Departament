@@ -13,6 +13,7 @@ public class BookManagerCombat : MonoBehaviour
         if (globalVar.firstTimeCombat)
         {
             book.OpenBook();
+            book.combatScene = true;
             globalVar.firstTimeCombat = false;
         }
     }

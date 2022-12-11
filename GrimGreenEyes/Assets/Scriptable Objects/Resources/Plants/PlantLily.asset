@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantLily
   m_EditorClassIdentifier: 
   name: Belator
-  baseHP: 90
+  baseHP: 65
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}

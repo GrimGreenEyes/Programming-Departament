@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     private bool moveingCamera = false;
     private Vector3 mouseStartPosition;
 
+    public bool closedBook = false;
+
     [SerializeField] private float zoomModifierSpeed;
     private float touchesPrevPosDifference, touchesCurPosDifference, zoomModifier;
     private Vector2 firstTouchPrevPos, secondTouchPrevPos;
@@ -34,8 +36,11 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetMouseButton(mouseButton) && moveingCamera)
         {
-            direction = mouseStartPosition - camera.ScreenToWorldPoint(Input.mousePosition);
-            camera.transform.position += direction;
+            if (closedBook)
+            {
+                direction = mouseStartPosition - camera.ScreenToWorldPoint(Input.mousePosition);
+                camera.transform.position += direction;
+            }
         }
         if(Input.GetMouseButtonUp(mouseButton))
         {

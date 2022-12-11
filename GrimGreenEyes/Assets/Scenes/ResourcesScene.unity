@@ -1912,7 +1912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -950, y: 181}
+  m_AnchoredPosition: {x: -950, y: 181.00002}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &158973002
@@ -15383,7 +15383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -315.19995, y: 150.86005}
+  m_AnchoredPosition: {x: -315.19995, y: 150.86006}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 1.1, y: 0.5}
 --- !u!114 &1504788864
@@ -23618,6 +23618,132 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 795520030}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[0].image
+      value: 
+      objectReference: {fileID: 21300000, guid: c8d10ef84161f0a48a49c3e9b02c107f, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[0].title
+      value: "Gu\xEDa del invernadero"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[1].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 2574e502b8517e14cbfb24484e7d1882, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[1].title
+      value: Semillas y mortero
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[2].image
+      value: 
+      objectReference: {fileID: 21300000, guid: a902e03bf6f10664e9a152d0ce1e0a94, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[2].title
+      value: "Fertilizantes de estad\xEDstica"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[3].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 062dca32cd604414bb7345b4598116f6, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[3].title
+      value: Semillas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[4].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 93d6f73f12fc53b4e8dba2b4469b2435, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[4].title
+      value: Fertilizantes
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[5].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 054adf896d262ec42b750575caf7db7e, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[5].title
+      value: Agua
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[6].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 418441206db786e4da26e6c3e9a3e457, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[6].title
+      value: Mapa
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[7].image
+      value: 
+      objectReference: {fileID: 21300000, guid: ea3d55fce0604c54e9ebec01aa84bcf4, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[7].title
+      value: Metaplantas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[8].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 89936c925559dc747abd776dd2364723, type: 3}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[8].title
+      value: "Gu\xEDa"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[0].description
+      value: "\xA1Bienvenid@ al invernadero! Aqu\xED podr\xE1s mejorar tus metaplantas,
+        as\xED como curar a aquellas que est\xE9n heridas o plantar nuevas semillas."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[1].description
+      value: "En el mueble de la derecha podr\xE1s acceder a tus recursos b\xE1sicos,
+        as\xED como fabricar fertilizantes en el mortero. <i>Puedes consultar todas
+        las recetas pulsando el bot\xF3n '?'.</i>"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[2].description
+      value: "Recuerda que acabar con insectos enemigos har\xE1 que consigas partes
+        de su cuerpo. Uti\xEDzalas para fabricar fertilizantes que mejoren las estad\xEDsticas
+        de tus metaplantas."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[3].description
+      value: "Durante el combate, podr\xE1s recoger semillas. Util\xEDzalas para
+        plantar nuevas metaplantas o para fabricar fertilizante, \xA1esto les dar\xE1
+        nuevas habilidades a tus metaplantas!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[4].description
+      value: "En el saco podr\xE1s acceder a los fertilizantes que hayas fabricado
+        y aplicarlos a las plantas que desees mejorar."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[5].description
+      value: "Utiliza los grifos para hacer crecer las metaplantas que plantes o
+        para curar las que est\xE9n heridas. Siempre y cuando tengas agua en el dep\xF3sito,
+        claro. Recuerda que puedes llenar tu dep\xF3sito durante el combate pasando
+        cerca de agua con tu carro."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[6].description
+      value: "Puedes utilizar el mapa para ver tu ubicaci\xF3n actual y para avanzar
+        al siguiente punto del camino cuando est\xE9s list@ para el combate."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[7].description
+      value: "Y lo m\xE1s importante, \xA1las metaplantas! Haz click en cualquiera
+        de ellas para ver sus estad\xEDsticas y habilidades."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040334293414064305, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
+      propertyPath: pageList.Array.data[8].description
+      value: "Puedes consultar esta gu\xEDa siempre que quieras haciendo click en
+        el libro de la mesa."
+      objectReference: {fileID: 0}
     - target: {fileID: 4040334294212801837, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_Name
       value: AnimatedBook

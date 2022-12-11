@@ -8,8 +8,20 @@ public class StatusMsg : MonoBehaviour
     //public Animator anim;
     //private GameObject parent;
 
-    public void Disappear()
+    //public void Disappear()
+    //{
+    //    Destroy(this.gameObject);
+    //}
+
+    IEnumerator Disappear()
     {
+        for(int i = 0; i < 30; i++)
+        {
+            this.transform.position = this.transform.position + new Vector3(0f, 0.01f, 0f);
+            GetComponent<TextMeshProUGUI>().color = GetComponent<TextMeshProUGUI>().color - new Color(0f, 0f, 0f, 0.03f);
+
+            yield return new WaitForSeconds(0.01f);
+        }
         Destroy(this.gameObject);
     }
 
@@ -31,6 +43,6 @@ public class StatusMsg : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         //anim.SetBool("displayed", true);
-        Disappear();
+        StartCoroutine(Disappear());
     }
 }

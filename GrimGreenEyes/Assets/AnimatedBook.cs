@@ -19,6 +19,7 @@ public class AnimatedBook : MonoBehaviour
     [SerializeField] private Image rightImage, leftImage, rightImageAnim, leftImageAnim;
     private List<GameObject> bookmarksList = new List<GameObject>();
     public bool map = false;
+    public bool combatScene = false;
     bool next;
     //[SerializeField] private UIManager uiManager;
 
@@ -33,6 +34,7 @@ public class AnimatedBook : MonoBehaviour
 
     public void OpenBook()
     {
+        rightImage.color = new Color(255f, 255f, 255f, 255f);
         foreach (Transform child in bookmarks.transform)
         {
             bookmarksList.Add(child.gameObject);
@@ -72,6 +74,10 @@ public class AnimatedBook : MonoBehaviour
             canvas.SetActive(true);
             GameObject.Find("PLAYER").GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, 255f);
         }
+        if (combatScene)
+        {
+            GameObject.Find("MainCamera").GetComponent<CameraController>().closedBook = true;
+        }
         PlaySoundBook();
         bookPanel.SetActive(false);
     }
@@ -101,9 +107,19 @@ public class AnimatedBook : MonoBehaviour
         leftDescriptionAnim.text = pageList[pageIndex + 2].description;
         leftImageAnim.sprite = pageList[pageIndex + 2].image;
 
-        rightTitle.text = pageList[pageIndex + 3].title;
-        rightDescription.text = pageList[pageIndex + 3].description;
-        rightImage.sprite = pageList[pageIndex + 3].image;
+        if(pageIndex + 3 < pageList.Count)
+        {
+            rightTitle.text = pageList[pageIndex + 3].title;
+            rightDescription.text = pageList[pageIndex + 3].description;
+            rightImage.sprite = pageList[pageIndex + 3].image;
+        }
+        else
+        {
+            rightTitle.text = "";
+            rightDescription.text = "";
+            rightImage.color = new Color(0f, 0f, 0f, 0f);
+        }
+        
 
         nextPageR.gameObject.SetActive(pageIndexAux <= pageList.Count - 3);
         closeBookR.gameObject.SetActive(pageIndexAux == pageList.Count - 2);
@@ -199,7 +215,7 @@ public class AnimatedBook : MonoBehaviour
 
     public void WriteRight()
     {
-
+        rightImage.color = new Color(255f, 255f, 255f, 255f);
         int pageIndexAux = pageIndex - 2;
         rightTitleAnim.text = pageList[pageIndex - 1].title;
         rightDescriptionAnim.text = pageList[pageIndex - 1].description;

@@ -936,12 +936,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.522
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1443,11 +1443,11 @@ RectTransform:
   m_Father: {fileID: 1060572744}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -526.26, y: -253.95001}
-  m_SizeDelta: {x: -1481.85, y: -553.16}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: 5}
+  m_SizeDelta: {x: 545.91, y: -30}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &371430543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7028,6 +7028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6405818d489484b4cba78b9a8ce28575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closedBook: 0
   zoomModifierSpeed: 0.01
 --- !u!1 &1665996799
 GameObject:
@@ -8325,15 +8326,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293414064206, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293414064206, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293414064206, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293414064206, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -8341,23 +8342,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 288
+      value: 348
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 136
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 4040334293853499089, guid: ae2d734a87249c74db1eabd2d5d8eda5, type: 3}
       propertyPath: m_ConstrainProportionsScale
