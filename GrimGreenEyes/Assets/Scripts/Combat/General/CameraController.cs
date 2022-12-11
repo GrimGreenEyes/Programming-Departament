@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     private bool moveingCamera = false;
     private Vector3 mouseStartPosition;
 
-    public bool closedBook = false;
+    public bool closedBook = true;
 
     [SerializeField] private float zoomModifierSpeed;
     private float touchesPrevPosDifference, touchesCurPosDifference, zoomModifier;
@@ -21,6 +21,13 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         camera = GetComponent<Camera>();
+        if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().firstTimeCombat) {
+            closedBook = false;
+        }
+        else
+        {
+            closedBook = true;
+        }
     }
     private void Update()
     {

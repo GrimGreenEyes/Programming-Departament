@@ -338,7 +338,8 @@ public class GameController : MonoBehaviour
     public void AddWater(int water)
     {
         teamManager.AddWater(water);
-        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(carriage.GetComponent<Entity>(), "+1 Agua", Color.blue, 2f);
+        GameObject.Find("StatusMsgManager").GetComponent<StatusMsgManager>().ShowMsg(carriage.GetComponent<Entity>(), "+2 Agua", Color.blue, 2f);
+        GameObject.Find("GameController").GetComponent<GameController>().AddResource("Agua");
         GameObject.Find("GameController").GetComponent<GameController>().AddResource("Agua");
     }
 }

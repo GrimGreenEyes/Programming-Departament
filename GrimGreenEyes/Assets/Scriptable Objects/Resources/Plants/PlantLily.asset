@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantLily
   m_EditorClassIdentifier: 
   name: Belator
-  baseHP: 65
+  baseHP: 70
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
@@ -26,9 +26,9 @@ MonoBehaviour:
   baseColdDef: 25
   baseSkill: {fileID: 11400000, guid: 8910aac8a8593d1479951c2b7bb71da6, type: 2}
   prefab: {fileID: 9144611413271231580, guid: c323db1f51cd7fd478dd2810ccc4488f, type: 3}
-  upgradeAttack: 2
-  upgradeDeffense: 1
-  upgradeAgility: 1
+  upgradeAttack: 4
+  upgradeDeffense: 2
+  upgradeAgility: 2
   upgradeMovement: 1
   upgradeHeatDef: 6
   upgradeColdDef: 6

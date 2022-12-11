@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantCactus
   m_EditorClassIdentifier: 
   name: Skarkmor
-  baseHP: 120
+  baseHP: 90
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
@@ -26,9 +26,9 @@ MonoBehaviour:
   baseColdDef: 3
   baseSkill: {fileID: 11400000, guid: 0ad3e95478889ec4e8386f6afd93e91a, type: 2}
   prefab: {fileID: 8404517906553258289, guid: eeda478b20745184892f29bfa2bb9ea7, type: 3}
-  upgradeAttack: 1
-  upgradeDeffense: 5
-  upgradeAgility: 1
+  upgradeAttack: 2
+  upgradeDeffense: 10
+  upgradeAgility: 2
   upgradeMovement: 1
   upgradeHeatDef: 3
   upgradeColdDef: 1

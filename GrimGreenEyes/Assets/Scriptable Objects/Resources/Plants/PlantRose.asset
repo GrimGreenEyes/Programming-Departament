@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantRose
   m_EditorClassIdentifier: 
   name: Sartiry
-  baseHP: 80
+  baseHP: 60
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
@@ -26,9 +26,9 @@ MonoBehaviour:
   baseColdDef: 12
   baseSkill: {fileID: 11400000, guid: 5a9a948eccd32c240afa9976d866d0c4, type: 2}
   prefab: {fileID: 6423738474277625457, guid: a2d08a3fe1477e94cb851502b207a5ab, type: 3}
-  upgradeAttack: 4
-  upgradeDeffense: 3
-  upgradeAgility: 2
+  upgradeAttack: 8
+  upgradeDeffense: 6
+  upgradeAgility: 4
   upgradeMovement: 1
   upgradeHeatDef: 2
   upgradeColdDef: 4

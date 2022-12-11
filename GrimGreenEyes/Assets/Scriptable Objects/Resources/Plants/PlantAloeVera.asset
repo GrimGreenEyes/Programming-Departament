@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantAloeVera
   m_EditorClassIdentifier: 
   name: Vera
-  baseHP: 80
+  baseHP: 60
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
@@ -26,9 +26,9 @@ MonoBehaviour:
   baseColdDef: 8
   baseSkill: {fileID: 11400000, guid: bdd7c589d700ee2478fdab4dcc08af9d, type: 2}
   prefab: {fileID: 6076781830755781746, guid: 531df3fc94de1cf4494101c93e0bbf4e, type: 3}
-  upgradeAttack: 3
-  upgradeDeffense: 1
-  upgradeAgility: 1
+  upgradeAttack: 6
+  upgradeDeffense: 2
+  upgradeAgility: 2
   upgradeMovement: 1
   upgradeHeatDef: 3
   upgradeColdDef: 3

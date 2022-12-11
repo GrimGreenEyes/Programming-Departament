@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantCarnivorousFungus
   m_EditorClassIdentifier: 
   name: Toxkill
-  baseHP: 85
+  baseHP: 65
   spriteSheet:
   - {fileID: 21300000, guid: 9541837769d8b384ab7d3880c621dc8a, type: 3}
   - {fileID: 21300000, guid: 6df4a6f47be6ab440b7c1aa967346d53, type: 3}
@@ -26,9 +26,9 @@ MonoBehaviour:
   baseColdDef: 15
   baseSkill: {fileID: 11400000, guid: 47cb50cc546a4a74eab2ba277d6c8e2d, type: 2}
   prefab: {fileID: 2640658683023329112, guid: 514365843a9f748408f6dbfd84b31848, type: 3}
-  upgradeAttack: 8
-  upgradeDeffense: 1
-  upgradeAgility: 1
+  upgradeAttack: 12
+  upgradeDeffense: 2
+  upgradeAgility: 2
   upgradeMovement: 1
   upgradeHeatDef: 2
   upgradeColdDef: 2
