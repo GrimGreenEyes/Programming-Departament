@@ -835,6 +835,11 @@ public class GridCreator : MonoBehaviour
     public List<GameObject> enemys7 = new List<GameObject>();
     public List<GameObject> enemys8 = new List<GameObject>();
     public List<GameObject> enemys9 = new List<GameObject>();
+    public List<GameObject> dessertBoss= new List<GameObject>();
+    public List<GameObject> plainBoss= new List<GameObject>();
+    public List<GameObject> jungleBoss= new List<GameObject>();
+    public List<GameObject> snowBoss= new List<GameObject>();
+
     public List<List<GameObject>> enemys = new List<List<GameObject>>();
     public float width, height;
     public int x, y;
@@ -900,6 +905,24 @@ public class GridCreator : MonoBehaviour
     private void GenerateEntitys(List<GameObject> entitys)
     {
         int playerArrayPos = 0;
+        if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isLastNode)
+        {
+            switch (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual)
+            {
+                case EnumMapOptions.mapBiom.desierto:
+                    entitys = dessertBoss;
+                    break;
+                case EnumMapOptions.mapBiom.llanura:
+                    entitys = plainBoss;
+                    break;
+                case EnumMapOptions.mapBiom.nieve:
+                    entitys = snowBoss;
+                    break;
+                case EnumMapOptions.mapBiom.selva:
+                    entitys = jungleBoss;
+                    break;
+            }
+        }
         switch (entitys[playerArrayPos].tag)
         {
             case "Player":

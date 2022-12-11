@@ -6,7 +6,7 @@ public class HeatStroke : Attack
 {
     public override void Effect(GameObject enemy, GameObject player)
     {
-        enemy.GetComponent<Bichous>().attackMultiplayer = enemy.GetComponent<Bichous>().attackMultiplayer * 0.75f;
+        enemy.GetComponent<Bichous>().AttackBust(-10);
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(5);
         player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;

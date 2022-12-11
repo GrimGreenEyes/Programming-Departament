@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public int characterSelected = -1;
     public int turn;
     public List<GameObject> characters = new List<GameObject>();
+    public List<GameObject> allPlayers = new List<GameObject>();
     public List<GameObject> players = new List<GameObject>();
     private List<int> playerLivePoints = new List<int>();
     public List<GameObject> enemys = new List<GameObject>();
@@ -57,6 +58,7 @@ public class GameController : MonoBehaviour
         if(entity.tag == "Player")
         {
             players.Add(entity);
+            allPlayers.Add(entity);
             playerLivePoints.Add(0);
         }
         else if(entity.tag == "Enemy")
@@ -259,9 +261,9 @@ public class GameController : MonoBehaviour
             //        break;
             //    }
             //}
-            playerLivePoints.Add(0);
             players.Remove(entity);
-            
+            playerLivePoints[allPlayers.IndexOf(entity)] = 0;
+
         }
         else if (entity.tag == "Carriage")
         {
@@ -318,10 +320,9 @@ public class GameController : MonoBehaviour
         //        //break;
         //    }
         //}
-        playerLivePoints.Clear();
         for (int i = 0; i < players.Count; i++)
         {
-            playerLivePoints.Add(players[i].GetComponent<Plants>().livePoints);
+            playerLivePoints[allPlayers.IndexOf(players[i])] = players[i].GetComponent<Plants>().livePoints;
         }
         for(int i = 0; i < playerLivePoints.Count; i++)
         {
