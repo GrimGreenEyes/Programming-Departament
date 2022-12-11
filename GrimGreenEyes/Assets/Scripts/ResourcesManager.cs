@@ -11,7 +11,7 @@ public class ResourcesManager : MonoBehaviour
     public FertilizerManager fertilizerManager;
     public WaterTank waterTank;
     private GlobalVar globalVar;
-    public Book book;
+    public AnimatedBook book;
 
     public void Start()
     {

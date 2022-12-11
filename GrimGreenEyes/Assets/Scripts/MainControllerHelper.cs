@@ -40,6 +40,8 @@ public class MainControllerHelper : MonoBehaviour
             Debug.Log(PlayerPrefs.GetInt("level"));
         }
         GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().firstTimeResources = true;
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().firstTimeMap = true;
+        GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().firstTimeCombat = true;
     }
 
 
