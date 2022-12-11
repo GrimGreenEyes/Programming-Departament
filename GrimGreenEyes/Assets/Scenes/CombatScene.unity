@@ -3759,7 +3759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -27}
+  m_AnchoredPosition: {x: 11, y: -26.999998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &812131975
@@ -8820,6 +8820,8 @@ MonoBehaviour:
   CRes: {fileID: 773386451}
   steps: {fileID: 1191076931}
   plant: {fileID: 0}
+  attackBtn: {fileID: 797533783}
+  moveBtn: {fileID: 665153508}
 --- !u!1 &2008232704
 GameObject:
   m_ObjectHideFlags: 0

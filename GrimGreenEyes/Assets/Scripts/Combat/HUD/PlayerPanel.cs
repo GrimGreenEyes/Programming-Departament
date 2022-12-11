@@ -26,6 +26,10 @@ public class PlayerPanel : MonoBehaviour
 
     private List<GameObject> skillButtons = new List<GameObject>();
 
+    public GameObject attackBtn;
+    public GameObject moveBtn;
+
+
 
     private void Awake()
     {
@@ -60,10 +64,21 @@ public class PlayerPanel : MonoBehaviour
         steps.text = plant.movement.ToString();
         PS.text = plant.livePoints.ToString() + " / " + plant.maxLivePoints.ToString();
         
+        if(plant.movement == 0)
+        {
+            moveBtn.GetComponent<Button>().interactable = false;
+        }
+        if (plant.attacked)
+        {
+            attackBtn.GetComponent<Button>().interactable = false;
+        }
     }
     public void ChangePlayer(GameObject newPlant)
     {
         plant = newPlant.GetComponent<Entity>();
+        moveBtn.GetComponent<Button>().interactable = true;
+        attackBtn.GetComponent<Button>().interactable = true;
+
         image.sprite = plant.HUDSprite;
         image.type = Image.Type.Tiled;
         image.pixelsPerUnitMultiplier = plant.HUDSpriteSize;
