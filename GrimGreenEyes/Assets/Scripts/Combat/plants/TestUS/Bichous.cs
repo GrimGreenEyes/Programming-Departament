@@ -576,13 +576,13 @@ public class Bichous : Entity
                 if (numP == 0)
                     pesoNumP = 0.3f;
                 if (numP == 1)
-                    pesoNumP = 0.7f;
+                    pesoNumP = 0.85f;
                 if (numP == 2)
                     pesoNumP = 1f;
                 if (telixFirst != null && telixSecond != null)
                 {
-                    Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 33, 1);
-                  
+                    Factor _distToPlant = new LeafVariable(() => distSmthToSmthVariables(telixFirst.GetComponent<Tile>().positionX, telixFirst.GetComponent<Tile>().positionY, gridX, gridY), 1, 20);
+                    Debug.Log(_distToPlant.getValue() + " " + weightTelixEnemiesTogether + " telixx");
                    // options[4] = ((float)(0.3 * _distToPlant.getValue() + 0.7 * pesoNumP));
                     options[4] = ((float)(weightTelixDistance * _distToPlant.getValue() + weightTelixEnemiesTogether * pesoNumP));
 
