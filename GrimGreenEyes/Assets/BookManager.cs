@@ -14,8 +14,6 @@ public class BookManager : MonoBehaviour
         globalVar = GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>();
         if (globalVar.firstTimeMap)
         {
-            
-            book.OpenBook();
             book.map = true;
             //GameObject.Find("CanvasNodes").SetActive(true);
         }
@@ -31,22 +29,19 @@ public class BookManager : MonoBehaviour
                 canvas = GameObject.Find("CanvasNodes").gameObject;
             }
             catch { }
+            return;
         }
 
         if (first && globalVar.firstTimeMap)
         {
-            try
-            {
-
-                canvas.SetActive(false);
-                globalVar.firstTimeMap = false;
-                book.player = GameObject.Find("PLAYER");
-                GameObject.Find("PLAYER").GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 255f);
-                first = false;
-                book.canvas = canvas;
-            }
-            catch { }
-            
+            canvas = GameObject.Find("CanvasNodes").gameObject;
+            book.canvas = canvas;
+            canvas.SetActive(false);
+            book.player = GameObject.Find("PLAYER");
+            GameObject.Find("PLAYER").GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 255f);
+            book.OpenBook();
+            first = false;
+            globalVar.firstTimeMap = false;
         }
     }
 }
