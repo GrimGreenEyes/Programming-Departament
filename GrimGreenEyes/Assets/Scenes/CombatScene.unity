@@ -2640,7 +2640,7 @@ MonoBehaviour:
     mountainTile: {fileID: 4368756039915833080, guid: 1e122e431f4d0404980040a3af9ee403, type: 3}
     powerupTile: {fileID: 4368756039915833080, guid: 1f1ae57f315993e45b3c35a5f2d508b1, type: 3}
     healerTile: {fileID: 4368756039915833080, guid: d2bc957c25386fc46bc6059273fa8551, type: 3}
-    damagerTile: {fileID: 4368756039915833080, guid: 714e7178b56b72d4e85e42ce186abb98, type: 3}
+    damagerTile: {fileID: 4368756039915833080, guid: f6d0330ff41ce1a4f8f8b4cf818865b1, type: 3}
     eventTile: {fileID: 0}
     lPath1: {fileID: 4368756039915833080, guid: eabd9eef7f8fe484489171ac8e8221de, type: 3}
     lPath2: {fileID: 4368756039915833080, guid: 2a774bf0d4d302c4da9a00265a86b88c, type: 3}
