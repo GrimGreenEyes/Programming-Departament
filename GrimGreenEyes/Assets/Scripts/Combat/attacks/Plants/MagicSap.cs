@@ -14,6 +14,7 @@ public class MagicSap : Attack
         ally.GetComponent<Plants>().Heal(player.GetComponent<Plants>().attack);
         GameObject animation = Instantiate(attackAnimation, ally.transform);
         animation.GetComponent<AttackAnimation>().Animate(0);
-        new WaitForSeconds(1f);
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+
     }
 }

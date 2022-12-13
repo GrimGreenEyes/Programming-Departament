@@ -905,24 +905,7 @@ public class GridCreator : MonoBehaviour
     private void GenerateEntitys(List<GameObject> entitys)
     {
         int playerArrayPos = 0;
-        if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isLastNode)
-        {
-            switch (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual)
-            {
-                case EnumMapOptions.mapBiom.desierto:
-                    entitys = dessertBoss;
-                    break;
-                case EnumMapOptions.mapBiom.llanura:
-                    entitys = plainBoss;
-                    break;
-                case EnumMapOptions.mapBiom.nieve:
-                    entitys = snowBoss;
-                    break;
-                case EnumMapOptions.mapBiom.selva:
-                    entitys = jungleBoss;
-                    break;
-            }
-        }
+        
         switch (entitys[playerArrayPos].tag)
         {
             case "Player":
@@ -940,6 +923,24 @@ public class GridCreator : MonoBehaviour
                 }
                 break;
             case "Enemy":
+                if (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().isLastNode)
+                {
+                    switch (GameObject.Find("GlobalAttributes").GetComponent<GlobalVar>().biomaActual)
+                    {
+                        case EnumMapOptions.mapBiom.desierto:
+                            entitys = dessertBoss;
+                            break;
+                        case EnumMapOptions.mapBiom.llanura:
+                            entitys = plainBoss;
+                            break;
+                        case EnumMapOptions.mapBiom.nieve:
+                            entitys = snowBoss;
+                            break;
+                        case EnumMapOptions.mapBiom.selva:
+                            entitys = jungleBoss;
+                            break;
+                    }
+                }
                 for (int j = sizeY - 1; j > sizeY/2 || entitys.Count() > playerArrayPos; j--)
                 {
                     for (int i = 0; i < sizeX || entitys.Count() > playerArrayPos; i++)

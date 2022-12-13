@@ -10,5 +10,6 @@ public class Bite : Attack
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(4);
         enemy.GetComponent<Entity>().Damage(DamageCalculator(enemy.GetComponent<Entity>(), player.GetComponent<Entity>()));
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
     }
 }

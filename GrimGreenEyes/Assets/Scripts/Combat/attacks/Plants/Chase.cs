@@ -21,6 +21,8 @@ public class Chase : Attack
         GameObject animation = Instantiate(attackAnimation, enemy.transform);
         animation.GetComponent<AttackAnimation>().Animate(1);
         enemy.GetComponent<Bichous>().Damage(DamageCalculator(enemy.GetComponent<Bichous>(), player.GetComponent<Plants>()));
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+
 
     }
     private void CalculatePosition(int distanceX, int distanceY, GameObject enemy, GameObject player)

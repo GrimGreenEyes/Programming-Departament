@@ -9,7 +9,8 @@ public class ThornAttack : Attack
     {
 
         GetEnemys(enemy.GetComponent<Entity>(), player.GetComponent<Entity>());
-        new WaitForSeconds(1f);
+        player.GetComponent<Entity>().actualState = Entity.EntityState.IDLE;
+
     }
     private void GetEnemys(Entity enemy, Entity player)
     {
