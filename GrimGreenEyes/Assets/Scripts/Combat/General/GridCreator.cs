@@ -905,7 +905,10 @@ public class GridCreator : MonoBehaviour
     private void GenerateEntitys(List<GameObject> entitys)
     {
         int playerArrayPos = 0;
-        
+        if (!entitys.Any())
+        {
+            return;
+        }
         switch (entitys[playerArrayPos].tag)
         {
             case "Player":

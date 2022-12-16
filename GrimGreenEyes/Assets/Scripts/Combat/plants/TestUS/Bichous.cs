@@ -1431,7 +1431,7 @@ public class Bichous : Entity
             }
             Debug.Log("effect");
 
-            GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(mainObjective, GameController.instance.SelectedPlayer());
+            GameController.instance.SelectedPlayer().GetComponent<Plants>().skills[GameController.instance.SelectedPlayer().GetComponent<Plants>().skillSelected].Effect(gameObject, GameController.instance.SelectedPlayer());
         }
         if (GameController.instance.SelectedPlayer().GetComponent<Plants>().actualState == EntityState.READYTOATTACK)
         {
